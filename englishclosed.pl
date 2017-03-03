@@ -543,7 +543,8 @@ word('ourselves', X) :-
 
 word('out', X) :-
     language@X -- english,
-    X <> [prep([])].
+    X <> [prep([])],
+    target@X <> [vp].
 
 word('out', X) :-
     language@X -- english,

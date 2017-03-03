@@ -266,8 +266,8 @@ argPosition(H0, A, H1) :-
        (-zero@A,
 	compact(A),
 	(EA < SH0 ->
-	movedBefore(A);
-	movedAfter(A))));
+	 movedBefore(A);
+	 movedAfter(A))));
      (after(DA),
       (SA -- EH0 ->
        notMoved(A);
@@ -278,7 +278,7 @@ argPosition(H0, A, H1) :-
 	 movedBefore(A)))))),
     A\shifted -- X,
     ((movedBefore(A), var(wh@A)) -> add1(shifted@H1, X); true),
-    (set:position@moved@A = +),
+    (set:position@moved@A = + -> true),
     (notMoved(A) -> true; incCost(H0, 0.3)),
     (used@T = +).
 

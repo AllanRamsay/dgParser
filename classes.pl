@@ -460,7 +460,8 @@ properName(X, U) :-
 
 pronoun(P) :-
     P <> [np(+), +pronominal, standardcase],
-    tag@P -- pronoun.
+    tag@P -- pronoun,
+    trigger(used@P, (objcase(P) -> noRightShift(P); true)).
 
 objpronoun(X) :-
     X <> [pronoun, objcase, +def, -target, noRightShift].
@@ -1101,14 +1102,7 @@ prepmodN(X, T, COMP) :-
   **/
 
 prepmodS(X, T, _COMP) :-
-    /**
-    %% You can only modify sentences headed by content verbs, not auxiliaries (only applies with v(i) of auxiliaries)
-    T <> [s, -aux],
-      **/
-    T <> [vp, -aux],
-    %% Slightly fiddly one to do something or other!
-    %% (true -> true; trigger((start@hd@T, start@subject@T), (start@X < start@hd@T -> start@X < start@subject@T; true))),
-    trigger(index@T, (var(wh@X) -> compact(T); true)).
+    T <> [vp, -aux].
 
 /**
   Called once we've decided that the PP is being used as a modifier to
