@@ -1,15 +1,14 @@
 
 gerundAsMod(V, X, T) :-
     shifted@V -- [],
-    -specified@X,
-    -specified@V,
+    unspecified(V),
     var(wh@T),
     theta@X -- gerundAsMod,
     T <> [standardcase],
     (xend@X-xstart@X > 1 ->
      strictpostmod(X, T);
      strictpremod(X, T)),
-    ((noun(T), unspecified(T)); s(T)),
+    ((noun(T), unspecified(T)); vp(T)),
     incCost(T, 1),
     modified@result@X -- 2.1.
 
@@ -23,13 +22,13 @@ gerund(X, G) :-
     language :: [G, target@G],
     trigger(used@X, nonvar(wh@X)),
     trigger(index@target@G,
-	    ((var(shifted@X), var(wh@X)) -> gerundAsMod(X, G, T); fail)).
+	    ((var(shifted@X), var(wh@X)) -> gerundAsMod(X, G, T); fail)),
+    addExternalView(X, G).
 
 addGerund(X) :-
     zero@subject@X -- Z,
     language :: [X, G],
-    gerund(X, G),
-    trigger(Z, (Z = + -> addExternalView(X, G); true)).
+    trigger(Z, (Z = + -> gerund(X, G); true)).
 
 present(X) :-
     tense@X -- present.

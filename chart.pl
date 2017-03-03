@@ -59,12 +59,13 @@ parseAll(TEXT) :-
 		  fail),
 		 _).
 
-testFracas(MAX, THROWFAIL) :-
+testFracas(START, END, THROWFAIL) :-
     retractall(fracasCounter(_)),
     fracas(X),
     (retract(fracasCounter(I)) -> J is I+1; J = 1),
     assert(fracasCounter(J)),
-    J >= MAX,
+    J = START,
+    J = END,
     format("~n~ntestFracas(~w). %%  '~w').~n parseOne('~w').~n", [J, X, X]),
     (parseOne(X) ->
      true;
@@ -73,8 +74,14 @@ testFracas(MAX, THROWFAIL) :-
      format('** no analysis *****************************************~n', [])),
     fail.
 
+testFracas(I, J) :-
+    testFracas(I, J, fail).
+
+testFracas(I) :-
+    testFracas(I, _).
+
 testFracas :-
-    testFracas(-1, fail).
+    testFracas(_, _, fail).
 
 addZero :-
     start@X -- end@X,

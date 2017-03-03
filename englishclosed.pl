@@ -156,13 +156,15 @@ word('both', X) :-
     language@X -- english,
     X <> [det, inflected, +def, plural].
 
+/**
 word('both', X) :-
     language@X -- english,
     X <> [inflected, saturated, fulladjunct, strictpremod],
     cat@X -- either,
     target@X -- T,
     T <> [-zero],
-    trigger(width@T, conjoined@T == and).
+    trigger(used@T, conjoined@T == and).
+**/
 
 word('but', X) :-
     language@X -- english,
@@ -393,6 +395,10 @@ word('if', X) :-
 word('in', X) :-
     language@X -- english,
     prep(X).
+
+word('in', X) :-
+    language@X -- english,
+    prep(X, []).
 
 word('into', X) :-
     language@X -- english,
@@ -847,6 +853,12 @@ word('which', X) :-
 
 word('which', X) :-
     relpronoun(X).
+
+word('while', X) :-
+    language@X -- english,
+    X <> prep([S]),
+    S <> [s, tensedForm, -zero],
+    target@X <> [vp].
 
 word('who', X) :-
     relpronoun(X).

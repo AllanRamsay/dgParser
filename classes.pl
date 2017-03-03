@@ -762,7 +762,7 @@ iverb(X) :-
     language :: [X, SUBJ],
     %% plant the stuff we need for handling WH-items: see above
     setWHView(X),
-    SUBJ <> [np(_), specified, theta(subj)],
+    SUBJ <> [np(_), specified, theta(subject)],
     setSubjConstraints(X, SUBJ).
 
 /**
@@ -1163,7 +1163,8 @@ prep(X, ARGS) :-
   Normal ones, with one following argument
   **/
 prep(X) :-
-    COMP <> [np, postarg],
+    COMP <> [n, postarg, saturated],
+    trigger(specified@COMP, (specified(COMP, -) -> (word(COMP), notMoved(COMP)); true)),
     prep(X, [COMP]).
 
 /**

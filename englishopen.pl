@@ -92,6 +92,17 @@ word('believe', X) :-
     language@X -- english,
     X <> [vroot],
     tverb(X).
+                 
+word('blame', X) :- 
+    language@X -- english,
+    definition@X -- 'a reproach for some lapse or misdeed',
+    X <> [nroot].
+
+word('blame', X) :-
+    language@X -- english,
+    definition@X -- 'put or pin the blame on',
+    X <> [vroot, regularPast],
+    tverb(X).
 
 word('bore', X) :-
     language@X -- english,
@@ -249,7 +260,7 @@ word('come', X) :-
 
 word('come', X) :-
     language@X -- english,
-    X <> [vroot, present],
+    X <> [vroot],
     verb(X, come).
 
 word('course', X) :- 
@@ -618,7 +629,7 @@ word('hoe', X) :-
 word('home', X) :- 
     language@X -- english,
     definition@X -- 'the place where you are stationed and from which missions start and end',
-    X <> [nroot(_), -target].
+    X <> [nroot].
 
 word('home', X) :-
     language@X -- english,
@@ -1298,13 +1309,38 @@ word('speak', X) :-
     language@X -- english,
     definition@X -- 'give a speech to',
     X <> [vroot, present],
-    iverb(X).
+    itverb(X).
+
+word('spend', X) :-
+    language@X -- english,
+    definition@X -- 'broadcast over the airwaves , as in radio or television',
+    X <> [vroot, present],
+    tverb(X).
+     
+word('spent', X) :-
+    language@X -- english,
+    definition@X -- 'broadcast over the airwaves , as in radio or television',
+    X <> [v, inflected, pastTense],
+    tverb(X).
+     
+word('spent', X) :-
+    language@X -- english,
+    definition@X -- 'broadcast over the airwaves , as in radio or television',
+    X <> [v, inflected, pastPart],
+    tverb(X).
 
 word('spoke', X) :-
     language@X -- english,
     definition@X -- 'give a speech to',
     X <> [v, inflected, pastTense],
-    iverb(X).
+    itverb(X).
+
+word('spoken', X) :-
+    language@X -- english,
+    definition@X -- 'give a speech to',
+    X <> [v, inflected],
+    itverb(X),
+    pastPart(X).
 
 word('spin', X) :-
     language@X -- english,
@@ -1485,8 +1521,13 @@ word('today', X) :-
 
 word('told', X) :-
     language@X -- english,
-    uverb(X),
-    X <> [past, inflected].
+    tverb(X),
+    X <> [v, pastTense, inflected].
+
+word('told', X) :-
+    language@X -- english,
+    tverb(X),
+    X <> [v, pastPart, inflected].
 
 word('took', X) :-
     language@X -- english,
