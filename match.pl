@@ -1,0 +1,2 @@
+match([tverb=write,time=present,[theta=object,A],[theta=protagonist,[det=a,noun=man]]], [v=write,A,[n=man,[det=a]]]).
+match([tverb=write,time=present,[theta=object,[det=a,noun=letter]],[theta=protagonist,A]], [v=write,[n=letter,[det=a]],A]).
