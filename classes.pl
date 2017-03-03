@@ -360,7 +360,7 @@ baseNoun(X) :-
 
 nmod(X) :-
     language@X -- english,
-    X <> [adjunct, strictpremod],
+    X <> [fulladjunct, strictpremod],
     target@X -- T,
     T <> [baseNoun],
     unspecified(T),
@@ -444,15 +444,16 @@ nroot(X, M) :-
 nroot(X) :-
     nroot(X, -).
 
-np(X) :-
-    X <> [n, saturated, specified].
+np(X, specified@X) :-
+    X <> [n, saturated].
 
-np(X, specified@X).
+np(X) :-
+    X <> [np(+)].
 
 properName(X, U) :-
     X <> [np(+), fulladjunct, fixedpremod],
     tag@X -- name,
-    target@X <> [n, unspecified, saturated],
+    target@X <> [n, saturated],
     root@X -- [U:(tag@X)],
     default(saturated(X)),
     default(setCost(X, 0)).
@@ -569,7 +570,7 @@ setObjConstraints(V, OBJ, english):-
 	     movedBefore(OBJ);
 	     (notMoved(OBJ);
 	      (movedBefore(OBJ), !, xend@OBJ < start@V);
-	      (movedAfter(OBJ), xend@OBJ - xstart@OBJ > 2)))).
+	      true))).
 
 /**
   An English verbal root needs a tense-marking suffix, with
@@ -760,7 +761,7 @@ iverb(X) :-
     language :: [X, SUBJ],
     %% plant the stuff we need for handling WH-items: see above
     setWHView(X),
-    SUBJ <> [np, theta(subj)],
+    SUBJ <> [np(_), specified, theta(subj)],
     setSubjConstraints(X, SUBJ).
 
 /**
@@ -772,6 +773,7 @@ iverb(X) :-
 tverb(X, A2) :-
     language@X -- english,
     X <> [verb, +active, basicSubjConstraints(A1)],
+    trigger(zero@A2, (+zero@A2 -> zeroObj(X, A2); true)),
     tag@X -- verb,
     trigger(altview@subject@X, \+ altview@subject@X == gerund),
     %% plant the stuff we need for handling WH-items: see above
@@ -780,7 +782,7 @@ tverb(X, A2) :-
     args@X -- [A2, A1],
     language :: [X, A1, A2],
     %% A1 is the subject. Just the usual constraints.
-    A1 <> [np, theta(subject)],
+    A1 <> [np(_), specified, theta(subject)],
     %% Say things about what the object is like and where it allowed to move to (see earlier)
     A2 <> [postarg],
     %% Plant machinery for spotting that we have a reduced relative
@@ -805,7 +807,7 @@ tverb(X, A2) :-
     setWHView(X),
     pastPartForm(X),
     language :: [X, A2],
-    A2 <> [np],
+    A2 <> [np(_), specified],
     args@X -- [A2],
     start@A2 -- STARTSUBJ,
     trigger((STARTSUBJ, STARTOBJ, MOBJ), (MOBJ = before -> STARTOBJ < STARTSUBJ; true)).
@@ -825,11 +827,10 @@ checkObjCase(OBJ, X) :-
     trigger((used@OBJ, specified@X), (specified@X == + -> objcase(OBJ); casemarked(OBJ, of))).
 
 tverb(X) :-
-    OBJ <> [np],
-    trigger(active@X, (+active@X -> (checkObjCase(OBJ, X)); true)),
-    trigger(zero@OBJ, (+zero@OBJ -> zeroObj(X, OBJ); true)),
+    OBJ <> [np(_), specified],
     theta@OBJ -- dobj,
     tverb(X, OBJ),
+    trigger(active@X, (active@X = + -> checkObjCase(OBJ, X); true)),
     trigger(xstart@OBJ, setObjConstraints(X, OBJ)),
     setSubjConstraints(X, subject@X),
     movedAfter(subject@X, -).
@@ -1139,6 +1140,7 @@ zeroPPCOMP(T, COMP) :-
     +zero@COMP.
 
 shiftedPPCOMP(X, COMP, T) :-
+    ((np(COMP, _), var(wh@COMP)) -> notMoved(COMP); true),
     (start@COMP < start@X ->
      (vp(T), trigger(start@subject@T, start@COMP < start@subject@T));
      true).
@@ -1161,7 +1163,7 @@ prep(X, ARGS) :-
      true),
   trigger((start@T, end@T), prepmod(X, T, COMP)),
   trigger(zero@COMP, (-zero@COMP -> true; zeroPPCOMP(T, COMP))),
-  trigger(start@COMP, shiftedPPCOMP(X, COMP, T)).
+  trigger(used@COMP, shiftedPPCOMP(X, COMP, T)).
 
 /**
   Normal ones, with one following argument
@@ -1241,8 +1243,7 @@ setWHItem(X, WH) :-
     WH <> [np, adjunct, -modifiable, compact],
     dir@target@WH <> before,
     T -- target@WH,
-    T <> [x, saturated],
-    T <> [notMoved],
+    T <> [x, saturated, notMoved],
     end@T -- start@X,
     modified@result@WH -- 6,
     spec :: [T, result@WH],

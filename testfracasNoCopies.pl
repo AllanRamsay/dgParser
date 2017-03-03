@@ -91,9 +91,9 @@ fracas('all people who are from Sweden are from Scandinavia .').
 fracas('are at least a few committee members from Scandinavia ?').
 fracas('at least a few committee members are from Scandinavia .').
 fracas('few committee members are from Portugal .').
-fracas('all people who are from Portugal are from southern Europe .').
-fracas('are there few committee members from southern Europe ?').
-fracas('there are few committee members from southern Europe .').
+fracas('all people who are from Portugal are from Southern Europe .').
+fracas('are there few committee members from Southern Europe ?').
+fracas('there are few committee members from Southern Europe .').
 fracas('both commissioners used to be leading businessmen .').
 fracas('did both commissioners used to be businessmen ?').
 fracas('both commissioners used to be businessmen .').
@@ -122,7 +122,7 @@ fracas('are most Europeans resident in Europe ?').
 fracas('a few committee members are from Scandinavia .').
 fracas('are at least a few committee members from Sweden ?').
 fracas('at least a few committee members are from Sweden .').
-fracas('few committee members are from southern Europe .').
+fracas('few committee members are from Southern Europe .').
 fracas('are there few committee members from Portugal ?').
 fracas('there are few committee members from Portugal .').
 fracas('did both commissioners used to be leading businessmen ?').
@@ -155,8 +155,8 @@ fracas('many British delegates obtained interesting results from the survey .').
 fracas('several Portuguese delegates got the results published in major national newspapers .').
 fracas('most Europeans who are resident in Europe can travel freely within Europe .').
 fracas('a few female committee members are from Scandinavia .').
-fracas('few female committee members are from southern Europe .').
-fracas('are few committee members from southern Europe ?').
+fracas('few female committee members are from Southern Europe .').
+fracas('are few committee members from Southern Europe ?').
 fracas('both female commissioners used to be in business .').
 fracas('did both commissioners used to be in business ?').
 fracas('both commissioners used to be in business .').
@@ -179,7 +179,7 @@ fracas('can most Europeans who are resident outside Europe travel freely within 
 fracas('most Europeans who are resident outside Europe can travel freely within Europe .').
 fracas('are at least a few female committee members from Scandinavia ?').
 fracas('at least a few female committee members are from Scandinavia .').
-fracas('are few female committee members from southern Europe ?').
+fracas('are few female committee members from Southern Europe ?').
 fracas('did both female commissioners used to be in business ?').
 fracas('does either female commissioner spend a lot of time at home ?').
 fracas('one of the female commissioners spends a lot of time at home .').

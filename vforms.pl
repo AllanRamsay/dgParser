@@ -21,6 +21,7 @@ gerund(X, G) :-
     target@G -- T,
     T <> [x, -aux],
     language :: [G, target@G],
+    trigger(used@X, nonvar(wh@X)),
     trigger(index@target@G,
 	    ((var(shifted@X), var(wh@X)) -> gerundAsMod(X, G, T); fail)).
 

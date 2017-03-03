@@ -70,7 +70,7 @@ testFracas(MAX, THROWFAIL) :-
      true;
      THROWFAIL ->
      throw('no analysis');
-     format('*******************************************~n', [])),
+     format('** no analysis *****************************************~n', [])),
     fail.
 
 testFracas :-

@@ -110,7 +110,7 @@ word('anywhere', X) :-
     language@X -- english,
     definition@X -- 'at or in or to any place',
     X <> [np, casemarked(anywhere), postmod, fulladjunct],
-    target@X <> [s, -aux],
+    target@X <> [vp],
     result@X <> [compact].
 
 word('are', X) :-
@@ -262,17 +262,12 @@ word('few', X) :-
 
 word('few', X) :-
     language@X -- english,
-    X <> [det, thirdSing].
-
-word('few', X) :-
-    language@X -- english,
-    definition@X -- 'a quantifier that can be used with count nouns and is often preceded by SQ a SQ',
-    X <> [aroot1([])].
+    X <> [det].
 
 word('few', X) :- 
     language@X -- english,
     definition@X -- 'a small elite group',
-    X <> [nroot, -target].
+    X <> [aroot].
 
 word('five', X) :-
     language@X -- english,
@@ -546,6 +541,29 @@ word('ourselves', X) :-
     language@X -- english,
     X <> [pronoun, objcase, -target].
 
+word('out', X) :-
+    language@X -- english,
+    X <> [prep([])].
+
+word('out', X) :-
+    language@X -- english,
+    NP <> [np, casemarked(of), -zero],
+    trigger(index@target@X, nonvar(index@NP)),
+    prep(X, [NP]).
+
+/*
+word('out', X) :-
+    language@X -- english,
+    definition@X -- 'to state openly and publicly one SS homosexuality',
+    X <> [vroot, regularPast],
+    tverb(X).
+                    
+word('out', X) :- 
+    language@X -- english,
+    definition@X -- 'a failure by a batter or runner to reach a base safely in baseball',
+    X <> [nroot, -target].
+*/
+
 word('over', X) :-
     language@X -- english,
     X <> [prep].
@@ -706,6 +724,7 @@ word('this', X) :-
 
 word('those', X) :-
     language@X -- english,
+    
     X <> [pronoun, third, plural, -target].
 
 word('three', X) :-
@@ -714,12 +733,13 @@ word('three', X) :-
 
 word('to', X) :-
     language@X -- english,
-    X <> [inflected, toForm],
+    X <> [inflected, toForm, -target],
     COMP <> [infinitiveForm],
     aux(X, COMP),
     cat@M -- toGerund,
-    M <> [fulladjunct, fixedpostmod, saturated, compact],
-    target@M <> [n, -specified, unspecified, saturated],
+    M <> [fulladjunct, fixedpostmod, saturated, compact, movedAfter(-)],
+    target@M <> [x, saturated],
+    trigger(n:xbar@cat@target@M, (n(target@M) -> (unspecified(target@M), notMoved(M)); true)),
     trigger(index@M, notMoved(M)),
     altview@M -- toAsMod,
     trigger(zero@subject@X, (+zero@subject@X -> addExternalView(X, M))).

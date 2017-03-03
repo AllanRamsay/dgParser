@@ -163,6 +163,17 @@ word('Canadian', X) :-
     definition@X -- 'an inhabitant of Canada',
     X <> [nroot(_)].
                   
+word('carry', X) :-
+    language@X -- english,
+    definition@X -- 'behave in a certain manner',
+    X <> [vroot, regularPast],
+    tverb(X).
+                    
+word('carry', X) :- 
+    language@X -- english,
+    definition@X -- 'the act of carrying something',
+    X <> [nroot].
+
 word('cat', X) :- 
     language@X -- english,
     definition@X -- 'any of several large cats typically able to roar and living in the wild',
@@ -392,6 +403,15 @@ word('fart', X) :-
     language@X -- english,
     definition@X -- 'a reflex that expels intestinal gas through the anus',
     X <> [nroot].
+            
+word('fat', X) :- 
+    language@X -- english,
+    definition@X -- 'a kind of body tissue containing stored fat that serves as a source of energy',
+    X <> [nroot, -target].
+
+word('fat', X) :- 
+    language@X -- english,
+    X <> [aroot].
 
 word('fed', X) :-
     language@X -- english,
@@ -847,17 +867,13 @@ word('meet', X) :-
     definition@X -- 'being precisely fitting and right',
     X <> [aroot].
 
+%% Don't need 'meeting' as a noun, because meet+ing is a gerund
 word('meet', X) :-
     language@X -- english,
     verb(X, meet),
     X <> [vroot, present].
 
 word('meet', X) :- 
-    language@X -- english,
-    definition@X -- 'a meeting at which a number of athletic contests are held',
-    X <> [nroot].
-
-word('meeting', X) :- 
     language@X -- english,
     definition@X -- 'a meeting at which a number of athletic contests are held',
     X <> [nroot].
@@ -1078,6 +1094,7 @@ word('ride', X) :-
     definition@X -- 'a journey in a vehicle',
     X <> [nroot].
 
+/*
 word('right', X) :-
     language@X -- english,
     definition@X -- 'make right or correct',
@@ -1088,12 +1105,12 @@ word('right', X) :-
     language@X -- english,
     definition@X -- 'in an accurate manner',
     X <> [adv].
-                    
+*/
+
 word('right', X) :- 
     language@X -- english,
     definition@X -- 'an abstract idea of that which is due to a person or governmental body by law or tradition or nature',
-    X <> [nroot(-, [S]), -target],
-    S <> [s, toForm, fixedpostarg].
+    X <> [nroot].
 
 word('rode', X) :-
     language@X -- english,

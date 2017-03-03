@@ -1,9 +1,9 @@
 verb(X, be) :-
     root@X -- [be],
     language@X -- english,
-    %% trigger(set:position@moved@subject@X, (movedAfter(subject@X) -> movedBefore(PRED); true)),
     PRED <> [+predicative, -zero, specified, saturated, postarg],
     theta@PRED -- predication,
+    trigger(used@PRED, (movedBefore(PRED) -> \+ (n(PRED), subjcase(PRED)); true)),
     tverb(X, PRED).
 
 verb(X, be) :-
