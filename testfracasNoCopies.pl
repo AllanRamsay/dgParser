@@ -467,12 +467,12 @@ fracas('John needed to buy a car , and Bill did .').
 fracas('did Bill buy a car ?').
 fracas('Bill bought a car .').
 fracas('Smith represents his company and so does Jones .').
-fracas('does Jones represent Jones APOS company ?').
-fracas('Jones represents Jones APOS company .').
+fracas('does Jones represent Jones SSS company ?').
+fracas('Jones represents Jones SSS company .').
 fracas('does Jones represent Smith SSS company ?').
 fracas('Jones represents Smith SSS company .').
-fracas('does Smith represent Jones APOS company ?').
-fracas('Smith represents Jones APOS company .').
+fracas('does Smith represent Jones SSS company ?').
+fracas('Smith represents Jones SSS company .').
 fracas('Smith claimed he had costed his proposal and so did Jones .').
 fracas('did Jones claim he had costed his own proposal ?').
 fracas('Jones claimed he had costed his own proposal .').
@@ -480,8 +480,8 @@ fracas('did Jones claim he had costed Smith SSS proposal ?').
 fracas('Jones claimed he had costed Smith SSS proposal .').
 fracas('did Jones claim Smith had costed Smith SSS proposal ?').
 fracas('Jones claimed Smith had costed Smith SSS proposal .').
-fracas('did Jones claim Smith had costed Jones APOS proposal ?').
-fracas('Jones claimed Smith had costed Jones APOS proposal .').
+fracas('did Jones claim Smith had costed Jones SSS proposal ?').
+fracas('Jones claimed Smith had costed Jones SSS proposal .').
 fracas('John is a man and Mary is a woman .').
 fracas('John represents his company and so does Mary .').
 fracas('does Mary represent her own company ?').
@@ -717,7 +717,7 @@ fracas('did Smith discover a new species in 1992 ?').
 fracas('Smith discovered a new species in 1992 .').
 fracas('Smith wrote a report in two hours .').
 fracas('Smith started writing the report at 8 am .').
-fracas('Had Smith finished writing the report by 11 am ?').
+fracas('had Smith finished writing the report by 11 am ?').
 fracas('Smith had finished writing the report by 11 am .').
 fracas('did Smith spend two hours writing the report ?').
 fracas('Smith spent two hours writing the report .').
@@ -861,8 +861,8 @@ fracas('it is true that ITEL won the contract in 1992 .').
 fracas('it is false that ITEL won the contract in 1992 .').
 fracas('Smith saw Jones sign the contract .').
 fracas('if Jones signed the contract , his heart was beating .').
-fracas('did Smith see Jones APOS heart beat ?').
-fracas('Smith saw Jones APOS heart beat .').
+fracas('did Smith see Jones SSS heart beat ?').
+fracas('Smith saw Jones SSS heart beat .').
 fracas('when Jones signed the contract , his heart was beating .').
 fracas('Jones is the chairman of ITEL .').
 fracas('did Smith see the chairman of ITEL sign the contract ?').

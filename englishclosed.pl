@@ -9,7 +9,17 @@ word('a', X) :-
     args@X -- [N],
     trigger(width@N, \+ \+ number@N=sing).
 
-word('another', X) :-    language@X -- english,
+word('am', X) :-
+    language@X -- english,
+    be(X),
+    X <> [inflected, first, sing].
+
+word('am', X) :-
+    language@X -- english,
+    X <> [n, -specified, -modifiable, -target].
+
+word('another', X) :-
+    language@X -- english,
     X <> [det, -def],
     args@X -- [N],
     trigger(width@N, \+ \+ number@N=sing).
@@ -42,21 +52,7 @@ word('ago', X) :-
     X <> [postp].
 
 word('all', X) :-
-    fail,
-    language@X -- english,
-    X <> [det([NP])],
-    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
-
-word('all', X) :-
-    language@X -- english,
-    X <> [det, thirdPlural, -def].
-
-word('all', X) :-
-    cat@X -- all,
-    X <> [saturated, fulladjunct, -predicative, premod(T)],
-    target@X <> [np, standardcase],
-    X <> [movedBefore(-)],
-    trigger(pronominal@T, (+pronominal@T -> movedAfter(X); true)).
+    all(X).
 
 word('although', X) :-
     language@X -- english,
@@ -79,6 +75,15 @@ word('and', X) :-
     language@X -- english,
     conj(X),
     conjoined@X -- and.
+
+word('as', X) :-
+    language@X -- english,
+    cat@X -- as,
+    X <> [postmod, fulladjunct],
+    target@X <> [vp],
+    trigger(index@target@X, nonvar(index@NP)),
+    args@X -- [NP],
+    NP <> [np, fixedpostarg, theta(asArg)]. 
 
 word('or', X) :-
     language@X -- english,
@@ -138,6 +143,10 @@ word('be', X) :-
 word('because', X) :-
     language@X -- english,
     X <> prep.
+
+word('before', X) :-
+    language@X -- english,
+    X <> [prep].
 
 word('before', X) :-
     language@X -- english,
@@ -307,6 +316,10 @@ word('twenty', X) :-
     language@X -- english,
     number(X, 10).
 
+word('twice', X) :-
+    language@X -- english,
+    times(X, 2).
+
 word('for', X) :-
     language@X -- english,
     X <> [prep, inflected].
@@ -459,7 +472,8 @@ word('more', X) :-
     X <> [det([THAN, NUM, NN]), inflected],
     THAN <> [fixedpostarg, word, theta(than)],
     cat@THAN -- than,
-    NUM <> [fixedpostarg, number(_), word, theta(num)],
+    NUM <> [fixedpostarg, word, theta(num)],
+    trigger(used@NUM, \+ \+ number(NUM, _)),
     NN <> [fixedpostarg, n, saturated, unspecified, theta(headnoun)].
 
 word('more', X) :-
@@ -506,6 +520,15 @@ word('not', X) :-
     definition@X -- 'negation of a word or group of words',
     not(X).
 
+word('o', X) :-
+    language@X -- english,
+    X <> [n, specified(-), -target, inflected],
+    args@X -- [APOS, CLOCK],
+    APOS <> [word, fixedpostarg],
+    root@APOS -- ['APOS':_],
+    CLOK <> [word, fixedpostarg],
+    root@CLOCK -- [('clock'>''):noun].
+
 word('of', X) :-
     language@X -- english,
     X <> [prep([NN])],
@@ -519,6 +542,10 @@ word('on', X) :-
 word('one', X) :-
     language@X -- english,
     number(X, 1).
+
+word('one', X) :-
+    language@X -- english,
+    X <> [nroot(_)].
 
 word('only', X) :-
     language@X -- english,
@@ -757,8 +784,7 @@ word('to', X) :-
 
 word('too', X) :-
     language@X -- english,
-    X <> [vp, infinitiveForm],
-    subject@X <> [theta(subject), -zero, np, standardcase].
+    X <> [adv, inflected].
 
 word('toward', X) :-
     language@X -- english,
@@ -857,7 +883,7 @@ word('which', X) :-
 word('while', X) :-
     language@X -- english,
     X <> prep([S]),
-    S <> [s, tensedForm, -zero],
+    S <> [s, tensedForm, -zero, fixedpostarg],
     target@X <> [vp].
 
 word('who', X) :-
@@ -919,9 +945,8 @@ word('.', X) :-
     tag@X -- punct,
     -target@X,
     args@X -- [S],
-    S <> [x, saturated, -zero, prearg, tensedForm],
-    theta@S -- THETAS,
-    trigger(v:xbar@cat@S, (v(S) -> THETAS = scomp; THETAS = frag)),
+    S <> [x, saturated, -zero, prearg, tensedForm, theta(THETAS)],
+    trigger(v:xbar@cat@S, (v(S) -> THETAS = claim; THETAS = frag)),
     start@S -- 0.
 
 word('?', X) :-
@@ -929,9 +954,8 @@ word('?', X) :-
     cat@X -- utterance,
     -target@X,
     args@X -- [S],
-    S <> [x, saturated, -zero, prearg, tensedForm],
-    theta@S -- THETAS,
-    trigger(SV, (v(S) -> THETAS = scomp; THETAS = frag)),
+    S <> [x, saturated, -zero, prearg, tensedForm, theta(THETAS)],
+    trigger(SV, (v(S) -> THETAS = query; THETAS = frag)),
     start@S -- 0.
 
 word(',', X) :-
@@ -945,7 +969,7 @@ word('#', X) :-
     target@X <> [n, unspecified],
     result@X <> [specified],
     args@X -- [N],
-    N <> [number(_), fixedpostarg].
+    N <> [number(_), fixedpostarg, theta(numberAsId)].
 
 word(':', X) :-
     cat@X -- punct,
@@ -965,7 +989,11 @@ word('May', X) :-
     language@X -- english,
     month(X).
 
+word('APOS', X) :-
+    word('SSS', X).
+
 word('SSS', X) :-
+    X <> [specified(+)],
     det(X, [OWNER, THING]),
     OWNER <> [np, fixedprearg, theta(arg(owner)), compact, -zero],
     THING <> [n, unspecified, fixedpostarg, theta(arg(headnoun)), saturated],

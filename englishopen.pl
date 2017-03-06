@@ -103,6 +103,17 @@ word('blame', X) :-
     definition@X -- 'put or pin the blame on',
     X <> [vroot, regularPast],
     tverb(X).
+               
+word('board', X) :- 
+    language@X -- english,
+    definition@X -- 'a committee having supervisory powers',
+    X <> [nroot].
+
+word('board', X) :-
+    language@X -- english,
+    definition@X -- 'get on board of',
+    X <> [vroot, regularPast],
+    tverb(X).
 
 word('bore', X) :-
     language@X -- english,
@@ -969,11 +980,23 @@ word('overtook', X) :-
     tverb(X),
     X <> [pastTense, inflected].
 
-word('overun', X) :-
+word('overrun', X) :-
     language@X -- english,
     tverb(X),
     X <> [pastPart, inflected].
-              
+   
+word('own', X) :-
+    language@X -- english,
+    definition@X -- 'belonging to or on behalf of a specified person',
+    degree@X -- simple,
+    X <> [aroot].
+
+word('own', X) :-
+    language@X -- english,
+    definition@X -- 'have ownership or possession of',
+    X <> [vroot, regularPast],
+    tverb(X).
+
 word('part', X) :- 
     language@X -- english,
     definition@X -- 'an actor SS portrayal of someone in a play',
@@ -1569,6 +1592,17 @@ word('underwent', X) :-
     language@X -- english,
     tverb(X),
     X <> [pastTense, inflected].
+                
+word('update', X) :- 
+    language@X -- english,
+    definition@X -- 'news that updates your information',
+    X <> [nroot].
+
+word('update', X) :-
+    language@X -- english,
+    definition@X -- 'modernize or bring up to date',
+    X <> [vroot, regularPast],
+    itverb(X).
 
 word('used', X) :-
     language@X -- english,

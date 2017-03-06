@@ -67,6 +67,15 @@ verb(X, have) :-
 verb(X, have) :-
     tverb(X).
 
+verb(X, have) :-
+    sverb(X, S),
+    S <> [s, -active, presPartForm].
+
+verb(X, have) :-
+    sverb(X, S),
+    S <> [s, toForm],
+    +zero@subject@S.
+
 verb(X, make) :-
     tverb(X).
 

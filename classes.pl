@@ -451,9 +451,10 @@ np(X) :-
     X <> [np(+)].
 
 properName(X, U) :-
-    X <> [np(+), fulladjunct, fixedpremod],
-    tag@X -- name,
+    X <> [n, fulladjunct, fixedpremod],
+    trigger(tag@target@X, (tag@target@X = name -> true; incCost(X, 0.2))),
     target@X <> [n, saturated],
+    tag@X -- name,
     root@X -- [U:(tag@X)],
     default(saturated(X)),
     default(setCost(X, 0)).
@@ -527,13 +528,8 @@ setSubjConstraints(V, SUBJ) :-
 checkSubjConstraints(V, SUBJ) :-
     checkSubjConstraints(V, SUBJ, language@V).
 
-checkSubjConstraints(_, _, english) :-
-    !.
 checkSubjConstraints(V, SUBJ, english) :-
     (checkNoWH(SUBJ) -> (notMoved(SUBJ) -> true; trigger(finite@V, \+ finite@V = tensed)); true).
-     
-checkSubjConstraints(V, SUBJ, arabic) :-
-     ((checkNoWH(SUBJ), (def@SUBJ == -)) -> notMoved(SUBJ); true).
 
 /**
   Constraints on objects: what I want to say about objects of Arabic
@@ -545,14 +541,6 @@ checkSubjConstraints(V, SUBJ, arabic) :-
 setObjConstraints(V, OBJ) :-
     language@V -- L,
     trigger(L, setObjConstraints(V, OBJ, L)).
-
-setObjConstraints(V, OBJ, arabic) :-
-    trigger(index@OBJ,
-	    (nonvar(wh@OBJ) ->
-	     movedAfter(OBJ, +);
-	     (notMoved(OBJ);
-	      (movedBefore(OBJ, +), end@OBJ=start@V);
-	      true))).
 
 /**
   WH-marked objects *must* be left-shifted
@@ -718,7 +706,7 @@ aux(X, COMP) :-
     X <> [+aux, verb, -target],
     COMP <> [s, fixed, postarg, -zero, theta(auxcomp), noLeftShift],
     args@X -- [COMP],
-    subject\case :: [X, COMP],
+    [active, subject\case] :: [X, COMP],
     %% plant the stuff we need for handling WH-items: see above
     trigger(language@X, setWHView(X)).
 
@@ -818,7 +806,8 @@ tverb(X, A2) :-
   **/
 
 zeroObj(X, OBJ) :-
-    incCost(X, 3),
+    default(setCost(OBJ, 0)),
+    incCost(OBJ, 3),
     subject@X <> [-zero, notMoved],
     trigger(wh@subject@X, fail),
     relpronoun(OBJ, 0).
@@ -997,6 +986,7 @@ adv(X) :-
     tag@X -- adverb.
 
 conj1(X):-
+    start@X -- 0,
     X <> [strictpostarg(X2)],
     args@X -- [X2],
     theta@X2 -- conj0,
@@ -1010,14 +1000,18 @@ checkConjCase(X, X1, X2) :-
     (case@X1 -- *_ -> shareCase(X, X1, X2); true).
 
 conj(X, X1, X2):-
-    args@X -- [X2, X1 | args@X1],
+    args@X -- [X2, X1 | args@X2],
     X1 <> [-conjoined, compact, -altview, fixedprearg],
     X2 <> [compact, fixedpostarg],
     xstart@X2 -- end@X,
     xend@X1 -- start@X,
     trigger(complete@X, externalviews@X=externalviews@X1),
-    [cat, vform\subject, spec, predicative] :: [X, X1, X2],
+    [cat, vform\subject, spec, case, predicative] :: [X, X1, X2],
     [subject] :: [X, X1],
+    trigger(used@X2,
+	    (vp(X2) ->
+	     syntax@subject@X1 = syntax@subject@X2;
+	     true)),
     trigger(case@X1, checkConjCase(X, X1, X2)),
     X <> [-target],
     target@X1 -- TX1,
@@ -1025,10 +1019,15 @@ conj(X, X1, X2):-
     [result] :: [X1, M],
     cat@M -- mod,
     M <> [saturated],
-    %% trigger(index@X1, (TX1 = TM -> addExternalView(X, M); true)),
     theta@X1 -- conj1,
     theta@X2 -- conj2,
-    [args] :: [X1, X2].
+    trigger(args@X2, conjArgs(args@X2, args@X1)).
+
+conjArgs([], []) :-
+    !.
+conjArgs([A2 | T2], [H1 | T1]) :-
+    [cat, spec] :: [A2, A1],
+    conjArgs(T2, T1).
 
 conj(X) :-
     conj(X, _, _).
@@ -1043,13 +1042,13 @@ comma(X) :-
 commaAsConj(X) :-
     conj(X, _, X2),
     [conjoined] :: [X, X2],
-    X <> [-target],
+    X <> [-target, theta(conj1)],
     trigger(width@X2, nonvar(conjoined@X2)).
 
 commaAsSep(X) :-
     cat@X -- comma,
     X <> [saturated, fulladjunct, strictpostmod, -zero],
-    target@X <> [s, saturated, compact].
+    target@X <> [word].
 
 %%%% PREPOSITIONS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -1061,7 +1060,7 @@ commaAsSep(X) :-
   **/
 
 p(X) :-
-    X <> [n, +specified],
+    X <> [n, +specified, -modifiable],
     [case@X] -- root@hd@X.
 
 /**
@@ -1382,19 +1381,7 @@ emoticon(X) :-
     dir@T <> before,
     trigger(XST, (XST = 0 -> true; incCost(X, 1))).
 
-number(X, _N) :-
-    tag@X -- num,
-    /**
-      It could just be an NP. "I saw him in 1989".
-      It's inflected: you don't write "I saw 2s boys".
-      I've said that you can't modify it. You don't write "There were very six people".
-      
-      **/
-    cat@X -- num,
-    X <> [fixedpostmod(N), saturated, adjunct],
-    N <> [n, saturated, unspecified].
-number(X, N0) :-
-    tag@X -- num,
+setNumber(N0, NP) :-
     catch((atom_chars(N0, NCHARS),
 	   number_chars(N1, NCHARS),
 	   (N1 == 1 ->
@@ -1403,20 +1390,7 @@ number(X, N0) :-
 	    plural(NP);
 	    true)),
 	  _,
-	  true),
-    X <> [det1([NP])],
-    NP <> [pp, fixedpostarg, +def, plural, casemarked(of), theta(headnoun)].
-
-number(X, N0) :-
-    tag@X -- num,
-    catch((atom_chars(N0, NCHARS),
-	   number_chars(N1, NCHARS),
-	   N1 > 1000,
-	   N1 < 3000,
-	   np(X),
-	   -target@X),
-	  _,
-	  fail).
+	  true).
 
 month(X) :-
     language@X -- english,

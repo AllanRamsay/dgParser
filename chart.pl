@@ -64,10 +64,10 @@ testFracas(START, END, THROWFAIL) :-
     fracas(X),
     (retract(fracasCounter(I)) -> J is I+1; J = 1),
     assert(fracasCounter(J)),
-    J = START,
-    J = END,
+    trigger(START, J >= START),
+    trigger(END, \+ J = END),
     format("~n~ntestFracas(~w). %%  '~w').~n parseOne('~w').~n", [J, X, X]),
-    (parseOne(X) ->
+    (catch(parseOne(X), CAUGHT, \+ format('caught ~w~n', [CAUGHT])) ->
      true;
      THROWFAIL ->
      throw('no analysis');
