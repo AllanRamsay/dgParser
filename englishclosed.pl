@@ -5,9 +5,9 @@ word('I', X) :-
 
 word('a', X) :-
     language@X -- english,
-    X <> [det, -def],
-    args@X -- [N],
-    trigger(width@N, \+ \+ number@N=sing).
+    X <> [det([N], +), -def],
+    N <> [n, -specified, -zero, saturated, theta(headnoun)],
+    trigger(used@N, \+ \+ number@N=sing).
 
 word('am', X) :-
     language@X -- english,
@@ -78,8 +78,7 @@ word('and', X) :-
 
 word('as', X) :-
     language@X -- english,
-    cat@X -- as,
-    X <> [postmod, fulladjunct],
+    X <> [cat(as), postmod, fulladjunct],
     target@X <> [vp],
     trigger(index@target@X, nonvar(index@NP)),
     args@X -- [NP],
@@ -122,6 +121,9 @@ word('are', X) :-
     language@X -- english,
     verb(X, be),
     X <> [presTense, plural, inflected].
+
+word('as', X) :-
+    as(X).
 
 word('at', X) :-
     det(X, [PREDET, NP]),
@@ -236,8 +238,7 @@ word('either', X) :-
 
 word('either', X) :-
     language@X -- english,
-    X <> [inflected, saturated, fulladjunct, strictpremod],
-    cat@X -- either,
+    X <> [cat(either), inflected, saturated, fulladjunct, strictpremod],
     target@X -- T,
     T <> [-zero],
     trigger(width@T, conjoined@T == or).
@@ -266,6 +267,10 @@ word('everything', X) :-
     language@X -- english,
     X <> [n, saturated, standardcase, -target].
 
+word('exactly', X) :-
+    X <> [cat(exactly), saturated, fulladjunct, strictpremod],
+    target@X <> [det([_], +)].
+    
 word('few', X) :-
     language@X -- english,
     X <> [det([NP]), thirdSing],
@@ -377,8 +382,7 @@ word('herself', X) :-
 word('hi', X) :- 
     language@X -- english,
     definition@X -- 'an expression of greeting',
-    cat@X -- greeting,
-    X <> [saturated, strictpremod(S), inflected],
+    X <> [cat(greeting), saturated, strictpremod(S), inflected],
     S <> [s].
 
 word('him', X) :-
@@ -399,8 +403,7 @@ word('how', X) :-
 
 word('if', X) :-
     language@X -- english,
-    cat@X -- if,
-    X <> [postarg, fulladjunct, theta(condition)],
+    X <> [cat(if), postarg, fulladjunct, theta(condition)],
     target@X <> [s, compact],
     args@X -- [ANTECEDENT],
     ANTECEDENT <> [s, compact, fixedpostarg, theta(antecedent)].
@@ -411,7 +414,8 @@ word('in', X) :-
 
 word('in', X) :-
     language@X -- english,
-    prep(X, []).
+    prep(X, []),
+    X <> [movedBefore(-)].
 
 word('into', X) :-
     language@X -- english,
@@ -424,7 +428,8 @@ word('is', X) :-
 
 word('it', X) :-
     language@X -- english,
-    X <> [pronoun, -target].
+    X <> [-target, inflected],
+    pronoun(X).
 
 word('its', X) :-
     language@X -- english,
@@ -432,7 +437,8 @@ word('its', X) :-
 
 word('itself', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objcase, -target],
+    pronoun(X).
 
 word('least', X) :-
     language@X -- english,
@@ -470,8 +476,7 @@ word('more', X) :-
 word('more', X) :-
     language@X -- english,
     X <> [det([THAN, NUM, NN]), inflected],
-    THAN <> [fixedpostarg, word, theta(than)],
-    cat@THAN -- than,
+    THAN <> [cat(than), fixedpostarg, word, theta(than)],
     NUM <> [fixedpostarg, word, theta(num)],
     trigger(used@NUM, \+ \+ number(NUM, _)),
     NN <> [fixedpostarg, n, saturated, unspecified, theta(headnoun)].
@@ -549,8 +554,7 @@ word('one', X) :-
 
 word('only', X) :-
     language@X -- english,
-    cat@X -- only,
-    X <> [strictpremod(T), fulladjunct],
+    X <> [cat(only), strictpremod(T), fulladjunct],
     number(T, _).
 
 word('oneself', X) :-
@@ -659,8 +663,7 @@ word('something', X) :-
 
 word('than', X) :-
     language@X -- english,
-    X <> [fixedpostmod(T), fulladjunct],
-    cat@X -- than,
+    X <> [cat(than), fixedpostmod(T), fulladjunct],
     args@X -- [NP],
     NP <> [np, fixedpostarg],
     T <> [adj],
@@ -758,7 +761,6 @@ word('this', X) :-
 
 word('those', X) :-
     language@X -- english,
-    
     X <> [pronoun, third, plural, -target].
 
 word('three', X) :-
@@ -770,8 +772,7 @@ word('to', X) :-
     X <> [inflected, toForm, -target],
     COMP <> [infinitiveForm],
     aux(X, COMP),
-    cat@M -- toGerund,
-    M <> [fulladjunct, fixedpostmod, saturated, compact, movedAfter(-)],
+    M <> [cat(toGerund), fulladjunct, fixedpostmod, saturated, compact, movedAfter(-)],
     target@M <> [x, saturated],
     trigger(n:xbar@cat@target@M, (n(target@M) -> (unspecified(target@M), notMoved(M)); true)),
     trigger(index@M, notMoved(M)),
@@ -887,13 +888,13 @@ word('while', X) :-
     target@X <> [vp].
 
 word('who', X) :-
+    language@X -- english,
     relpronoun(X).
 
 word('whom', X) :-
     language@X -- english,
-    X <> [np, inflected, objcase],
-    -target@X,
-    setWHItem(X).
+    relpronoun(X),
+    X <> [objcase].
 
 word('whose', X) :-
     language@X -- english,
@@ -929,7 +930,8 @@ word('would', X) :-
 
 word('you', X) :-
     language@X -- english,
-    X <> [pronoun, second, plural, -target].
+    X <> [second, plural, -target],
+    pronoun(X).
 
 word('your', X) :-
     language@X -- english,

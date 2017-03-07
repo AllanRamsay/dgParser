@@ -65,7 +65,7 @@ testFracas(START, END, THROWFAIL) :-
     (retract(fracasCounter(I)) -> J is I+1; J = 1),
     assert(fracasCounter(J)),
     trigger(START, J >= START),
-    trigger(END, \+ J = END),
+    trigger(END, \+ J > END),
     format("~n~ntestFracas(~w). %%  '~w').~n parseOne('~w').~n", [J, X, X]),
     (catch(parseOne(X), CAUGHT, \+ format('caught ~w~n', [CAUGHT])) ->
      true;
@@ -78,7 +78,7 @@ testFracas(I, J) :-
     testFracas(I, J, fail).
 
 testFracas(I) :-
-    testFracas(I, _).
+    testFracas(I, I).
 
 testFracas :-
     testFracas(_, _, fail).
@@ -318,7 +318,7 @@ combineHdAndArg(H0, A, H1) :-
     (used@A = +).
 
 findCombination(X, Z) :-
-    index@X -- -1,
+    index@X -- 99,
     trace,
     fail.
 findCombination(X, Z) :-
@@ -510,7 +510,7 @@ setCost(X, I) :-
     create_mutable(I, cost@X).
 
 incCost(X, I) :-
-    get_mutable(J, cost@X),
+    catch(get_mutable(J, cost@X), _, (setCost(X, 0), J=0)),
     K is I+J,
     update_mutable(K, cost@X).
 

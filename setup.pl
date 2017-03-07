@@ -8,10 +8,10 @@ coreFiles([useful,
 	   io,
 	   disjoin]).
 
-compileable([signatures,
-	     agree]).
+compileable([signatures]).
 
-noncompilable([classes,
+noncompilable([agree,
+	       classes,
 	       negation,
 	       vforms,
 	       pronouns,

@@ -28,7 +28,7 @@ number(X, N) :-
     setNumber(N, X).
 number(X, N) :-
     tag@X -- num,
-    X <> [det1([NP])],
+    X <> [det1([NP], +)],
     NP <> [pp, fixedpostarg, +def, plural, casemarked(PREP), theta(headnoun)],
     setNumber(N, NP),
     trigger(PREP, (PREP = of; PREP = out)).
@@ -56,5 +56,22 @@ times(X, N) :-
 times(X, _N) :-
     X <> [adv],
     target@X <> [vp].
-    
+
+
+as(X) :-
+    language@X -- english,
+    cat@X -- as,
+    X <> [postmod, fulladjunct, inflected],
+    target@X <> [vp],
+    trigger(index@target@X, nonvar(index@NP)),
+    args@X -- [NP],
+    NP <> [np, fixedpostarg, theta(asArg)]. 
+
+as(X) :-
+    language@X -- english,
+    X <> [adj([ADJ, AS]), inflected],
+    adj(ADJ),
+    trigger(index@target@X, nonvar(index@AS)),
+    cat@AS -- as,
+    AS <> [fixedpostarg, theta(asArg), saturated]. 
     

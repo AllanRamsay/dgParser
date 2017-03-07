@@ -82,12 +82,11 @@ pastTense(X) :-
     X <> [tensed, past].
 
 edForm(X) :-
-    X <> [past, suffix, -target, +active],
+    X <> [past, -target, +active],
     -zero@subject@X,
-    trigger(finite@X,
-	    (pastTense(X); pastPart(X))).
+    trigger(specified@X, (pastTense(X); partPart(X))).
 edForm(X) :-
-    X <> [-active, pastPart, suffix].
+    X <> [-active, pastPart].
 
 infinitiveForm(X) :-
     finite@X -- infinitive,

@@ -308,6 +308,11 @@ word('deliver', X) :-
     X <> [vroot],
     tverb2(X).
 
+word('deliver', X) :-
+    language@X -- english,
+    X <> [vroot],
+    tverb2(X).
+
 word('divorce', X) :-
     language@X -- english,
     definition@X -- 'part',
@@ -715,6 +720,27 @@ word('Labour', X) :-
     language@X -- english,
     X <> [nroot(_), sing].
 
+word('last', X) :-
+    language@X -- english,
+    definition@X -- 'occurring at or forming an end or termination',
+    X <> [aroot].
+                    
+word('last', X) :- 
+    language@X -- english,
+    definition@X -- 'the time at which life ends',
+    X <> [nroot, -target].
+
+word('last', X) :-
+    language@X -- english,
+    definition@X -- 'most _ recently',
+    X <> [adv].
+
+word('last', X) :-
+    language@X -- english,
+    definition@X -- 'persist for a specified period of time',
+    X <> [vroot, regularPast],
+    tverb(X).
+
 word('lead', X) :-
     language@X -- english,
     itverb(X),
@@ -932,12 +958,6 @@ word('need', X) :-
 word('nice', X) :-
     language@X -- english,
     definition@X -- 'exhibiting courtesy and politeness',
-    X <> [aroot([TO]), strictpostarg(TO)],
-    TO <> [np, casemarked(to), theta(adjcomp)].
-
-word('nice', X) :-
-    language@X -- english,
-    definition@X -- 'exhibiting courtesy and politeness',
     X <> [aroot].
 
 word('overran', X) :-
@@ -1107,16 +1127,14 @@ word('rebuilt', X) :-
     tverb(X),
     X <> [past, inflected].
              
-word('resident', X) :- 
+word('resident', X) :-
     language@X -- english,
     definition@X -- 'a physician who lives in a hospital and cares for hospitalized patients under the supervision of the medical staff of the hospital',
     X <> [nroot, -target].
 
 word('resident', X) :-
     language@X -- english,
-    definition@X -- 'used of animals that do not migrate',
-    X <> [aroot([PP])],
-    PP <> [fixedpostarg, pp].
+    X <> [aroot].
 
 word('ride', X) :-
     language@X -- english,
@@ -1232,26 +1250,16 @@ word('send', X) :-
 word('sent', X) :-
     language@X -- english,
     definition@X -- 'broadcast over the airwaves , as in radio or television',
-    X <> [v, inflected, pastTense],
-    tverb(X).
+    X <> [v, inflected],
+    tverb(X),
+    edForm(X).
      
 word('sent', X) :-
     language@X -- english,
     definition@X -- 'broadcast over the airwaves , as in radio or television',
-    X <> [v, inflected, past, pastPart],
-    tverb2(X).
-     
-word('sent', X) :-
-    language@X -- english,
-    definition@X -- 'broadcast over the airwaves , as in radio or television',
-    X <> [v, inflected, pastTense],
-    tverb2(X).
-     
-word('sent', X) :-
-    language@X -- english,
-    definition@X -- 'broadcast over the airwaves , as in radio or television',
-    X <> [v, inflected, past, pastPart],
-    tverb2(X).
+    X <> [v, inflected],
+    tverb2(X),
+    edForm(X).
 
 word('sign', X) :- 
     language@X -- english,

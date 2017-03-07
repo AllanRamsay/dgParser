@@ -351,8 +351,8 @@ fracas('a company director has awarded and been awarded a payrise .').
 fracas('John said Bill had hurt himself .').
 fracas('did John say Bill had been hurt ?').
 fracas('John said Bill had been hurt .').
-fracas('did anyone say John had been hurt ?').
-fracas('someone said John had been hurt .').
+fracas('did any one say John had been hurt ?').
+fracas('some one said John had been hurt .').
 fracas('John spoke to Mary .').
 fracas('so did Bill .').
 fracas('did Bill speak to Mary ?').
@@ -869,8 +869,8 @@ fracas('did Smith see the chairman of ITEL sign the contract ?').
 fracas('Smith saw the chairman of ITEL sign the contract .').
 fracas('Helen saw the chairman of the department answer the phone .').
 fracas('the chairman of the department is a person .').
-fracas('is there anyone whom Helen saw answer the phone ?').
-fracas('there is someone whom Helen saw answer the phone .').
+fracas('is there any one whom Helen saw answer the phone ?').
+fracas('there is some one whom Helen saw answer the phone .').
 fracas('Smith saw Jones sign the contract and his secretary make a copy .').
 fracas('did Smith see Jones sign the contract ?').
 fracas('Smith saw Jones sign the contract or cross out the crucial clause .').
