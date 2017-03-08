@@ -344,6 +344,11 @@ word('had', X) :-
     verb(X, have),
     X <> [past, -target, inflected].
 
+word('half', X) :-
+    language@X -- english,
+    X <> [det1([NP])],
+    NP <> [np].
+
 word('has', X) :-
     language@X -- english,
     verb(X, have),
@@ -437,6 +442,33 @@ word('itself', X) :-
     language@X -- english,
     X <> [objcase, -target],
     pronoun(X).
+
+word('less', X) :-
+    language@X -- english,
+    X <> [det, inflected].
+
+word('less', X) :-
+    language@X -- english,
+    X <> [det([THAN, NUM, NN]), inflected],
+    THAN <> [cat(than), fixedpostarg, word, theta(than)],
+    NUM <> [fixedpostarg, word, theta(num)],
+    trigger(used@NUM, \+ \+ number(NUM, _)),
+    NN <> [fixedpostarg, n, saturated, unspecified, theta(headnoun)].
+
+word('less', X) :-
+    language@X -- english,
+    definition@X -- 'used to form the comparative of some adjectives and adverbs',
+    X <> [adv],
+    target@X <> [a].
+
+word('least', X) :-
+    language@X -- english,
+    X <> [det([NP])],
+    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
+
+word('least', X) :-
+    language@X -- english,
+    X <> [det, inflected].
 
 word('least', X) :-
     language@X -- english,
