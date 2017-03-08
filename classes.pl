@@ -214,8 +214,8 @@ premod(X) :-
     premod(X, _).
 
 fixedpremod(X, T) :-
-    X <> premod(T),
-    T <> notMoved,
+    X <> [premod(T)],
+    trigger(index@T, notMoved(X)),
     end@X -- start@T.
 
 fixedpremod(X) :-
@@ -362,7 +362,7 @@ nmod(X) :-
     language@X -- english,
     X <> [fulladjunct, strictpremod],
     target@X -- T,
-    T <> [baseNoun],
+    T <> [baseNoun, -numeric],
     unspecified(T),
     xstart@T -- end@X,
     modified@result@X -- 1.5,
@@ -526,10 +526,7 @@ setSubjConstraints(V, SUBJ) :-
     trigger(set:position@moved@SUBJ, checkSubjConstraints(V, SUBJ)).
 
 checkSubjConstraints(V, SUBJ) :-
-    checkSubjConstraints(V, SUBJ, language@V).
-
-checkSubjConstraints(V, SUBJ, english) :-
-    (checkNoWH(SUBJ) -> (notMoved(SUBJ) -> true; trigger(finite@V, \+ finite@V = tensed)); true).
+    (checkNoWH(SUBJ) -> (notMoved(SUBJ) -> true; trigger(finite@V, \+ (finite@V = tensed, invertsubj@V = -))); true).
 
 /**
   Constraints on objects: what I want to say about objects of Arabic
@@ -553,13 +550,15 @@ setObjConstraints(V, OBJ) :-
   pronouns)
   **/
 
+checkObjConstraints(V, OBJ) :-
+    ((-zero@OBJ, nonvar(wh@OBJ)) ->
+     movedBefore(OBJ);
+     (notMoved(OBJ);
+      (movedBefore(OBJ), !, xend@OBJ < start@V);
+      true)).
 setObjConstraints(V, OBJ, english):-
     trigger((index@OBJ, set:position@moved@OBJ, xstart@OBJ, xend@OBJ),
-	    ((-zero@OBJ, nonvar(wh@OBJ)) ->
-	     movedBefore(OBJ);
-	     (notMoved(OBJ);
-	      (movedBefore(OBJ), !, xend@OBJ < start@V);
-	      true))).
+	    checkObjConstraints(V, OBJ)).
 
 /**
   An English verbal root needs a tense-marking suffix, with
@@ -714,7 +713,7 @@ aux(X, COMP) :-
 aux(X, COMP) :-
     tag@X -- aux,
     %% It's useful to mark auxiliaries as being different from other verbs
-    X <> [+aux, verb, -target],
+    X <> [+aux, verb, -target, +invertsubj],
     COMP <> [vp, postarg, theta(auxcomp), noLeftShift],
     /**
     %% constraints on ellipsis to allow for "does he" and "he does".
@@ -759,10 +758,24 @@ iverb(X) :-
   that has to be supplied as A2.
   **/
 
+zeroObj(_X, OBJ) :-
+    -zero@OBJ,
+    !.
+zeroObj(X, OBJ) :-
+    incCost(OBJ, 3),
+    subject@X <> [-zero, notMoved],
+    trigger(wh@subject@X, fail),
+    relpronoun(OBJ, 0),
+    wh@OBJ -- [WH | _],
+    -pronominal@target@WH.
+
+checkObjCase(OBJ, X) :-
+    trigger(used@OBJ, \+ \+ (objcase(OBJ); casemarked(OBJ, of))),
+    trigger((used@OBJ, specified@X), (specified@X == + -> objcase(OBJ); casemarked(OBJ, of))).
+
 tverb(X, A2) :-
     language@X -- english,
     X <> [verb, +active, basicSubjConstraints(A1)],
-    trigger(zero@A2, zeroObj(X, A2)),
     tag@X -- verb,
     trigger(altview@subject@X, \+ altview@subject@X == gerund),
     %% plant the stuff we need for handling WH-items: see above
@@ -774,6 +787,7 @@ tverb(X, A2) :-
     A1 <> [np(_), specified, theta(subject)],
     %% Say things about what the object is like and where it allowed to move to (see earlier)
     A2 <> [postarg],
+    trigger(zero@A2, zeroObj(X, A2)),
     %% Plant machinery for spotting that we have a reduced relative
     %% trigger(complete@X, (\+ \+ tensedForm(X) -> trigger(shifted@X, plantReducedRelative(X)); true)),
     %% Some fiddly stuff to make sure that if the object is left shifted then
@@ -805,19 +819,6 @@ tverb(X, A2) :-
   Most transitive verbs have NPs as their objects, so that's the default
   **/
 
-zeroObj(_X, OBJ) :-
-    -zero@OBJ,
-    !.
-zeroObj(X, OBJ) :-
-    incCost(OBJ, 3),
-    subject@X <> [-zero, notMoved],
-    trigger(wh@subject@X, fail),
-    relpronoun(OBJ, 0).
-
-checkObjCase(OBJ, X) :-
-    trigger(used@OBJ, \+ \+ (objcase(OBJ); casemarked(OBJ, of))),
-    trigger((used@OBJ, specified@X), (specified@X == + -> objcase(OBJ); casemarked(OBJ, of))).
-
 tverb(X) :-
     OBJ <> [np(_), specified],
     theta@OBJ -- dobj,
@@ -827,10 +828,10 @@ tverb(X) :-
     setSubjConstraints(X, subject@X),
     movedAfter(subject@X, -).
 
-tverb2(X, A2, A3) :-
-    fail,
+tverb2(X, A2, A3, CASE) :-
     language@X -- english,
     X <> [verb, +active, basicSubjConstraints(A1)],
+    movedAfter(subject@X, -),
     tag@X -- verb,
     trigger(altview@subject@X, \+ altview@subject@X == gerund),
     %% plant the stuff we need for handling WH-items: see above
@@ -839,12 +840,14 @@ tverb2(X, A2, A3) :-
     args@X -- [A2, A3, A1],
     language :: [X, A1, A2, A3],
     %% A1 is the subject. Just the usual constraints.
-    A1 <> [np, theta(subject)],
+    A1 <> [np(_), specified, theta(subject)],
     %% Say things about what the object is like and where it allowed to move to (see earlier)
-    A2 <> [postarg, objcase],
+    A2 <> [postarg],
     trigger(zero@A2, zeroObj(X, A2)),
     A3 <> [postarg],
     trigger(zero@A3, zeroObj(X, A3)),
+    checkObjCase(A3, X),
+    trigger(used@A3, (end@A3 < end@A2 -> casemarked(A2, CASE); objcase(A2))),
     %% Plant machinery for spotting that we have a reduced relative
     %% trigger(complete@X, (\+ \+ tensedForm(X) -> trigger(shifted@X, plantReducedRelative(X)); true)),
     %% Some fiddly stuff to make sure that if the object is left shifted then
@@ -853,7 +856,7 @@ tverb2(X, A2, A3) :-
     start@A2 -- STARTOBJ,
     trigger((STARTSUBJ, STARTOBJ, set:position@moved@A2), (movedBefore(A2) -> STARTOBJ < STARTSUBJ; true)).
 
-tverb2(X, A1, A2) :-
+tverb2(X, A1, A2, _PREP) :-
     language@X -- english,
     X <> [verb, -active, basicSubjConstraints(A1)],
     tag@X -- verb,
@@ -868,8 +871,6 @@ tverb2(X, A1, A2) :-
     %% Say things about what the object is like and where it allowed to move to (see earlier)
     A2 <> [postarg],
     trigger(zero@A2, zeroObj(X, A2)),
-    %% Plant machinery for spotting that we have a reduced relative
-    %% trigger(complete@X, (\+ \+ tensedForm(X) -> trigger(shifted@X, plantReducedRelative(X)); true)),
     %% Some fiddly stuff to make sure that if the object is left shifted then
     %% it doesn't end up between the subject and the verb
     start@A1 -- STARTSUBJ,
@@ -878,8 +879,8 @@ tverb2(X, A1, A2) :-
 
 tverb2(X) :-
     A2 <> [np, theta(iobj)],
-    A3 <> [np, objcase, theta(obj)],
-    tverb2(X, A2, A3).
+    A3 <> [np, theta(obj)],
+    tverb2(X, A2, A3, to).
 
 /**
   Verbs with sentential complements. In many ways they're quite like
@@ -900,25 +901,6 @@ sverb(X, COMP) :-
     comp@COMP -- *(COMPLEMENTISER),
     trigger(set:position@moved@COMP, (notMoved(COMP) -> true; (movedAfter(COMP, +), COMPLEMENTISER == that))),
     trigger(used@COMP, (compact(COMP) -> true; nonvar(wh@COMP))).
-
-%% Arabic: ignore
-sverb(X, COMP) :-
-    language@X -- arabic,
-    X <> [verb],
-    args@X -- [SUBJ, COMP],
-    language :: [X, SUBJ, COMP],
-    setWHView(X),
-    SUBJ <> [np, theta(subj)],
-    trigger(end@SUBJ, \+ (end@SUBJ < start@X, movedBefore(subject@COMP, +))),
-    agree :: [X, subject@X],
-    setSubjConstraints(X, SUBJ),
-    COMP <> [s, specified],
-    dir@COMP <> after,
-    comp@COMP -- *(COMPLEMENTISER),
-    trigger(complete@COMP, (notMoved(COMP) -> true; (movedAfter(COMP, +), COMPLEMENTISER == that))),
-    -zero@COMP,
-    theta@COMP -- xcomp,
-    trigger(xstart@COMP, setObjConstraints(X, COMP)).
 
 /**
   definitions for when we don't know what sort of verb it is
@@ -941,27 +923,27 @@ uverb(X) :-
   earlier in the week)
   **/
 
-det1(X, args@X, numeric@X) :-
+det1(X, args@X) :-
     X <> [inflected, n, -target, standardcase],
     language@X -- language@T,
     agree :: [X, T].
 
-det(X, ARGS, N) :-
-    tag@X -- det,
-    X <> [+specified, det1(ARGS, N)].
-
-def(X, ARGS) :-
-    det(X, ARGS, -).
-
 det1(X) :-
     det1(X, [NN]),
     [agree] :: [X, NN],
-    NN <> [n, -specified, fixedpostarg, theta(headnoun), saturated].
+    NN <> [n, unspecified, fixedpostarg, theta(headnoun), saturated].
+
+det(X, ARGS, numeric@X) :-
+    tag@X -- det,
+    X <> [+specified, det1(ARGS)].
+
+det(X, ARGS) :-
+    det(X, ARGS, -).
 
 det(X) :-
     det(X, [NN]),
     [agree] :: [X, NN],
-    NN <> [n, -specified, fixedpostarg, theta(headnoun), saturated],
+    NN <> [n, unspecified, fixedpostarg, theta(headnoun), saturated],
     externalviews :: [specifier@NN, X].
 
 %%%% ADJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -972,14 +954,19 @@ det(X) :-
   because some can, but the default is that they don't.
   **/
 
+adjModConstraints(X) :-
+    X <> [strictpremod],
+    theta@X -- amod,
+    trigger(theta@result@X, \+ theta@result@X = nmod).
+
 adj(X, args@X) :-
     %% +predicative because they can be the complement of "be"
     %% -- "he is happy"
-    X <> [a, +predicative, fixedpremod],
+    X <> [a, +predicative, premod],
     [cat, mod, args] :: [target@X, result@X],
     target@X <> [n, unspecified, saturated],
     modified@result@X -- 1.5,
-    trigger(index@target@X, (theta@X = amod, trigger(theta@result@X, \+ theta@result@X = nmod))),
+    trigger(index@target@X, adjModConstraints(X)),
     tag@X --  adj.
 
 adj(X) :-
@@ -1000,6 +987,7 @@ aroot(X) :-
 adv1(X, T) :-
     X <> [a, fulladjunct, saturated],
     target@X -- T,
+    -aux@T,
     trigger(cost@T,
 	    (modified@result@X is 1+(start@T-start@X)/0.1,
 	     theta@X = advmod,
@@ -1168,8 +1156,8 @@ zeroPPCOMP(T, COMP) :-
 
 shiftedPPCOMP(X, COMP, T) :-
     ((np(COMP, _), var(wh@COMP)) -> notMoved(COMP); true),
-    (start@COMP < start@X ->
-     (vp(T), trigger(start@subject@T, start@COMP < start@subject@T));
+    (catch(start@COMP < start@X, shiftedPPCOMP1(index@COMP+index@X)) ->
+     (vp(T), trigger(start@subject@T, catch(start@COMP < start@subject@T), shiftedPPCOMP2(COMP)));
      true).
 
 prep(X, ARGS) :-
@@ -1190,7 +1178,7 @@ prep(X, ARGS) :-
      true),
   trigger((start@T, end@T), prepmod(X, T, COMP)),
   trigger(zero@COMP, (-zero@COMP -> true; zeroPPCOMP(T, COMP))),
-  trigger(used@COMP, shiftedPPCOMP(X, COMP, T)).
+  trigger((used@COMP, start@X, start@COMP), shiftedPPCOMP(X, COMP, T)).
 
 /**
   Normal ones, with one following argument
@@ -1322,9 +1310,9 @@ whmod(X) :-
 
 setWHView(V) :-
     altview@EXTVIEW1 -- whclause,
-    last(args@V, L),
     EXTVIEW0\position -- EXTVIEW1,
     EXTVIEW1 <> [compact, notMoved, -modifiable],
+    last(args@V, L),
     trigger(wh@V,
 	    ((wh@V = [EXTVIEW0 | _], tensedForm(V)) ->
 	     trigger(index@L, addExternalView(V, EXTVIEW1));
@@ -1425,12 +1413,3 @@ setNumber(N0, NP) :-
 	    true)),
 	  _,
 	  true).
-
-month(X) :-
-    language@X -- english,
-    X <> [n, saturated, -target, inflected].
-month(X) :-
-    language@X -- english,
-    X <> [n, -target, inflected],
-    args@X -- [Y],
-    Y <> [fixedpostarg, number(_)].

@@ -5,8 +5,7 @@ word('I', X) :-
 
 word('a', X) :-
     language@X -- english,
-    X <> [det([N], +), -def],
-    N <> [n, -specified, -zero, saturated, theta(headnoun)],
+    X <> [det1, -def, +numeric],
     trigger(used@N, \+ \+ number@N=sing).
 
 word('am', X) :-
@@ -126,11 +125,12 @@ word('as', X) :-
     as(X).
 
 word('at', X) :-
-    det(X, [PREDET, NP]),
+    det(X, [PREDET, NUM, NN]),
     tag@X -- det,
-    NP <> [np, theta(subset), fixedpostarg],
     PREDET <> [adj, fixedpostarg, theta(predet)],
-    trigger(root@PREDET, (root@PREDET = ['least':_]; root@PREDET = ['most':_])).
+    trigger(root@PREDET, (root@PREDET = ['least':_]; root@PREDET = ['most':_])),
+    NUM <> [det1, +numeric, theta(num)],
+    NN <> [n, unspecified, saturated, fixedpostarg, theta(headnoun)].
 
 word('at', X) :-
     language@X -- english,
@@ -277,13 +277,11 @@ word('few', X) :-
     NP <> [pp, fixedpostarg, +def, plural, casemarked(of), theta(arg(headnoun))].
 
 word('few', X) :-
-    language@X -- english,
-    X <> [det].
-
-word('few', X) :- 
-    language@X -- english,
-    definition@X -- 'a small elite group',
-    X <> [aroot].
+    X <> [nroot, sing, adjunct],
+    target@X <> [n, saturated],
+    result@X <> [specified],
+    N <> [det1, +numeric, plural, +specified],
+    addDisjunct(externalviews@specifier@X, N).
 
 word('five', X) :-
     language@X -- english,
@@ -570,6 +568,11 @@ word('other', X) :-
     definition@X -- 'belonging to the distant past',
     X <> [nroot].
 
+word('other', X) :-
+    X <> [n, -specified, inflected, -target],
+    args@X -- [NN],
+    NN <> [n, +specified, fixedpostarg, saturated, theta(othercomp)].
+
 word('our', X) :-
     language@X -- english,
     X <> [det, inflected, +def].
@@ -781,7 +784,8 @@ word('to', X) :-
 
 word('to', X) :-
     language@X -- english,
-    X <> [prep, inflected].
+    X <> [inflected],
+    prep(X).
 
 word('too', X) :-
     language@X -- english,

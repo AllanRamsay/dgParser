@@ -49,7 +49,7 @@ word('bear', X) :-
 
 word('bear', X) :-
     language@X -- english,
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     tverb(X).
 
 word('become', X) :-
@@ -69,7 +69,7 @@ word('began', X) :-
 
 word('begin', X) :-
     language@X -- english,
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     verb(X, begin).
 
 word('begun', X) :-
@@ -84,13 +84,13 @@ word('belief', X) :-
 
 word('believe', X) :-
     language@X -- english,
-    X <> [vroot],
+    X <> [vroot, regularPast],
     S <> [tensedForm],
     sverb(X, S).
 
 word('believe', X) :-
     language@X -- english,
-    X <> [vroot],
+    X <> [vroot, regularPast],
     tverb(X).
                  
 word('blame', X) :- 
@@ -148,7 +148,7 @@ word('bred', X) :-
 word('breed', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('breed', X) :- 
     language@X -- english,
@@ -158,7 +158,7 @@ word('breed', X) :-
 word('bring', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('brought', X) :-
     language@X -- english,
@@ -177,7 +177,7 @@ word('business', X) :-
 
 word('buy', X) :-
     language@X -- english,
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     verb(X, buy).
        
 word('Canadian', X) :- 
@@ -220,7 +220,7 @@ word('catalogue', X) :-
 word('catch', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('catch', X) :- 
     language@X -- english,
@@ -257,7 +257,7 @@ word('children', X) :-
 word('choose', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('chose', X) :-
     language@X -- english,
@@ -291,7 +291,7 @@ word('day', X) :-
 word('deal', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('deal', X) :- 
     language@X -- english,
@@ -305,18 +305,18 @@ word('dealt', X) :-
 
 word('deliver', X) :-
     language@X -- english,
-    X <> [vroot],
-    tverb2(X).
+    X <> [vroot, regularPast],
+    tverb(X).
 
 word('deliver', X) :-
     language@X -- english,
-    X <> [vroot],
+    X <> [vroot, regularPast],
     tverb2(X).
 
 word('divorce', X) :-
     language@X -- english,
     definition@X -- 'part',
-    X <> [vroot],
+    X <> [vroot, regularPast],
     tverb(X).
 
 word('divorce', X) :- 
@@ -348,7 +348,7 @@ word('drank', X) :-
 word('draw', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('drew', X) :-
     language@X -- english,
@@ -358,7 +358,7 @@ word('drew', X) :-
 word('drink', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('drink', X) :- 
     language@X -- english,
@@ -373,7 +373,7 @@ word('drunk', X) :-
 word('dwell', X) :-
     language@X -- english,
     uverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('dwelt', X) :-
     language@X -- english,
@@ -382,7 +382,7 @@ word('dwelt', X) :-
 
 word('eat', X) :-
     language@X -- english,
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     tverb(X).
 
 word('eaten', X) :-
@@ -407,7 +407,7 @@ word('exactly', X) :-
     definition@X -- 'characterized by perfect conformity to fact or truth',
     cat@X -- exactly,
     X <> [saturated, fixedpremod, fulladjunct, theta(premod)],
-    target@X <> [number(_)].
+    target@X <> [det1, +numeric].
 
 word('exact', X) :-
     language@X -- english,
@@ -448,7 +448,7 @@ word('fed', X) :-
 word('feed', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('feed', X) :- 
     language@X -- english,
@@ -463,7 +463,7 @@ word('feet', X) :-
 word('fight', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('fight', X) :- 
     language@X -- english,
@@ -478,7 +478,7 @@ word('fled', X) :-
 word('flee', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('foot', X) :-
     language@X -- english,
@@ -494,7 +494,7 @@ word('foot', X) :-
 word('foretell', X) :-
     language@X -- english,
     uverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('foretold', X) :-
     language@X -- english,
@@ -509,7 +509,7 @@ word('forgave', X) :-
 word('forgive', X) :-
     language@X -- english,
     uverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('forsake', X) :-
     language@X -- english,
@@ -548,12 +548,12 @@ word('gave', X) :-
 word('get', X) :-
     language@X -- english,
     verb(X, get),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('give', X) :-
     language@X -- english,
     uverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('glycerinate', X) :-
     language@X -- english,
@@ -599,7 +599,7 @@ word('grew', X) :-
 word('grow', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('hang', X) :-
     language@X -- english,
@@ -666,7 +666,7 @@ word('hung', X) :-
 word('hurt', X) :-
     language@X -- english,
     definition@X -- 'be the source of pain',
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     itverb(X).
 
 word('hurt', X) :-
@@ -744,7 +744,7 @@ word('last', X) :-
 word('lead', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('lead', X) :- 
     language@X -- english,
@@ -759,7 +759,7 @@ word('led', X) :-
 word('leave', X) :-
     language@X -- english,
     definition@X -- 'leave or give by will after one SS death',
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     itverb(X).
 
 word('left', X) :-
@@ -810,7 +810,7 @@ word('literature', X) :-
 word('lose', X) :-
     language@X -- english,
     definition@X -- 'retreat',
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     tverb(X).
 
 word('lost', X) :-
@@ -865,7 +865,7 @@ word('major', X) :-
 word('make', X) :-
     language@X -- english,
     definition@X -- 'take in marriage',
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     verb(X, make).
 
 word('man', X) :-
@@ -903,7 +903,7 @@ word('marry', X) :-
 word('mean', X) :-
     language@X -- english,
     uverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('meant', X) :-
     language@X -- english,
@@ -919,7 +919,7 @@ word('meet', X) :-
 word('meet', X) :-
     language@X -- english,
     verb(X, meet),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('meet', X) :- 
     language@X -- english,
@@ -978,7 +978,7 @@ word('oversaw', X) :-
 word('oversee', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('overtake', X) :-
     language@X -- english,
@@ -1110,7 +1110,7 @@ word('read', X) :-
 word('read', X) :-
     language@X -- english,
     uverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('read', X) :- 
     language@X -- english,
@@ -1120,7 +1120,7 @@ word('read', X) :-
 word('rebuild', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('rebuilt', X) :-
     language@X -- english,
@@ -1139,7 +1139,7 @@ word('resident', X) :-
 word('ride', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('ride', X) :- 
     language@X -- english,
@@ -1177,7 +1177,7 @@ word('run', X) :-
 word('run', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('run', X) :- 
     language@X -- english,
@@ -1217,14 +1217,14 @@ word('say', X) :-
 
 word('see', X) :-
     language@X -- english,
-    X <> [sverb(S), vroot, present],
+    X <> [sverb(S), vroot, pastForms(-, -)],
     -zero@subject@S,
     S <> [specified],
     trigger(finite@S, (presPartForm(S); (tensedForm(S), comp@S == *(that)); infinitive(S))).
 
 word('see', X) :-
     language@X -- english,
-    X <> [tverb, vroot, present].
+    X <> [tverb, vroot, pastForms(-, -)].
                     
 word('Scandinavian', X) :- 
     language@X -- english,
@@ -1233,18 +1233,18 @@ word('Scandinavian', X) :-
 
 word('sell', X) :-
     language@X -- english,
-    X <> [tverb, present, vroot].
+    X <> [tverb, pastForms(-, -), vroot].
          
 word('send', X) :-
     language@X -- english,
     definition@X -- 'broadcast over the airwaves , as in radio or television',
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     tverb(X).
      
 word('send', X) :-
     language@X -- english,
     definition@X -- 'broadcast over the airwaves , as in radio or television',
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     tverb2(X).
      
 word('sent', X) :-
@@ -1280,7 +1280,7 @@ word('shrank', X) :-
 word('shrink', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('shrink', X) :- 
     language@X -- english,
@@ -1295,12 +1295,12 @@ word('shrunk', X) :-
 word('sing', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('sit', X) :-
     language@X -- english,
     iverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('sleep', X) :-
     language@X -- english,
@@ -1314,7 +1314,7 @@ word('slid', X) :-
 word('slide', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('slide', X) :- 
     language@X -- english,
@@ -1339,13 +1339,13 @@ word('sold', X) :-
 word('speak', X) :-
     language@X -- english,
     definition@X -- 'give a speech to',
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     itverb(X).
 
 word('spend', X) :-
     language@X -- english,
     definition@X -- 'broadcast over the airwaves , as in radio or television',
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     tverb(X).
      
 word('spent', X) :-
@@ -1376,7 +1376,7 @@ word('spoken', X) :-
 word('spin', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('spin', X) :- 
     language@X -- english,
@@ -1391,7 +1391,7 @@ word('sprang', X) :-
 word('spring', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('spring', X) :- 
     language@X -- english,
@@ -1410,7 +1410,7 @@ word('spun', X) :-
 
 word('steal', X) :-
     language@X -- english,
-    X <> [tverb, vroot, present].
+    X <> [tverb, vroot, pastForms(-, -)].
 
 word('stock', X) :- 
     language@X -- english,
@@ -1444,7 +1444,7 @@ word('summons', X) :-
 
 word('summons', X) :- 
     language@X -- english,
-    definition@X -- 'a request to be present',
+    definition@X -- 'a request to be pastForms(-, -)',
     X <> [nroot].
 
 word('sung', X) :-
@@ -1466,7 +1466,7 @@ word('swam', X) :-
 word('swim', X) :-
     language@X -- english,
     definition@X -- 'be afloat either on or below a liquid surface and not sink to the bottom',
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     itverb(X).
 
 word('swum', X) :-
@@ -1483,7 +1483,7 @@ word('swim', X) :-
 word('swing', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('swing', X) :- 
     language@X -- english,
@@ -1498,7 +1498,7 @@ word('swung', X) :-
 word('take', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('taught', X) :-
     language@X -- english,
@@ -1508,12 +1508,12 @@ word('taught', X) :-
 word('teach', X) :-
     language@X -- english,
     uverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('tell', X) :-
     language@X -- english,
     uverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('thought', X) :-
     X <> [nroot].
@@ -1547,7 +1547,7 @@ word('today', X) :-
                     
 word('today', X) :- 
     language@X -- english,
-    definition@X -- 'the present time or age',
+    definition@X -- 'the pastForms(-, -) time or age',
     X <> [nroot(_)].
 
 word('told', X) :-
@@ -1579,7 +1579,7 @@ word('travel', X) :-
 word('undergo', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('undergone', X) :-
     language@X -- english,
@@ -1589,7 +1589,7 @@ word('undergone', X) :-
 word('undertake', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('undertook', X) :-
     language@X -- english,
@@ -1614,7 +1614,7 @@ word('update', X) :-
 
 word('used', X) :-
     language@X -- english,
-    X <> [present, inflected, -target],
+    X <> [pastForms(-, -), inflected, -target],
     finite@X -- VFORM,
     trigger(VFORM, (VFORM=tensed; VFORM=infinitive)),
     -zero@subject@X,
@@ -1644,7 +1644,7 @@ word('want', X) :-
 word('wear', X) :-
     language@X -- english,
     itverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('wear', X) :- 
     language@X -- english,
@@ -1659,13 +1659,13 @@ word('went', X) :-
 
 word('win', X) :-
     language@X -- english,
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     verb(X, win).
 
 word('withstand', X) :-
     language@X -- english,
     tverb(X),
-    X <> [vroot, present].
+    X <> [vroot, pastForms(-, -)].
 
 word('withstood', X) :-
     language@X -- english,
@@ -1694,7 +1694,7 @@ word('wore', X) :-
 
 word('write', X) :-
     language@X -- english,
-    X <> [vroot, present],
+    X <> [vroot, pastForms(-, -)],
     verb(X, write).
 
 word('written', X) :-

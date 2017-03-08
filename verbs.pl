@@ -3,7 +3,8 @@ verb(X, be) :-
     language@X -- english,
     PRED <> [+predicative, -zero, specified, saturated, postarg],
     theta@PRED -- predication,
-    trigger(used@PRED, (movedBefore(PRED) -> \+ (n(PRED), subjcase(PRED)); true)),
+    trigger(set:position@moved@PRED, (movedBefore(PRED) -> \+ (n(PRED), subjcase(PRED)); true)),
+    X <> [+invertsubj],
     tverb(X, PRED).
 
 verb(X, be) :-
@@ -40,6 +41,7 @@ verb(X, do) :-
     S <> [infinitiveForm].
 
 verb(X, do) :-
+    fail,
     tverb(X).
 
 verb(X, expect) :-

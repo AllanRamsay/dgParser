@@ -366,3 +366,6 @@ ucase(U) :-
     atom_chars(U, [C | _]),
     C >= 0'A,
     C =< 0'Z.
+
+catch(G, MSG) :-
+    catch(G, EXCEPTION, (cpretty(EXCEPTION::MSG), throw(EXCEPTION))).

@@ -5,9 +5,9 @@
   **/
 
 unspecified(X) :-
-    trigger(used@X, \+ specified@X == +).
+    trigger(specified@X, \+ specified@X == +).
 specified(X) :-
-    trigger(used@X, \+ specified@X == -).
+    trigger(specified@X, \+ specified@X == -).
 
 specified(X, specified@X).
 

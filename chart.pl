@@ -31,7 +31,6 @@ chartParse(TEXT0, X, LANGUAGE, MAX) :-
     gensym(reset),
     D <> sign,
     retractall(D),
-    retractall(mod(_)),
     retractall(packed(_, _)),
     initialiseAgenda(TEXT0, TEXT2, LANGUAGE),
     length(TEXT2, L),
@@ -143,7 +142,6 @@ setPosition(X, Y, Z) :-
 
 view(WORD, WORD).
 view(WORD, VIEW) :-
-    +used@WORD,
     [position\moved, language, hd, cost] :: [WORD, VIEW],
     disjunct(externalviews@WORD, VIEW).
 
@@ -236,6 +234,7 @@ extendWH(X, Y) :-
     
 combineModAndTarget(M, T, R) :-
     [complete, shifted, wh] :: [T, R],
+
     extend(shifted@R, shifted@M),
     target@M -- T,
     +modifiable@T,
@@ -261,7 +260,9 @@ combineModAndTarget(M, T, R) :-
     checkWHPosition(T, M),
     extendWH(T, M),
     mergeCosts(T, M, R),
-    (nonvar(shifted@R) -> var(wh@R); true).
+    incCost(R, 0.5),
+    (nonvar(shifted@R) -> var(wh@R); true),
+    (used@T = +).
 
 argPosition(H0, A, H1) :-
     shifted :: [H0, H1],
@@ -286,8 +287,7 @@ argPosition(H0, A, H1) :-
     A\shifted -- X,
     ((movedBefore(A), var(wh@A)) -> add1(shifted@H1, X); true),
     (set:position@moved@A = + -> true),
-    (notMoved(A) -> true; incCost(H0, 0.3)),
-    (used@T = +).
+    (notMoved(A) -> true; incCost(H0, 0.3)).
 
 combineHdAndArg(H0, A, H1) :-
     [syntax\args, theta, externalviews, complete, moved] :: [H0, H1],
@@ -318,7 +318,7 @@ combineHdAndArg(H0, A, H1) :-
     (used@A = +).
 
 findCombination(X, Z) :-
-    index@X -- 99,
+    index@X == _,
     trace,
     fail.
 findCombination(X, Z) :-
@@ -328,17 +328,16 @@ findCombination(X, Z) :-
 findCombination(M, R) :-
     target@M <> sign,
     +modifiable@T,
-    assert(mod(M)),
     combineModAndTarget(M, T, R).
 findCombination(T, R) :-
     +modifiable@T,
     combineModAndTarget(_M, T, R).
 findCombination(X, Z) :-
     index@Y -- ext(index@X),
-    +used@X,
     [position\moved, language, hd, cost] :: [X, Y],
     disjunct(externalviews@X, Y),
     root@Y -- (altview@Y=root@X),
+    (used@X = +),
     findCombination(Y, Z).
 
 spanningEdge(X, end@X) :-
@@ -412,6 +411,13 @@ whyNot(I, J) :-
     args@IX -- [A | _],
     retrieve(J, JX),
     compare(JX, A).
+
+whyNot(I, J) :-
+    retrieve(I, IX),
+    args@IX -- [A | _],
+    retrieve(J, JX),
+    disjunct(externalviews@JX, KX),
+    compare(KX, A).
 
 whyNotModify(I, J) :-
     retrieve(I, IX),

@@ -22,13 +22,13 @@ number(X, N) :-
       It could be just a noun: "He bought a red one", "I wanted two of them"
       
       **/
-    X <> [n, -target, saturated, inflected, plural, -modifiable].
+    X <> [n, -target, +numeric, -specified, saturated, inflected, plural, -modifiable].
 number(X, N) :-
-    X <> [det1],
+    X <> [det1, +numeric, specified],
     setNumber(N, X).
 number(X, N) :-
     tag@X -- num,
-    X <> [det1([NP], +)],
+    X <> [det1([NP]), +numeric],
     NP <> [pp, fixedpostarg, +def, plural, casemarked(PREP), theta(headnoun)],
     setNumber(N, NP),
     trigger(PREP, (PREP = of; PREP = out)).
