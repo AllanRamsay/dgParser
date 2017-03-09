@@ -130,156 +130,15 @@ rep2(X, X, _VARS0,_VARS1).
 %%%%%%%%%%%%%% Transformation (3): Forward-chaining normal forming %%%%%%%%%%%%%%%%
 %%%% forall(X, man(X) => (exists(Y, woman(Y) & love(X, Y)))) %%%%%%%%%%%%%%%%%%%%%%
 %% Run example:  parseOne('every man loves a woman', X),rep2(X,T,Qstack),nf(Qstack,T,NF).
-pattern([every:det:V,{VP}],T,[every:det:V, VP => T]).
-pattern([a:det:V,{VP}],T,[a:det:V, VP & T]).
-pattern([some:det:V,{VP}],T,[some:det:V, VP & T]).
+pattern([every:det:V,{VP}],T,[every:det:V, {VP,V} => T]).
+pattern([a:det:V,{VP}],T,[a:det:V, {VP,V} & T]).
+pattern([some:det:V,{VP}],T,[some:det:V, {VP,V} & T,V]).
 
 nf([], T, T).
 nf([H | L], T, NF) :-
     !,
     nf(L,T,NF0),
     pattern(H, NF0, NF).
-
-%%%%%%%%%%%% [for next week]Transformation (4): Skolem normal form, Prolog rules %%%
-/*
-  man(X) => woman(sk17([X]))
-  man(X) => love(X, sk17([X]))
-
-  woman(sk17(X)) :- man(X).
-  ...
-  Cases:-
-  ...
-
-From nf:
-[(every:det : A),
- ((arg(headnoun,-) , [(man>''):noun])
-   => [(a:det : B),
-       ((arg(headnoun,-) , [(woman>):noun])
-         & [(love>s : verb),
-            {(arg(dobj,+) , B)},
-            {(arg(subject,+) , A)}])])]
-
-Get the variables to the right place
-  
-[(every:det : A),
- (((arg(headnoun,-) , [(man>''):noun]), A)
-   => [(a:det : B),
-       (((arg(headnoun,-) , [(woman>):noun]), B)
-         & [(love>s : verb),
-            {(arg(dobj,+) , B)},
-            {(arg(subject,+) , A)}])])]
-
-nnf(A & B) = nnf(A) & nnf(B)
-nnf(A or B) = nnf(A) or nnf(B)
-nnf(forall(X, A)) == forall(X, nnf(A))
-nnf(exists(X, A)) == exists(X, nnf(A))
-nnf(A => B) = nnf(not(A) or B)
-nnf(A) = A
-
-  nnf(not(A & B)) = nnf(not(A)) or nnf(not(B))
-  nnf(not(A or B)) = nnf(not(A)) & nnf(not(B))
-  nnf(not(A => B)) = nnf(A) & nnf(not(B))
-  nnf(not(forall(X, A))) = exists(X, not(nnf(A)))
-  nnf(not(exists(X, A))) = forall(X, not(nnf(A)))
-  nnf(not(A)) = not(A)
-
-pol(A & B, +) = pol(A, +) & pos(B, +)
-pol(A or B) = pol(A, +) or pol(B, +)
-pol(A => B, +) = pol(A, -) => pol(B, +)
-pol(forall(X, A), +) => forall(X, pol(A, +))
-pol(A & B, -) => pol(A, -) & pol(B, -) ???
-pol(A or B, -) => pol(A, -) or pol(B, -) ???
-pol(A => B, -) => pol(A, -) & pol(not(B), +)
-pol(not(B), +) => pol(B, -)
-
-p(t0)
-r(t1)
-(i) forall(X, p(X)) => forall(Y, q(Y))
-(ii) forall(X, p(X) => forall(Y, q(Y)))
-
-  nf(i) p(sk) => q(Y)
-  nf(ii) p(X) => q(Y)
-
-
-p => (q & r) --> p => q & p => r
-not(p) --> p => absurd
-  
-
-  human(X)- => mortal(X)+
-  husband(X, Y)- => man(X)+
-  husband(A, R)-
-  man < human
-
-I think it's simpler than I was saying. If we do polarity marking and
-removing negation at the same time, I think it comes out as below. qnf
-takes two arguments, a formula and a polarity mark, which is + or
--. The +cases for &, or, forall, exists are obvious. not(A) gets
-replaced by A => false, not matter what the polarity, and we do it to
-that, so the +case for not reduces to the +case for =>. The +case for
-=> involves making the antecedent -.
-  
-qnf(A & B, +) => qnf(A, +) & qnf(B, +)
-qnf(A or B, +) => qnf(A, +) or qnf(B, +)
-qnf(forall(X, P), +) => forall(X, qnf(P, +)
-qnf(exists(X, P), +) => exists(X, qnf(P, +))
-qnf(not(A), POL) => qnf(A => absurd, POL)
-qnf(A => P, +) => qnf(A, -) => qnf(P, +)
-  
-qnf(A & B, -) => qnf(not(A & B), +)
-qnf(A or B, -) => qnf(not(A or B) +)
-qnf(forall(X, P), -) => qnf(not(exists(X, P)), +)
-qnf(exists(X, P), -) => qnf(not(forall(X, P)), +)
-  
-qnf(A => B, -) => qnf(A, +) & qnf(B, -)
-  
-The -cases are basically the same as the standard negation normal
-form. (A & B) is false if not(A & B) is true, (A or B) is false if
-(not(A) and not(B)) is true, exists(X, P) is false, if forall(X,
-not(P)) is true, ...
-
-The key is qnf(A => P, +) => qnf(A, -) => qnf(P, +). This does the
-polarity switching in the antecedent while preserving the fact that
-this is an implication and not just an instance of not(A) or B.
-
-Lots of things get turned into not(...) and then immediately into
-... => absurd. That's fine, don't care. It just means that all the
-negative cases are going to get looked after by the same process, so
-we don't have to worry about handling a whole pile of different
-negative cases. not(P) is P => absurd, no matter what P is, so
-qnf(not(P), +) is qnf(P => absurd, +), no matter what P is, and the
-rule for =>, + will take care of it; and qnf(not(P), -) is qnf(P =>
-absurd, -, and the rule for =>,- will take care of it.
-
-It may happen that this leads to things that look like P => (Q => (R
-=> T)), and we'd like to tidy them up to be (P & Q & R) => T. That's
-not going to be too difficult, but we do need to be a bit careful. P
-=> (Q => R) is the same as (P & Q) => R, but (P => Q) => R is not. But
-actually you'd have to be pretty careless to get this wrong, because
-you'd have to explicitly introduce a step that made this mistake. So
-I'm not going to worry about that. We are *not* going to do any normal
-forming of (P => Q) => R: rules like that are pretty weird, won't
-occur very often, and if they do occur then they should be used for
-proving R by proving (P => Q).
-
-  
-
-  
-  
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -376,8 +235,80 @@ General discussion about other quantifiers:
 
   *All* quantifiers are either basically conjunctive or basically implicational.
   
+Task 4 Cont.:
+-------
+
+ nnf,poalrity marking, Skolem normal form-->Prolog rules 
+  ------------------------------------------------------
+
+  man(X) => woman(sk17([X]))
+  man(X) => love(X, sk17([X]))
+
+  woman(sk17(X)) :- man(X).
+  ...
+  Cases:-
+  ...
+
+From nf:
+[(every:det : A),
+ ((arg(headnoun,-) , [(man>''):noun])
+   => [(a:det : B),
+       ((arg(headnoun,-) , [(woman>):noun])
+         & [(love>s : verb),
+            {(arg(dobj,+) , B)},
+            {(arg(subject,+) , A)}])])]
+
+Get the variables to the right place
+  
+[(every:det : A),
+ (((arg(headnoun,-) , [(man>''):noun]), A)
+   => [(a:det : B),
+       (((arg(headnoun,-) , [(woman>):noun]), B)
+         & [(love>s : verb),
+            {(arg(dobj,+) , B)},
+            {(arg(subject,+) , A)}])])]
+
+nnf(A & B) = nnf(A) & nnf(B)
+nnf(A or B) = nnf(A) or nnf(B)
+nnf(forall(X, A)) == forall(X, nnf(A))
+nnf(exists(X, A)) == exists(X, nnf(A))
+nnf(A => B) = nnf(not(A) or B)
+nnf(A) = A
+
+  nnf(not(A & B)) = nnf(not(A)) or nnf(not(B))
+  nnf(not(A or B)) = nnf(not(A)) & nnf(not(B))
+  nnf(not(A => B)) = nnf(A) & nnf(not(B))
+  nnf(not(forall(X, A))) = exists(X, not(nnf(A)))
+  nnf(not(exists(X, A))) = forall(X, not(nnf(A)))
+  nnf(not(A)) = not(A)
+
+pol(A & B, +) = pol(A, +) & pos(B, +)
+pol(A or B) = pol(A, +) or pol(B, +)
+pol(A => B, +) = pol(A, -) => pol(B, +)
+pol(forall(X, A), +) => forall(X, pol(A, +))
+pol(A & B, -) => pol(A, -) & pol(B, -) ???
+pol(A or B, -) => pol(A, -) or pol(B, -) ???
+pol(A => B, -) => pol(A, -) & pol(not(B), +)
+pol(not(B), +) => pol(B, -)
+
+p(t0)
+r(t1)
+(i) forall(X, p(X)) => forall(Y, q(Y))
+(ii) forall(X, p(X) => forall(Y, q(Y)))
+
+  nf(i) p(sk) => q(Y)
+  nf(ii) p(X) => q(Y)
+
+
+p => (q & r) --> p => q & p => r
+not(p) --> p => absurd
+  
+
+  human(X)- => mortal(X)+
+  husband(X, Y)- => man(X)+
+  husband(A, R)-
+  man < human
+  
+
+
 ----------------------------------------------------------------------------  **/
-
-
-
-
