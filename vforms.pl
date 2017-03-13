@@ -60,14 +60,15 @@ presPart(X) :-
 finite(X, finite@X).
 
 tensedForm(X) :-
-    X <> [+specified, finite(tensed)],
+    X <> [finite(tensed)],
     -zero@subject@X,
     agree :: [X, subject@X].
     
 tensed(X) :-
     trigger(language@X, (language@X = english -> -zero@subject@X; true)),
     X <> [tensedForm, +active, -target],
-    subject@X <> subjcase.
+    subject@X <> subjcase,
+    specifier@X -- tense(tense@X, aux@X).
 
 presTenseForm(X) :-
     X <> [tensedForm, present].

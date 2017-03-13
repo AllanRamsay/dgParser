@@ -5,8 +5,8 @@ word('I', X) :-
 
 word('a', X) :-
     language@X -- english,
-    X <> [det1, -def, +numeric],
-    trigger(used@N, \+ \+ number@N=sing).
+    X <> [-def, +numeric, sing],
+    det1(X).
 
 word('am', X) :-
     language@X -- english,
@@ -19,7 +19,8 @@ word('am', X) :-
 
 word('another', X) :-
     language@X -- english,
-    X <> [det, -def],
+    det(X),
+    X <>[-def],
     args@X -- [N],
     trigger(width@N, \+ \+ number@N=sing).
 
@@ -125,12 +126,12 @@ word('as', X) :-
     as(X).
 
 word('at', X) :-
-    det(X, [PREDET, NUM, NN]),
-    tag@X -- det,
+    det3(X),
+    args@X -- [PREDET, NUM],
     PREDET <> [adj, fixedpostarg, theta(predet)],
     trigger(root@PREDET, (root@PREDET = ['least':_]; root@PREDET = ['most':_])),
-    NUM <> [det1, +numeric, theta(num)],
-    NN <> [n, unspecified, saturated, fixedpostarg, theta(headnoun)].
+    NUM <> [det1, +numeric, fixedpostarg],
+    target@X <> [n, unspecified, saturated].
 
 word('at', X) :-
     language@X -- english,
@@ -270,18 +271,10 @@ word('everything', X) :-
 word('exactly', X) :-
     X <> [cat(exactly), saturated, fulladjunct, strictpremod],
     target@X <> [det([_], +)].
-    
-word('few', X) :-
-    language@X -- english,
-    X <> [det([NP]), thirdSing],
-    NP <> [pp, fixedpostarg, +def, plural, casemarked(of), theta(arg(headnoun))].
 
 word('few', X) :-
-    X <> [nroot, sing, adjunct],
-    target@X <> [n, saturated],
-    result@X <> [specified],
-    N <> [det1, +numeric, plural, +specified],
-    addDisjunct(externalviews@specifier@X, N).
+    language@X -- english,
+    few(X).
 
 word('five', X) :-
     language@X -- english,
@@ -685,8 +678,8 @@ word('some', X) :-
 
 word('some', X) :-
     language@X -- english,
-    X <> [det([NP])],
-    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
+    det1(X),
+    target@X <> [pp, +def, casemarked(of)].
 
 word('someone', X) :-
     language@X -- english,
@@ -748,7 +741,8 @@ word('th', X) :-
 
 word('the', X) :-
     language@X -- english,
-    X <> [det, inflected, +def].
+    det(X),
+    X <> [+def].
 
 word('their', X) :-
     language@X -- english,
@@ -981,9 +975,9 @@ word('.', X) :-
     language@X -- english,
     cat@X -- utterance,
     tag@X -- punct,
-    -target@X,
+    X <> [+specified, -target],
     args@X -- [S],
-    S <> [x, saturated, -zero, prearg, tensedForm, theta(THETAS)],
+    S <> [x, saturated, fixedprearg, tensedForm, theta(THETAS), +specified, compact],
     trigger(v:xbar@cat@S, (v(S) -> THETAS = claim; THETAS = frag)),
     start@S -- 0.
 

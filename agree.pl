@@ -5,7 +5,7 @@
   **/
 
 unspecified(X) :-
-    trigger(specified@X, \+ specified@X == +).
+    trigger(complete@X, \+ specified@X == +).
 specified(X) :-
     trigger(specified@X, \+ specified@X == -).
 

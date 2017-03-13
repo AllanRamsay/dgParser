@@ -41,8 +41,11 @@ verb(X, do) :-
     S <> [infinitiveForm].
 
 verb(X, do) :-
-    fail,
     tverb(X).
+
+verb(X, do) :-
+    tverb(X, ADV),
+    ADV <> [adv, theta(quality)].
 
 verb(X, expect) :-
     X <> [sverb(S)],

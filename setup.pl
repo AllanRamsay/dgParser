@@ -18,13 +18,15 @@ noncompilable([agree,
 	       verbs,
 	       mclasses,
 	       determiners,
+	       nouns,
 	       lookup,
 	       chart,
 	       treepr,
 	       conll,
 	       parseconstrained,
 	       preprocess,
-	       spelling]).
+	       spelling,
+	       transformations]).
 
 setup(COMPILING, DICT) :-
     coreFiles(CFILES),

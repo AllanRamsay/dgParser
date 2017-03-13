@@ -234,12 +234,9 @@ extendWH(X, Y) :-
     
 combineModAndTarget(M, T, R) :-
     [complete, shifted, wh] :: [T, R],
-
     extend(shifted@R, shifted@M),
     target@M -- T,
-    +modifiable@T,
-    -zero@T,
-    %% -zero@M,
+    T <> [+modifiable],
     result@M -- R,
     \+ ((length(wh@T, L) -> true; true), L = 2),
     [surface, language, externalviews, hd] :: [T, R],
@@ -252,9 +249,9 @@ combineModAndTarget(M, T, R) :-
     modified@R -- MODR,
     (var(span@M) -> find(M); find(T)),
     \+ (nonvar(MODT), nonvar(MODR), (MODT > MODR; (MODT == MODR, \+ compact(R)))),
-    (append(root@T, [{modifier(theta@M, specified@T), root@M}], root@R) ->
-     true;
-     root@R = [root@T, {modifier(theta@M, specified@T), root@M}]),
+    (theta@M == specifier ->
+     root@R = spec(root@M, root@T);
+     append(root@T, [{modifier(theta@M, specified@T), root@M}], root@R)),
     setPosition(T, M, R),
     modPosition(M, T, R),
     checkWHPosition(T, M),
@@ -305,9 +302,10 @@ combineHdAndArg(H0, A, H1) :-
      find(A);
      find(H0)),
     default(zero@A = -),
-    (append(root@H0, [{arg(theta@A, specified@A), root@A}], root@H1) ->
-     true;
-     root@H1 = [root@H0, {arg(theta@A, specified@A), root@A}]),
+    ((specified@A == +, nonvar(specifier@A)) ->
+     ROOTA = spec(specifier@A, root@A);
+     ROOTA = root@A),
+    append(root@H0, [{theta@A, ROOTA}], root@H1),
     checkWHPosition(H0, A),
     extendWH(H0, A),
     setPosition(H0, A, H1),
@@ -317,9 +315,8 @@ combineHdAndArg(H0, A, H1) :-
     (nonvar(shifted@H1) -> var(wh@H1); true),
     (used@A = +).
 
-findCombination(X, Z) :-
-    index@X == _,
-    trace,
+findCombination(X, _Z) :-
+    breakOn(X, _),
     fail.
 findCombination(X, Z) :-
     combineHdAndArg(X, _Y, Z).

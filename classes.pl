@@ -460,7 +460,7 @@ properName(X, U) :-
     default(setCost(X, 0)).
 
 pronoun(P) :-
-    P <> [np(+), +pronominal, standardcase],
+    P <> [np(_), specified, +pronominal, standardcase],
     tag@P -- pronoun,
     trigger(used@P, (\+ \+ objcase(P) -> noRightShift(P); true)).
 
@@ -520,6 +520,7 @@ setSubjConstraints(V, SUBJ) :-
       So there's a feature, subject, where I store the information that I
       actually care about.
       **/
+    +specified@SUBJ,
     V <> [basicSubjConstraints(SUBJ)],
     trigger((specified@V, finite@V), (finite@V == tensed -> subjcase(SUBJ); objcase(SUBJ))),
     trigger(L, (L = arabic -> after(dir@SUBJ); before(dir@SUBJ))),
@@ -749,7 +750,7 @@ iverb(X) :-
     language :: [X, SUBJ],
     %% plant the stuff we need for handling WH-items: see above
     setWHView(X),
-    SUBJ <> [np(_), specified, theta(subject)],
+    SUBJ <> [np, theta(subject)],
     setSubjConstraints(X, SUBJ).
 
 /**
@@ -775,7 +776,8 @@ checkObjCase(OBJ, X) :-
 
 tverb(X, A2) :-
     language@X -- english,
-    X <> [verb, +active, basicSubjConstraints(A1)],
+    X <> [verb, +active, -aux],
+    setSubjConstraints(X, A1),
     tag@X -- verb,
     trigger(altview@subject@X, \+ altview@subject@X == gerund),
     %% plant the stuff we need for handling WH-items: see above
@@ -784,9 +786,9 @@ tverb(X, A2) :-
     args@X -- [A2, A1],
     language :: [X, A1, A2],
     %% A1 is the subject. Just the usual constraints.
-    A1 <> [np(_), specified, theta(subject)],
+    A1 <> [np, theta(subject)],
     %% Say things about what the object is like and where it allowed to move to (see earlier)
-    A2 <> [postarg],
+    A2 <> [postarg, +specified],
     trigger(zero@A2, zeroObj(X, A2)),
     %% Plant machinery for spotting that we have a reduced relative
     %% trigger(complete@X, (\+ \+ tensedForm(X) -> trigger(shifted@X, plantReducedRelative(X)); true)),
@@ -805,7 +807,7 @@ tverb(X, A2) :-
 
 tverb(X, A2) :-
     language@X -- english,
-    X <> [verb, -active, basicSubjConstraints(A2)],
+    X <> [verb, -active, basicSubjConstraints(A2), -aux],
     tag@X -- verb,
     setWHView(X),
     pastPartForm(X),
@@ -820,7 +822,7 @@ tverb(X, A2) :-
   **/
 
 tverb(X) :-
-    OBJ <> [np(_), specified],
+    OBJ <> [np],
     theta@OBJ -- dobj,
     tverb(X, OBJ),
     trigger(active@X, (active@X = + -> (checkObjCase(OBJ, X), movedAfter(subject@X, -)); true)),
@@ -830,7 +832,7 @@ tverb(X) :-
 
 tverb2(X, A2, A3, CASE) :-
     language@X -- english,
-    X <> [verb, +active, basicSubjConstraints(A1)],
+    X <> [verb, +active, -aux, basicSubjConstraints(A1)],
     movedAfter(subject@X, -),
     tag@X -- verb,
     trigger(altview@subject@X, \+ altview@subject@X == gerund),
@@ -858,7 +860,7 @@ tverb2(X, A2, A3, CASE) :-
 
 tverb2(X, A1, A2, _PREP) :-
     language@X -- english,
-    X <> [verb, -active, basicSubjConstraints(A1)],
+    X <> [verb, -active, -aux, basicSubjConstraints(A1)],
     tag@X -- verb,
     trigger(altview@subject@X, \+ altview@subject@X == gerund),
     %% plant the stuff we need for handling WH-items: see above
@@ -923,28 +925,23 @@ uverb(X) :-
   earlier in the week)
   **/
 
-det1(X, args@X) :-
-    X <> [inflected, n, -target, standardcase],
+det3(X) :-
+    cat@X -- det,
+    X <> [strictpremod, theta(specifier)],
     language@X -- language@T,
-    agree :: [X, T].
-
+    [agree] :: [X, target@X, result@X],
+    target@X <> [-zero],
+    result@X <> [n, +specified, -target, standardcase].
+    
+det2(X) :-
+    X <> [det2, saturated].
+    
 det1(X) :-
-    det1(X, [NN]),
-    [agree] :: [X, NN],
-    NN <> [n, unspecified, fixedpostarg, theta(headnoun), saturated].
-
-det(X, ARGS, numeric@X) :-
-    tag@X -- det,
-    X <> [+specified, det1(ARGS)].
-
-det(X, ARGS) :-
-    det(X, ARGS, -).
+    X <> [inflected, det2].
 
 det(X) :-
-    det(X, [NN]),
-    [agree] :: [X, NN],
-    NN <> [n, unspecified, fixedpostarg, theta(headnoun), saturated],
-    externalviews :: [specifier@NN, X].
+    det1(X),
+    target@X <> [n, unspecified].
 
 %%%% ADJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -964,7 +961,7 @@ adj(X, args@X) :-
     %% -- "he is happy"
     X <> [a, +predicative, premod],
     [cat, mod, args] :: [target@X, result@X],
-    target@X <> [n, unspecified, saturated],
+    target@X <> [n, unspecified, saturated, -zero],
     modified@result@X -- 1.5,
     trigger(index@target@X, adjModConstraints(X)),
     tag@X --  adj.
@@ -972,14 +969,21 @@ adj(X, args@X) :-
 adj(X) :-
     adj(X, []).
 
-aroot1(X, args@X) :-
+aroot2(X) :-
     [cat] :: [target@X, result@X],
     affixes@X -- [NUM],
     X\affix\affixes\dir\root -- NUM,
     NUM <> suffix(adjsuffix).
 
+aroot2(X, args@X) :-
+    X <> [aroot2].
+
+aroot1(X, ARGS) :-
+    X <> [aroot2(ARGS)],
+    target@X <> [n, unspecified].
+
 aroot(X, ARGS) :-
-    X <> [fulladjunct, aroot1(ARGS)].
+    X <> [a, fulladjunct, aroot1(ARGS)].
 
 aroot(X) :-
     X <> [aroot([])].
@@ -987,7 +991,7 @@ aroot(X) :-
 adv1(X, T) :-
     X <> [a, fulladjunct, saturated],
     target@X -- T,
-    -aux@T,
+    T <> [-aux, -zero],
     trigger(cost@T,
 	    (modified@result@X is 1+(start@T-start@X)/0.1,
 	     theta@X = advmod,
@@ -1082,7 +1086,7 @@ commaAsSep(X) :-
   **/
 
 p(X) :-
-    X <> [n, +specified, -modifiable],
+    X <> [n, +specified],
     [case@X] -- root@hd@X.
 
 /**
@@ -1167,10 +1171,10 @@ prep(X, ARGS) :-
     +predicative@X,
     modified@result@X -- 2,
     target@X -- T,
-    T <> [x],
+    T <> [x, -zero],
     args@X -- ARGS,
     (ARGS = [COMP] ->
-     (COMP <> [noRightShift, compact, objcase],
+     (COMP <> [noRightShift, compact, objcase, +specified],
       [def, agree] :: [X, COMP],
       theta@COMP -- comp,
       trigger((start@T, end@T), nonvar(index@COMP)),

@@ -57,7 +57,6 @@ times(X, _N) :-
     X <> [adv],
     target@X <> [vp].
 
-
 as(X) :-
     language@X -- english,
     cat@X -- as,
@@ -74,4 +73,20 @@ as(X) :-
     trigger(index@target@X, nonvar(index@AS)),
     cat@AS -- as,
     AS <> [fixedpostarg, theta(asArg), saturated]. 
-    
+
+/**
+  few people: few is a plural determiner (and so is 'fewer')
+
+  a few people: 'a few' is a plural determiner. You can just about use a
+  noun modifier on it 'a lucky few were rescued', 'the few who were rescued were
+  very lucky'. *It doesn't need an N to specify*
+  **/
+
+few(X) :-
+    X <> [det2, saturated, aroot2, plural].
+
+few(X) :-
+    X <> [nroot(_), sing],
+    -target@X,
+    D <> [det2, inflected, plural],
+    trigger(specified@X, addExternalView(X, D)).

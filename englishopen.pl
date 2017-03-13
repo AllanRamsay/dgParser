@@ -1650,6 +1650,23 @@ word('wear', X) :-
     language@X -- english,
     definition@X -- 'a covering designed to be worn on a person SS body',
     X <> [nroot].
+                    
+word('well', X) :- 
+    language@X -- english,
+    definition@X -- 'a deep hole or shaft dug or drilled to obtain water or oil or gas or brine',
+    X <> [nroot].
+
+word('well', X) :-
+    language@X -- english,
+    definition@X -- 'in a good or proper or satisfactory manner or to a high standard',
+    X <> [adv].
+
+word('well', X) :-
+    language@X -- english,
+    definition@X -- 'come up , as of a liquid',
+    X <> [vroot, regularPast],
+    iverb(X),
+    setCost(X, 100).
 
 word('went', X) :-
     language@X -- english,

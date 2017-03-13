@@ -13,7 +13,7 @@ word('ing', X) :-
 word('s', X) :-
     language@X -- english,
     -target@X,
-    X <> [suffix(tns), presTense, thirdSing, +specified, finite(tensed)].
+    X <> [suffix(tns), presTense, thirdSing, finite(tensed)].
 
 word('', X) :-
     language@X -- english,
@@ -22,6 +22,7 @@ word('', X) :-
 
 word('s', X) :-
     language@X -- english,
+    specifier@X -- generic,
     X <> [suffix(numPerson), third, plural, -target, standardcase, -def].
 
 word('', X) :-
@@ -36,7 +37,7 @@ word('ed', X) :-
     trigger((PT, PP),
 	    ((PT=ed, PP=ed) -> edForm(X);
 	     (PT=ed -> pastTense(X);
-	      PP = ed -> pastPart(X)))).
+	      PP=ed -> pastPart(X)))).
 
 word('en', X) :-
     language@X -- english,
@@ -46,13 +47,12 @@ word('en', X) :-
 word('', X) :-
     language@X -- english,
     X <> [suffix(adjsuffix)],
-    degree@X -- simple,
-    adj(X).
+    degree@X -- simple.
 
 word('er', X) :-
     language@X -- english,
     degree@X -- comparative,
-    X <> [suffix(adjsuffix), adj].
+    X <> [suffix(adjsuffix)].
 
 word('est', X) :-
     language@X -- english,
