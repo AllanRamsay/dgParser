@@ -139,8 +139,86 @@ nf([H | L], T, NF) :-
     !,
     nf(L,T,NF0),
     pattern(H, NF0, NF).
+%% Run example:  parseOne('every man loves a woman', X),rep2(X,T,Qstack),lnf(Qstack,T,LNF),pretty(LNF).
+pattern2([every:det:V,{VP}],T,[forall(V, {VP,V}) => T]).
+pattern2([a:det:V,{VP}],T,[exists(V, {VP,V}) & T]).
+pattern2([some:det:V,{VP}],T,[exists(V, {VP,V}) & T]).
 
+lnf([], T, T).
+lnf([H | L], T, NF) :-
+    !,
+    lnf(L,T,NF0),
+    pattern2(H, NF0, [NF|_]).
 
+%%%%%%%%%%%%%% Transformation (4): Skolemisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Run example:  parseOne('every man loves a woman', X),rep2(X,T,Qstack),lnf(Qstack,T,LNF),qff(LNF,SNF),pretty(SNF).
+
+%it's convenient to have function to find the swapped version of the polarity.
+swap(+, -).
+swap(-, +).
+/* The approach I'm going to take involves working recursively through my
+formula. As I go there are two things I need -- a stack of universally
+quantifier variables and a polarity marker. These start out as [] and
++ */
+
+qff(A0, A1) :-
+    qff(A0, A1, [], +).
+/* There are then a surprisingly small set of cases to consider.
+ Simple ones: assuming that I've dealt with quantifiers outside a conjunction or disju ction, I will just deal with the conjuncts/disjuncts individually. It doesn't matter what the polarity is. */
+qff(A0 & B0, A1 & B1, S, P) :-
+    !,
+    qff(A0, A1, S, P),
+    qff(B0, B1, S, P).
+qff(A0 or B0, A1 or B1, S, P) :-
+    !,
+    qff(A0, A1, S, P),
+    qff(B0, B1, S, P).
+
+/* Negation: just replace it by => absurd. Doesn't matter what the polarity
+was. not(A) is, by definition, a shorthand for A => absurd. So just do
+the replacement. */
+
+qff(not(A0), QFF, S, P) :-
+    !,
+    qff(A0 => absurd, QFF, S, P).
+
+/*The quantifiers. In positive contexts, we just drop univerals (while
+adding them to the stack) and Skolemise existentials.*/
+
+qff(forall(X, A0), A1, S, +) :-
+    !,
+    qff(A0, A1, [X | S], +).
+qff(exists(X, A0), A1, S, +) :-
+    !,
+    gensym(sk, SK),
+    X = [SK | S],
+    qff(A0, A1, S, +).
+
+/* But in negative contexts we do it the other way round.*/
+
+qff(exists(X, A0), A1, S, -) :-
+    !,
+    qff(A0, A1, [X | S], -).
+qff(forall(X, A0), A1, S, -) :-
+    !,
+    gensym(sk, SK),
+    X = [SK | S],
+    qff(A0, A1, S, -).
+
+/* Implications. This is the interesting one. These swap the polarity on
+the antecedent and leave it unchanged on the consequent. And that's
+all. We'll see that in action in a minute, because it's not 100% clear
+at first sight that this is right. */
+
+qff(A0 => B0, A1 => B1, S, P0) :-
+    !,
+    swap(P0, P1),
+    qff(A0, A1, S, P1),
+    qff(B0, B1, S, P0).
+
+/* And otherwise we just leave it unchanged.*/
+
+qff(A, A, _, _).
 
 
 
