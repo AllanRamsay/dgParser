@@ -90,3 +90,13 @@ few(X) :-
     -target@X,
     D <> [det2, inflected, plural],
     trigger(specified@X, addExternalView(X, D)).
+
+some(X) :-
+    language@X -- english,
+    X <> [det1, -def],
+    trigger(case@target@X, setDetTarget(target@X)).
+
+setDetTarget(T) :-
+    T <> [-specified, standardcase].
+setDetTarget(T) :-
+    T <> [pp, +def, casemarked(of)].

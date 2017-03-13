@@ -354,7 +354,7 @@ word('have', X) :-
 
 word('he', X) :-
     language@X -- english,
-    X <> [pronoun, subjcase, thirdSing, -target, inflected].
+    X <> [subjpronoun, thirdSing, -target, inflected].
 
 word('her', X) :-
     language@X -- english,
@@ -655,7 +655,7 @@ word('several', X) :-
 
 word('she', X) :-
     language@X -- english,
-    X <> [pronoun, subjcase, thirdSing, -target].
+    X <> [subjpronoun, thirdSing, -target].
 
 word('should', X) :-
     language@X -- english,
@@ -674,12 +674,7 @@ word('so', X) :-
 
 word('some', X) :-
     language@X -- english,
-    X <> [det, -def].
-
-word('some', X) :-
-    language@X -- english,
-    det1(X),
-    target@X <> [pp, +def, casemarked(of)].
+    some(X).
 
 word('someone', X) :-
     language@X -- english,

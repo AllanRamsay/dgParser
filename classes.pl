@@ -459,10 +459,11 @@ properName(X, U) :-
     default(saturated(X)),
     default(setCost(X, 0)).
 
-pronoun(P) :-
-    P <> [np(_), specified, +pronominal, standardcase],
-    tag@P -- pronoun,
-    trigger(used@P, (\+ \+ objcase(P) -> noRightShift(P); true)).
+pronoun(X) :-
+    X <> [np(_), +specified, +pronominal, standardcase],
+    specifier@X -- proRef,
+    tag@X -- pronoun,
+    trigger(used@X, (\+ \+ objcase(X) -> noRightShift(X); true)).
 
 objpronoun(X) :-
     X <> [pronoun, objcase, +def, -target, noRightShift].
@@ -941,7 +942,7 @@ det1(X) :-
 
 det(X) :-
     det1(X),
-    target@X <> [n, unspecified].
+    target@X <> [n, unspecified, standardcase].
 
 %%%% ADJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
