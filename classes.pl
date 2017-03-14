@@ -210,7 +210,7 @@ premod1(X, T) :-
     dir@T <> after.
 
 premod(X, T) :-
-    X <> [premod(T)],
+    X <> [premod1(T)],
     T <> [-zero].
 
 premod(X) :-
