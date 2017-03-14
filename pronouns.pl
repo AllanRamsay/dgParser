@@ -12,7 +12,7 @@ relpronoun(X, modified@result@WH) :-
     X <> [whpronoun(WH)],
     WH <> [saturated, fulladjunct, -modifiable, fixedpostmod, compact],
     cat@WH -- whclause,
-    target@WH <> [n, unspecified],
+    target@WH <> [n, unspecified, saturated],
     trigger(index@target@WH, theta@WH=rcmod).
 
 relpronoun(X) :-

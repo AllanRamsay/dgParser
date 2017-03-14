@@ -5,6 +5,8 @@ signature(vclass=[pastPart=_, pastTense=_]).
 pastTenseSuffix(X, pastTense:vclass@class@X).
 pastPartSuffix(X, pastPart:vclass@class@X).
 
+pastForms(X, pastTense:vclass@class@X, pastPart:vclass@class@X).
+
 regularPast(X) :-
-    X <> [pastTenseSuffix(ed), pastPartSuffix(ed)].
+    X <> [pastForms(ed, ed)].
 	  

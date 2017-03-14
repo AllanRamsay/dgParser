@@ -931,11 +931,12 @@ det3(X) :-
     X <> [strictpremod, theta(specifier)],
     language@X -- language@T,
     [agree] :: [X, target@X, result@X],
-    target@X <> [-zero],
+    [def] :: [X, result@X],
+    target@X <> [n, -zero],
     result@X <> [n, +specified, -target, standardcase].
     
 det2(X) :-
-    X <> [det2, saturated].
+    X <> [det3, saturated].
     
 det1(X) :-
     X <> [inflected, det2].

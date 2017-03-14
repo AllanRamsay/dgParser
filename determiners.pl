@@ -1,48 +1,4 @@
-    
-all(X) :-
-    language@X -- english,
-    X <> [det([NP])],
-    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
-
-all(X) :-
-    language@X -- english,
-    X <> [det, thirdPlural, -def].
-
-all(X) :-
-    cat@X -- all,
-    X <> [saturated, fulladjunct, premod, theta(allAsMod)],
-    target@X <> [np, +def],
-    trigger(set:position@moved@X, (notMoved(X) -> true; (movedAfter(X), subjcase(target@X)))).
-
-number(X, N) :-
-    tag@X -- num,
-    trigger(N, catch((N > 1, plural(N)), _, true)),
-    /**
-      It could just be an NP. "I saw him in 1989".
-      It could be just a noun: "He bought a red one", "I wanted two of them"
-      
-      **/
-    X <> [n, -target, +numeric, -specified, saturated, inflected, plural, -modifiable].
-number(X, N) :-
-    X <> [det1, +numeric, specified],
-    setNumber(N, X).
-number(X, N) :-
-    tag@X -- num,
-    X <> [det1([NP]), +numeric],
-    NP <> [pp, fixedpostarg, +def, plural, casemarked(PREP), theta(headnoun)],
-    setNumber(N, NP),
-    trigger(PREP, (PREP = of; PREP = out)).
-
-number(X, N0) :-
-    tag@X -- num,
-    catch((atom_chars(N0, NCHARS),
-	   number_chars(N1, NCHARS),
-	   N1 > 1000,
-	   N1 < 3000,
-	   np(X),
-	   -target@X),
-	  _,
-	  fail).
+  
 
 times(X, N) :-
     tag@X -- twice,
@@ -91,12 +47,54 @@ few(X) :-
     D <> [det2, inflected, plural],
     trigger(specified@X, addExternalView(X, D)).
 
-some(X) :-
+all(X) :-
+    language@X -- english,
+    X <> [det1, -def, third, plural],
+    trigger(case@target@X, (member(I, [1,2,3], setDetTarget(target@X, I)))).
+
+all(X) :-
+    cat@X -- all,
+    X <> [saturated, fulladjunct, premod, theta(allAsMod)],
+    target@X <> [np, +def],
+    trigger(set:position@moved@X, (notMoved(X) -> true; (movedAfter(X), subjcase(target@X)))).
+
+standardDet(X) :-
     language@X -- english,
     X <> [det1, -def],
-    trigger(case@target@X, setDetTarget(target@X)).
+    trigger(case@target@X, (member(I, [1,2]), setDetTarget(target@X, I))).
 
-setDetTarget(T) :-
+none(X) :-
+    language@X -- english,
+    X <> [det1, -def],
+    trigger(case@target@X, (member(I, [2]), setDetTarget(target@X, I))).
+
+setDetTarget(T, 1) :-
     T <> [-specified, standardcase].
-setDetTarget(T) :-
+setDetTarget(T, 2) :-
     T <> [pp, +def, casemarked(of)].
+setDetTarget(T, 3) :-
+    T <> [np, +def, standardcase].
+
+number(X, N) :-
+    tag@X -- num,
+    trigger(N, catch((N > 1, plural(N)), _, true)),
+    /**
+      It could just be an NP. "I saw him in 1989".
+      It could be just a noun: "He bought a red one", "I wanted two of them"
+      
+      **/
+    X <> [n, -target, +numeric, -specified, saturated, inflected, plural, -modifiable].
+number(X, N) :-
+    X <> [det1, -def],
+    trigger(case@target@X, (member(I, [2]), setDetTarget(target@X, I))).
+
+number(X, N0) :-
+    tag@X -- num,
+    catch((atom_chars(N0, NCHARS),
+	   number_chars(N1, NCHARS),
+	   N1 > 1000,
+	   N1 < 3000,
+	   np(X),
+	   -target@X),
+	  _,
+	  fail).

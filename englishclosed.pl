@@ -17,13 +17,6 @@ word('am', X) :-
     language@X -- english,
     X <> [n, -specified, -modifiable, -target].
 
-word('another', X) :-
-    language@X -- english,
-    det(X),
-    X <>[-def],
-    args@X -- [N],
-    trigger(width@N, \+ \+ number@N=sing).
-
 word('about', X) :-
     language@X -- english,
     X <> [prep].
@@ -76,6 +69,17 @@ word('and', X) :-
     conj(X),
     conjoined@X -- and.
 
+word('another', X) :-
+    language@X -- english,
+    det(X),
+    X <>[-def],
+    args@X -- [N],
+    trigger(width@N, \+ \+ number@N=sing).
+
+word('any', X) :-
+    language@X -- english,
+    standardDet(X).
+
 word('as', X) :-
     language@X -- english,
     X <> [cat(as), postmod, fulladjunct],
@@ -88,15 +92,6 @@ word('or', X) :-
     language@X -- english,
     conj(X),
     conjoined@X -- or.
-
-word('any', X) :-
-    language@X -- english,
-    X <> [det, -def].
-
-word('any', X) :-
-    language@X -- english,
-    X <> [det([NP])],
-    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
 
 word('anybody', X) :-
     language@X -- english,
@@ -226,12 +221,7 @@ word('during', X) :-
 
 word('each', X) :-
     language@X -- english,
-    X <> [det([NP]), thirdSing],
-    NP <> [pp, fixedpostarg, +def, plural, casemarked(of), theta(arg(headnoun))].
-
-word('each', X) :-
-    language@X -- english,
-    X <> [det, thirdSing].
+    standardDet(X).
 
 word('either', X) :-
     language@X -- english,
@@ -270,7 +260,7 @@ word('everything', X) :-
 
 word('exactly', X) :-
     X <> [cat(exactly), saturated, fulladjunct, strictpremod],
-    target@X <> [det([_], +)].
+    target@X <> [det1, saturated].
 
 word('few', X) :-
     language@X -- english,
@@ -339,8 +329,8 @@ word('had', X) :-
 
 word('half', X) :-
     language@X -- english,
-    X <> [det1([NP])],
-    NP <> [np].
+    X <> [det1],
+    standardDet(X).
 
 word('has', X) :-
     language@X -- english,
@@ -440,6 +430,7 @@ word('less', X) :-
     language@X -- english,
     X <> [det, inflected].
 
+/**
 word('less', X) :-
     language@X -- english,
     X <> [det([THAN, NUM, NN]), inflected],
@@ -447,6 +438,7 @@ word('less', X) :-
     NUM <> [fixedpostarg, word, theta(num)],
     trigger(used@NUM, \+ \+ number(NUM, _)),
     NN <> [fixedpostarg, n, saturated, unspecified, theta(headnoun)].
+**/
 
 word('less', X) :-
     language@X -- english,
@@ -454,14 +446,16 @@ word('less', X) :-
     X <> [adv],
     target@X <> [a].
 
+/**
 word('least', X) :-
     language@X -- english,
     X <> [det([NP])],
     NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
-
+  
 word('least', X) :-
     language@X -- english,
     X <> [det, inflected].
+**/
 
 word('least', X) :-
     language@X -- english,
@@ -469,12 +463,8 @@ word('least', X) :-
 
 word('many', X) :-
     language@X -- english,
-    X <> [det([NP])],
-    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
-
-word('many', X) :-
-    language@X -- english,
-    X <> [det, inflected].
+    X <> [det1, inflected],
+    standardDet(X).
 
 word('may', X) :-
     language@X -- english,
@@ -494,8 +484,10 @@ word('might', X) :-
 
 word('more', X) :-
     language@X -- english,
-    X <> [det, inflected].
+    X <> [det, inflected],
+    standardDet(X).
 
+/**
 word('more', X) :-
     language@X -- english,
     X <> [det([THAN, NUM, NN]), inflected],
@@ -503,6 +495,7 @@ word('more', X) :-
     NUM <> [fixedpostarg, word, theta(num)],
     trigger(used@NUM, \+ \+ number(NUM, _)),
     NN <> [fixedpostarg, n, saturated, unspecified, theta(headnoun)].
+**/
 
 word('more', X) :-
     language@X -- english,
@@ -512,12 +505,8 @@ word('more', X) :-
 
 word('most', X) :-
     language@X -- english,
-    X <> [det([NP])],
-    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
-
-word('most', X) :-
-    language@X -- english,
-    X <> [det, inflected].
+    X <> [det1, inflected],
+    standardDet(X).
 
 word('most', X) :-
     language@X -- english,
@@ -538,6 +527,10 @@ word('neither', X) :-
 word('no', X) :-
     language@X -- english,
     X <> [det, -def].
+
+word('none', X) :-
+    language@X -- english,
+    none(X).
 
 word('nor', X) :-
     language@X -- english,
@@ -638,20 +631,18 @@ word('per', X) :-
     language@X -- english,
     X <> prep.
 
+/**
 word('s', X) :-
     language@X -- english,
     X <> [det([NP]), strictprearg(NP), inflected],
     NP <> [np],
     +def@result@X.
+**/
 
 word('several', X) :-
     language@X -- english,
-    X <> [det, -def].
-
-word('several', X) :-
-    language@X -- english,
-    X <> [det([NP])],
-    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
+    X <> [det1, -def],
+    standardDet(X).
 
 word('she', X) :-
     language@X -- english,
@@ -674,7 +665,7 @@ word('so', X) :-
 
 word('some', X) :-
     language@X -- english,
-    some(X).
+    standardDet(X).
 
 word('someone', X) :-
     language@X -- english,

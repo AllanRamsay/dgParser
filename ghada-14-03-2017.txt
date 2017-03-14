@@ -1,0 +1,40 @@
+| ?- parseAll('he saw a man in a park .').
+
+
+spec(tense(past, -), ...): existential
+spec(tense(past, +), ...): referential (like "the" or a pronoun)
+
+He ate everything.
+? He ate anything
+He ate all of the sweets
+* He ate any of the sweets
+He did not eat anything
+forall(X :: {sweet(X)}, not(ate(he, X)))
+He did not eat everything
+not(forall(X :: {sweet(X)}, ate(he, X)))
+He did not eat everything
+He will eat anything
+I doubt he ate any of the sweets
+
+
+(i34
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(saw : verb),
+              {(dobj,
+                 spec([(a : A)],
+                      [(man> : noun),
+                       {(modifier(ppmod, -),
+                          [(in : prep),
+                           {(comp,
+                              spec([(a : B)], [(park> : noun)]))}])}]))},
+              {(subject , spec(proRef,[he:pronoun]))}]))}])
+
+
+ref(W :: {male(W)},
+    exists(X :: {past(X)},
+           exists(Y :: {at(X, Y)},
+                 exists(U :: {park(U)},
+                        exists(V :: {man(V) & in (U, V)},
+                               saw(X) & object(X, V) & subject(X, W)))))) 

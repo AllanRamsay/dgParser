@@ -1,0 +1,367 @@
+From today's conversation.
+
+Getting to the form we want involves several stages.
+
+***************************************************************************
+
+Stage (i) Tidying up the original parse tree so that things that correspond
+to standard logical operators get the right scope. That includes what
+you're currently doing with determiners, where the original tree has
+the determiners as the heads of the NPs but we want them to outscope
+the proposition expressed by the sentence, e.g. that
+
+[(love>s : verb),
+ {(arg(dobj, +),
+    [(some : det), {(arg(headnoun,-) , [(woman>):noun])}])},
+ {(arg(subject, +),
+    [(every : det), {(arg(headnoun,-) , [(man>):noun])}])}]
+
+becomes
+
+[(every:det : A), ({(arg(headnoun,-),[(man>):noun] , A)}
+=> [(a:det : B), ({(arg(headnoun,-),[(woman>):noun] , B)}
+    & [(love>s : verb), {(arg(dobj,+) , B)}, {(arg(subject,+) , A)}])])]
+
+but there are some other things that we want to do at the same time,
+because they're the same sort of thing. The two that we were looking
+at are that we want the item that is curently turning up as the
+subject of an auxiliary to become the subject of the main verb,
+e.g. we want 
+
+"John had loved Mary"
+
+[(had : aux),
+ {(arg(auxcomp),
+    [(love>ed : verb), {(arg(dobj,+) , [Mary:name])}])},
+ {(arg(subject,+) , [John:name])}]
+
+to become
+
+[(had : aux),
+ {(arg(auxcomp),
+    [(love>ed : verb), 
+    {(arg(dobj,+) , [Mary:name])},
+    {(arg(subject,+) , [John:name])}])}]
+
+This is slightly trickier than it looks because we can have nested
+auxiliaries, and we need to shift the subject of the outermost
+auxiliary to be the subject of the innermost verb, e.g.
+
+| ?- parseOne('John would have been living in Enniskerry').
+
+[(would : aux),
+ {(arg(auxcomp),
+    [(have> : aux),
+     {(arg(auxcomp),
+        [(be>en : aux),
+         {(arg(auxcomp, A),
+            [(live>ing : verb),
+             {(modifier(ppmod, A),
+                [(in : prep), {(arg(comp,+) , [Enniskerry:name])}])}])}])}])},
+ {(arg(subj,+) , [John:name])}]
+
+==>
+
+[(would : aux),
+ {(arg(auxcomp),
+    [(have> : aux),
+     {(arg(auxcomp),
+        [(be>en : aux),
+         {(arg(auxcomp, A),
+            [(live>ing : verb),
+             {(modifier(ppmod, A),
+                [(in : prep), {(arg(comp,+) , [Enniskerry:name])}])},
+             {(arg(subj,+) , [John:name])}])}])}])}]
+
+If you look for things of the form
+
+[(AUX: aux),
+ {(arg(auxcomp),
+    AUXCOMP)},
+ {(arg(subj,+) , [John:name])}]
+
+and turn them into 
+
+[(AUX: aux),
+ {(arg(auxcomp),
+    AUXCOMP,
+    {(arg(subj,+) , [John:name])})}]
+
+and then do it recursively to 
+
+{(arg(auxcomp),
+    AUXCOMP,
+    {(arg(subj,+) , [John:name])})}]
+
+then that should work. THIS IS A SKETCH. 
+
+We will also want to promote "not" above the word that it appears to
+be modifying, e.g. 
+
+| ?- parseOne('John does not love Mary').
+
+[(do>s : aux),
+ {(arg(auxcomp, A),
+    [(love> : verb),
+     {(modifier(negation,A) , [not:negationMarker])},
+     {(arg(dobj,+) , [Mary:name])}])},
+ {(arg(subject,+) , [John:name])}]
+
+==>
+
+[(do>s : aux),
+ {(arg(auxcomp, A),
+    not([(love> : verb),
+         {(arg(dobj,+) , [Mary:name])},
+         {(arg(subject,+) , [John:name])}]))}]
+
+This one has to be done after demoting the subject of the auxiliary:
+but that's OK, it will be, because as you work your way down through
+the tree you'll hit the auxiliary first.
+
+I'm not at all sure what I think about things like "not every man
+loves Mary". We will revisit that when we think we are ready. Or
+not.
+
+***************************************************************************
+
+Stage (ii) Once we've sorted out the trees, we want to get rid of
+quantifiers. This is usually done in two stages -- convert to negation
+normal form, and then do Skolemisation. The standard NNF algorithm
+uses two steps that I would rather avoid, namely 
+
+nnf(A => B, NNF) :-
+    nnf(not(A) or B, NNF).
+nnf(not(not(A)), NNF) :-
+    nnf(A, NNF).
+
+The first of these just isn't right. Let A be "I am currently sitting
+in the garden" and B be "the cat is bright green". A and B are both
+false, so "not(A) or B" is true, but you would not want to say that "I
+am currently sitting in the garden implies the cat is bright
+green". Or let A' be "I am currently sitting in the attic" and B' be "the
+cat is black". A' and B' are both true, so "not(A) or B" is true, but
+you would not want to say "I am currently sitting in the attic implies the
+cat is black". There has to be some connection between them.
+
+The second is less clearcut. If everything is true or false, then it
+is true that not(not(A)) = A. But there are sentences which are
+neither true nor false: "the present king of France" is neither true
+nor false, it's just meaningless in the modern world. And there are
+sentences which seem to be both true and false -- "I am now lying" is
+true if it is false and false if it is true. There are weird things,
+and it's not obvious that you want not(not(A)) => A to apply for weird
+things (I do believe that A => not(not(A)), it's just not(not(A)) => A
+that is dubious).
+
+What I'd like is to get rid of quantifiers without doing anything to the
+other logical relations. So I'm going to try to do Skolemisation in one
+go, without touching the other relations. Well, almost without
+touching the other relations. I want to convert not(A) to A => absurd
+anyway, and it turns out to be handy to do this at the same time.
+
+What I really need to know is what to do with the quantifiers. The
+general idea is that you can get rid of universals just by dropping
+them. What could I do if I knew forall(X, p(X))? I could use it to prove
+p(t), no matter what t was. If I delete the quantifier, replacing
+forall(X, p(X)) by just p(X) then I can obviously use that to prove
+p(t). And what could I do if I knew exists(X, p(X))? I could use it to
+prove p(sk17), where sk17 is some term that I have never used
+before. I can't use exists(X, p(X)) & q(john) to prove p(john),
+because I have no evidence that john is the person that p holds
+of. All I can do is conclude that there is *some* individual for whom
+p holds, and make up a name for them. It may turn out later on that
+john and sk17 are different names for the same person -- it's OK for a
+single person to have several names -- but that has to come from
+somewhere else.
+
+The approach I'm going to take involves working recursively through my
+formula. As I go there are two things I need -- a stack of universally
+quantifier variables and a polarity marker. These start out as [] and
++.
+
+qff(A0, A1) :-
+    qff(A0, A1, [], +).
+
+And it's convenient to have function to find the swapped version of
+the polarity.
+
+swap(+, -).
+swap(-, +).
+
+There are then a surprisingly small set of cases to consider.
+
+Simple ones: assuming that I've dealt with quantifiers outside a
+conjunction or disjunction, I will just deal with the
+conjuncts/disjuncts individually. It doesn't matter what the
+polarity is.
+
+qff(A0 & B0, A1 & B1, S, P) :-
+    !,
+    qff(A0, A1, S, P),
+    qff(B0, B1, S, P).
+qff(A0 or B0, A1 or B1, S, P) :-
+    !,
+    qff(A0, A1, S, P),
+    qff(B0, B1, S, P).
+
+Negation: just replace it by => absurd. Doesn't matter what the polarity
+was. not(A) is, by definition, a shorthand for A => absurd. So just do
+the replacement.
+
+qff(not(A0), QFF, S, P) :-
+    !,
+    qff(A0 => absurd, QFF, S, P).
+
+The quantifiers. In positive contexts, we just drop univerals (while
+adding them to the stack) and Skolemise existentials.
+
+qff(forall(X, A0), A1, S, +) :-
+    !,
+    qff(A0, A1, [X | S], +).
+qff(exists(X, A0), A1, S, +) :-
+    !,
+    gensym(sk, SK),
+    X = [SK | S],
+    qff(A0, A1, S, +).
+
+But in negative contexts we do it the other way round.
+
+qff(exists(X, A0), A1, S, -) :-
+    !,
+    qff(A0, A1, [X | S], -).
+qff(forall(X, A0), A1, S, -) :-
+    !,
+    gensym(sk, SK),
+    X = [SK | S],
+    qff(A0, A1, S, -).
+
+Implications. This is the interesting one. These swap the polarity on
+the antecedent and leave it unchanged on the consequent. And that's
+all. We'll see that in action in a minute, because it's not 100% clear
+at first sight that this is right.
+
+qff(A0 => B0, A1 => B1, S, P0) :-
+    !,
+    swap(P0, P1),
+    qff(A0, A1, S, P1),
+    qff(B0, B1, S, P0).
+
+And otherwise we just leave it unchanged.
+
+qff(A, A, _, _).
+
+When we're working with linguistic trees, then before we get to that
+last clause we're going to want things like
+
+qff(doubt(A0, B0), doubt(A1, B1), S, P) :-
+    doubt(A0, A1, S, P),
+    doubt(B0, B1, S, swap(P)).
+
+These will be a serious challenge, and will involve thinking about
+higher-order logic (because they are intrinsically
+higher-order). That's a great big step. Note, for instance, that
+
+"everyone doubts that John loves Mary"
+
+will want to end up as something like
+
+forall(X, person(X) => doubt(X, love(J, M))),
+
+where the quantifier associated with "everyone" outscopes "doubt", but
+
+"John doubts that everyone likes Mary" will want to be
+
+doubt(J, forall(X, person(X) => like(X, M))),
+
+where the quantifier ends up inside "doubt". But that is definitely
+for another day.
+
+Examples:
+
+*******************************************************************
+"Every man loves some woman"
+
+| ?- qff(forall(X, man(X) => exists(Y, woman(Y) & love(X, Y))), QFF).
+
+QFF = man(X)=>(woman([sk15,X])&love(X,[sk15,X]))
+
+For any man, e.g. John, there is some woman who that man loves. I
+don't know what she's called, so I'll generate a name for her. The
+woman that John loves is called [sk15,john], the woman that Bill loves
+is called [sk15,Bill], ... You could sort of think of these as names
+like Mrs. John, Mrs. Bill, ...
+
+*******************************************************************
+"Every nice man is loved by some woman" (for every nice man X there is
+a woman Y such that love(Y, X))
+
+| ?- qff(forall(X, (man(X) & nice(X)) => exists(Y, woman(Y) & love(Y, X))), QFF).
+
+QFF = (man(X)&nice(X))=>(woman([sk16,X])&love([sk16,X],X))
+
+If you can find me a nice man then I will find you a woman who loves
+him. Note that the women in this rule have a different name from the
+ones in the previous rule -- the woman who loves John is called
+[sk16,john]. In a perfect world, [sk15,john] and [sk16,john] will be
+different names for the same person, but we don't know that. If we had
+
+forall(X, forall(Y, forall(Z, love(X, Y) and love(Z, X) => Y=Z))) 
+
+then we could prove [sk15,john] and [sk16,john] were the same
+person. But we don't, and we're not going to think about equality for
+a while. If ever. I can't go on just piling things up, and this is
+less important than some others.
+
+*******************************************************************
+"It is not the case that every man loves some woman"
+
+| ?- qff(not(forall(X, man(X) => exists(Y, woman(X) & love(X, Y)))), A => B).
+
+QFF = man([sk17])=>(woman([sk17])&love([sk17],Y))=>absurd
+
+Tricky to read. You would be wrong to suppose that given an arbitrary
+man, even one we've never heard of before, you can find a woman who he loves.
+
+*******************************************************************
+"Every adult human that is not a woman loves some woman"
+
+| ?- qff(forall(X, (human(X) & adult(X) & not(woman(X))) => exists(Y, woman(X) & love(X, Y))), QFF).
+
+QFF = (human(X)&adult(X)&woman(X)=>absurd)=>(woman(X)&love(X,[sk20,X])
+
+If you can find me someone who is an adult human, but who is obviously
+not a woman (i.e. a man!) then I will find you a woman who that person
+loves.
+
+*******************************************************************
+"If there is a women (person who is a human adult and is demonstrably
+not a man) then the world is a nice place"
+
+| ?- qff(exists(X, (human(X) & adult(X) & not(man(X)))) => nice(world), QFF).
+
+QFF = (human(X)&adult(X)&man(X)=>absurd)=>nice(world)
+
+If you can find me anyone who fits the conditions then the world is a
+place.
+
+*******************************************************************
+"It is not the case that me being in the garden implies that the cat is green"
+
+| ?- qff(not(in(allan, garden) => green(sid)), QFF).
+QFF = (in(allan,garden)=>green(sid))=>absurd
+
+There is no connection between my location and colour of Sid.
+*******************************************************************
+
+We're now very nearly there. I'm going to want to do a little bit more
+tidying up, e.g. turning P => (Q => R) into (P & Q) => R, but I think
+the next steps will be straightforward (where have you heard that before?)
+ 
+***************************************************************************
+
+Stage (iii) ...
+
+Stage (iv) ...
+
+...
