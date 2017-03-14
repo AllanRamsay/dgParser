@@ -427,18 +427,7 @@ word('itself', X) :-
     pronoun(X).
 
 word('less', X) :-
-    language@X -- english,
-    X <> [det, inflected].
-
-/**
-word('less', X) :-
-    language@X -- english,
-    X <> [det([THAN, NUM, NN]), inflected],
-    THAN <> [cat(than), fixedpostarg, word, theta(than)],
-    NUM <> [fixedpostarg, word, theta(num)],
-    trigger(used@NUM, \+ \+ number(NUM, _)),
-    NN <> [fixedpostarg, n, saturated, unspecified, theta(headnoun)].
-**/
+    less(X).
 
 word('less', X) :-
     language@X -- english,

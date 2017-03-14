@@ -205,10 +205,13 @@ strictprearg(X, Y) :-
   We have fixed and strict versions, just as with arguments.
   **/
 
-premod(X, T) :-
+premod1(X, T) :-
     target@X -- T,
-    dir@T <> after,
-    -zero@T.
+    dir@T <> after.
+
+premod(X, T) :-
+    X <> [premod(T)],
+    T <> [-zero].
 
 premod(X) :-
     premod(X, _).
@@ -928,21 +931,22 @@ uverb(X) :-
 
 det3(X) :-
     cat@X -- det,
-    X <> [strictpremod, theta(specifier)],
+    X <> [premod, notMoved, theta(specifier)],
     language@X -- language@T,
     [agree] :: [X, target@X, result@X],
     [def] :: [X, result@X],
-    target@X <> [n, -zero],
+    target@X <> [n],
     result@X <> [n, +specified, -target, standardcase].
     
 det2(X) :-
     X <> [det3, saturated].
     
 det1(X) :-
-    X <> [inflected, det2].
+    X <> [inflected, det2],
+    target@X <> [-zero].
 
 det(X) :-
-    det1(X),
+    X <> [det1],
     target@X <> [n, unspecified, standardcase].
 
 %%%% ADJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

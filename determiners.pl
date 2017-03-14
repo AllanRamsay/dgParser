@@ -85,8 +85,8 @@ number(X, N) :-
       **/
     X <> [n, -target, +numeric, -specified, saturated, inflected, plural, -modifiable].
 number(X, N) :-
-    X <> [det1, -def],
-    trigger(case@target@X, (member(I, [2]), setDetTarget(target@X, I))).
+    standardDet(X),
+    X <> [-def].
 
 number(X, N0) :-
     tag@X -- num,
@@ -98,3 +98,15 @@ number(X, N0) :-
 	   -target@X),
 	  _,
 	  fail).
+
+less(X) :-
+    language@X -- english,
+    X <> [det, inflected].
+
+less(X) :-
+    language@X -- english,
+    cat@X -- predet,
+    X <> [premod, fulladjunct],
+    args@X -- [THAN],
+    THAN <> [cat(than), fixedpostarg, word, theta(than)],
+    target@X <> [det3, saturated].
