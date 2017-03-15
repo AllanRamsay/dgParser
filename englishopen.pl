@@ -960,6 +960,18 @@ word('nice', X) :-
     definition@X -- 'exhibiting courtesy and politeness',
     X <> [aroot].
 
+word('nose', X) :-
+    fail,
+    language@X -- english,
+    definition@X -- 'search or inquire in a meddlesome way',
+    X <> [vroot, regularPast],
+    iverb(X).
+                    
+word('nose', X) :- 
+    language@X -- english,
+    definition@X -- 'the organ of smell and entrance to the respiratory tract',
+    X <> [nroot].
+
 word('overran', X) :-
     language@X -- english,
     tverb(X),

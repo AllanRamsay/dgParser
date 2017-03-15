@@ -71,33 +71,35 @@ none(X) :-
 setDetTarget(T, 1) :-
     T <> [-specified, standardcase].
 setDetTarget(T, 2) :-
-    T <> [pp, +def, casemarked(of)].
+    T <> [pp, +def, casemarked(of), -zero].
 setDetTarget(T, 3) :-
-    T <> [np, +def, standardcase].
+    T <> [np, +def, standardcase, -zero].
 
 number(X, N) :-
-    tag@X -- num,
-    trigger(N, catch((N > 1, plural(N)), _, true)),
+    fail,
+    trigger(N, catch((N > 1, plural(X)), _, true)),
     /**
       It could just be an NP. "I saw him in 1989".
       It could be just a noun: "He bought a red one", "I wanted two of them"
       
       **/
-    X <> [n, -target, +numeric, -specified, saturated, inflected, plural, -modifiable].
+    X <> [n, -target, +numeric, unspecified, saturated, inflected, plural].
 number(X, N) :-
-    standardDet(X),
-    X <> [-def].
+    language@X -- english,
+    X <> [-def, det2],
+    trigger(case@target@X, (member(I, [1,2]), setDetTarget(target@X, I))).
 
 number(X, N0) :-
+    fail,
     tag@X -- num,
     catch((atom_chars(N0, NCHARS),
 	   number_chars(N1, NCHARS),
 	   N1 > 1000,
 	   N1 < 3000,
-	   np(X),
-	   -target@X),
+	   specified@X = +),
 	  _,
-	  fail).
+	  true),
+    X <> [n, saturated, inflected, -target].
 
 less(X) :-
     language@X -- english,

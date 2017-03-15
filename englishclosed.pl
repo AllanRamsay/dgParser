@@ -325,7 +325,8 @@ word('four', X) :-
 word('had', X) :-
     language@X -- english,
     verb(X, have),
-    X <> [past, -target, inflected].
+    X <> [past, -target, inflected],
+    edForm(X).
 
 word('half', X) :-
     language@X -- english,

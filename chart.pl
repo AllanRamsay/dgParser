@@ -252,7 +252,10 @@ combineModAndTarget(M, T, R) :-
     (theta@M == specifier ->
      root@R = spec(root@M, root@T);
      append(root@T, [{modifier(theta@M, specified@T), root@M}], root@R)),
-    setPosition(T, M, R),
+    (zero@T == + ->
+     (after(dir@T) -> start@T = end@M; end@T = start@M);
+     true),
+    setPosition(M, T, R),
     modPosition(M, T, R),
     checkWHPosition(T, M),
     extendWH(T, M),
@@ -287,7 +290,7 @@ argPosition(H0, A, H1) :-
     (notMoved(A) -> true; incCost(H0, 0.3)).
 
 combineHdAndArg(H0, A, H1) :-
-    [syntax\args, theta, externalviews, complete, moved] :: [H0, H1],
+    [syntax\args, theta, externalviews, complete, moved, hd] :: [H0, H1],
     \+ ((length(wh@H0, L) -> true; true), L = 2),
     %% \+ \+ wh@H0 -- [_],
     args@H0 -- [A | args@H1],
@@ -316,7 +319,7 @@ combineHdAndArg(H0, A, H1) :-
     (used@A = +).
 
 findCombination(X, _Z) :-
-    breakOn(X, _),
+    breakOn(X, i3),
     fail.
 findCombination(X, Z) :-
     combineHdAndArg(X, _Y, Z).

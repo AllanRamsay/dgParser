@@ -66,12 +66,12 @@ verb(X, get) :-
     tverb(X).
 
 verb(X, have) :-
-    X <> [aux(S)],
+    aux(X, S),
     S <> [pastPart].
 
 verb(X, have) :-
     tverb(X).
-
+ 
 verb(X, have) :-
     sverb(X, S),
     S <> [s, -active, presPartForm].

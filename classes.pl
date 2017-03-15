@@ -271,12 +271,15 @@ strictpostmod(X) :-
   treat them as modifiers), which change the value of spec.
   **/
 
-adjunct1(X) :-
+adjunct2(X) :-
     target@X -- T,
     result@X -- R,
-    -zero@T,
     language :: [X, T, R],
     T\structure\dir\mod\wh\spec\comp -- R.
+
+adjunct1(X) :-
+    -zero@target@X,
+    X <> [adjunct2].
 
 adjunct(X) :-
     target@X -- T,
@@ -733,13 +736,15 @@ aux(X, COMP) :-
     subject@X -- SUBJECT,
     SUBJECT <> [prearg, standardcase],
     [syntax\case, start, theta] :: [SUBJECT, subject@COMP],
+    %% Subject can't be right-shifted beyond the main verb of the complement
+    trigger(used@SUBJECT, start@SUBJECT < start@hd@COMP),
     args@X -- [COMP, SUBJECT],
     [agree] :: [SUBJECT, X],
     %% plant the stuff we need for handling WH-items: see above
     trigger(language@X, setWHView(X)).
 
 aux(X) :-
-    X <> aux(_).
+    aux(X, _).
 
 /**
   Intransitive verbs: comparatively straightforward. Well, as straightforward as it's
@@ -931,15 +936,16 @@ uverb(X) :-
 
 det3(X) :-
     cat@X -- det,
-    X <> [premod, notMoved, theta(specifier)],
+    X <> [premod1(T), notMoved, theta(specifier), adjunct2],
     language@X -- language@T,
     [agree] :: [X, target@X, result@X],
     [def] :: [X, result@X],
-    target@X <> [n],
-    result@X <> [n, +specified, -target, standardcase].
+    target@X <> [n, saturated],
+    result@X <> [n, -target, standardcase].
     
 det2(X) :-
-    X <> [det3, saturated].
+    X <> [det3, saturated],
+    result@X <> [+specified].
     
 det1(X) :-
     X <> [inflected, det2],
