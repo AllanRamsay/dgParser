@@ -6,7 +6,7 @@ whpronoun(X, WH) :-
 whpronoun(X) :-
     X <> whpronoun(_).
 
-relpronoun(X, modified@result@WH) :-
+relpronoun(X, WH) :-
     language@X -- english,
     zero :: [X, WH],
     X <> [whpronoun(WH)],

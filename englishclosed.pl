@@ -970,6 +970,7 @@ word(',', X) :-
     language@X -- english,
     comma(X).
 
+/**
 word('#', X) :-
     language@X -- english,
     cat@X -- hash,
@@ -978,6 +979,7 @@ word('#', X) :-
     result@X <> [specified],
     args@X -- [N],
     N <> [number(_), fixedpostarg, theta(numberAsId)].
+  **/
 
 word(':', X) :-
     cat@X -- punct,

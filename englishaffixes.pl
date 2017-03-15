@@ -46,18 +46,18 @@ word('en', X) :-
 
 word('', X) :-
     language@X -- english,
-    X <> [suffix(adjsuffix)],
+    X <> [adj(_), suffix(adjsuffix)],
     degree@X -- simple.
 
 word('er', X) :-
     language@X -- english,
     degree@X -- comparative,
-    X <> [suffix(adjsuffix)].
+    X <> [adj(_), suffix(adjsuffix)].
 
 word('est', X) :-
     language@X -- english,
     degree@X -- superlative,
-    X <> [suffix(adjsuffix), adj].
+    X <> [adj(_), suffix(adjsuffix), adj].
 
 word('ly', X) :-
     language@X -- english,

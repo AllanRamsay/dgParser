@@ -319,7 +319,7 @@ combineHdAndArg(H0, A, H1) :-
     (used@A = +).
 
 findCombination(X, _Z) :-
-    breakOn(X, i3),
+    breakOn(X, _),
     fail.
 findCombination(X, Z) :-
     combineHdAndArg(X, _Y, Z).

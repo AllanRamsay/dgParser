@@ -92,7 +92,19 @@ word('believe', X) :-
     language@X -- english,
     X <> [vroot, regularPast],
     tverb(X).
-                 
+          
+word('big', X) :-
+    language@X -- english,
+    definition@X -- 'fully developed',
+    X <> [aroot].
+
+/**
+word('big', X) :-
+    language@X -- english,
+    definition@X -- 'extremely well',
+    X <> [adv, inflected].
+**/
+
 word('blame', X) :- 
     language@X -- english,
     definition@X -- 'a reproach for some lapse or misdeed',
@@ -961,7 +973,6 @@ word('nice', X) :-
     X <> [aroot].
 
 word('nose', X) :-
-    fail,
     language@X -- english,
     definition@X -- 'search or inquire in a meddlesome way',
     X <> [vroot, regularPast],

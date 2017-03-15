@@ -222,10 +222,10 @@ fixedpremod(X, T) :-
     end@X -- start@T.
 
 fixedpremod(X) :-
-    X <> fixedpremod(_T).
+    X <> [fixedpremod(_T)].
 
 strictpremod(X, target@X) :-
-    X <> fixedpremod,
+    X <> [fixedpremod],
     end@X -- start@target@X.
 
 strictpremod(X) :-
@@ -777,7 +777,7 @@ zeroObj(X, OBJ) :-
     trigger(wh@subject@X, fail),
     relpronoun(OBJ, 0),
     wh@OBJ -- [WH | _],
-    -pronominal@target@WH.
+    target@WH <> [-pronominal, -specified].
 
 checkObjCase(OBJ, X) :-
     trigger(used@OBJ, \+ \+ (objcase(OBJ); casemarked(OBJ, of))),
@@ -1167,7 +1167,9 @@ prepmod(X, T, COMP) :-
 zeroPPCOMP(T, COMP) :-
     T <> [vp],
     incCost(COMP, 1),
-    relpronoun(COMP, 0),
+    relpronoun(COMP, WH),
+    modified@result@WH -- 0,
+    -specified@target@WH,
     +zero@COMP.
 
 shiftedPPCOMP(X, COMP, T) :-
