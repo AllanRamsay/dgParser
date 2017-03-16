@@ -78,76 +78,108 @@ shared2q([H0 | T0], [H1 | T1], SHARED2) :-
 %-------------------------------------------------------------------------
 %Step 3: Using the shared liset optained from the previous step, each tree will be scaned for these items and got replaced by variables-one tree at a time. 
 %-------------------------------------------------------------------------
-rep(X, X, _VARS) :-
+repSharedByVar(X, X, _VARS) :-
     (atomic(X); var(X)),
     !.
-rep([H0 | T0], [H1 | T1], VARS) :-
+repSharedByVar([H0 | T0], [H1 | T1], VARS) :-
     !,
-    rep(H0, H1, VARS),
-    rep(T0, T1, VARS).
-rep(W:T, V, VARS) :-
+    repSharedByVar(H0, H1, VARS),
+    repSharedByVar(T0, T1, VARS).
+repSharedByVar(W:T, V, VARS) :-
     member((W:T)=V, VARS), 
     !.
-rep({R, T0}, {R, T1}, VARS) :-
+repSharedByVar({R, T0}, {R, T1}, VARS) :-
     !,
-    rep(T0, T1, VARS).
-rep(X, X, _VARS).
+    repSharedByVar(T0, T1, VARS).
+repSharedByVar(X, X, _VARS).
 
+%%%%%Transformation (2)-Part(1): turn a tree into a term and a stack of specifiers.%%%%
+%% Run Example: parseOne('every man loved some woman .', X),rep3(X,Y,Z), pretty(Y+Z).
 
+rep3(X,Y,V):-
+    rep3(X,Y,[],V).
 
-%%%%%%%%%%%%%%% Transformation (2)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Replace DET Subtrees With variables and should remember the Variables subtrees associations and have them in the result tree Y
-%% Run Example: parseOne('every man loves a woman', X),rep2(X,Y,Z), pretty(Y+Z).
-rep2(X,Y,V):-
-    rep2(X,Y,[],V).
-
-rep2(X, X, VARS0, VARS0) :-
+rep3(X, X, VARS0, VARS0) :-
     var(X),
     !.
-rep2([],[], VARS0, VARS0) :-
+
+rep3([],[], VARS0, VARS0) :-
     !.
-rep2([W:T|T0],[W:T|T1], VARS0,VARS1) :-
-    \+ T=det,
-    rep2(T0,T1,VARS0,VARS1),
+
+/*rep3([W:T|T0],[W:T|T1], VARS0,VARS1) :-
+    rep3(T0,T1,VARS0,VARS1),
     !.
-rep2([W:det|L], V, VARS0,VARS1) :-
-    (member([W:det:V|L], VARS0)->
+  */
+rep3(['.':punct|T0],T1, VARS0,VARS1) :-
+    rep3(T0,T1,VARS0,VARS1),
+    !.
+rep3(spec(Tense,L0),[at(V)|L1], VARS0,VARS2) :-
+    Tense=tense(_,_),
+    rep3(L0, L1, VARS0,VARS1),
+    (member([spec(Tense,L0,V)], VARS1)->
+    VARS2=VARS1;
+    VARS2=[[spec(Tense,L0,V)]|VARS1]),
+    !.
+
+rep3(spec([DET:_],[W:TAG]), V, VARS0,VARS1) :-
+    (member([DET:V,([W:TAG],V)], VARS0)->
     VARS1=VARS0;
-    VARS1=[[W:det:V|L]|VARS0]),
+    VARS1=[[DET:V,([W:TAG],V)]|VARS0]),
     !.
-rep2({R, T0}, {R, T1},VARS0,VARS1) :-
+
+rep3(spec([DET:_TAG],L0), [V|L1], VARS0,VARS2) :-
+    rep3(L0, L1, VARS0,VARS1),
+    (member([DET:V,(L0,V)], VARS1)->
+    VARS2=VARS1;
+    VARS2=[[DET:V,(L0,V)]|VARS1]),
+    !.
+rep3(spec(proRef,L), V, VARS0,VARS1) :-
+    (member(proRef:V,(L,V), VARS0)->
+    VARS1=VARS0;
+    VARS1=[proRef:V,(L,V)|VARS0]),
+    !.
+
+rep3({R, T0}, {R, T1},VARS0,VARS1) :-
+    \+ (R=claim),
     !,
-    rep2(T0, T1, VARS0,VARS1).
-rep2([H0 | T0], [H1 | T1], VARS0,VARS2) :-
+    rep3(T0, T1, VARS0,VARS1).
+
+rep3({claim, T0}, {T1},VARS0,VARS1) :-
     !,
-    rep2(H0, H1, VARS0,VARS1),
-    rep2(T0, T1, VARS1,VARS2).
+    rep3(T0, T1, VARS0,VARS1).
 
-rep2(X, X, _VARS0,_VARS1).
-
-
-%%%%%%%%%%%%%% Transformation (3): Forward-chaining normal forming %%%%%%%%%%%%%%%%
-%%%% forall(X, man(X) => (exists(Y, woman(Y) & love(X, Y)))) %%%%%%%%%%%%%%%%%%%%%%
-%% Run example:  parseOne('every man loves a woman', X),rep2(X,T,Qstack),nf(Qstack,T,NF).
-pattern([every:det:V,{VP}],T,[every:det:V, {VP,V} => T]).
-pattern([a:det:V,{VP}],T,[a:det:V, {VP,V} & T]).
-pattern([some:det:V,{VP}],T,[some:det:V, {VP,V} & T,V]).
-
-nf([], T, T).
-nf([H | L], T, NF) :-
+rep3([H0 | T0], [H1 | T1], VARS0,VARS2) :-
     !,
-    nf(L,T,NF0),
+    rep3(H0, H1, VARS0,VARS1),
+    rep3(T0, T1, VARS1,VARS2).
+
+rep3(X, X, _VARS0,_VARS1).
+
+
+
+
+%%%%%%%Transformation (2)-Part(2): Construct the forward-chaining normal form %%%%%%%%%
+%% Run example:  parseOne('every man loved some woman .', X),rep3(X,T,Qstack),normalForming(Qstack,T,NF),pretty(NF).
+pattern([every:V,(VP,V)],T,[every:V,(VP,V) => T]).
+pattern([a:V,(VP,V)],T,[a:V,(VP,V) & T]).
+pattern([some:V,(VP,V)],T,[some:V,(VP,V) & T]).
+pattern([some:V,(VP,V)],T,[some:V,(VP,V) & T]).
+pattern([spec(tense(past,-),_Sentence,V)],T,[exists:V,(tense(past,V),T)]).
+%pattern([spec(tense(past,-),_Sentence,V)],T,[exists,(tense(past,-):V,T)]).
+normalForming([], T, T).
+normalForming([H | L], T, NF) :-
+    !,
+    normalForming(L,T,NF0),
     pattern(H, NF0, NF).
 %% Run example:  parseOne('every man loves a woman', X),rep2(X,T,Qstack),lnf(Qstack,T,LNF),pretty(LNF).
 pattern2([every:det:V,{VP}],T,[forall(V, {VP,V}) => T]).
 pattern2([a:det:V,{VP}],T,[exists(V, {VP,V}) & T]).
 pattern2([some:det:V,{VP}],T,[exists(V, {VP,V}) & T]).
 
-lnf([], T, T).
-lnf([H | L], T, NF) :-
+logicalNormalForming([], T, T).
+logicalNormalForming([H | L], T, NF) :-
     !,
-    lnf(L,T,NF0),
+    logicalNormalForming(L,T,NF0),
     pattern2(H, NF0, [NF|_]).
 
 %%%%%%%%%%%%%% Transformation (4): Skolemisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -244,8 +276,8 @@ New ones[02-02-17 update]:
  {arg(dobj,+),[a:det,{arg(headnoun,-),[(woman>''):noun]}]}, 
  {arg(subject,+),[every:det,{arg(headnoun,-),[(man>''):noun]}]}] 
 
-[X=(every : det), {(arg(arg(headnoun),-) , [(man>):noun])}])},
- Y=(a : det), {(arg(arg(headnoun),-) , [(woman>):noun])}])}],
+[(every : det: X), {(arg(arg(headnoun),-) , [(man>):noun])}])},
+ (a : det: Y), {(arg(arg(headnoun),-) , [(woman>):noun])}])}],
    [(love>s : verb),
    {arg(dobj, +), Y},
    {arg(subject, +), X}]
@@ -386,7 +418,16 @@ not(p) --> p => absurd
   husband(X, Y)- => man(X)+
   husband(A, R)-
   man < human
-  
+
+a, some, many, few, ...
+exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X))
+
+each, every, all, ...
+forall(X :: {p(X)}, q(X)) == forall(X, p(X) => q(X))
+
+the man, he, Mary, had slept ...
+the(X :: {p(X)}, q(X)) == the(X :: {p(X)}, q(X)) != exists1(X, p(X) & q(X))
+qff(the(X :: {p(X)}, q(X)) = the(X :: {qff(p(X))}, qff(q(X)))
 
 
 ----------------------------------------------------------------------------  **/

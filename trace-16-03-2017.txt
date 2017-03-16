@@ -1,0 +1,199 @@
+
+| ?- parseOne('every man had loved some woman .', X),rep3(X,T,Qstack),normalForming(Qstack,T,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[(exists : A),
+ (tense(past, A),
+  [(every : B),
+   (([(man>):noun] , B)
+     => [(some : C),
+         (([(woman>):noun] , C)
+           & [{[at(A),
+                 (love>ed : verb),
+                 {(dobj , C)},
+                 {(subject , B)}]}])])])]
+T = [{[at(_A),(love>ed):verb,{dobj,_B},{subject,_C}]}],
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_D],[(woman>''):noun])},{subject,spec([every:_E],[(man>''):noun])}])}],
+NF = [exists:_A,(tense(past,_A),[every:_C,([(man>''):noun],_C)=>[some:_B,([(woman>''):noun],_B)&[{[at(...),(love>ed):verb|...]}]]])],
+Qstack = [[spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_D],[(woman>''):noun])},{subject,spec([every:_E],[(man>''):noun])}],_A)],[every:_C,([(man>''):noun],_C)],[some:_B,([(woman>''):noun],_B)]] ? 
+yes
+| ?- parseOne('every man had loved some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+
+(i22
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, +),
+             [(had : aux),
+              {(auxcomp,
+                 [(love>ed : verb),
+                  {(dobj , spec([some:A],[(woman>):noun]))}])},
+  ^C ^C
+Prolog interruption (h for help)?               {(subject , spec([every:B],[(man>):noun]))}]))}])a
+% Execution aborted
+| ?- parseOne('every man will have loved some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+
+(i22
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, +),
+             [(had : aux),
+              {(auxcomp,
+                 [(love>ed : verb),
+                  {(dobj , spec([some:A],[(woman>):noun]))}])},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[[spec(tense(past, +),
+       [(had : aux),
+        {(auxcomp,
+           [(love>ed : verb),
+            {(dobj , spec([some:A],[(woman>):noun]))}])},
+        {(subject , spec([every:B],[(man>):noun]))}],
+       C)],
+ [(every : D), ([(man>):noun] , D)],
+ [(some : E), ([(woman>):noun] , E)] | F]
+T = [{[at(_A),had:aux,{auxcomp,[(love>ed):verb,{dobj,_B}]},{subject,_C}]}],
+X = ['.':punct,{claim,spec(tense(past,+),[had:aux,{auxcomp,[(love>ed):verb,{dobj,spec(...)}]},{subject,spec([every:_E],[(man>''):noun])}])}],
+Qstack = [[spec(tense(past,+),[had:aux,{auxcomp,[(love>ed):verb,{dobj,spec(...)}]},{subject,spec([every:_E],[(man>''):noun])}],_A)],[every:_C,([(man>''):noun],_C)],[some:_B,([(woman>''):noun],_B)]|_F] ? 
+yes
+| ?- parseOne('every man will have seen some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+
+(i39
+  + [(. : punct),
+     {(claim,
+        spec(tense(A, +),
+             [(will : aux),
+              {(auxcomp,
+                 [(have> : aux),
+                  {(auxcomp,
+                     [(love>ed : verb),
+                      {(dobj,
+                         spec([(some : B)], [(woman> : noun)]))}])}])},
+              {(subject , spec([every:C],[(man>):noun]))}]))}])
+[[spec(tense(A, +),
+       [(will : aux),
+        {(auxcomp,
+           [(have> : aux),
+            {(auxcomp,
+               [(love>ed : verb),
+                {(dobj , spec([some:B],[(woman>):noun]))}])}])},
+        {(subject , spec([every:C],[(man>):noun]))}],
+       D)],
+ [(every : E), ([(man>):noun] , E)],
+ [(some : F), ([(woman>):noun] , F)] | G]
+T = [{[at(_A),will:aux,{auxcomp,[(have>''):aux,{auxcomp,[(love>ed):verb|...]}]},{subject,_C}]}],
+X = ['.':punct,{claim,spec(tense(_D,+),[will:aux,{auxcomp,[(have>''):aux,{auxcomp,[(love>ed):verb|...]}]},{subject,spec([every:_F],[(man>''):noun])}])}],
+Qstack = [[spec(tense(_D,+),[will:aux,{auxcomp,[(have>''):aux,{auxcomp,[(love>ed):verb|...]}]},{subject,spec([every:_F],[(man>''):noun])}],_A)],[every:_C,([(man>''):noun],_C)],[some:_B,([(woman>''):noun],_B)]|_G] ? parseOne('every man will have seen some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+Top-level options:
+   RET y     no more choices
+     ; n     more choices
+       b     break
+       <     reset printdepth
+       < <n> set printdepth
+       ^     reset subterm
+       ^ <n> set subterm
+     ? h     print this information
+ ? 
+yes
+| ?- parseOne('every man will have eaten some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+! 'No such word'(seen)
+| ?- parseOne('every man will have been seeing some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+
+(i38
+  + [(. : punct),
+     {(claim,
+        spec(tense(A, +),
+             [(will : aux),
+              {(auxcomp,
+                 [(have> : aux),
+                  {(auxcomp,
+                     [(eaten : verb),
+                      {(dobj,
+                         spec([(some : B)], [(woman> : noun)]))}])}])},
+              {(subject , spec([every:C],[(man>):noun]))}]))}])
+[[spec(tense(A, +),
+       [(will : aux),
+        {(auxcomp,
+           [(have> : aux),
+            {(auxcomp,
+               [(eaten : verb),
+                {(dobj , spec([some:B],[(woman>):noun]))}])}])},
+        {(subject , spec([every:C],[(man>):noun]))}],
+       D)],
+ [(every : E), ([(man>):noun] , E)],
+ [(some : F), ([(woman>):noun] , F)] | G]
+T = [{[at(_A),will:aux,{auxcomp,[(have>''):aux,{auxcomp,[eaten:verb|...]}]},{subject,_C}]}],
+X = ['.':punct,{claim,spec(tense(_D,+),[will:aux,{auxcomp,[(have>''):aux,{auxcomp,[eaten:verb|...]}]},{subject,spec([every:_F],[(man>''):noun])}])}],
+Qstack = [[spec(tense(_D,+),[will:aux,{auxcomp,[(have>''):aux,{auxcomp,[eaten:verb|...]}]},{subject,spec([every:_F],[(man>''):noun])}],_A)],[every:_C,([(man>''):noun],_C)],[some:_B,([(woman>''):noun],_B)]|_G] ? 
+yes
+| ?- parseOne('every man will be seeing some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+
+(i44
+  + [(. : punct),
+     {(claim,
+        spec(tense(A, +),
+             [(will : aux),
+              {(auxcomp,
+                 [(have> : verb),
+                  {(xcomp,
+                     [(be>en : aux),
+                      {(auxcomp,
+                         [(see>ing : verb),
+                          {(dobj,
+                             spec([(some : B)], [(woman> : noun)]))}])},
+                      {(subject , [(zero,4)])}])}])},
+              {(subject , spec([every:C],[(man>):noun]))}]))}])
+[[spec(tense(A, +),
+       [(will : aux),
+        {(auxcomp,
+           [(have> : verb),
+            {(xcomp,
+               [(be>en : aux),
+                {(auxcomp,
+                   [(see>ing : verb),
+                    {(dobj , spec([some:B],[(woman>):noun]))}])},
+                {(subject , [(zero,4)])}])}])},
+        {(subject , spec([every:C],[(man>):noun]))}],
+       D)],
+ [(every : E), ([(man>):noun] , E)] | F]
+T = [{[at(_A),will:aux,{auxcomp,[(have>''):verb,{xcomp,[(be>en):aux|...]}]},{subject,_C}]}],
+X = ['.':punct,{claim,spec(tense(_D,+),[will:aux,{auxcomp,[(have>''):verb,{xcomp,[(be>en):aux|...]}]},{subject,spec([every:_F],[(man>''):noun])}])}],
+Qstack = [[spec(tense(_D,+),[will:aux,{auxcomp,[(have>''):verb,{xcomp,[(be>en):aux|...]}]},{subject,spec([every:_F],[(man>''):noun])}],_A)],[every:_C,([(man>''):noun],_C)]|_G] ? 
+yes
+| ?- parseOne('every man would be seeing some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+
+(i24
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, +),
+             [(will : aux),(be> : aux)],
+                  [(see>ing : verb),
+                      {(dobj,
+                         spec([(some : B)], [(woman> : noun)]))}])}])},
+              {(subject , spec([every:C],[(man>):noun]))}]))}])
+| ?- parseOne('every man saw some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+
+(i10
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(saw : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])parseOne('every man would be seeing some woman .', X),rep3(X,T,Qstack),pretty(Qstack).
+
+(i24
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, +),
+             [(will : aux),
+              {(auxcomp,
+                 [(be> : aux),
+                  {(auxcomp,
+                     [(see>ing : verb),
+                      {(dobj,
+                         spec([(some : B)], [(woman> : noun)]))}])}])},
+              {(subject , spec([every:C],[(man>):noun]))}]))}])

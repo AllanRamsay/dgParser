@@ -457,7 +457,8 @@ np(X) :-
     X <> [np(+)].
 
 properName(X, U) :-
-    X <> [n, fulladjunct, fixedpremod],
+    X <> [n, fulladjunct, fixedpremod, +specified],
+    specifier@X -- name,
     trigger(tag@target@X, (tag@target@X = name -> true; incCost(X, 0.2))),
     target@X <> [n, saturated],
     tag@X -- name,
