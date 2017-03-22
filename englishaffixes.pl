@@ -23,7 +23,7 @@ word('', X) :-
 word('s', X) :-
     language@X -- english,
     specifier@X -- generic,
-    X <> [suffix(numPerson), third, plural, -target, standardcase, -def].
+    X <> [suffix(numPerson), third, plural, -target, standardcase].
 
 word('', X) :-
     language@X -- english,
@@ -47,17 +47,19 @@ word('en', X) :-
 word('', X) :-
     language@X -- english,
     X <> [adj(_), suffix(adjsuffix)],
-    degree@X -- simple.
+    degree@X -- simple,
+    -zero@target@X.
 
 word('er', X) :-
     language@X -- english,
     degree@X -- comparative,
-    X <> [adj(_), suffix(adjsuffix)].
+    X <> [adj(_), suffix(adjsuffix)],
+    -zero@target@X.
 
 word('est', X) :-
     language@X -- english,
     degree@X -- superlative,
-    X <> [adj(_), suffix(adjsuffix), adj].
+    X <> [adj(_), suffix(adjsuffix), +def].
 
 word('ly', X) :-
     language@X -- english,

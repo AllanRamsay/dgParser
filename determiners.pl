@@ -1,4 +1,23 @@
+/**
+  Simple determiners combine with descriptors, where a
+  descriptor could be just an NN or "of NP[+def]".
+
+  Some can combine with NNs with +zero heads: "all who sail
+  in her", "the richest of my friends".
+
+  "all" is pretty weird: it does take part in "all of my
+  cats", but it also does things like "they all had a good
+  time" and "my friends all drive Porsches". Do "my friends all
+  drive Porsches" and "all my friends drive Porsches" mean
+  the same? I think probably not:
+
+  forall(X :: {member(X, ref(lambda Y: friend(me, Y)))},
+         drive(X, Porsche))
+
   
+
+  **/
+
 
 times(X, N) :-
     tag@X -- twice,
@@ -49,30 +68,35 @@ few(X) :-
 
 all(X) :-
     language@X -- english,
-    X <> [det1, -def, third, plural],
-    trigger(case@target@X, (member(I, [1,2,3], setDetTarget(target@X, I)))).
+    X <> [det4, -def, plural],
+    trigger(case@target@X, (member(I, [1]), setDetTarget(X, I))).
 
 all(X) :-
+    fail,
     cat@X -- all,
     X <> [saturated, fulladjunct, premod, theta(allAsMod)],
     target@X <> [np, +def],
-    trigger(set:position@moved@X, (notMoved(X) -> true; (movedAfter(X), subjcase(target@X)))).
+    trigger(set:position@moved@X, (notMoved(X) -> true; (movedAfter(X)))).
 
 standardDet(X) :-
     language@X -- english,
     X <> [det1, -def],
-    trigger(case@target@X, (member(I, [1,2]), setDetTarget(target@X, I))).
+    trigger(case@target@X, (member(I, [1,2]), setDetTarget(X, I))).
 
 none(X) :-
     language@X -- english,
     X <> [det1, -def],
-    trigger(case@target@X, (member(I, [2]), setDetTarget(target@X, I))).
+    trigger(case@target@X, (member(I, [2]), setDetTarget(X, I))).
 
-setDetTarget(T, 1) :-
+setDetTarget(X, 1) :-
+    T -- target@X,
+    [def] :: [X, target@X, result@X],
     T <> [-specified, standardcase].
-setDetTarget(T, 2) :-
+setDetTarget(X, 2) :-
+    T -- target@X,
     T <> [pp, +def, casemarked(of), -zero].
-setDetTarget(T, 3) :-
+setDetTarget(X, 3) :-
+    T -- target@X,
     T <> [np, +def, standardcase, -zero].
 
 number(X, N) :-
@@ -86,7 +110,7 @@ number(X, N) :-
     X <> [n, -target, +numeric, unspecified, saturated, inflected, plural].
 number(X, N) :-
     language@X -- english,
-    X <> [-def, det2],
+    X <> [-def, det3, saturated],
     trigger(case@target@X, (member(I, [1,2]), setDetTarget(target@X, I))).
 
 number(X, N0) :-

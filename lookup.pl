@@ -56,7 +56,7 @@ mergeWord(R0, P, R1) :-
 
 lookup((AFORM, FORM, TAG), WORD, LANGUAGE) :-
     WORDX -- WORD\root\surface\tag,
-    [start, end, modified, cat] :: [WORD, hd@WORD],
+    [start, end, modified, cat, zero] :: [WORD, hd@WORD],
     language@WORD -- LANGUAGE,
     surface@WORD -- FORM,
     !,

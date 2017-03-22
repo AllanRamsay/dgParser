@@ -205,6 +205,9 @@ strictprearg(X, Y) :-
   We have fixed and strict versions, just as with arguments.
   **/
 
+notMoved(X, I) :-
+    trigger(I, notMoved(X)).
+
 premod1(X, T) :-
     target@X -- T,
     dir@T <> after.
@@ -218,7 +221,7 @@ premod(X) :-
 
 fixedpremod(X, T) :-
     X <> [premod(T)],
-    trigger(index@T, notMoved(X)),
+    notMoved(X, index@T),
     end@X -- start@T.
 
 fixedpremod(X) :-
@@ -231,17 +234,19 @@ strictpremod(X, target@X) :-
 strictpremod(X) :-
     X <> [strictpremod(_)].
 
-postmod(X, T) :-
+postmod(X, T, zero@T) :-
     target@X -- T,
-    dir@T <> before,
-    -zero@T.
+    dir@T <> before.
+
+postmod(X, T) :-
+    X <> [postmod(T, -)].
 
 postmod(X) :-
     postmod(X, _T).
 
 fixedpostmod(X, T) :-
     X <> postmod(T),
-    T <> notMoved.
+    notMoved(X, index@T).
 
 fixedpostmod(X) :-
     X <> fixedpostmod(_T).
@@ -274,23 +279,25 @@ strictpostmod(X) :-
 adjunct2(X) :-
     target@X -- T,
     result@X -- R,
-    language :: [X, T, R],
-    T\structure\dir\mod\wh\spec\comp -- R.
+    [def, language] :: [X, T, R],
+    T\structure\dir\mod\wh\specified\comp -- R.
 
 adjunct1(X) :-
     -zero@target@X,
     X <> [adjunct2].
 
-adjunct(X) :-
+adjunct(X, zero@T) :-
     target@X -- T,
     result@X -- R,
-    -zero@T,
     language :: [X, T, R],
-    T\structure\dir\modified\wh\spec -- R.
+    T\structure\dir\modified\wh\specified -- R.
+
+adjunct(X) :-
+    X <> [adjunct(-)].
 
 fulladjunct(X) :-
-    spec :: [target@X, result@X],
-    X <> adjunct.
+    [spec, mod] :: [target@X, result@X],
+    X <> [adjunct(_)].
 
 /**
   Sometimes partial trees have holes in them. Consider "the dessert I
@@ -373,18 +380,6 @@ nmod(X) :-
     xstart@T -- end@X,
     modified@result@X -- 1.5,
     trigger(index@T, theta(X, nmod)).
-
-/**
-  Arabic nouns can also function as possessive determiers
-  **/
-
-nmod(X) :-
-    language@X -- arabic,
-    X <> [+def, theta(poss), adjunct],
-    target@X -- T,
-    -def@T,
-    result@X -- R,
-    +def@R.
 
 /**
   Some really complicated stuff for treating Arabic nouns
@@ -935,14 +930,16 @@ uverb(X) :-
   earlier in the week)
   **/
 
-det3(X) :-
+det4(X) :-
     cat@X -- det,
-    X <> [premod1(T), notMoved, theta(specifier), adjunct2],
+    X <> [premod1(T), theta(specifier)],
     language@X -- language@T,
     [agree] :: [X, target@X, result@X],
-    [def] :: [X, result@X],
     target@X <> [n, saturated],
-    result@X <> [n, -target, standardcase].
+    result@X <> [n, -target, standardcase, saturated].
+    
+det3(X) :-
+    X <> [det4, notMoved].
     
 det2(X) :-
     X <> [det3, saturated],
@@ -965,16 +962,18 @@ det(X) :-
   **/
 
 adjModConstraints(X) :-
-    X <> [strictpremod],
+    X <> [notMoved],
+    trigger(zero@target@X,
+	    (zero@target@X = + -> (specified@result@X = -, target@result@X = -); true)),
     theta@X -- amod,
     trigger(theta@result@X, \+ theta@result@X = nmod).
 
 adj(X, args@X) :-
     %% +predicative because they can be the complement of "be"
     %% -- "he is happy"
-    X <> [a, +predicative, premod],
+    X <> [a, +predicative, premod1(_), adjunct(_)],
     [cat, mod, args] :: [target@X, result@X],
-    target@X <> [n, unspecified, saturated, -zero],
+    target@X <> [n, unspecified, saturated],
     modified@result@X -- 1.5,
     trigger(index@target@X, adjModConstraints(X)),
     tag@X --  adj.
@@ -1180,13 +1179,14 @@ shiftedPPCOMP(X, COMP, T) :-
      true).
 
 prep(X, ARGS) :-
+    target@X -- T,
     X <> [p, fulladjunct, postmod(T)],
+    trigger((start@T, end@T), end@T > start@T),
     root@X -- [case@X],
     tag@X -- prep,
     +predicative@X,
     modified@result@X -- 2,
-    target@X -- T,
-    T <> [x, -zero],
+    T <> [x, unspecified],
     args@X -- ARGS,
     (ARGS = [COMP] ->
      (COMP <> [noRightShift, compact, objcase, +specified],
@@ -1265,7 +1265,7 @@ checkWHMarked(X, WH) :-
 whpron(X, WH) :-
     X <> [pronoun, saturated, setWHMarked(WH), movedBefore(+)],
     -target@X,
-    trigger(language@X, (language@X = arabic -> setnpred(X); true)).
+    setnpred(X).
 
 whTarget(T) :-
     T <> [baseNoun, -pronominal, saturated, unspecified].
@@ -1275,7 +1275,7 @@ whTarget(T) :-
 setWHItem(X, WH) :-
     [start, end] :: [X, WH],
     wh@X -- [WH | _],
-    WH <> [np, adjunct, -modifiable, compact],
+    WH <> [np, adjunct(_), -modifiable, compact],
     dir@target@WH <> before,
     T -- target@WH,
     T <> [x, saturated, notMoved],

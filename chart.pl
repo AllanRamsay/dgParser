@@ -86,7 +86,7 @@ addZero :-
     start@X -- end@X,
     xstart@X -- xend@X,
     start@X -- xstart@X,
-    [start, end, modified] :: [X, hd@X],
+    [start, end, modified, zero] :: [X, hd@X],
     span@X -- 0,
     index@X -- z0,
     root@X -- [('zero', start@X)],
@@ -251,7 +251,7 @@ combineModAndTarget(M, T, R) :-
     \+ (nonvar(MODT), nonvar(MODR), (MODT > MODR; (MODT == MODR, \+ compact(R)))),
     (theta@M == specifier ->
      root@R = spec(root@M, root@T);
-     append(root@T, [{modifier(theta@M, specified@T), root@M}], root@R)),
+     (append(root@T, [{modifier(theta@M, specified@T), root@M}], root@R) -> true; root@R = [root@T, {modifier(theta@M, specified@T), root@M}])),
     (zero@T == + ->
      (after(dir@T) -> start@T = end@M; end@T = start@M);
      true),
@@ -319,7 +319,8 @@ combineHdAndArg(H0, A, H1) :-
     (used@A = +).
 
 findCombination(X, _Z) :-
-    breakOn(X, _),
+    ?breakOn(I),
+    breakOn(X, I),
     fail.
 findCombination(X, Z) :-
     combineHdAndArg(X, _Y, Z).

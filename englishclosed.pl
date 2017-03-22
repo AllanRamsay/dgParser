@@ -159,6 +159,27 @@ word('beside', X) :-
     language@X -- english,
     X <> [prep].
 
+word('best', X) :-
+    language@X -- english,
+    definition@X -- 'having the most positive qualities',
+    X <> [aroot].
+                    
+word('best', X) :- 
+    language@X -- english,
+    definition@X -- 'the supreme effort one can make',
+    X <> [nroot, -target].
+
+word('best', X) :-
+    language@X -- english,
+    definition@X -- 'in a most excellent way or manner',
+    X <> [adv].
+
+word('best', X) :-
+    language@X -- english,
+    definition@X -- 'get the better of',
+    X <> [vroot, regularPast],
+    tverb(X).
+
 word('both', X) :-
     language@X -- english,
     X <> [det, inflected, +def, plural].
@@ -542,9 +563,9 @@ word('o', X) :-
 
 word('of', X) :-
     language@X -- english,
-    X <> [prep([NN])],
     NN <> [n, saturated, postarg],
-    target@X <> noun.
+    target@X <> noun,
+    prep(X, [NN]).
 
 word('on', X) :-
     language@X -- english,
