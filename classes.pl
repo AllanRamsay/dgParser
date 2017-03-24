@@ -463,16 +463,22 @@ properName(X, U) :-
 
 pronoun(X) :-
     X <> [np(_), +specified, +pronominal, standardcase],
+    tag@X -- pronoun.
+
+subjobjpronoun(X) :-
     specifier@X -- proRef,
-    tag@X -- pronoun,
-    trigger(used@X, (\+ \+ objcase(X) -> noRightShift(X); true)).
+    pronoun(X),
+    trigger((used@X, case@X), (subjcase(X) -> subjpronoun(X); objpronoun(X))).
 
 objpronoun(X) :-
+    specifier@X -- proRef,
     X <> [pronoun, objcase, +def, -target, noRightShift].
 
 subjpronoun(X) :-
+    specifier@X -- proRef,
     X <> [pronoun, subjcase, +def, -target, -predicative],
     trigger(language@X, (language@X -- arabic -> setnpred(X); true)).
+    
 
 %% Arabic: ignore
 setresumption(R) :-
@@ -718,7 +724,7 @@ aux(X, COMP) :-
     tag@X -- aux,
     %% It's useful to mark auxiliaries as being different from other verbs
     X <> [+aux, verb, -target, +invertsubj],
-    COMP <> [vp, postarg, theta(auxcomp), noLeftShift],
+    COMP <> [vp, postarg, theta(auxcomp)],
     /**
     %% constraints on ellipsis to allow for "does he" and "he does".
     trigger(zero@COMP,
@@ -730,7 +736,7 @@ aux(X, COMP) :-
       **/
     -zero@COMP,
     subject@X -- SUBJECT,
-    SUBJECT <> [prearg, standardcase],
+    SUBJECT <> [prearg, standardcase, noLeftShift],
     [syntax\case, start, theta] :: [SUBJECT, subject@COMP],
     %% Subject can't be right-shifted beyond the main verb of the complement
     trigger(used@SUBJECT, start@SUBJECT < start@hd@COMP),
@@ -992,7 +998,7 @@ aroot2(X, args@X) :-
 
 aroot1(X, ARGS) :-
     X <> [aroot2(ARGS)],
-    target@X <> [n, unspecified].
+    target@X <> [unspecified].
 
 aroot(X, ARGS) :-
     X <> [a, fulladjunct, aroot1(ARGS)].
@@ -1121,8 +1127,9 @@ p(X) :-
   **/
 
 prepmodN(X, T, COMP) :-
+    X <> [notMoved, postmod],
     COMP <> [notMoved],
-    T <> [baseNoun, unspecified, notMoved],
+    T <> [baseNoun, unspecified, compact],
     var(wh@COMP).
 
 /**

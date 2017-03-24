@@ -1,7 +1,7 @@
 
 word('I', X) :-
     language@X -- english,
-    X <> [pronoun, subjcase, firstSing, -target, inflected].
+    X <> [subjpronoun, firstSing, -target, inflected].
 
 word('a', X) :-
     language@X -- english,
@@ -95,15 +95,15 @@ word('or', X) :-
 
 word('anybody', X) :-
     language@X -- english,
-    X <> [pronoun, standardcase, -target].
+    X <> [subjobjpronoun, standardcase, -target].
 
 word('anyone', X) :-
     language@X -- english,
-    X <> [pronoun, standardcase, -target].
+    X <> [subjobjpronoun, standardcase, -target].
 
 word('anything', X) :-
     language@X -- english,
-    X <> [pronoun, standardcase, -target].
+    X <> [subjobjpronoun, standardcase, -target].
 
 word('anywhere', X) :-
     language@X -- english,
@@ -269,7 +269,7 @@ word('every', X) :-
 
 word('everybody', X) :-
     language@X -- english,
-    X <> [pronoun, standardcase, -target].
+    X <> [subjobjpronoun, standardcase, -target].
 
 word('everyone', X) :-
     language@X -- english,
@@ -385,7 +385,7 @@ word('here', X) :-
 
 word('herself', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objpronoun, -target].
 
 word('hi', X) :- 
     language@X -- english,
@@ -399,7 +399,7 @@ word('him', X) :-
 
 word('himself', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objpronoun, -target].
 
 word('his', X) :-
     language@X -- english,
@@ -437,7 +437,7 @@ word('is', X) :-
 word('it', X) :-
     language@X -- english,
     X <> [-target, inflected],
-    pronoun(X).
+    subjobjpronoun(X).
 
 word('its', X) :-
     language@X -- english,
@@ -445,8 +445,8 @@ word('its', X) :-
 
 word('itself', X) :-
     language@X -- english,
-    X <> [objcase, -target],
-    pronoun(X).
+    X <> [-target],
+    objpronoun(X).
 
 word('less', X) :-
     less(X).
@@ -485,7 +485,7 @@ word('may', X) :-
 
 word('me', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objpronoun, -target].
 
 word('might', X) :-
     language@X -- english,
@@ -529,7 +529,7 @@ word('my', X) :-
 
 word('myself', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objpronoun, -target].
 
 word('neither', X) :-
     language@X -- english,
@@ -586,7 +586,7 @@ word('only', X) :-
 
 word('oneself', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objpronoun, -target].
 
 word('onto', X) :-
     language@X -- english,
@@ -608,7 +608,7 @@ word('our', X) :-
 
 word('ourselves', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objpronoun, -target].
 
 word('out', X) :-
     language@X -- english,
@@ -680,11 +680,11 @@ word('some', X) :-
 
 word('someone', X) :-
     language@X -- english,
-    X <> [pronoun, standardcase, -target].
+    X <> [subjobjpronoun, standardcase, -target].
 
 word('something', X) :-
     language@X -- english,
-    X <> [pronoun, standardcase, -target].
+    X <> [subjobjpronoun, standardcase, -target].
 
 word('than', X) :-
     language@X -- english,
@@ -701,7 +701,7 @@ word('that', X) :-
 
 word('that', X) :-
     language@X -- english,
-    X <> [pronoun, -target].
+    X <> [subjobjpronoun, -target].
 
 word('that', X) :-
     language@X -- english,
@@ -747,7 +747,7 @@ word('their', X) :-
 
 word('theirselves', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objpronoun, -target].
 
 word('them', X) :-
     language@X -- english,
@@ -755,7 +755,7 @@ word('them', X) :-
 
 word('themselves', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objpronoun, -target].
 
 word('then', X) :-
     language@X -- english,
@@ -769,7 +769,7 @@ word('there', X) :-
 
 word('these', X) :-
     language@X -- english,
-    X <> [pronoun, third, plural, -target].
+    X <> [subjobjpronoun, third, plural, -target].
 
 word('they', X) :-
     language@X -- english,
@@ -787,7 +787,7 @@ word('this', X) :-
 
 word('those', X) :-
     language@X -- english,
-    X <> [pronoun, third, plural, -target].
+    X <> [subjobjpronoun, third, plural, -target].
 
 word('three', X) :-
     language@X -- english,
@@ -857,6 +857,10 @@ word('was', X) :-
     language@X -- english,
     verb(X, be),
     X <> [pastTense, sing, inflected].
+
+word('we', X) :-
+    language@X -- english,
+    X <> [subjpronoun, first, plural, -target, inflected].
 
 word('were', X) :-
     language@X -- english,
@@ -958,7 +962,7 @@ word('would', X) :-
 word('you', X) :-
     language@X -- english,
     X <> [second, plural, -target],
-    pronoun(X).
+    subjobjpronoun(X).
 
 word('your', X) :-
     language@X -- english,
@@ -966,7 +970,7 @@ word('your', X) :-
 
 word('yourself', X) :-
     language@X -- english,
-    X <> [pronoun, objcase, -target].
+    X <> [objpronoun, -target].
 
 word('.', X) :-
     language@X -- english,

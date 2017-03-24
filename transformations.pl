@@ -419,15 +419,44 @@ not(p) --> p => absurd
   husband(A, R)-
   man < human
 
-a, some, many, few, ...
-exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X))
+a, 
+exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & |A|=1)
+some
+exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & |A|>1)
+many
+exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & large(|A|))
+a few
+exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & small(|A|))
+few
+exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & small(|A|) & I thought A would be bigger than that)
+
+exists(p(X), q(X))
+
+P intersect Q != 0
 
 each, every, all, ...
 forall(X :: {p(X)}, q(X)) == forall(X, p(X) => q(X))
 
+forall(p(X), q(X))
+
+P subseteq Q
+  
 the man, he, Mary, had slept ...
 the(X :: {p(X)}, q(X)) == the(X :: {p(X)}, q(X)) != exists1(X, p(X) & q(X))
 qff(the(X :: {p(X)}, q(X)) = the(X :: {qff(p(X))}, qff(q(X)))
+
+many cats are lazy
+many(X :: {cat(X)}, lazy(X))
+
+many(cat(X), lazy(X))
+
+large(|cat intersect lazy|) |= cat intersect lazy != 0
+
+qff(exists(X, p(X) & q(X))) = p(sk1) & q(sk1)
+qff(exists(X :: {p(X)}, q(X)) = nonemptyintersection(p(sk1)}, q(sk1))
+
+qff(forall(X :: {p(X)}, q(X)) = subset(p'(X), q'(X))
+
 
 
 ----------------------------------------------------------------------------  **/

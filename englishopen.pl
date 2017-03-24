@@ -703,6 +703,17 @@ word('i', X) :-
     language@X -- english,
     definition@X -- 'the 9th letter of the Roman alphabet',
     X <> [nroot, -target, sing].
+     
+word('kill', X) :- 
+    language@X -- english,
+    definition@X -- 'the destruction of an enemy plane or ship or tank or missile',
+    X <> [nroot].
+
+word('kill', X) :-
+    language@X -- english,
+    definition@X -- 'cause to die',
+    X <> [vroot, regularPast],
+    tverb(X).
 
 word('kiss', X) :-
     language@X -- english,
