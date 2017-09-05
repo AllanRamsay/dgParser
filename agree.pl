@@ -1,15 +1,21 @@
 
 /**
-  These are constraints on what is allowed.
-  To say that something *is* specified or unspecified, use +specified/-specified
-  **/
+  specified=*(N): you have had a specifier added to you (internal). 0 = no, new ones have to score higher than old
+  specifier=[_]: you are capable of being used in situation where we need to know what to do with you (external).
 
-unspecified(X) :-
-    trigger((complete@X; specified@X), \+ specified@X == +).
-specified(X) :-
-    trigger(specified@X, \+ specified@X == -).
+  bare noun: has no specifier added, but if it *were* to be used as an NP then the value of specifier would be *mass
+  plural noun: has no specifier added, but if it *were* to be used as an NP then the value of specifier would be *count
+
+  det+NP: we record values for both specified (a number) and specifier (a property).
+**/
 
 specified(X, specified@X).
+
+unspecified(X) :-
+    specified@X -- 0.
+
+specifier(X, SPEC) :-
+    specifier@X -- SPEC.
 
 casemarked(X, case@X).
 
@@ -19,8 +25,11 @@ subjcase(X) :-
 objcase(X) :-
     case@X -- *obj.
 
+standardcase(X, CASE) :-
+    case@X -- *CASE.
+
 standardcase(X) :-
-    case@X -- *_.
+    X <> [standardcase(_)].
 
 sing(X) :-
     number@X -- sing.

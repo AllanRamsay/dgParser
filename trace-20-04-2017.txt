@@ -1,0 +1,1127 @@
+SICStus 3.12.8 (i386-darwin-8.9.1): Tue May  8 13:13:57 CEST 2007
+Licensed to man.ac.uk
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/setup.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po...
+%  module charsio imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/charsio.bundle in module charsio
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po in module charsio, 0 msec 8512 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/setup.pl in module user, 10 msec 11448 bytes
+yes
+| ?- setup(allwords).
+% compiling /Library/WebServer/CGI-Executables/dgParser/useful.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po...
+%  module terms imported into user
+%   loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po...
+%   module assoc imported into terms
+%    loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po...
+%    module lists imported into assoc
+%    loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po in module lists, 0 msec 11328 bytes
+%   loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po in module assoc, 0 msec 22728 bytes
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po in module terms, 0 msec 31128 bytes
+% Undefined predicates will just fail (fail)
+% compiled /Library/WebServer/CGI-Executables/dgParser/useful.pl in module user, 10 msec 58792 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/features.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/features.pl in module user, 10 msec 21620 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/pretty.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/pretty.pl in module user, 10 msec 12480 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/io.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/io.pl in module user, 10 msec 760 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/disjoin.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/disjoin.pl in module user, 10 msec 16720 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-64, file: '/Library/WebServer/CGI-Executables/dgParser/signatures.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/signatures.pl in module user, 0 msec 5272 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/agree.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/agree.pl in module user, 0 msec 8272 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/classes.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/classes.pl in module user, 40 msec 166040 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/negation.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/negation.pl in module user, 0 msec 1408 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/vforms.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/vforms.pl in module user, 0 msec 23320 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/pronouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/pronouns.pl in module user, 0 msec 3456 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/verbs.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/verbs.pl in module user, 10 msec 36464 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/mclasses.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/mclasses.pl in module user, 0 msec 1648 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/determiners.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/determiners.pl in module user, 0 msec 31224 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/nouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/nouns.pl in module user, 0 msec 2160 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/lookup.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/lookup.pl in module user, 10 msec 10008 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/chart.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/chart.pl in module user, 10 msec 64704 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/treepr.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/treepr.pl in module user, 0 msec 9520 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/conll.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/conll.pl in module user, 0 msec 7872 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl in module user, 0 msec 5344 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/preprocess.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/preprocess.pl in module user, 10 msec 12632 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/spelling.pl...
+* abolish(user:(spellingRule/3)) - no matching predicate
+* Approximate lines: 113-115, file: '/Library/WebServer/CGI-Executables/dgParser/spelling.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/spelling.pl in module user, 0 msec 12960 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+%  consulting /Library/WebServer/CGI-Executables/dgParser/setup.pl...
+%  consulted /Library/WebServer/CGI-Executables/dgParser/setup.pl in module user, 0 msec -48 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 15416 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/allwords.pl...
+%  including /Library/WebServer/CGI-Executables/dgParser/englishopen.pl...
+%   including /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl...
+%    including /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl...
+%    included /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl in module user, 0 msec 15120 bytes
+%   included /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl in module user, 40 msec 514472 bytes
+%  included /Library/WebServer/CGI-Executables/dgParser/englishopen.pl in module user, 100 msec 982224 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/allwords.pl in module user, 10420 msec 94721760 bytes
+yes
+| ?- parseOne('every fat man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[(exists : tense(past,A)),
+ [((every : [(man>):noun],B)
+    => [((some : [(woman>):noun],C)
+          & [{[at(A),
+                (love>ed : verb),
+                {(dobj , C)},
+                {(subject , B)}]}])])]]
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = [exists:tense(past,_C),[every:([(man>''):noun],_D)=>[some:([(woman>''):noun],_E)&[{[at(_C),(love>ed):verb,{dobj,_E}|...]}]]]] ? 
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i18
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject,
+                 spec([(every : B)],
+                      [(man> : noun),
+                       {(modifier(amod,-) , [(fat>):adj])}]))}]))}])
+[(exists : tense(past,A)),
+ [((every : [(man>):noun],B)
+    => [((some : [(woman>):noun],C)
+          & [{[at(A),
+                (love>ed : verb),
+                {(dobj , C)},
+                {(subject,
+                   [B, {(modifier(amod,-) , [(fat>):adj])}])}]}])])]]
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun|...])}])}],
+NF = [exists:tense(past,_C),[every:([(man>''):noun],_D)=>[some:([(woman>''):noun],_E)&[{[at(_C),(love>ed):verb,{dobj,_E}|...]}]]]] ? 
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[(exists : tense(past,A)),
+ [((every : B, [(man>):noun
+             => [((some : [(woman>):noun],C)
+                           & [{[at(A),
+                                (love>ed : verb),
+                                 {(dobj , C)},
+                                 {(subject , B)}]}])])]]]
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = [exists:tense(past,_C),[every:([(man>''):noun],_D)=>[some:([(woman>''):noun],_E)&[{[at(_C),(love>ed):verb,{dobj,_E}|...]}]]]] ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 1264 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[(exists : tense(past,A)),
+ every(B,
+       ([(man> : noun)]
+         => some(C,
+                 ([(woman> : noun)]
+                   & [{[at(A),
+                         (love>ed : verb),
+                         {(dobj , C)},
+                         {(subject , B)}]}]))))]
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = [exists:tense(past,_C),every(_D,[(man>''):noun]=>some(_E,[(woman>''):noun]&[{[at(_C),(love>ed):verb,{dobj,_E}|...]}]))] ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -48 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[(exists : tense(past,A)),
+ every(B,
+       (([(man>):noun] , B)
+         => some(C,
+                 (([(woman>):noun] , C)
+                   & [{[at(A),
+                         (love>ed : verb),
+                         {(dobj , C)},
+                         {(subject , B)}]}]))))]
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = [exists:tense(past,_C),every(_D,([(man>''):noun],_D)=>some(_E,([(woman>''):noun],_E)&[{[at(_C),(love>ed):verb,{dobj,_E}|...]}]))] ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -80 bytes
+yes
+| ?- parseOne('every fat man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & [{[at(A),
+                                     (love>ed : verb),
+                                     {(dobj , C)},
+                                     {(subject , B)}]}]))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&[{[at(...),(love>ed):verb|...]}]))) ? 
+yes
+| ?- parseOne('every fat man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i18
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {((dobj , spec([some:A],[(woman>):noun]))},
+              {(subject,
+                 spec([(every : B)],
+                      [(man> : noun),
+                       {(modifier(amod,-) , [(fat>):adj])}]))}]))}])
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & [{[at(A),
+                                     (love>ed : verb),
+                                     {(dobj , C)},
+                                     {(subject,
+                                        [B,
+                                         {(modifier(amod, -),
+                                            [(fat> : adj)])}])}]}]))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun|...])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&[{[at(...),(love>ed):verb|...]}]))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 256 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i18
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject,
+                 spec([(every : B)],
+                      [(man> : noun),
+                       {(modifier(amod,-) , [(fat>):adj])}]))}]))}])
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => ((. : punct)
+                        & [{[at(A) | ((love>ed):verb & {dobj,spec([some:C],[(woman>):noun])}&[{subject,[B,{modifier(amod,-),[(fat>):adj]}]}])]}])))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun|...])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>('.':punct&[{[at(_C)|(love>ed):verb&{dobj,spec(...)}&[{subject,[_D|...]}]]}]))) ? 
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => ((. : punct)
+                        & [{[at(A) | ((love>ed):verb & {dobj,spec([some:C],[(woman>):noun])}&[{subject,B}])]}])))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>('.':punct&[{[at(_C)|(love>ed):verb&{dobj,spec(...)}&[{subject,_D}]]}]))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 488 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & [{[at(A),
+                                     (love>ed : verb),
+                                     {(dobj , C)},
+                                     {(subject , B)}]}]))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&[{[at(...),(love>ed):verb|...]}]))) ? 
+yes
+| ?- spy(fixConjunctions).
+% The debugger will first zip -- showing spypoints (zip)
+% Plain spypoint for user:(fixConjunctions/2) added, BID=1
+yes
+% zip
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+
+ +      1      1 Call: fixConjunctions([{[at(_327891),(love>ed):verb,{dobj,_328027},{subject,_328203}]}],_327703) ?               {(subject , spec([every:B],[(man>):noun]))}]))}])l
+ +      4      2 Call: fixConjunctions({[at(_327891),(love>ed):verb,{dobj,_328027},{subject,_328203}]},_328980) ? a
+% Execution aborted
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -56 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[{[at(A), (love>ed : verb), {(dobj , B)}, {(subject , C)}]}]
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & [{[at(A),
+                                     (love>ed : verb),
+                                     {(dobj , C)},
+                                     {(subject , B)}]}]))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&[{[at(...),(love>ed):verb|...]}]))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 120 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+((. : punct)
+  & [{(claim,
+        spec(tense(past, -),
+             ((love>ed : verb)
+               & ({(dobj , spec([some:A],[(woman>):noun]))}
+                   & [{(subject,
+                         spec([(every : B)], [(man> : noun)]))}]))))}])
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = '.':punct&[{claim,spec(tense(past,-),(love>ed):verb&{dobj,spec(...)}&[{subject,spec(...)}])}] ? 
+yes
+| ?- a =.. L.
+L = [a] ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 152 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & &([{[at(A) | ((love>ed):verb & {dobj,C}&[{subject,B}])]}])))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)& &([{[at(...)|...]}])))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 216 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(((. : punct)
+                    & [{(claim,
+                          spec(tense(past, -),
+                               ((love>ed : verb)
+                                 & ({(dobj,
+                                       spec([(some : A)],
+                                            [(woman> : noun)]))}
+                                     & [{(subject,
+                                           spec([(every : B)],
+                                                [(man> : noun)]))}]))))}]))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & &([{[at(A) | ((love>ed):verb & {dobj,C}&[{subject,B}])]}])))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)& &([{[at(...)|...]}])))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 280 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(((. : punct)
+                    & {(claim,
+                         spec(tense(past, -),
+                              [(love>ed : verb),
+                               {(dobj,
+                                  spec([(some : A)], [(woman> : noun)]))},
+                               {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}]))}))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & &({[at(A),
+                                      (love>ed : verb),
+                                      {(dobj , C)},
+                                      {(subject , B)}]})))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)& &({[at(...),(love>ed):verb|...]})))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 160 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(((. : punct)
+                    & [{(claim,
+                          spec(tense(past, -),
+                               ((love>ed : verb)
+                                 & ({(dobj,
+                                       spec([(some : A)],
+                                            [(woman> : noun)]))}
+                                     & [{(subject,
+                                           spec([(every : B)],
+                                                [(man> : noun)]))}]))))}]))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & &([{[at(A) | ((love>ed):verb & {dobj,C}&[{subject,B}])]}])))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)& &([{[at(...)|...]}])))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 152 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(((. : punct)
+                    & {(claim,
+                         spec(tense(past, -),
+                              ((love>ed : verb)
+                                & ({(dobj,
+                                      spec([(some : A)],
+                                           [(woman> : noun)]))}
+                                    & {(subject,
+                                         spec([(every : B)],
+                                              [(man> : noun)]))}))))}))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & &({[at(A) | ((love>ed):verb & {dobj,C}&{subject,B})]})))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)& &({[at(...)|(love>ed):verb&{dobj,_E}&{subject,_D}]})))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 136 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(((. : punct)
+                    & {(claim,
+                         spec(tense(past, -),
+                              ((love>ed : verb)
+                                & ({(dobj,
+                                      spec([(some : A)],
+                                           [(woman> : noun)]))}
+                                    & {(subject,
+                                         spec([(every : B)],
+                                              [(man> : noun)]))}))))}))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & &({at(A,
+                                        ((love>ed : verb)
+                                          & ({dobj,C} & {subject,B})))})))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)& &({at(_C,(love>ed):verb&{dobj,_E}&{subject,_D})})))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 168 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(((. : punct)
+                    & {(claim,
+                         spec(tense(past, -),
+                              ((love>ed : verb)
+                                & ({(dobj,
+                                      spec([(some : A)],
+                                           [(woman> : noun)]))}
+                                    & {(subject,
+                                         spec([(every : B)],
+                                              [(man> : noun)]))}))))}))
+rep3(&({at(A,
+            ((love>ed : verb)
+              & ({dobj,B} & {subject,C})))}))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & &({at(A,
+                                        ((love>ed : verb)
+                                          & ({dobj,C} & {subject,B})))})))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)& &({at(_C,(love>ed):verb&{dobj,_E}&{subject,_D})})))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 104 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(((. : punct)
+                    & {(claim,
+                         spec(tense(past, -),
+                              ((love>ed : verb)
+                                & ({(dobj,
+                                      spec([(some : A)],
+                                           [(woman> : noun)]))}
+                                    & {(subject,
+                                         spec([(every : B)],
+                                              [(man> : noun)]))}))))}))
+rep3(&(at(A,
+          ((love>ed : verb)
+            & ({dobj,B} & {subject,C})))))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & &(at(A,
+                                      ((love>ed : verb)
+                                        & ({dobj,C} & {subject,B}))))))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)& &(at(_C,(love>ed):verb&{dobj,_E}&{subject,_D}))))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 288 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        ((love>ed):verb & {dobj,B}&{subject,C})))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & at(A,
+                                    exists(D, ((love>ed : verb)
+                                      & ({dobj, C} & {subject, B})), D)))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&at(_C,(love>ed):verb&{dobj,_E}&{subject,_D})))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+* [A] - singleton variables in user:(rep3/4)
+* Approximate lines: 116-121, file: '/Library/WebServer/CGI-Executables/dgParser/transformations.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 88 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        [B | ((love>ed):verb & {dobj,C}&{subject,D})]))
+exists(A,
+       (tense(past, A)
+         & [((some : B)
+              & every(C,
+                      (([(man>):noun] , C)
+                        => exists(D,
+                                  (([(woman>):noun] , D)
+                                    & at(A,
+                                         [B | ((love>ed):verb & {dobj,D}&{subject,C})]))))))]))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&[some:_D&every(_E,([(man>''):noun],_E)=>exists(_F,([(woman>''):noun],_F)&at(_C,[_D|...])))]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+* [A] - singleton variables in user:(rep3/4)
+* Approximate lines: 116-121, file: '/Library/WebServer/CGI-Executables/dgParser/transformations.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 152 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        [B,
+         ((love>ed : verb)
+           & ({dobj,C} & {subject,D}))]))
+exists(A,
+       (tense(past, A)
+         & [((some : B)
+              & every(C,
+                      (([(man>):noun] , C)
+                        => exists(D,
+                                  (([(woman>):noun] , D)
+                                    & at(A,
+                                         [B,
+                                          ((love>ed : verb)
+                                            & ({(dobj , D)}
+                                                & {(subject , C)}))]))))))]))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&[some:_D&every(_E,([(man>''):noun],_E)=>exists(_F,([(woman>''):noun],_F)&at(_C,[_D|...])))]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 104 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        ((love>ed):verb & {dobj,B}&{subject,C})))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & at(A,
+                                    ((love>ed : verb)
+                                      & ({dobj,C} & {subject,B})))))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&at(_C,(love>ed):verb&{dobj,_E}&{subject,_D})))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 168 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        ((love>ed):verb & {dobj,B}&{subject,C})))
+exists(A,
+       exists(B,
+              (tense(past, A)
+                & (every(C,
+                         (([(man>):noun] , C)
+                           => exists(D,
+                                     (([(woman>):noun] , D)
+                                       & at(A,
+                                            ((love>ed : verb)
+                                              & ({(dobj , D)}
+                                                  & {(subject , C)})))))))
+                    : B))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,exists(_D,tense(past,_C)&every(_E,([(man>''):noun],_E)=>exists(_F,([(woman>''):noun],_F)&at(_C,(love>ed):verb&{dobj,_F}&{subject,_E}))):_D)) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 144 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        ((love>ed):verb & {dobj,B}&{subject,C})))
+exists(A,
+       exists(B,
+              (tense(past, A, B)
+                & (every(C,
+                         (([(man>):noun] , C)
+                           => exists(D,
+                                     (([(woman>):noun] , D)
+                                       & at(A,
+                                            ((love>ed : verb)
+                                              & ({(dobj , D)}
+                                                  & {(subject , C)})))))))
+                    : B))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,exists(_D,tense(past,_C,_D)&every(_E,([(man>''):noun],_E)=>exists(_F,([(woman>''):noun],_F)&at(_C,(love>ed):verb&{dobj,_F}&{subject,_E}))):_D)) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 120 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        ((love>ed):verb & {dobj,B}&{subject,C})))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & at(A,
+                                    ((love>ed : verb)
+                                      & ({dobj,C} & {subject,B})))))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&at(_C,(love>ed):verb&{dobj,_E}&{subject,_D})))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 168 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        exists(B,
+               [((love>ed : verb)
+                  & ({dobj,C} & {subject,D})),
+                B])))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & at(A,
+                                    exists(D,
+                                           [((love>ed : verb)
+                                              & ({(dobj , C)}
+                                                  & {(subject , B)})),
+                                            D]))))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&at(_C,exists(_F,[(love>ed):verb&{dobj,_E}&{subject,_D},_F]))))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 144 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(exists(A,
+            at(B,
+               [((love>ed : verb)
+                  & ({dobj,C} & {subject,D})),
+                A])))
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & exists(D,
+                                        at(A,
+                                           [((love>ed : verb)
+                                              & ({(dobj , C)}
+                                                  & {(subject , B)})),
+                                            D]))))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&exists(_F,at(_C,[(love>ed):verb&{dobj,_E}&{subject,_D},_F]))))) ? Top-level options:
+   RET y     no more choices
+     ; n     more choices
+       b     break
+       <     reset printdepth
+       < <n> set printdepth
+       ^     reset subterm
+       ^ <n> set subterm
+     ? h     print this information
+ ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 160 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3([A,
+      at(((love>ed : verb)
+           & ({dobj,B} & {subject,C})))])
+exists((. : punct),
+       (tense(past, (. : punct))
+         & [((some : A)
+              & every(B,
+                      (([(man>):noun] , B)
+                        => exists(C,
+                                  (([(woman>):noun] , C)
+                                    & [A,
+                                       at(((love>ed : verb)
+                                            & ({(dobj , C)}
+                                                & {(subject , B)})))])))))]))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists('.':punct,tense(past,'.':punct)&[some:_C&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&[_C,at(...)]))]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 128 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(exists(A,
+            at(B,
+               [((love>ed : verb)
+                  & ({dobj,C} & {subject,D})),
+                A]))E)
+exists(A,
+       (tense(past, A)
+         & every(B,
+                 (([(man>):noun] , B)
+                   => exists(C,
+                             (([(woman>):noun] , C)
+                               & exists(D,
+                                        at(A,
+                                           [((love>ed : verb)
+                                              & ({(dobj , C)}
+                                                  & {(subject , B)})),
+                                            D]))))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&every(_D,([(man>''):noun],_D)=>exists(_E,([(woman>''):noun],_E)&exists(_F,at(_C,[(love>ed):verb&{dobj,_E}&{subject,_D},_F]))))) ? Top-level options:
+   RET y     no more choices
+     ; n     more choices
+       b     break
+       <     reset printdepth
+       < <n> set printdepth
+       ^     reset subterm
+       ^ <n> set subterm
+     ? h     print this information
+ ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+! Syntax error
+! operator expected after expression
+! in line 118
+! rep3 ( spec ( Tense , L0 ) , at ( V , L1 ) ) , VARS0 , [ [ Tense : V ] | VARS1 ] 
+! <<here>>
+! ) :- Tense = tense ( _ , - ) , ! , rep3 ( spec ( [ some : E ] , [ L0 ] ) , L1 , VARS0 , VARS1 ) . 
+! Approximate lines: 116-121, file: '/Library/WebServer/CGI-Executables/dgParser/transformations.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -64 bytes
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+* [E] - singleton variables in user:(rep3/4)
+* Approximate lines: 116-121, file: '/Library/WebServer/CGI-Executables/dgParser/transformations.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 160 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        [B,
+         ((love>ed : verb)
+           & ({dobj,C} & {subject,D}))]))
+exists(A,
+       (tense(past, A)
+         & [((some : B)
+              & every(C,
+                      (([(man>):noun] , C)
+                        => exists(D,
+                                  (([(woman>):noun] , D)
+                                    & at(A,
+                                         [B,
+                                          ((love>ed : verb)
+                                            & ({(dobj , D)}
+                                                & {(subject , C)}))]))))))]))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&[some:_D&every(_E,([(man>''):noun],_E)=>exists(_F,([(woman>''):noun],_F)&at(_C,[_D|...])))]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+* [E] - singleton variables in user:(rep3/4)
+* Approximate lines: 116-121, file: '/Library/WebServer/CGI-Executables/dgParser/transformations.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 136 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF),pretty(NF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+fixedConjunctions(spec(tense(past, -),
+                       ((love>ed : verb)
+                         & ({(dobj,
+                               spec([(some : A)], [(woman> : noun)]))}
+                             & {(subject,
+                                  spec([(every : B)], [(man> : noun)]))}))))
+rep3(at(A,
+        [B | ((love>ed):verb & {dobj,C}&{subject,D})]))
+exists(A,
+       (tense(past, A)
+         & [((some : B)
+              & every(C,
+                      (([(man>):noun] , C)
+                        => exists(D,
+                                  (([(woman>):noun] , D)
+                                    & at(A,
+                                         [B | ((love>ed):verb & {dobj,D}&{subject,C})]))))))]))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists(_C,tense(past,_C)&[some:_D&every(_E,([(man>''):noun],_E)=>exists(_F,([(woman>''):noun],_F)&at(_C,[_D|...])))]) ? 
+yes
+| ?- 

@@ -1,0 +1,79 @@
+I'm attaching a version of the system which has a fairly
+well-commented version of classes.pl, which is basically the
+grammatical framework that we're using. Pretty much the whole of the
+grammar is in there. So what you need to do is read through that and
+try to get as good a grip on it as you can.
+
+Remember: to reload the grammar, do
+
+| ?- setup(allwords).
+
+To test what it does with an example sentence, do
+
+| ?- parseAll('the pudding I thought was disgusting had been made three days before').
+
+That will show you *all* the interpretations that the grammar allows
+for a given text, which is what you want to see when you're developing
+a grammar, because if you only see the first one you may think you've
+nailed it when actually there are loads of things happening that you
+hadn't thought of.
+
+You can see all the created edges with
+
+| ?- showAllEdges.
+
+With complicated sentences like the one above, that can produce a
+daunting amount of stuff, so if things go wrong the best strategy is
+to try simpler versions of the thing you're trying to do.
+
+If you had two edges that you thought should combine, with one as an
+argument of the other, but they haven't, then doing
+
+| ?- whyNot(i3, i4).
+
+will show you the differences between i4 and the argument that i3 is
+expecting. If you expected i3 to act as a modifier on i4, then
+
+| ?- whyNotModify(i3, i4).
+
+will show you the differences between i4 and what i3 expected as a
+target. 
+
+If you just want to look at the properties that some edge has then
+
+| ?- fpretty(i3).
+
+is the best thing to use. Remember that if you do that then you'll see
+all the things that are waiting to happen when various elements of i3
+become known. If you don't want to see all that (which you usually
+won't) then do
+
+| ?- \+ \+ fpretty(i3).
+
+This version does simple determiners as discussed the other day. I
+haven't fixed it so that it does things like "most of the cats", let
+alone "at least six cats". So that's an exercise for the reader
+(i.e. you). Doing "most of the cats" will be easier than "at least six
+cats", and we need to bear in mind that we will also need to do "at
+least six of the cats", so the way we do it will have to be open to
+extension.
+
+There is a second exercise for the reader, which is to add
+ditransitive verbs. I'd start with that, because you can model them
+fairly straightforwardly on transitive ones. You'll need to add two
+entries to cover ditransitives, one for cases where we just have two
+NP arguments ("he gave her a present", "he made her a cake") and one
+for cases where the second NP is case-marked by a preposition ("he
+gave it to his mother", "he made it for his sister"). Useful clue: you
+can describe a case-marked NP by saying e.g.
+
+    X <> [np, casemarked(to)]
+
+If you get that to work, then you could try to do "most of the cats":
+the key here is that the argument to the determiner will be a
+case-marked NP, marked by "of", instead of just a noun.
+
+Don't worry if you get stuck. The way to learn this stuff is by
+trying, and then trying again, and then asking me. Between now and 5
+January you're doing try and then try again. 
+

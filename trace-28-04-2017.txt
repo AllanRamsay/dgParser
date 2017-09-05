@@ -1,0 +1,1522 @@
+
+| ?- parseOne('John is a man .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF), forwards(QFF, FORWARDS), pretty(FORWARDS).
+
+(i14
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+rep3(spec(tense(past, -),
+          ((love>ed : verb)
+            & ((subject , spec([every:A],[(man>):noun]))
+                & (dobj , spec([some:B],[(woman>):noun]))))),
+     ((at , C,D)
+       & ((love>ed):verb&(subject,E)&(dobj,F) , D)),
+     [[(some : C), (tense(past) , C)],
+      [(some : D)],
+      [(some : F), ((woman>):noun , F)],
+      [(every : E), ((man>):noun , E)]])
+[[(every : A), ((man>):noun , A)],
+ [(some : B), (tense(past) , B)],
+ [(some : C)],
+ [(some : D), ((woman>):noun , D)]]
+every(A,
+      (((man>):noun , A)
+        => exists(B,
+                  ((tense(past) , B)
+                    & exists(C,
+                             exists(D,
+                                    (((woman>):noun , D)
+                                      & ((at , B,C)
+                                          & (((love>ed : verb)
+                                               & (subject,A & dobj,D)),
+                                             C)))))))))
+(((man>):noun , A)
+  => ((tense(past) , [sk0,A])
+       & (((woman>):noun , [sk2,A])
+           & ((at , [sk0,A],[sk1,A])
+               & (((love>ed):verb , [sk1,A])
+                   & ((subject,A , [sk1,A])
+                       & (dobj,[sk2,A] , [sk1,A])))))))
+(((man>):noun , A)
+  => (((woman>):noun , [sk2,A])
+       & (((love>ed):verb , [sk1,A])
+           & ((subject,A , [sk1,A])
+               & (dobj,[sk2,A] , [sk1,A])))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{subject,spec([every:_A],[(man>''):noun])},{dobj,spec([some:_B],[(woman>''):noun])}])}],
+NF = every(_C,((man>''):noun,_C)=>exists([sk0,_C],(tense(past),[sk0,_C])&exists([sk1,_C],exists([sk2,_C],((woman>''):noun,[sk2,_C])&(at,[sk0|...],[sk1|...])&((love>ed):verb&(subject,_C)&(dobj,[sk2|...]),[sk1|...]))))),
+QFF = ((man>''):noun,_C)=>((tense(past),[sk0,_C])&((woman>''):noun,[sk2,_C])&(at,[sk0,_C],[sk1,_C])&((love>ed):verb,[sk1,_C])&((subject,_C),[sk1,_C])&((dobj,[sk2,_C]),[sk1,_C])),
+FORWARDS = ((man>''):noun,_C)=>(((woman>''):noun,[sk2,_C])&((love>ed):verb,[sk1,_C])&((subject,_C),[sk1,_C])&((dobj,[sk2,_C]),[sk1,_C])) ? 
+yes
+| ?- parseOne('John is a man .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF), forwards(QFF, FORWARDS), pretty(FORWARDS).
+
+(i8
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(be : verb),
+              {(subject , spec(name,[John:name]))},
+              {(predication , spec([a:A],[(man>):noun]))}]))}])
+rep3(spec(tense(present, -),
+          ((be : verb)
+            & ((subject , spec(name,[John:name]))
+                & (predication , spec([a:A],[(man>):noun]))))),
+     ((at , B,C)
+       & (be:verb&(subject,D)&(predication,E) , C)),
+     [[(some : B), (tense(present) , B)],
+      [(some : C)],
+      [(a : E), ((man>):noun , E)],
+      [(the : D), (named(John) , D)]])
+[[(the : A), (named(John) , A)],
+ [(a : B), ((man>):noun , B)],
+ [(some : C), (tense(present) , C)],
+ [(some : D)]]
+the((A :: {named(John),A}),
+    a(B,
+      (((man>):noun , B)
+        & exists(C,
+                 ((tense(present) , C)
+                   & exists(D,
+                            ((at , C,D)
+                              & (((be : verb)
+                                   & (subject,A & predication,B)),
+                                 D))))))))
+the((A :: {named(John),A}),
+    (((man>):noun , [sk0])
+      & ((tense(present) , [sk1])
+          & ((at , [sk1],[sk2])
+              & ((be:verb , [sk2])
+                  & ((subject,A , [sk2])
+                      & (predication,[sk0] , [sk2])))))))
+the((A :: {named(John),A}),
+    (((man>):noun , [sk0])
+      & ((be:verb , [sk2])
+          & ((subject,A , [sk2])
+              & (predication,[sk0] , [sk2])))))
+X = ['.':punct,{claim,spec(tense(present,-),[be:verb,{subject,spec(name,['John':name])},{predication,spec([a:_A],[(man>''):noun])}])}],
+NF = the(_B::{named('John'),_B},a([sk0],((man>''):noun,[sk0])&exists([sk1],(tense(present),[sk1])&exists([sk2],(at,[sk1],[sk2])&(be:verb&(subject,_B)&(predication,[sk0]),[sk2]))))),
+QFF = the(_B::{named('John'),_B},((man>''):noun,[sk0])&(tense(present),[sk1])&(at,[sk1],[sk2])&(be:verb,[sk2])&((subject,_B),[sk2])&((predication,[sk0]),[sk2])),
+FORWARDS = the(_B::{named('John'),_B},((man>''):noun,[sk0])&(be:verb,[sk2])&((subject,_B),[sk2])&((predication,[sk0]),[sk2])) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -80 bytes
+yes
+| ?- parseOne('John loves his wife .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF), forwards(QFF, FORWARDS), pretty(FORWARDS).
+
+(i8
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(be : verb),
+              {(subject , spec(name,[John:name]))},
+              {(predication , spec([a:A],[(man>):noun]))}]))}])
+rep3(spec(tense(present, -),
+          ((be : verb)
+            & ((subject , spec(name,[John:name]))
+                & (predication , spec([a:A],[(man>):noun]))))),
+     ((at , B,C)
+       & (be:verb&(subject,D)&(predication,E) , C)),
+     [[(some : B), (tense(present) , B)],
+      [(some : C)],
+      [(a : E), ((man>):noun , E)],
+      [(the : D), (named(John) , D)]])
+[[(the : A), (named(John) , A)],
+ [(a : B), ((man>):noun , B)],
+ [(some : C), (tense(present) , C)],
+ [(some : D)]]
+the((A :: {named(John),A}),
+    a(B,
+      (((man>):noun , B)
+        & exists(C,
+                 ((tense(present) , C)
+                   & exists(D,
+                            ((at , C,D)
+                              & (((be : verb)
+                                   & (subject,A & predication,B)),
+                                 D))))))))
+the((A :: {named(John),A}),
+    (((man>):noun , [sk0])
+      & ((tense(present) , [sk1])
+          & ((at , [sk1],[sk2])
+              & ((be:verb , [sk2])
+                  & ((subject,A , [sk2])
+                      & (predication,[sk0] , [sk2])))))))
+the((A :: {named(John),A}),
+    ((man>):noun,[sk0] & [sk0]=A))
+X = ['.':punct,{claim,spec(tense(present,-),[be:verb,{subject,spec(name,['John':name])},{predication,spec([a:_A],[(man>''):noun])}])}],
+NF = the(_B::{named('John'),_B},a([sk0],((man>''):noun,[sk0])&exists([sk1],(tense(present),[sk1])&exists([sk2],(at,[sk1],[sk2])&(be:verb&(subject,_B)&(predication,[sk0]),[sk2]))))),
+QFF = the(_B::{named('John'),_B},((man>''):noun,[sk0])&(tense(present),[sk1])&(at,[sk1],[sk2])&(be:verb,[sk2])&((subject,_B),[sk2])&((predication,[sk0]),[sk2])),
+FORWARDS = the(_B::{named('John'),_B},((man>''):noun,[sk0])&([sk0]=_B)) ? 
+yes
+| ?- ((subject, A), [sk2]) = (A, B).
+A = subject,
+B = (subject,[sk2]) ? 
+yes
+| ?- ((a, b), c) = (a, (b, c)).
+yes
+| ?- 
+| ?- [[a,b], c] = [a, [b, c]].
+no
+| ?- {{a, b}, c} = {a, {b, c}}.
+no
+| ?- parseOne('does some man love a woman ?', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF), forwards(QFF, FORWARDS), pretty(FORWARDS).
+
+(i9
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec(name,[John:name]))},
+              {(dobj , spec([his:A],[(wife>):noun]))}]))}])
+rep3(spec(tense(present, -),
+          ((love>s : verb)
+            & ((subject , spec(name,[John:name]))
+                & (dobj , spec([his:A],[(wife>):noun]))))),
+     ((at , B,C)
+       & ((love>s):verb&(subject,D)&(dobj,E) , C)),
+     [[(some : B), (tense(present) , B)],
+      [(some : C)],
+      [(the : E), ((wife>):noun,E & own(F,E))],
+      [(the : F), (male , F)],
+      [(the : D), (named(John) , D)]])
+[[(the : A), (named(John) , A)],
+ [(the : B), ((wife>):noun,B & own(C,B))],
+ [(the : C), (male , C)],
+ [(some : D), (tense(present) , D)],
+ [(some : E)]]
+the((A :: {named(John),A}),
+    the((B :: {((wife>):noun,B)&own(C,B)}),
+        the((C :: {male,C}),
+            exists(D,
+                   ((tense(present) , D)
+                     & exists(E,
+                              ((at , D,E)
+                                & (((love>s : verb)
+                                     & (subject,A & dobj,B)),
+                                   E))))))))
+the((A :: {named(John),A}),
+    the((B :: {((wife>):noun,B)&own(C,B)}),
+        the((C :: {male,C}),
+            ((tense(present) , [sk0])
+              & ((at , [sk0],[sk1])
+                  & (((love>s):verb , [sk1])
+                      & ((subject,A),[sk1] & (dobj,B),[sk1])))))))
+the((A :: {named(John),A}),
+    the((B :: {((wife>):noun,B)&own(C,B)}),
+        the((C :: {male,C}),
+            (((love>s):verb , [sk1])
+              & ((subject,A),[sk1] & (dobj,B),[sk1])))))
+X = ['.':punct,{claim,spec(tense(present,-),[(love>s):verb,{subject,spec(name,['John':name])},{dobj,spec([his:_A],[(wife>''):noun])}])}],
+NF = the(_B::{named('John'),_B},the(_C::{((wife>''):noun,_C)&own(_D,_C)},the(_D::{male,_D},exists([sk0],(tense(present),[sk0])&exists([sk1],(at,[sk0],[sk1])&((love>s):verb&(subject,_B)&(dobj,_C),[sk1])))))),
+QFF = the(_B::{named('John'),_B},the(_C::{((wife>''):noun,_C)&own(_D,_C)},the(_D::{male,_D},(tense(present),[sk0])&(at,[sk0],[sk1])&((love>s):verb,[sk1])&((subject,_B),[sk1])&((dobj,_C),[sk1])))),
+FORWARDS = the(_B::{named('John'),_B},the(_C::{((wife>''):noun,_C)&own(_D,_C)},the(_D::{male,_D},((love>s):verb,[sk1])&((subject,_B),[sk1])&((dobj,_C),[sk1])))) ? 
+yes
+| ?- p @< q.
+yes
+| ?- p((1, 8)) @< p(3).
+yes
+| ?- p((1, 8)) @< p(3).
+no
+| ?- [1,2] @< f(1,2).
+! Syntax error
+! operator expected after expression
+! in line 6908
+! [ 1 , 2 ] @ < 
+! <<here>>
+! f ( 1 , 2 ) . 
+| ?- [1,2] @< f(1,2).
+yes
+| ?- 
+| ?- qsort([3,2,1,5,7], L).
+no
+| ?- qsort([3,2,1,5,7], L, @<).
+L = [1,2,3,5,7] ? 
+yes
+| ?- qsort([3,2,1,5,7], L, [], <).
+no
+| ?- listing(qsort).
+* listing(user:qsort) - no matching predicate
+yes
+| ?- qsort([3,2,1,5,7], [], L, <).
+no
+| ?- qsort([3,2,1,5,7], L, [], >).
+L = [1,2,3,5,7] ? 
+yes
+| ?- qsort([3,2,1,5,7], L, [], >).
+L = [7,5,3,2,1] ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+The procedure set/1 is being redefined.
+    Old file: /Library/WebServer/CGI-Executables/dgParser/useful.pl
+    New file: /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl
+Do you really want to redefine it?  (y, n, p, s, a, b, or ?) n
+The procedure unset/1 is being redefined.
+    Old file: /Library/WebServer/CGI-Executables/dgParser/useful.pl
+    New file: /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl
+Do you really want to redefine it?  (y, n, p, s, a, b, or ?) n
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 0 msec 7296 bytes
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 0 msec -72 bytes
+yes
+| ?- setProblem(test1).
+! Permission error: cannot retract static user:(==> /2)
+! goal:  retractall(user:(_64==>_65))
+| ?- listing(==>).
+[c0,e]:[{A,d/r/s}]:_==>[+,e,A].
+[c0]:[]:[i,n,g|_]==>[e,+].
+[v0,c1]:[c1]:[i/e|_]==>[+].
+[c/s,h]:[e]:[s]==>[+].
+[s,s]:[e]:[s]==>[+].
+[e,e]:[]:[d]==>[+,e].
+[z]:[e]:[s]==>[+].
+[c1]:[i,e]:[s]==>[y,+].
+[c0]:[y]:[i,n,g]==>[i,e,+].
+[c1]:[i]:[e,d/r/s]==>[y,+].
+[c1,i,e]:[]:[d]==>[+,e].
+[c0,o]:[e]:[s]==>[+].
+[v0,x/s]:[e]:[s]==>[+].
+[w/e]:[]:[n]==>[+,e].
+[c]:[a,m,e]:[]==>[o,m,e,+,e,d].
+[u]:[]:[e,d]==>[e,+].
+[]:[v,e]:[s]==>[f].
+[v0]:[v]:[e,s]==>[f].
+[m]:[e,n]:[]==>[a,n,+,s].
+[]:[i,c,e]:[]==>[o,u,s,e,+,s].
+[u]:[]:[i,n,g]==>[e,+].
+[a]:[i]:[d]==>[y,+,e].
+[e]:[p,t]:[]==>[e,p,+,e,d].
+
+yes
+| ?- assert(pq).
+yes
+| ?- X => Y.
+X = p,
+Y = q ? 
+yes
+| ?- 0 => -1.
+no
+| ?- 0 => -1.
+no
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 0 msec -80 bytes
+yes
+| ?- setProblem(test1).
+yes
+| ?- 
+| ?- listing(=>).
+a=>b.
+b=>c.
+c=>p or q.
+p=>r.
+q=>r.
+
+yes
+| ?- listing(fact).
+fact(a).
+
+yes
+| ?- satchmo(venal(X), test2).
+yes
+| ?- satchmo(venal(X), test2).
+Venal: belief that material wealth leads to happiness
+X = john ? 
+yes
+| ?- format('~f is bigger than ~w~n', [4,7]).
+4 is bigger than 7
+yes
+| ?- format('~.2f is bigger than ~w~n', [4,7]).
+4.000000 is bigger than 7
+yes
+| ?- format('~0.2f is bigger than ~w~n', [4,7]).
+! Consistency error: '~.2f is bigger than ~w~n' is inconsistent with user:[4,7]
+! format_arguments
+! goal:  format('~.2f is bigger than ~w~n',user:[4,7])
+| ?- format('~0.2f is bigger than ~w~n', [4,7]).
+! Consistency error: '~0.2f is bigger than ~w~n' is inconsistent with user:[4,7]
+! format_arguments
+! goal:  format('~0.2f is bigger than ~w~n',user:[4,7])
+| ?- unset(showProof).
+yes
+| ?- satchmo(venal(X), test2).
+Venal: belief that material wealth leads to happiness
+Trying Horn proof of venal(_422)
+(rich(_422)=>happy(_422))=>venal(_422) found as rule that leads to venal(_422)
+ About to try conditional proof of rich(_422)=>happy(_422)
+ Trying to prove rich(_422)=>happy(_422) by asserting rich(_422) and trying to prove happy(_422)
+  Trying Horn proof of happy(_422)
+  rich(john)=>happy(john) found as rule that leads to happy(john)
+   rich(john) found as hypothetical fact
+  Horn proof of happy(john) succeeded
+Horn proof of venal(john) succeeded
+X = john ? 
+yes
+| ?- unset(showProof).
+yes
+| ?- satchmo(venal(X), test2).
+Venal: belief that material wealth leads to happiness
+X = john ? 
+yes
+| ?- listing(=>).
+(rich(A)=>happy(A))=>venal(A).
+rich(john)=>happy(john).
+
+yes
+| ?- listing(fact).
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 10 msec -40 bytes
+yes
+| ?- setProblem([man([john]), man(X) => mortal(X)]).
+true ? 
+yes
+| ?- listing(fact).
+fact(man([john])).
+
+yes
+| ?- listing(=>).
+man(A)=>mortal(A).
+
+yes
+| ?- 
+| ?- parseOne('does some man love a woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF), forwards(QFF, FORWARDS), pretty(FORWARDS).
+no
+| ?- parseOne('some man loves a woman ?', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF), forwards(QFF, FORWARDS), pretty(FORWARDS).
+no
+| ?- parseOne('some man loves a woman ?', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF), forwards(QFF, FORWARDS), pretty(FORWARDS).
+
+(i13
+  + [(? : A),
+     {(B,
+        [(love>s : verb),
+         {(subject , spec([some:C],[(man>):noun]))},
+         {(dobj , spec([a:D],[(woman>):noun]))}])}])
+rep3(((? : .:punct)
+       & ((. : punct),
+          ((love>s : verb)
+            & ((subject , spec([some:A],[(man>):noun]))
+                & (dobj , spec([a:B],[(woman>):noun])))))),
+     (:(?)
+       & ,(((love>s):verb & (subject,C)&(dobj,D)))),
+     [[(a : D), ((woman>):noun , D)],
+      [(some : C), ((man>):noun , C)]])
+[[(a : A), ((woman>):noun , A)],
+ [(some : B), ((man>):noun , B)]]
+a(A,
+  (((woman>):noun , A)
+    & exists(B,
+             (((man>):noun , B)
+               & (:(?)
+                   & ,(((love>s):verb & (subject,B)&(dobj,A))))))))
+(((woman>):noun , [sk0])
+  & (((man>):noun , [sk1])
+      & (:(?)
+          & ,(((love>s : verb)
+                & (subject,[sk1] & dobj,[sk0]))))))
+(((woman>):noun , [sk0])
+  & (((man>):noun , [sk1])
+      & (:(?)
+          & ,(((love>s : verb)
+                & (subject,[sk1] & dobj,[sk0]))))))
+X = [(?):('.':punct),{'.':punct,[(love>s):verb,{subject,spec([some:_A],[(man>''):noun])},{dobj,spec([a:_B],[(woman>''):noun])}]}],
+NF = a([sk0],((woman>''):noun,[sk0])&exists([sk1],((man>''):noun,[sk1])&(:(?)&','((love>s):verb&((subject,[sk1])&(dobj,[sk0])))))),
+QFF = ((woman>''):noun,[sk0])&(((man>''):noun,[sk1])&(:(?)&','((love>s):verb&((subject,[sk1])&(dobj,[sk0]))))),
+FORWARDS = ((woman>''):noun,[sk0])&(((man>''):noun,[sk1])&(:(?)&','((love>s):verb&((subject,[sk1])&(dobj,[sk0]))))) ? 
+yes
+| ?- setup(allwords).
+% compiling /Library/WebServer/CGI-Executables/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Library/WebServer/CGI-Executables/dgParser/useful.pl in module user, 10 msec 424 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/features.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/features.pl in module user, 30 msec -536 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/pretty.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/pretty.pl in module user, 10 msec -88 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/io.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/io.pl in module user, 0 msec -1080 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/disjoin.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/disjoin.pl in module user, 10 msec 392 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-64, file: '/Library/WebServer/CGI-Executables/dgParser/signatures.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/signatures.pl in module user, 0 msec -24 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/agree.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/agree.pl in module user, 0 msec -216 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/classes.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/classes.pl in module user, 40 msec 3496 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/negation.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/vforms.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/vforms.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/pronouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/pronouns.pl in module user, 10 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/verbs.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/verbs.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/mclasses.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/mclasses.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/determiners.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/determiners.pl in module user, 10 msec -3928 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/nouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/lookup.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/lookup.pl in module user, 0 msec -152 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/chart.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/chart.pl in module user, 20 msec 1768 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/treepr.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/treepr.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/conll.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/conll.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl in module user, 0 msec -1752 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/preprocess.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/preprocess.pl in module user, 0 msec 40 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/spelling.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/spelling.pl in module user, 0 msec -216 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 560 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/allwords.pl...
+%  including /Library/WebServer/CGI-Executables/dgParser/englishopen.pl...
+%   including /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl...
+%    including /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl...
+%    included /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl in module user, 0 msec 14960 bytes
+%   included /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl in module user, 30 msec 509504 bytes
+%  included /Library/WebServer/CGI-Executables/dgParser/englishopen.pl in module user, 80 msec 967648 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/allwords.pl in module user, 10090 msec 200 bytes
+yes
+| ?- parseOne('some man loves a woman ?', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF), forwards(QFF, FORWARDS), pretty(FORWARDS).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([a:B],[(woman>):noun]))}]))}])
+rep3(((? : punct)
+       & (query,
+          spec(tense(present, -),
+               ((love>s : verb)
+                 & ((subject , spec([some:A],[(man>):noun]))
+                     & (dobj , spec([a:B],[(woman>):noun]))))))),
+     ((? : punct)
+       & (query,
+          ((at , C,D)
+            & (((love>s):verb & (subject,E)&(dobj,F)),
+               D)))),
+     [[(some : C), (tense(present) , C)],
+      [(some : D)],
+      [(a : F), ((woman>):noun , F)],
+      [(some : E), ((man>):noun , E)]])
+[[(a : A), ((woman>):noun , A)],
+ [(some : B), (tense(present) , B)],
+ [(some : C)],
+ [(some : D), ((man>):noun , D)]]
+a(A,
+  (((woman>):noun , A)
+    & exists(B,
+             ((tense(present) , B)
+               & exists(C,
+                        exists(D,
+                               (((man>):noun , D)
+                                 & ((? : punct)
+                                     & (query,
+                                        ((at , B,C)
+                                          & (((love>s : verb)
+                                               & (subject,D & dobj,A)),
+                                             C)))))))))))
+(((woman>):noun , [sk0])
+  & ((tense(present) , [sk1])
+      & (((man>):noun , [sk3])
+          & ((? : punct)
+              & (query,
+                 ((at , [sk1],[sk2])
+                   & (((love>s : verb)
+                        & (subject,[sk3] & dobj,[sk0])),
+                      [sk2])))))))
+(((woman>):noun , [sk0])
+  & (((man>):noun , [sk3])
+      & ((? : punct)
+          & (query,
+             (((love>s : verb)
+                & (subject,[sk3] & dobj,[sk0])),
+              [sk2])))))
+X = [(?):punct,{query,spec(tense(present,-),[(love>s):verb,{subject,spec([some:_A],[(man>''):noun])},{dobj,spec([a:_B],[(woman>''):noun])}])}],
+NF = a([sk0],((woman>''):noun,[sk0])&exists([sk1],(tense(present),[sk1])&exists([sk2],exists([sk3],((man>''):noun,[sk3])&(?):punct&(query,(at,[sk1],[sk2])&((love>s):verb&(subject,[sk3])&(dobj,[sk0]),[sk2])))))),
+QFF = ((woman>''):noun,[sk0])&(tense(present),[sk1])&((man>''):noun,[sk3])&(?):punct&(query,(at,[sk1],[sk2])&((love>s):verb&(subject,[sk3])&(dobj,[sk0]),[sk2])),
+FORWARDS = ((woman>''):noun,[sk0])&((man>''):noun,[sk3])&(?):punct&(query,(love>s):verb&(subject,[sk3])&(dobj,[sk0]),[sk2]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 40 bytes
+yes
+| ?- parseOne('some man loves a woman ?', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF), forwards(QFF, FORWARDS), pretty(FORWARDS).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([a:B],[(woman>):noun]))}]))}])
+rep3(((? : punct)
+       & (query,
+          spec(tense(present, -),
+               ((love>s : verb)
+                 & ((subject , spec([some:A],[(man>):noun]))
+                     & (dobj , spec([a:B],[(woman>):noun]))))))),
+     ((? : punct)
+       & (query,
+          ((at , C,D)
+            & (((love>s):verb & (subject,E)&(dobj,F)),
+               D)))),
+     [[(some : C), (tense(present) , C)],
+      [(some : D)],
+      [(a : F), ((woman>):noun , F)],
+      [(some : E), ((man>):noun , E)]])
+[[(a : A), ((woman>):noun , A)],
+ [(some : B), (tense(present) , B)],
+ [(some : C)],
+ [(some : D), ((man>):noun , D)]]
+a(A,
+  (((woman>):noun , A)
+    & exists(B,
+             ((tense(present) , B)
+               & exists(C,
+                        exists(D,
+                               (((man>):noun , D)
+                                 & ((? : punct)
+                                     & (query,
+                                        ((at , B,C)
+                                          & (((love>s : verb)
+                                               & (subject,D & dobj,A)),
+                                             C)))))))))))
+(((woman>):noun , [sk0])
+  & ((tense(present) , [sk1])
+      & (((man>):noun , [sk3])
+          & ((? : punct)
+              & (query,
+                 ((at , [sk1],[sk2])
+                   & (((love>s : verb)
+                        & (subject,[sk3] & dobj,[sk0])),
+                      [sk2])))))))
+(((woman>):noun , [sk0])
+  & (((man>):noun , [sk3])
+      & ((? : punct)
+          & (query,
+             (((love>s : verb)
+                & (subject,[sk3] & dobj,[sk0])),
+              [sk2])))))
+X = [(?):punct,{query,spec(tense(present,-),[(love>s):verb,{subject,spec([some:_A],[(man>''):noun])},{dobj,spec([a:_B],[(woman>''):noun])}])}],
+NF = a([sk0],((woman>''):noun,[sk0])&exists([sk1],(tense(present),[sk1])&exists([sk2],exists([sk3],((man>''):noun,[sk3])&(?):punct&(query,(at,[sk1],[sk2])&((love>s):verb&(subject,[sk3])&(dobj,[sk0]),[sk2])))))),
+QFF = ((woman>''):noun,[sk0])&(tense(present),[sk1])&((man>''):noun,[sk3])&(?):punct&(query,(at,[sk1],[sk2])&((love>s):verb&(subject,[sk3])&(dobj,[sk0]),[sk2])),
+FORWARDS = ((woman>''):noun,[sk0])&((man>''):noun,[sk3])&(?):punct&(query,(love>s):verb&(subject,[sk3])&(dobj,[sk0]),[sk2]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 64 bytes
+yes
+| ?- doItAll('some man loves a woman ?', X), pretty(X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([a:B],[(woman>):noun]))}]))}])
+rep3(spec(tense(present, -),
+          ((love>s : verb)
+            & ((subject , spec([some:A],[(man>):noun]))
+                & (dobj , spec([a:B],[(woman>):noun]))))),
+     ((at , C,D)
+       & ((love>s):verb&(subject,E)&(dobj,F) , D)),
+     [[(some : C), (tense(present) , C)],
+      [(some : D)],
+      [(a : F), ((woman>):noun , F)],
+      [(some : E), ((man>):noun , E)]])
+[[(a : A), ((woman>):noun , A)],
+ [(some : B), (tense(present) , B)],
+ [(some : C)],
+ [(some : D), ((man>):noun , D)]]
+a(A,
+  (((woman>):noun , A)
+    & exists(B,
+             ((tense(present) , B)
+               & exists(C,
+                        exists(D,
+                               (((man>):noun , D)
+                                 & ((at , B,C)
+                                     & (((love>s : verb)
+                                          & (subject,D & dobj,A)),
+                                        C)))))))))
+(((woman>):noun , [sk0])
+  & ((tense(present) , [sk1])
+      & (((man>):noun , [sk3])
+          & ((at , [sk1],[sk2])
+              & (((love>s):verb , [sk2])
+                  & ((subject,[sk3] , [sk2])
+                      & (dobj,[sk0] , [sk2])))))))
+(((woman>):noun , X)
+  & (((man>):noun , Y)
+      & (((love>s):verb , Z)
+          & ((subject,Z , X)
+              & (dobj,[sk0] , [sk2])))))
+X = [(?):punct,{query,spec(tense(present,-),[(love>s):verb,{subject,spec([some:_A],[(man>''):noun])},{dobj,spec([a:_B],[(woman>''):noun])}])}],
+NF = a([sk0],((woman>''):noun,[sk0])&exists([sk1],(tense(present),[sk1])&exists([sk2],exists([sk3],((man>''):noun,[sk3])&(at,[sk1],[sk2])&((love>s):verb&(subject,[sk3])&(dobj,[sk0]),[sk2]))))),
+QFF = ((woman>''):noun,[sk0])&(tense(present),[sk1])&((man>''):noun,[sk3])&(at,[sk1],[sk2])&((love>s):verb,[sk2])&((subject,[sk3]),[sk2])&((dobj,[sk0]),[sk2]),
+FORWARDS = ((woman>''):noun,[sk0])&((man>''):noun,[sk3])&((love>s):verb,[sk2])&((subject,[sk3]),[sk2])&((dobj,[sk0]),[sk2]) ? 
+yes
+| ?- qff(exists(X, p(X) & exists(Y, q(X, Y))), Z, [], +).
+X = [sk4],
+Z = p([sk4]) ? 
+yes
+| ?- qff(exists(X, p(X)), Z, [], -).
+X = [sk5],
+Z = p([sk5]) ? 
+yes
+| ?- qff(exists(X, p(X)), Z, [], -).
+Z = p(X) ? 
+yes
+| ?- qff(not(exists(X, p(X))), Z, [], +).
+Z = p(X)=>absurd ? 
+yes
+| ?- qff(not(exists(X, p(X) & exists(Y, q(X, Y)))), Z, [], +).
+X = [sk6],
+Y = [sk7],
+Z = p([sk6])&q([sk6],[sk7]) ? 
+yes
+| ?- qff(exists(X, p(X) & exists(Y, q(X, Y))), Z, [], -).
+Z = p(X)&q(X,Y) ? 
+yes
+| ?- qff(not(exists(X, p(X) & exists(Y, q(X, Y)))), Z, [], +).
+Z = (p(X)&q(X,Y))=>absurd ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 8 bytes
+yes
+| ?- doItAll('some man loves a woman ?', X), pretty(X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([a:B],[(woman>):noun]))}]))}])
+(((woman>):noun , [sk0])
+  & (((man>):noun , [sk3])
+      & (((love>s):verb , [sk2])
+          & ((subject,[sk3] , [sk2])
+              & (dobj,[sk0] , [sk2])))))
+X = ((woman>''):noun,[sk0])&((man>''):noun,[sk3])&((love>s):verb,[sk2])&((subject,[sk3]),[sk2])&((dobj,[sk0]),[sk2]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -56 bytes
+yes
+| ?- doItAll('some man loves a woman ?', X), pretty(X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([a:B],[(woman>):noun]))}]))}])
+[(? : punct),
+ {(query,
+    spec(tense(present, -),
+         [(love>s : verb),
+          {(subject , spec([some:A],[(man>):noun]))},
+          {(dobj , spec([a:B],[(woman>):noun]))}]))}]
+(((woman>):noun , [sk0])
+  & (((man>):noun , [sk3])
+      & (((love>s):verb , [sk2])
+          & ((subject,[sk3] , [sk2])
+              & (dobj,[sk0] , [sk2])))))
+X = ((woman>''):noun,[sk0])&((man>''):noun,[sk3])&((love>s):verb,[sk2])&((subject,[sk3]),[sk2])&((dobj,[sk0]),[sk2]) ? Top-level options:
+   RET y     no more choices
+     ; n     more choices
+       b     break
+       <     reset printdepth
+       < <n> set printdepth
+       ^     reset subterm
+       ^ <n> set subterm
+     ? h     print this information
+ ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+! Syntax error
+! ) or operator expected
+! in line 1121
+! doItAll ( TXT , XN ) :- parseOne ( TXT , X0 ) ,  ( X0 = [ _ , { claim , X1 } ] -> P = + ; X0 = [ _ , { query , X1 } ] -> P = - ; throw ( 'WeirdTree' ( X0 ) ) , fixConjunctions ( X1 , X2 ) , rep3 ( X2 , X3 , QS0 ) , sortQStack ( QS0 , QS1 ) , normalForming ( QS1 , X3 , X4 ) , qff ( X3 , X5 ) , forwards ( X5 , XN ) 
+! <<here>>
+! . 
+! Approximate lines: 636-1121, file: '/Library/WebServer/CGI-Executables/dgParser/transformations.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -48 bytes
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 120 bytes
+yes
+| ?- doItAll('some man loves a woman ?', X), pretty(X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([a:B],[(woman>):noun]))}]))}])
+(((woman>):noun , [sk0])
+  & (((man>):noun , [sk3])
+      & (((love>s):verb , [sk2])
+          & ((subject,[sk3] , [sk2])
+              & (dobj,[sk0] , [sk2])))))
+X = ((woman>''):noun,[sk0])&((man>''):noun,[sk3])&((love>s):verb,[sk2])&((subject,[sk3]),[sk2])&((dobj,[sk0]),[sk2]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -72 bytes
+yes
+| ?- doItAll('some man loves a woman .', X), pretty(X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([a:B],[(woman>):noun]))}]))}])
+(((woman>):noun , A)
+  & (((man>):noun , B)
+      & (((love>s):verb , C)
+          & ((subject,B),C & (dobj,A),C))))
+X = ((woman>''):noun,_A)&((man>''):noun,_B)&((love>s):verb,_C)&((subject,_B),_C)&((dobj,_A),_C) ? 
+yes
+| ?- doItAll('every man loves some woman .', X), pretty(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([a:B],[(woman>):noun]))}]))}])
+(((woman>):noun , [sk0])
+  & (((man>):noun , [sk3])
+      & (((love>s):verb , [sk2])
+          & ((subject,[sk3] , [sk2])
+              & (dobj,[sk0] , [sk2])))))
+X = ((woman>''):noun,[sk0])&((man>''):noun,[sk3])&((love>s):verb,[sk2])&((subject,[sk3]),[sk2])&((dobj,[sk0]),[sk2]) ? 
+yes
+| ?- doItAll('every man loves some woman .', X), pretty(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+(((man>):noun , A)
+  => (((woman>):noun , [sk2,A])
+       & (((love>s):verb , [sk1,A])
+           & ((subject,A , [sk1,A])
+               & (dobj,[sk2,A] , [sk1,A])))))
+X = ((man>''):noun,_A)=>(((woman>''):noun,[sk2,_A])&((love>s):verb,[sk1,_A])&((subject,_A),[sk1,_A])&((dobj,[sk2,_A]),[sk1,_A])) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 112 bytes
+yes
+| ?- doItAll('every man loves some woman .', X), pretty(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+(((man>):noun,A => tense(present),[sk0,A])
+  & (((man>):noun,A => (woman>):noun,[sk2,A])
+      & (((man>):noun,A => at,[sk0,A],[sk1,A])
+          & ((((man>):noun , A)
+               => ((love>s):verb , [sk1,A]))
+              & ((((man>):noun , A)
+                   => (subject,A , [sk1,A]))
+                  & (((man>):noun , A)
+                      => (dobj,[sk2,A] , [sk1,A])))))))
+X = ((man>''):noun,_A)=>(tense(present),[sk0,_A])&((man>''):noun,_A)=>((woman>''):noun,[sk2,_A])&((man>''):noun,_A)=>(at,[sk0,_A],[sk1,_A])&((man>''):noun,_A)=>((love>s):verb,[sk1,_A])&((man>''):noun,_A)=>((subject,_A),[sk1,_A])&((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 16 bytes
+yes
+| ?- ! doItAll ( TXT , XN ) :- parseOne ( TXT , X0 ) ,  ( X0 = [ _ , { claim , X1 } ] -> P = + ; X0 = [ _ , { query , X1 } ] -> P = - ; throw ( 'WeirdTree' ( X0 ) ) , fixConjunctions ( X1 , X2 ) , rep3 ( X2 , X3 , QS0 ) , sortQStack ( QS0 , QS1 ) , normalForming ( QS1 , X3 , X4 ) , qff ( X3 , X5 ) , forwards ( X5 , XN ) 
+     doItAll('every man loves some woman .', X), pretty(X).
+! Syntax error
+! operator expected after expression
+! in line 7555
+! ! 
+! <<here>>
+! doItAll  ( TXT , XN ) :- parseOne  ( TXT , X0 ) ,  ( X0 = [ _ , { claim , X1 } ] -> P = + ; X0 = [ _ , { query , X1 } ] -> P = - ; throw  ( 'WeirdTree'  ( X0 ) ) , fixConjunctions  ( X1 , X2 ) , rep3  ( X2 , X3 , QS0 ) , sortQStack  ( QS0 , QS1 ) , normalForming  ( QS1 , X3 , X4 ) , qff  ( X3 , X5 ) , forwards  ( X5 , XN ) doItAll ( 'every man loves some woman .' , X ) , pretty ( X ) . 
+| ?- 
+| ?- doItAll('every man loves some woman .', X), pretty(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+(((woman>):noun , [sk2,A])
+  & (((love>s):verb , [sk1,A])
+      & ((subject,A , [sk1,A])
+          & (dobj,[sk2,A] , [sk1,A]))))
+X = ((woman>''):noun,[sk2,_A])&((love>s):verb,[sk1,_A])&((subject,_A),[sk1,_A])&((dobj,[sk2,_A]),[sk1,_A]) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec -64 bytes
+yes
+| ?- doItAll('every man loves some woman .', X), pretty(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+(((man>):noun , A)
+  => (((man>):noun,A => (woman>):noun,[sk2,A])
+       & (((man>):noun , A)
+           => ((((man>):noun , A)
+                 => ((love>s):verb , [sk1,A]))
+                & (((man>):noun , A)
+                    => ((((man>):noun , A)
+                          => (subject,A , [sk1,A]))
+                         & (((man>):noun , A)
+                             => (dobj,[sk2,A] , [sk1,A]))))))))
+X = ((man>''):noun,_A)=>(((man>''):noun,_A)=>((woman>''):noun,[sk2,_A])&((man>''):noun,_A)=>(((man>''):noun,_A)=>((love>s):verb,[sk1,_A])&((man>''):noun,_A)=>(((man>''):noun,_A)=>((subject,_A),[sk1,_A])&((man>''):noun,_A)=>((dobj,[sk2|...]),[sk1,_A])))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -80 bytes
+yes
+| ?- doItAll('every man loves some woman .', X), setProblem(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+(((man>):noun,A => (woman>):noun,[sk2,A])
+  & (((man>):noun,A => (love>s):verb,[sk1,A])
+      & (((man>):noun,A => (subject,A),[sk1,A])
+          & (((man>):noun , A)
+              => (dobj,[sk2,A] , [sk1,A])))))
+X = ((man>''):noun,_A)=>((woman>''):noun,[sk2,_A])&((man>''):noun,_A)=>((love>s):verb,[sk1,_A])&((man>''):noun,_A)=>((subject,_A),[sk1,_A])&((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A]) ? 
+yes
+| ?- doItAll('every man loves some woman .', X), setProblem(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+
+! Type error in argument 2 of =.. /2
+! atom expected, but [every:_142,((man>''):noun,_142)] found
+! goal:  _148=..[[every:_142,((man>''):noun,_142)],exists(_125,(tense(present),_125)&exists(_114,exists(_111,((woman>''):noun,_111)&(at,_125,_114)&((love>s):verb&(subject,_142)&(dobj,_111),_114))))]
+| ?-               {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+| ?- doItAll('every man loves some woman .', X), setProblem(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+
+! Type error in argument 2 of =.. /2
+! atom expected, but [every:_142,((man>''):noun,_142)] found
+! goal:  _148=..[[every:_142,((man>''):noun,_142)],exists(_125,(tense(present),_125)&exists(_114,exists(_111,((woman>''):noun,_111)&(at,_125,_114)&((love>s):verb&(subject,_142)&(dobj,_111),_114))))]
+| ?-               {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+| ?- spy(setProblem).
+% The debugger will first zip -- showing spypoints (zip)
+% Plain spypoint for user:(setProblem/1) added, BID=2
+yes
+% zip
+| ?- doItAll('every man loves some woman .', X), setProblem(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+
+ +      1      1 Call: forwards(((man>''):noun,_103040)=>((tense(present),[sk0,_103040])&((woman>''):noun,[sk2,_103040])&(at,[sk0,_103040],[sk1,_103040])&((love>s):verb,[sk1,_103040])&((subject,_103040),[sk1,_103040])&((dobj,[sk2|...]),[sk1,_103040])),_422) ?               {(dobj , spec([some:B],[(woman>):noun]))}]))}])a
+% Execution aborted
+| ?- nospyall.
+% All spypoints removed
+yes
+| ?- spy(setProblem).
+% The debugger will first zip -- showing spypoints (zip)
+% Plain spypoint for user:(setProblem/1) added, BID=1
+yes
+% zip
+| ?- doItAll('every man loves some woman .', X), setProblem(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+
+ +      1      1 Call: setProblem(((man>''):noun,_103034)=>((woman>''):noun,[sk2,_103034])&((man>''):noun,_103034)=>((love>s):verb,[sk1,_103034])&((man>''):noun,_103034)=>((subject,_103034),[sk1,_103034])&((man>''):noun,_103034)=>((dobj,[sk2,_103034]),[sk1,_103034])) ?               {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+        2      2 Call: retractall(user:fact(_116884)) ? s
+        2      2 Exit: retractall(user:fact(_116884)) ? 
+        3      2 Call: retractall(user:(_116873=>_116874)) ? s
+        3      2 Exit: retractall(user:(_116873=>_116874)) ? 
+        4      2 Call: atomic(((man>''):noun,_103034)=>((woman>''):noun,[sk2,_103034])&((man>''):noun,_103034)=>((love>s):verb,[sk1,_103034])&((man>''):noun,_103034)=>((subject,_103034),[sk1,_103034])&((man>''):noun,_103034)=>((dobj,[sk2,_103034]),[sk1,_103034])) ? 
+        4      2 Fail: atomic(((man>''):noun,_103034)=>((woman>''):noun,[sk2,_103034])&((man>''):noun,_103034)=>((love>s):verb,[sk1,_103034])&((man>''):noun,_103034)=>((subject,_103034),[sk1,_103034])&((man>''):noun,_103034)=>((dobj,[sk2,_103034]),[sk1,_103034])) ? 
+        5      2 Call: _116860=((man>''):noun,_103034)=>((woman>''):noun,[sk2,_103034])&((man>''):noun,_103034)=>((love>s):verb,[sk1,_103034])&((man>''):noun,_103034)=>((subject,_103034),[sk1,_103034])&((man>''):noun,_103034)=>((dobj,[sk2,_103034]),[sk1,_103034]) ? 
+        5      2 Exit: ((man>''):noun,_103034)=>((woman>''):noun,[sk2,_103034])&((man>''):noun,_103034)=>((love>s):verb,[sk1,_103034])&((man>''):noun,_103034)=>((subject,_103034),[sk1,_103034])&((man>''):noun,_103034)=>((dobj,[sk2,_103034]),[sk1,_103034])=((man>''):noun,_103034)=>((woman>''):noun,[sk2,_103034])&((man>''):noun,_103034)=>((love>s):verb,[sk1,_103034])&((man>''):noun,_103034)=>((subject,_103034),[sk1,_103034])&((man>''):noun,_103034)=>((dobj,[sk2,_103034]),[sk1,_103034]) ? 
+        6      2 Call: setProblem1(((man>''):noun,_103034)=>((woman>''):noun,[sk2,_103034])&((man>''):noun,_103034)=>((love>s):verb,[sk1,_103034])&((man>''):noun,_103034)=>((subject,_103034),[sk1,_103034])&((man>''):noun,_103034)=>((dobj,[sk2,_103034]),[sk1,_103034])) ? 
+        6      2 Fail: setProblem1(((man>''):noun,_103034)=>((woman>''):noun,[sk2,_103034])&((man>''):noun,_103034)=>((love>s):verb,[sk1,_103034])&((man>''):noun,_103034)=>((subject,_103034),[sk1,_103034])&((man>''):noun,_103034)=>((dobj,[sk2,_103034]),[sk1,_103034])) ? 
+ +      1      1 Fail: setProblem(((man>''):noun,_103034)=>((woman>''):noun,[sk2,_103034])&((man>''):noun,_103034)=>((love>s):verb,[sk1,_103034])&((man>''):noun,_103034)=>((subject,_103034),[sk1,_103034])&((man>''):noun,_103034)=>((dobj,[sk2,_103034]),[sk1,_103034])) ? 
+        7      1 Call: qff(every(((man>''):noun,_103034),exists(_102009,(tense(present),_102009)&exists(_102010,exists(_103346,((woman>''):noun,_103346)&(at,_102009,_102010)&((love>s):verb&(subject,_103034)&(dobj,_103346),_102010))))),_709,[],+) ? s
+        7      1 Exit: qff(every(((man>''):noun,_103034),exists([sk3,((man>''):noun,_103034)],(tense(present),[sk3,((man>''):noun,_103034)])&exists([sk4,((man>''):noun,_103034)],exists([sk5,((man>''):noun,_103034)],((woman>''):noun,[sk5,((man>''):noun,_103034)])&(at,[sk3|...],[sk4|...])&((love>s):verb&(subject,_103034)&(dobj,[sk5|...]),[sk4|...]))))),(tense(present),[sk3,((man>''):noun,_103034)])&((woman>''):noun,[sk5,((man>''):noun,_103034)])&(at,[sk3,((man>''):noun,_103034)],[sk4,((man>''):noun,_103034)])&((love>s):verb,[sk4,((man>''):noun,_103034)])&((subject,_103034),[sk4,((man>''):noun,_103034)])&((dobj,[sk5,((man>''):noun,_103034)]),[sk4,((man>''):noun,_103034)]),[],+) ? 
+        8      1 Call: forwards((tense(present),[sk3,((man>''):noun,_103034)])&((woman>''):noun,[sk5,((man>''):noun,_103034)])&(at,[sk3,((man>''):noun,_103034)],[sk4,((man>''):noun,_103034)])&((love>s):verb,[sk4,((man>''):noun,_103034)])&((subject,_103034),[sk4,((man>''):noun,_103034)])&((dobj,[sk5,((man>''):noun,_103034)]),[sk4,((man>''):noun,_103034)]),_422) ? * Incorrect trace command print
+Please enter a valid trace command ('h' for help).
+        8      1 Call: forwards((tense(present),[sk3,((man>''):noun,_103034)])&((woman>''):noun,[sk5,((man>''):noun,_103034)])&(at,[sk3,((man>''):noun,_103034)],[sk4,((man>''):noun,_103034)])&((love>s):verb,[sk4,((man>''):noun,_103034)])&((subject,_103034),[sk4,((man>''):noun,_103034)])&((dobj,[sk5,((man>''):noun,_103034)]),[sk4,((man>''):noun,_103034)]),_422) ? 
+        9      2 Call: var((tense(present),[sk3,((man>''):noun,_103034)])&((woman>''):noun,[sk5,((man>''):noun,_103034)])&(at,[sk3,((man>''):noun,_103034)],[sk4,((man>''):noun,_103034)])&((love>s):verb,[sk4,((man>''):noun,_103034)])&((subject,_103034),[sk4,((man>''):noun,_103034)])&((dobj,[sk5,((man>''):noun,_103034)]),[sk4,((man>''):noun,_103034)])) ? A
+* Invalid trace command
+Please enter a valid trace command ('h' for help).
+        9      2 Call: var((tense(present),[sk3,((man>''):noun,_103034)])&((woman>''):noun,[sk5,((man>''):noun,_103034)])&(at,[sk3,((man>''):noun,_103034)],[sk4,((man>''):noun,_103034)])&((love>s):verb,[sk4,((man>''):noun,_103034)])&((subject,_103034),[sk4,((man>''):noun,_103034)])&((dobj,[sk5,((man>''):noun,_103034)]),[sk4,((man>''):noun,_103034)])) ? a
+% Execution aborted
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 10 msec 56 bytes
+yes
+| ?- doItAll('every man loves some woman .', X), setProblem(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+
+! Type error in argument 2 of =.. /2
+! atom expected, but [every:_142,((man>''):noun,_142)] found
+! goal:  _148=..[[every:_142,((man>''):noun,_142)],exists(_125,(tense(present),_125)&exists(_114,exists(_111,((woman>''):noun,_111)&((at,_125,_114)&((love>s):verb&((subject,_142)&(dobj,_111)),_114)))))]
+| ?-               {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('every man loves some woman .', X), setProblem(X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+
+ +  24804      1 Call: setProblem((((man>''):noun,_199088)=>((woman>''):noun,[sk2,_199088]))&((((man>''):noun,_199088)=>((love>s):verb,[sk1,_199088]))&((((man>''):noun,_199088)=>((subject,_199088),[sk1,_199088]))&(((man>''):noun,_199088)=>((dobj,[sk2,_199088]),[sk1,_199088]))))) ?               {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+    24805      2 Call: retractall(user:fact(_222276)) ? 
+    24805      2 Exit: retractall(user:fact(_222276)) ? 
+    24806      2 Call: retractall(user:(_222265=>_222266)) ? 
+    24806      2 Exit: retractall(user:(_222265=>_222266)) ? 
+    24807      2 Call: atomic((((man>''):noun,_199088)=>((woman>''):noun,[sk2,_199088]))&((((man>''):noun,_199088)=>((love>s):verb,[sk1,_199088]))&((((man>''):noun,_199088)=>((subject,_199088),[sk1,_199088]))&(((man>''):noun,_199088)=>((dobj,[sk2,_199088]),[sk1,_199088]))))) ? 
+    24807      2 Fail: atomic((((man>''):noun,_199088)=>((woman>''):noun,[sk2,_199088]))&((((man>''):noun,_199088)=>((love>s):verb,[sk1,_199088]))&((((man>''):noun,_199088)=>((subject,_199088),[sk1,_199088]))&(((man>''):noun,_199088)=>((dobj,[sk2,_199088]),[sk1,_199088]))))) ? 
+    24808      2 Call: _222252=(((man>''):noun,_199088)=>((woman>''):noun,[sk2,_199088]))&((((man>''):noun,_199088)=>((love>s):verb,[sk1,_199088]))&((((man>''):noun,_199088)=>((subject,_199088),[sk1,_199088]))&(((man>''):noun,_199088)=>((dobj,[sk2,_199088]),[sk1,_199088])))) ? 
+    24808      2 Exit: (((man>''):noun,_199088)=>((woman>''):noun,[sk2,_199088]))&((((man>''):noun,_199088)=>((love>s):verb,[sk1,_199088]))&((((man>''):noun,_199088)=>((subject,_199088),[sk1,_199088]))&(((man>''):noun,_199088)=>((dobj,[sk2,_199088]),[sk1,_199088]))))=(((man>''):noun,_199088)=>((woman>''):noun,[sk2,_199088]))&((((man>''):noun,_199088)=>((love>s):verb,[sk1,_199088]))&((((man>''):noun,_199088)=>((subject,_199088),[sk1,_199088]))&(((man>''):noun,_199088)=>((dobj,[sk2,_199088]),[sk1,_199088])))) ? 
+    24809      2 Call: setProblem1((((man>''):noun,_199088)=>((woman>''):noun,[sk2,_199088]))&((((man>''):noun,_199088)=>((love>s):verb,[sk1,_199088]))&((((man>''):noun,_199088)=>((subject,_199088),[sk1,_199088]))&(((man>''):noun,_199088)=>((dobj,[sk2,_199088]),[sk1,_199088]))))) ? 
+    24810      3 Call: setProblem1(((man>''):noun,_199088)=>((woman>''):noun,[sk2,_199088])) ? 
+    24810      3 Fail: setProblem1(((man>''):noun,_199088)=>((woman>''):noun,[sk2,_199088])) ? a
+% Execution aborted
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+* clauses for user:(setProblem/1) are not together
+* Approximate lines: 161-165, file: '/Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl'
+* clauses for user:(setProblem1/1) are not together
+* Approximate lines: 165-168, file: '/Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 0 msec -24 bytes
+yes
+| ?- doItAll('every man loves some woman .', X), setProblem(X), fail.
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+X = (((man>''):noun,_A)=>((woman>''):noun,[sk2,_A]))&((((man>''):noun,_A)=>((love>s):verb,[sk1,_A]))&((((man>''):noun,_A)=>((subject,_A),[sk1,_A]))&(((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A])))) ? 
+yes
+| ?- listing(=>).
+((man>''):noun,A)=>((woman>''):noun,[sk2,A]).
+((man>''):noun,A)=>((love>s):verb,[sk1,A]).
+((man>''):noun,A)=>((subject,A),[sk1,A]).
+((man>''):noun,A)=>((dobj,[sk2,A]),[sk1,A]).
+
+yes
+| ?- doItAll('every man loves some woman .', X), setProblem(X), fail.
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+
+! Type error in argument 2 of =.. /2
+! atom expected, but [every:_142,((man>''):noun,_142)] found
+! goal:  _148=..[[every:_142,((man>''):noun,_142)],exists(_125,(tense(present),_125)&exists(_114,exists(_111,((woman>''):noun,_111)&((at,_125,_114)&((love>s):verb&((subject,_142)&(dobj,_111)),_114)))))]
+| ?-               {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -64 bytes
+yes
+| ?- doItAll('some man loves some woman ?', X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+no
+| ?- listing(=>).
+((man>''):noun,A)=>((woman>''):noun,[sk191,A]).
+((man>''):noun,A)=>((love>s):verb,[sk190,A]).
+((man>''):noun,A)=>({subject,A},[sk190,A]).
+((man>''):noun,A)=>((dobj,[sk191,A]),[sk190,A]).
+
+yes
+| ?- doItAll('every man loves some woman .', X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+X = ((man>''):noun,_A)&(((woman>''):noun,_B)&(((love>s):verb,_C)&(((subject,_A),_C)&((dobj,_B),_C)))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec 168 bytes
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 256 bytes
+yes
+| ?- doItAll('every man loves some woman .', X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+
+! Permission error: cannot retract static user:(kb/2)
+! goal:  retract(user:kb(minutes,_66))
+| ?-               {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+* clauses for user:(setProblem/1) are not together
+* Approximate lines: 161-165, file: '/Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl'
+* clauses for user:(setProblem1/1) are not together
+* Approximate lines: 165-168, file: '/Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 0 msec -80 bytes
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -80 bytes
+yes
+| ?- doItAll('John is a man .', X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+X = (((man>''):noun,_A)=>((woman>''):noun,[sk2,_A]))&((((man>''):noun,_A)=>((love>s):verb,[sk1,_A]))&((((man>''):noun,_A)=>((subject,_A),[sk1,_A]))&(((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A])))) ? 
+yes
+| ?- kb(minutes, P).
+P = (((man>''):noun,_A)=>((woman>''):noun,[sk2,_A]))&((((man>''):noun,_A)=>((love>s):verb,[sk1,_A]))&((((man>''):noun,_A)=>((subject,_A),[sk1,_A]))&(((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A])))) ? 
+yes
+| ?- doItAll('John is a man .', X).
+
+(i8
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(be : verb),
+              {(subject , spec(name,[John:name]))},
+              {(predication , spec([a:A],[(man>):noun]))}]))}])
+X = the(_A::{named('John'),_A},((man>''):noun,[sk0])&([sk0]=_A)) ? 
+yes
+| ?- kb(minutes, P).
+P = ((((man>''):noun,_A)=>((woman>''):noun,[sk2,_A]))&((((man>''):noun,_A)=>((love>s):verb,[sk1,_A]))&((((man>''):noun,_A)=>((subject,_A),[sk1,_A]))&(((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A])))))&the(_B::{named('John'),_B},((man>''):noun,[sk0])&([sk0]=_B)) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 160 bytes
+yes
+| ?- startConversation.
+yes
+| ?- kb(minutes, P).
+no
+| ?- doItAll('John loves Mary .', X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+X = (((man>''):noun,_A)=>((woman>''):noun,[sk2,_A]))&((((man>''):noun,_A)=>((love>s):verb,[sk1,_A]))&((((man>''):noun,_A)=>((subject,_A),[sk1,_A]))&(((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A])))) ? 
+yes
+| ?- setProblem(minutes).
+yes
+| ?- listing(=>).
+((man>''):noun,A)=>((woman>''):noun,[sk2,A]).
+((man>''):noun,A)=>((love>s):verb,[sk1,A]).
+((man>''):noun,A)=>((subject,A),[sk1,A]).
+((man>''):noun,A)=>((dobj,[sk2,A]),[sk1,A]).
+
+yes
+| ?- doItAll('John loves Mary .', X).
+
+(i7
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec(name,[John:name]))},
+              {(dobj , spec(name,[Mary:name]))}]))}])
+X = the(_A::{named('John'),_A},the(_B::{named('Mary'),_B},((love>s):verb,[sk1])&(((subject,_A),[sk1])&((dobj,_B),[sk1])))) ? 
+yes
+| ?- setProblem(minutes).
+yes
+| ?- listing(=>).
+((man>''):noun,A)=>((woman>''):noun,[sk2,A]).
+((man>''):noun,A)=>((love>s):verb,[sk1,A]).
+((man>''):noun,A)=>((subject,A),[sk1,A]).
+((man>''):noun,A)=>((dobj,[sk2,A]),[sk1,A]).
+
+yes
+| ?- listing(fact).
+fact(the(A::{named('John'),A},the(B::{named('Mary'),B},((love>s):verb,[sk1])&(((subject,A),[sk1])&((dobj,B),[sk1]))))).
+
+yes
+| ?- startConversation.
+yes
+| ?- doItAll('every man loves some woman .', X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+X = (((man>''):noun,_A)=>((woman>''):noun,[sk2,_A]))&((((man>''):noun,_A)=>((love>s):verb,[sk1,_A]))&((((man>''):noun,_A)=>((subject,_A),[sk1,_A]))&(((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A])))) ? 
+yes
+| ?- assert(kb(background, ((man>''):noun,john))).
+yes
+| ?- 
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+* clauses for user:(setProblem/1) are not together
+* Approximate lines: 163-167, file: '/Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl'
+* clauses for user:(setProblem1/1) are not together
+* Approximate lines: 167-170, file: '/Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 0 msec -560 bytes
+yes
+| ?- setProblem(background & minutes).
+yes
+| ?- listing(fact).
+fact(background).
+fact(minutes).
+
+yes
+| ?- spy(setProblem1).
+% The debugger will first zip -- showing spypoints (zip)
+% Plain spypoint for user:(setProblem1/1) added, BID=2
+yes
+% zip
+| ?- setProblem(background & minutes).
+ +      1      1 Call: setProblem(background&minutes) ? 
+        2      2 Call: retractall(user:fact(_1081)) ? s
+        2      2 Exit: retractall(user:fact(_1081)) ? 
+        3      2 Call: retractall(user:(_1070=>_1071)) ? 
+        3      2 Exit: retractall(user:(_1070=>_1071)) ? 
+ +      4      2 Call: setProblem1(background&minutes) ? 
+        5      3 Call: kb(background&minutes,_4048) ? 
+        5      3 Fail: kb(background&minutes,_4048) ? 
+ +      6      3 Call: setProblem1(background) ? 
+        7      4 Call: kb(background,_4680) ? 
+        7      4 Fail: kb(background,_4680) ? a
+% Execution aborted
+| ?- kb(A, B).
+A = test1,
+B = [a,a=>b,b=>c,c=>p or q,p=>r,q=>r] ? ;
+Venal: belief that material wealth leads to happiness
+A = test2,
+B = [(rich(_A)=>happy(_A))=>venal(_A),rich(john)=>happy(john)] ? ;
+no
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+* clauses for user:(setProblem/1) are not together
+* Approximate lines: 163-167, file: '/Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl'
+* clauses for user:(setProblem1/1) are not together
+* Approximate lines: 167-170, file: '/Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 10 msec -80 bytes
+yes
+| ?- doItAll('some man loves some woman .', X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+X = (((man>''):noun,_A)=>((woman>''):noun,[sk2,_A]))&((((man>''):noun,_A)=>((love>s):verb,[sk1,_A]))&((((man>''):noun,_A)=>((subject,_A),[sk1,_A]))&(((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A])))) ? 
+yes
+| ?- assert(kb(background, ((man>''):noun, [sk46]) & (named, [sk46], 'John)))).
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Library/WebServer/CGI-Executables/dgParser/satchmo_ghadah_edit.pl in module user, 0 msec -80 bytes
+yes
+| ?- setProblem(background & minutes).
+yes
+| ?- listing(=>).
+((man>''):noun,A)=>((woman>''):noun,[sk2,A]).
+((man>''):noun,A)=>((love>s):verb,[sk1,A]).
+((man>''):noun,A)=>((subject,A),[sk1,A]).
+((man>''):noun,A)=>((dobj,[sk2,A]),[sk1,A]).
+
+yes
+| ?- listing(fact).
+fact(((man>''):noun,john)).
+
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 248 bytes
+yes
+| ?- doItAll('some man loves some woman .', X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+X = ((man>''):noun,[sk2])&(((woman>''):noun,[sk3])&(((love>s):verb,[sk1])&(((subject,[sk2]),[sk1])&((dobj,[sk3]),[sk1])))) ? 
+yes
+| ?- startConversation.
+yes
+| ?- doItAll('some man loves some woman ?', X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+X = ((man>''):noun,[sk2])&(((woman>''):noun,[sk3])&(((love>s):verb,[sk1])&(((subject,[sk2]),[sk1])&((dobj,[sk3]),[sk1])))) ? 
+yes
+| ?- yes
+     .
+no
+| ?- startConversation.
+yes
+| ?- doItAll('every man loves some woman .', X).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([every:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+X = (((man>''):noun,_A)=>((woman>''):noun,[sk2,_A]))&((((man>''):noun,_A)=>((love>s):verb,[sk1,_A]))&((((man>''):noun,_A)=>((subject,_A),[sk1,_A]))&(((man>''):noun,_A)=>((dobj,[sk2,_A]),[sk1,_A])))) ? 
+yes
+| ?- doItAll('some man loves some woman ?', X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])Yes ((man>):noun,john)&(((woman>):noun,[sk2,john])&(((love>s):verb,[sk1,john])&(((subject,john),[sk1,john])&((dobj,[sk2,john]),[sk1,john]))))
+X = ((man>''):noun,john)&(((woman>''):noun,[sk2,john])&(((love>s):verb,[sk1,john])&(((subject,john),[sk1,john])&((dobj,[sk2,john]),[sk1,john])))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -24 bytes
+yes
+| ?- doItAll('some man loves some woman ?', X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+Yes ((man>):noun,john)&(((woman>):noun,[sk2,john])&(((love>s):verb,[sk1,john])&(((subject,john),[sk1,john])&((dobj,[sk2,john]),[sk1,john]))))
+X = ((man>''):noun,john)&(((woman>''):noun,[sk2,john])&(((love>s):verb,[sk1,john])&(((subject,john),[sk1,john])&((dobj,[sk2,john]),[sk1,john])))) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 0 bytes
+yes
+| ?- doItAll('some man loves some woman ?', X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+Trying to answer ((man>):noun,_104047)&(((woman>):noun,_104359)&(((love>s):verb,_103023)&(((subject,_104047),_103023)&((dobj,_104359),_103023))))
+
+Yes ((man>):noun,john)&(((woman>):noun,[sk2,john])&(((love>s):verb,[sk1,john])&(((subject,john),[sk1,john])&((dobj,[sk2,john]),[sk1,john]))))
+X = ((man>''):noun,john)&(((woman>''):noun,[sk2,john])&(((love>s):verb,[sk1,john])&(((subject,john),[sk1,john])&((dobj,[sk2,john]),[sk1,john])))) ? 
+yes
+| ?- retractall(kb(background, _)).
+yes
+| ?- assert(kb(background, ((man>''):noun, [sk46]) & (named, [sk46], 'John'))).
+       ^C ^C
+Prolog interruption (h for help)? a
+% Execution aborted
+| ?- assert(kb(background, ((man>''):noun, [sk46]) & (named, [sk46], 'John')))).
+! Syntax error
+! operator expected after expression
+! in line 8127
+! assert ( kb ( background ,  (  ( man > '' ) : noun , [ sk46 ] ) &  ( named , [ sk46 ] , 'John' ) ) ) 
+! <<here>>
+! ) . 
+| ?- assert(kb(background, ((man>''):noun, [sk46]) & (named, [sk46], 'John'))).
+yes
+| ?- setProblem(background & minutes).
+yes
+| ?- listing(fact).
+fact(((man>''):noun,[sk46])).
+fact((named,[sk46],'John')).
+
+yes
+| ?- doItAll('John is a man .', X).
+
+(i12
+  + [(? : punct),
+     {(query,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(subject , spec([some:A],[(man>):noun]))},
+              {(dobj , spec([some:B],[(woman>):noun]))}]))}])
+Trying to answer ((man>):noun,_104047)&(((woman>):noun,_104359)&(((love>s):verb,_103023)&(((subject,_104047),_103023)&((dobj,_104359),_103023))))
+
+Yes ((man>):noun,[sk46])&(((woman>):noun,[sk2,[sk46]])&(((love>s):verb,[sk1,[sk46]])&(((subject,[sk46]),[sk1,[sk46]])&((dobj,[sk2,[sk46]]),[sk1,[sk46]]))))
+X = ((man>''):noun,[sk46])&(((woman>''):noun,[sk2,[sk46]])&(((love>s):verb,[sk1,[sk46]])&(((subject,[sk46]),[sk1,[sk46]])&((dobj,[sk2,[sk46]]),[sk1,[sk46]])))) ? 
+yes
+| ?- doItAll('a man sleeps .', X).
+
+(i8
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(be : verb),
+              {(subject , spec(name,[John:name]))},
+              {(predication , spec([a:A],[(man>):noun]))}]))}])
+X = the(_A::{named('John'),_A},((man>''):noun,[sk0])&([sk0]=_A)) ? 
+yes
+| ?- startConversation.
+yes
+| ?- doItAll('a man sleeps .', X).
+
+(i6
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(sleep>s : verb),
+              {(subject , spec([a:A],[(man>):noun]))}]))}])
+X = ((man>''):noun,[sk0])&(((sleep>s):verb,[sk2])&((subject,[sk0]),[sk2])) ? 
+yes
+| ?- retractall(kb(background, _)).
+yes
+| ?- assert(kb(background, [])).
+yes
+| ?- setProblem(minutes&kb).
+yes
+| ?- listing(=>).
+yes
+| ?- listing(fact).
+fact(((man>''):noun,[sk0])).
+fact(((sleep>s):verb,[sk2])).
+fact(((subject,[sk0]),[sk2])).
+fact(kb).
+
+yes
+| ?- doItAll('the man dies .', X).
+no
+| ?- doItAll('the man saw the woman .', X).
+
+(i7
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(die>s : verb),
+              {(subject , spec([the:A],[(man>):noun]))}]))}])
+X = the(_A::{(man>''):noun,_A},((die>s):verb,[sk1])&((subject,_A),[sk1])) ? 
+yes
+| ?- kb(minutes, M), pretty(M)
+     .
+
+((((man>):noun , [sk0])
+   & (((sleep>s):verb , [sk2])
+       & (subject,[sk0] , [sk2])))
+  & the((A :: {(man>):noun,A}),
+        ((die>s):verb,[sk1] & (subject,A),[sk1])))
+M = (((man>''):noun,[sk0])&(((sleep>s):verb,[sk2])&((subject,[sk0]),[sk2])))&the(_A::{(man>''):noun,_A},((die>s):verb,[sk1])&((subject,_A),[sk1])) ? 
+yes
+| ?- doItAll('the man saw his friend .', X).
+
+(i11
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(saw : verb),
+              {(subject , spec([the:A],[(man>):noun]))},
+              {(dobj , spec([the:B],[(woman>):noun]))}]))}])
+X = the(_A::{(man>''):noun,_A},the(_B::{(woman>''):noun,_B},(saw:verb,[sk1])&(((subject,_A),[sk1])&((dobj,_B),[sk1])))) ? 
+yes
+| ?- doItAll('the man saw his friend .', X).
+
+(i11
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(saw : verb),
+              {(subject , spec([the:A],[(man>):noun]))},
+              {(dobj , spec([his:B],[(friend>):noun]))}]))}])
+X = the(_A::{(man>''):noun,_A},the(_B::{((friend>''):noun,_B)&own(_C,_B)},the(_C::{male,_C},(saw:verb,[sk1])&(((subject,_A),[sk1])&((dobj,_B),[sk1]))))) ? 
+yes
+| ?- 

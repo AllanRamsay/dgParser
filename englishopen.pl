@@ -258,9 +258,13 @@ word('chest', X) :-
     tverb(X),
     X <> [vroot, regularPast].
 
+word('chest', X) :-
+    language@X -- english,
+    X <> [nroot(_)].
+
 word('child', X) :-
     language@X -- english,
-    X <> [noun, thirdSing, -specified, -specified, inflected].
+    X <> [noun, thirdSing, unspecified, inflected].
 
 word('children', X) :-
     language@X -- english,
@@ -349,8 +353,22 @@ word('dog', X) :-
 
 word('dog', X) :- 
     language@X -- english,
-    definition@X -- 'metal supports for logs in a fireplace',
     X <> [nroot].
+
+word('doubt', X) :- 
+    language@X -- english,
+    X <> [nroot].
+
+word('doubt', X) :-
+    language@X -- english,
+    X <> [vroot, regularPast],
+    S <> [tensedForm],
+    sverb(X, S).
+
+word('doubt', X) :-
+    language@X -- english,
+    X <> [vroot, regularPast],
+    tverb(X).
 
 word('drank', X) :-
     language@X -- english,
@@ -419,7 +437,7 @@ word('exactly', X) :-
     definition@X -- 'characterized by perfect conformity to fact or truth',
     cat@X -- exactly,
     X <> [saturated, fixedpremod, fulladjunct, theta(premod)],
-    target@X <> [det1, +numeric].
+    target@X <> [det1(_), +numeric].
 
 word('exact', X) :-
     language@X -- english,
@@ -442,7 +460,28 @@ word('fart', X) :-
     language@X -- english,
     definition@X -- 'a reflex that expels intestinal gas through the anus',
     X <> [nroot].
-            
+         
+% word('fast', X) :-
+%     language@X -- english,
+%     definition@X -- 'unrestrained by convention or morality',
+%     X <> [aroot].
+                    
+% word('fast', X) :- 
+%     language@X -- english,
+%     definition@X -- 'abstaining from food',
+%     X <> [nroot, -target].
+
+ word('fast', X) :-
+     language@X -- english,
+     definition@X -- 'quickly or rapidly',
+     X <> [adv].
+
+% word('fast', X) :-
+%     language@X -- english,
+%     definition@X -- 'abstain from certain foods , as for religious or medical reasons',
+%     X <> [vroot, regularPast],
+%     iverb(X).
+
 word('fat', X) :- 
     language@X -- english,
     definition@X -- 'a kind of body tissue containing stored fat that serves as a source of energy',
@@ -736,8 +775,9 @@ word('knew', X) :-
 
 word('know', X) :-
     language@X -- english,
-    uverb(X),
-    X <> [vroot].
+    sverb(X, C),
+    X <> [vroot],
+    C <> [s].
 
 word('Labour', X) :- 
     language@X -- english,
@@ -1038,18 +1078,6 @@ word('overrun', X) :-
     language@X -- english,
     tverb(X),
     X <> [pastPart, inflected].
-   
-word('own', X) :-
-    language@X -- english,
-    definition@X -- 'belonging to or on behalf of a specified person',
-    degree@X -- simple,
-    X <> [aroot].
-
-word('own', X) :-
-    language@X -- english,
-    definition@X -- 'have ownership or possession of',
-    X <> [vroot, regularPast],
-    tverb(X).
 
 word('part', X) :- 
     language@X -- english,
@@ -1081,7 +1109,7 @@ word('peach', X) :-
 
 word('people', X) :-
     language@X -- english,
-    X <> [noun, thirdSing, +specified, inflected],
+    X <> [noun, thirdSing, specifier([generic]), inflected],
     nmod(X).
 
 word('people', X) :-
@@ -1231,7 +1259,7 @@ word('saw', X) :-
     language@X -- english,
     X <> [sverb(S), pastTense, inflected],
     -zero@subject@S,
-    S <> [specified],
+    S <> [specifier([_])],
     trigger(finite@S, (presPartForm(S); (tensedForm(S), comp@S == *(that)); infinitive(S))).
 
 word('saw', X) :-
@@ -1243,7 +1271,7 @@ word('say', X) :-
     language@X -- english,
     X <> [sverb(S), vroot],
     -zero@subject@S,
-    S <> [tensedForm, specified].
+    S <> [tensedForm, specifier([_])].
 
 word('say', X) :-
     language@X -- english,
@@ -1253,7 +1281,7 @@ word('see', X) :-
     language@X -- english,
     X <> [sverb(S), vroot, pastForms(-, -)],
     -zero@subject@S,
-    S <> [specified],
+    S <> [specifier([_])],
     trigger(finite@S, (presPartForm(S); (tensedForm(S), comp@S == *(that)); infinitive(S))).
 
 word('see', X) :-
@@ -1548,6 +1576,15 @@ word('tell', X) :-
     language@X -- english,
     uverb(X),
     X <> [vroot, pastForms(-, -)].
+            
+word('tenor', X) :- 
+    language@X -- english,
+    definition@X -- 'the adult male singing voice above baritone',
+    X <> [nroot, -target].
+
+word('thing', X) :-
+    language@X -- english,
+    X <> [nroot(_)].
 
 word('thought', X) :-
     X <> [nroot].

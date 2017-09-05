@@ -1,15 +1,25 @@
 
-
-lookup(FORM0, W1) :-
-    W0 <> [word, inflected],
+lookup([ROOT, TAG, SUFFIX], X1) :-
+    affixes@X0 -- [S],
+    word(TAG, X0),
+    X0\affixes -- X1,
+    affixes@X1 -- [],
+    word(SUFFIX, S),
+    root@X -- (ROOT>SUFFIX).
+lookup([ROOT, TAG], X) :-
+    word(ROOT, X),
+    root@X -- ROOT.
+lookup([ROOT, TAG], X) :-
+    \+ word(ROOT, X),
+    word(TAG, X),
+    root@X -- [ROOT].
+lookup(FORM0, W) :-
+    atomic(FORM0),
+    W <> [word, inflected],
     atom_codes(FORM0, FORM1),
     findall(C, (member(I, FORM1), atom_codes(C, [I])), FORM2),
     lookup1(FORM2, [], [], [WORDS]),
-    tag@W0 -- TAG0,
-    root@W0 -- [R0],
-    W1\root -- W0,
-    member(W0, WORDS),
-    root@W1 -- [R0:TAG0].
+    member(W, WORDS).
     %% (nonvar(TAG0) -> root@W1 = [R0:TAG0]; root@W1 = [R0]).
 
 lookup1([], [], L, L) :-
@@ -76,6 +86,7 @@ lookup(FORM, WORD, language@WORD) :-
     default(setCost(WORD, 0)).
 
 lookup(N, X, _) :-
+    atomic(N),
     atom_chars(N, [C | _]),
     number_chars(_, [C]),
     !,

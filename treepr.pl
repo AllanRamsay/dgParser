@@ -1,12 +1,15 @@
 
 biggestSpan(B, SPAN) :-
     -zero@X,
-    X <> [compact, saturated],
+    shifted@X -- [],
+    X <> [compact, saturated, -zerodtr, s],
+    -zero@subject@X,
     start@X -- SX,
     end@X -- EX,
     span@X -- SPANX,
-    findall(D-X, (X, D is SX-EX, 0 is SPANX /\ SPAN), L0),
-    sort(L0, [_-B | L1]).
+    index@X -- I,
+    findall(D-I-X, (X, D is SX-EX, 0 is SPANX /\ SPAN), L0),
+    sort(L0, [_-_-B | L1]).
 
 biggest2(B1, B2) :-
     biggestSpan(B1, 0),

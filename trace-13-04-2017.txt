@@ -1,0 +1,588 @@
+SICStus 3.12.8 (i386-darwin-8.9.1): Tue May  8 13:13:57 CEST 2007
+Licensed to man.ac.uk
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/setup.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po...
+%  module charsio imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/charsio.bundle in module charsio
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po in module charsio, 10 msec 8512 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/setup.pl in module user, 10 msec 11448 bytes
+yes
+| ?- setup(allwords).
+% compiling /Library/WebServer/CGI-Executables/dgParser/useful.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po...
+%  module terms imported into user
+%   loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po...
+%   module assoc imported into terms
+%    loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po...
+%    module lists imported into assoc
+%    loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po in module lists, 0 msec 11328 bytes
+%   loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po in module assoc, 0 msec 22728 bytes
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po in module terms, 0 msec 31128 bytes
+% Undefined predicates will just fail (fail)
+% compiled /Library/WebServer/CGI-Executables/dgParser/useful.pl in module user, 10 msec 58792 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/features.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/features.pl in module user, 10 msec 21620 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/pretty.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/pretty.pl in module user, 10 msec 12480 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/io.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/io.pl in module user, 10 msec 760 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/disjoin.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/disjoin.pl in module user, 10 msec 16720 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-64, file: '/Library/WebServer/CGI-Executables/dgParser/signatures.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/signatures.pl in module user, 0 msec 5272 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/agree.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/agree.pl in module user, 0 msec 8272 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/classes.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/classes.pl in module user, 40 msec 166040 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/negation.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/negation.pl in module user, 0 msec 1408 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/vforms.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/vforms.pl in module user, 0 msec 23320 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/pronouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/pronouns.pl in module user, 0 msec 3456 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/verbs.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/verbs.pl in module user, 10 msec 36464 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/mclasses.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/mclasses.pl in module user, 0 msec 1648 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/determiners.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/determiners.pl in module user, 0 msec 31224 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/nouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/nouns.pl in module user, 10 msec 2160 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/lookup.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/lookup.pl in module user, 0 msec 10008 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/chart.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/chart.pl in module user, 10 msec 64704 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/treepr.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/treepr.pl in module user, 0 msec 9520 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/conll.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/conll.pl in module user, 0 msec 7872 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl in module user, 10 msec 5344 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/preprocess.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/preprocess.pl in module user, 0 msec 12632 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/spelling.pl...
+* abolish(user:(spellingRule/3)) - no matching predicate
+* Approximate lines: 113-115, file: '/Library/WebServer/CGI-Executables/dgParser/spelling.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/spelling.pl in module user, 0 msec 12960 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+%  consulting /Library/WebServer/CGI-Executables/dgParser/setup.pl...
+%  consulted /Library/WebServer/CGI-Executables/dgParser/setup.pl in module user, 0 msec -48 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 15200 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/allwords.pl...
+%  including /Library/WebServer/CGI-Executables/dgParser/englishopen.pl...
+%   including /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl...
+%    including /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl...
+%    included /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl in module user, 0 msec 15120 bytes
+%   included /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl in module user, 40 msec 514472 bytes
+%  included /Library/WebServer/CGI-Executables/dgParser/englishopen.pl in module user, 90 msec 982240 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/allwords.pl in module user, 10190 msec 94721792 bytes
+yes
+| ?- parseOne('Hob believes that a witch killed his cow', X).
+
+(i80
+  + [(believe>s : verb),
+     {(xcomp,
+        [(kill>ed : verb),
+         {(dobj , spec([his:A],[(cow>):noun]))},
+         {(subject , spec([a:B],[(witch>):noun]))},
+         {(modifier(comp,C) , [that:D])}])},
+     {(subject , spec(name,[Hob:name]))}])
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 1160 bytes
+yes
+| ?- parseOne('Hob believes that a witch killed his cow', X), doitAll(X, Y), pretty(Y).
+
+(i80
+  + [(believe>s : verb),
+     {(xcomp,
+        [(kill>ed : verb),
+         {(dobj , spec([his:A],[(cow>):noun]))},
+         {(subject , spec([a:B],[(witch>):noun]))},
+         {(modifier(comp,C) , [that:D])}])},
+     {(subject , spec(name,[Hob:name]))}])
+X = [(believe>s):verb,{xcomp,[(kill>ed):verb,{dobj,spec([his:_A],[(cow>''):noun])},{subject,spec([a:_B],[(witch>''):noun])},{modifier(comp,_C),[that:_D]}]},{subject,spec(name,['Hob':name])}] ? 
+yes
+| ?- parseOne('Hob believes that a witch killed his cow', X), doItAll(X, Y), pretty(Y).
+
+(i80
+  + [(believe>s : verb),
+     {(xcomp,
+        [(kill>ed : verb),
+         {(dobj , spec([his:A],[(cow>):noun]))},
+         {(subject , spec([a:B],[(witch>):noun]))},
+         {(modifier(comp,C) , [that:D])}])},
+     {(subject , spec(name,[Hob:name]))}])
+no
+| ?- parseOne('a witch killed his cow', X), doItAll(X, Y), pretty(Y).
+
+(i80
+  + [(believe>s : verb),
+     {(xcomp,
+        [(kill>ed : verb),
+         {(dobj , spec([his:A],[(cow>):noun]))},
+         {(subject , spec([a:B],[(witch>):noun]))},
+         {(modifier(comp,C) , [that:D])}])},
+     {(subject , spec(name,[Hob:name]))}])
+[(the : A),
+ (named(Hob) , A),
+ [(believe>s : verb),
+  {(xcomp,
+     [(kill>ed : verb),
+      {(dobj , B)},
+      {(subject , C)},
+      {(modifier(comp,D) , [that:E])}])},
+  {(subject , A)}]]
+X = [(believe>s):verb,{xcomp,[(kill>ed):verb,{dobj,spec([his:_A],[(cow>''):noun])},{subject,spec([a:_B],[(witch>''):noun])},{modifier(comp,_C),[that:_D]}]},{subject,spec(name,['Hob':name])}],
+Y = [the:_E,(named('Hob'),_E),[(believe>s):verb,{xcomp,[(kill>ed):verb,{dobj,_F},{subject,_G},{modifier(...),[that:_D]}]},{subject,_E}]] ? parseOne('a witch killed his cow', X), doItAll(X, Y), pretty(Y).
+Top-level options:
+   RET y     no more choices
+     ; n     more choices
+       b     break
+       <     reset printdepth
+       < <n> set printdepth
+       ^     reset subterm
+       ^ <n> set subterm
+     ? h     print this information
+ ? 
+yes
+| ?- parseOne('every man loves some woman', X), doItAll(X, Y), pretty(Y).
+
+(i27
+  + [(kill>ed : verb),
+     {(dobj , spec([his:A],[(cow>):noun]))},
+
+  ^C ^C
+Prolog interruption (h for help)?      {(subject , spec([a:B],[(witch>):noun]))}])Prolog interruption (h for help)? a
+% Execution aborted
+| ?- parseOne('every boy believes every man loves some woman', X), doItAll(X, Y), pretty(Y).
+
+(i9
+  + [(love>s : verb),
+     {(dobj , spec([some:A],[(woman>):noun]))},
+     {(subject , spec([every:B],[(man>):noun]))}])
+[(every : A),
+ (([(man>):noun] , A)
+   => [(some : B),
+       (([(woman>):noun] , B)
+         & [(love>s : verb), {(dobj , B)}, {(subject , A)}])])]
+X = [(love>s):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}],
+Y = [every:_C,([(man>''):noun],_C)=>[some:_D,([(woman>''):noun],_D)&[(love>s):verb,{dobj,_D},{subject,_C}]]] ? 
+yes
+| ?- parseOne('some man wants to find some unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i23
+  + [(believe>s : verb),
+     {(xcomp,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))},
+     {(subject , spec([every:C],[(boy>):noun]))}])
+[(every : A),
+ (([(boy>):noun] , A)
+   => [(exists : B),
+       (tense(present, B),
+        [(every : C),
+         (([(man>):noun] , C)
+           => [(some : D),
+               (([(woman>):noun] , D)
+                 & [(believe>s : verb),
+                    {(xcomp,
+                       [at(B),
+                        (love>s : verb),
+                        {(dobj , D)},
+                        {(subject , C)}])},
+                    {(subject , A)}])])])])]
+
+(i23
+  + [(believe>s : verb),
+     {(xcomp,
+        spec(tense(present, -),
+             [(love>s : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))},
+     {(subject , spec([every:C],[(boy>):noun]))}])
+[(every : A),
+ (([(boy>):noun] , A)
+   => [(believe>s : verb),
+       {(xcomp,
+          [(exists : B),
+           (tense(present, B),
+            [(every : C),
+             (([(man>):noun] , C)
+               => [(some : D),
+                   (([(woman>):noun] , D)
+                     & [at(B),
+                        (love>s : verb),
+                        {(dobj , D)},
+                        {(subject , C)}])])])])},
+       {(subject , A)}])]
+X = [(believe>s):verb,{xcomp,spec(tense(present,-),[(love>s):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])},{subject,spec([every:_C],[(boy>''):noun])}],
+Y = [every:_D,([(boy>''):noun],_D)=>[(believe>s):verb,{xcomp,[exists:_E,(tense(present,_E),[every:_F,([(man>''):noun],_F)=>[some:_G|...]])]},{subject,_D}]] ? 
+yes
+| ?- parseOne('some man hopes some woman finds some unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i26
+  + [(want>s : verb),
+     {(xcomp,
+        [(to : aux),
+         {(auxcomp,
+            [(find> : verb),
+             {(dobj , spec([some:A],[(unicorn>):noun]))}])},
+         {(subject , [(zero,3)])}])},
+     {(subject , spec([some:B],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(want>s : verb),
+      {(xcomp,
+         [(to : aux),
+          {(auxcomp , [(find>):verb,{dobj,B}])},
+          {(subject , [(zero,3)])}])},
+      {(subject , A)}])]
+X = [(want>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,spec(...)}]},{subject,[(zero,3)]}]},{subject,spec([some:_B],[(man>''):noun])}],
+Y = [some:_C,([(man>''):noun],_C)&[(want>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,_D}]},{subject,[(zero,3)]}]},{subject,_C}]] ? 
+yes
+| ?- parseOne('some man hopes some woman finds some unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i35
+  + [(hope>s : verb),
+     {(xcomp,
+        spec(tense(present, -),
+             [(find>s : verb),
+              {(dobj , spec([some:A],[(unicorn>):noun]))},
+              {(subject , spec([some:B],[(woman>):noun]))}]))},
+     {(subject , spec([some:C],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(hope>s : verb),
+      {(xcomp,
+         [(exists : B),
+          (tense(present, B),
+           [(some : C),
+            (([(woman>):noun] , C)
+              & [(some : D),
+                 (([(unicorn>):noun] , D)
+                   & [at(B),
+                      (find>s : verb),
+                      {(dobj , D)},
+                      {(subject , C)}])])])])},
+      {(subject , A)}])]
+X = [(hope>s):verb,{xcomp,spec(tense(present,-),[(find>s):verb,{dobj,spec([some:_A],[(unicorn>''):noun])},{subject,spec([some:_B],[(woman>''):noun])}])},{subject,spec([some:_C],[(man>''):noun])}],
+Y = [some:_D,([(man>''):noun],_D)&[(hope>s):verb,{xcomp,[exists:_E,(tense(present,_E),[some:_F,([(woman>''):noun],_F)&[some:_G|...]])]},{subject,_D}]] ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec -64 bytes
+yes
+| ?- parseOne('some man hopes any woman finds some unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i35
+  + [(hope>s : verb),
+     {(xcomp,
+        spec(tense(present, -),
+             [(find>s : verb),
+              {(dobj , spec([some:A],[(unicorn>):noun]))},
+              {(subject , spec([some:B],[(woman>):noun]))}]))},
+     {(subject , spec([some:C],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(exists : B),
+      (tense(present, B),
+       [(some : C),
+        (([(woman>):noun] , C)
+          & [(some : D),
+             (([(unicorn>):noun] , D)
+               & [(hope>s : verb),
+                  {(xcomp,
+                     [at(B),
+                      (find>s : verb),
+                      {(dobj , D)},
+                      {(subject , C)}])},
+                  {(subject , A)}])])])])]
+X = [(hope>s):verb,{xcomp,spec(tense(present,-),[(find>s):verb,{dobj,spec([some:_A],[(unicorn>''):noun])},{subject,spec([some:_B],[(woman>''):noun])}])},{subject,spec([some:_C],[(man>''):noun])}],
+Y = [some:_D,([(man>''):noun],_D)&[exists:_E,(tense(present,_E),[some:_F,([(woman>''):noun],_F)&[some:_G,([(unicorn>''):noun],_G)&[(hope>s):verb,{xcomp,[at(...)|...]}|...]]])]] ? 
+yes
+| ?- parseOne('some man hopes some woman finds some unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i35
+  + [(hope>s : verb),
+     {(xcomp,
+        spec(tense(present, -),
+             [(find>s : verb),
+              {(dobj , spec([some:A],[(unicorn>):noun]))},
+              {(subject , spec([any:B],[(woman>):noun]))}]))},
+  ^C ^C
+Prolog interruption (h for help)?      {(subject , spec([some:C],[(man>):noun]))}])a
+% Execution aborted
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 0 bytes
+yes
+| ?- parseOne('some man wants to find some unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i35
+  + [(hope>s : verb),
+     {(xcomp,
+        spec(tense(present, -),
+             [(find>s : verb),
+              {(dobj , spec([some:A],[(unicorn>):noun]))},
+              {(subject , spec([some:B],[(woman>):noun]))}]))},
+     {(subject , spec([some:C],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(hope>s : verb),
+      {(xcomp,
+         [(exists : B),
+          (tense(present, B),
+           [(some : C),
+            (([(woman>):noun] , C)
+              & [(some : D),
+                 (([(unicorn>):noun] , D)
+                   & [at(B),
+                      (find>s : verb),
+                      {(dobj , D)},
+                      {(subject , C)}])])])])},
+      {(subject , A)}])]
+X = [(hope>s):verb,{xcomp,spec(tense(present,-),[(find>s):verb,{dobj,spec([some:_A],[(unicorn>''):noun])},{subject,spec([some:_B],[(woman>''):noun])}])},{subject,spec([some:_C],[(man>''):noun])}],
+Y = [some:_D,([(man>''):noun],_D)&[(hope>s):verb,{xcomp,[exists:_E,(tense(present,_E),[some:_F,([(woman>''):noun],_F)&[some:_G|...]])]},{subject,_D}]] ? 
+yes
+| ?- parseOne('some man wants to find some unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i26
+  + [(want>s : verb),
+     {(xcomp,
+        [(to : aux),
+         {(auxcomp,
+            [(find> : verb),
+             {(dobj , spec([some:A],[(unicorn>):noun]))}])},
+         {(subject , [(zero,3)])}])},
+     {(subject , spec([some:B],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(want>s : verb),
+      {(xcomp,
+         [(to : aux),
+          {(auxcomp , [(find>):verb,{dobj,B}])},
+          {(subject , [(zero,3)])}])},
+      {(subject , A)}])]
+X = [(want>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,spec(...)}]},{subject,[(zero,3)]}]},{subject,spec([some:_B],[(man>''):noun])}],
+Y = [some:_C,([(man>''):noun],_C)&[(want>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,_D}]},{subject,[(zero,3)]}]},{subject,_C}]] ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 0 msec -64 bytes
+yes
+| ?- parseOne('some man does not love some woman', X), doItAll(X, Y), pretty(Y).
+
+(i26
+  + [(want>s : verb),
+     {(xcomp,
+        [(to : aux),
+         {(auxcomp,
+            [(find> : verb),
+             {(dobj , spec([some:A],[(unicorn>):noun]))}])},
+         {(subject , [(zero,3)])}])},
+     {(subject , spec([some:B],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(want>s : verb),
+      {(xcomp,
+         [(to : aux),
+          {(auxcomp , [(find>):verb,{dobj,B}])},
+          {(subject , [(zero,3)])}])},
+      {(subject , A)}])]
+X = [(want>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,spec(...)}]},{subject,[(zero,3)]}]},{subject,spec([some:_B],[(man>''):noun])}],
+Y = [some:_C,([(man>''):noun],_C)&[(want>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,_D}]},{subject,[(zero,3)]}]},{subject,_C}]] ? 
+yes
+| ?- parseOne('some man does not love a woman', X), doItAll(X, Y), pretty(Y).
+
+(i27
+  + [(do>s : aux),
+     {(auxcomp,
+        [(love> : verb),
+         {(modifier(negation,A) , [not:negationMarker])},
+         {(dobj , spec([some:B],[(woman>):noun]))}])},
+     {(subject , spec([some:C],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(some : B),
+      (([(woman>):noun] , B)
+        & [(do>s : aux),
+           {(auxcomp,
+              [(love> : verb),
+               {(modifier(negation,C) , [not:negationMarker])},
+               {(dobj , B)}])},
+           {(subject , A)}])])]
+X = [(do>s):aux,{auxcomp,[(love>''):verb,{modifier(negation,_A),[not:negationMarker]},{dobj,spec([some:_B],[(woman>''):noun])}]},{subject,spec([some:_C],[(man>''):noun])}],
+Y = [some:_D,([(man>''):noun],_D)&[some:_E,([(woman>''):noun],_E)&[(do>s):aux,{auxcomp,[(love>''):verb,{modifier(...),[not:negationMarker]},{dobj,_E}]},{subject,_D}]]] ? 
+yes
+| ?- parseOne('some man wants to find a unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i27
+  + [(do>s : aux),
+     {(auxcomp,
+        [(love> : verb),
+         {(modifier(negation,A) , [not:negationMarker])},
+         {(dobj , spec([a:B],[(woman>):noun]))}])},
+     {(subject , spec([some:C],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(a : B),
+      (([(woman>):noun] , B)
+        & [(do>s : aux),
+           {(auxcomp,
+              [(love> : verb),
+               {(modifier(negation,C) , [not:negationMarker])},
+               {(dobj , B)}])},
+           {(subject , A)}])])]
+X = [(do>s):aux,{auxcomp,[(love>''):verb,{modifier(negation,_A),[not:negationMarker]},{dobj,spec([a:_B],[(woman>''):noun])}]},{subject,spec([some:_C],[(man>''):noun])}],
+Y = [some:_D,([(man>''):noun],_D)&[a:_E,([(woman>''):noun],_E)&[(do>s):aux,{auxcomp,[(love>''):verb,{modifier(...),[not:negationMarker]},{dobj,_E}]},{subject,_D}]]] ? 
+yes
+| ?- parseOne('Hob loves some woman', X), doItAll(X, Y), pretty(Y).
+
+(i26
+  + [(want>s : verb),
+     {(xcomp,
+        [(to : aux),
+         {(auxcomp,
+            [(find> : verb),
+             {(dobj , spec([a:A],[(unicorn>):noun]))}])},
+         {(subject , [(zero,3)])}])},
+     {(subject , spec([some:B],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(want>s : verb),
+      {(xcomp,
+         [(to : aux),
+          {(auxcomp , [(find>):verb,{dobj,B}])},
+          {(subject , [(zero,3)])}])},
+      {(subject , A)}])]
+X = [(want>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,spec(...)}]},{subject,[(zero,3)]}]},{subject,spec([some:_B],[(man>''):noun])}],
+Y = [some:_C,([(man>''):noun],_C)&[(want>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,_D}]},{subject,[(zero,3)]}]},{subject,_C}]] ? 
+yes
+| ?- parseOne('she hates him', X), doItAll(X, Y), pretty(Y).
+
+(i6
+  + [(love>s : verb),
+     {(dobj , spec([some:A],[(woman>):noun]))},
+     {(subject , spec(name,[Hob:name]))}])
+[(the : A),
+ (named(Hob) , A),
+ [(some : B),
+  (([(woman>):noun] , B)
+    & [(love>s : verb), {(dobj , B)}, {(subject , A)}])]]
+X = [(love>s):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec(name,['Hob':name])}],
+Y = [the:_B,(named('Hob'),_B),[some:_C,([(woman>''):noun],_C)&[(love>s):verb,{dobj,_C},{subject,_B}]]] ? 
+yes
+| ?- parseOne('she hates the man', X), doItAll(X, Y), pretty(Y).
+
+(i4
+  + [(hate>s : verb),
+     {(dobj , spec(proRef,[him:pronoun]))},
+     {(subject , spec(proRef,[she:pronoun]))}])
+[(the : A),
+ (salient([she:pronoun]) , A),
+ [(the : B),
+  (salient([him:pronoun]) , B),
+  [(hate>s : verb), {(dobj , B)}, {(subject , A)}]]]
+X = [(hate>s):verb,{dobj,spec(proRef,[him:pronoun])},{subject,spec(proRef,[she:pronoun])}],
+Y = [the:_A,(salient([she:pronoun]),_A),[the:_B,(salient([him:pronoun]),_B),[(hate>s):verb,{dobj,_B},{subject,_A}]]] ? 
+yes
+| ?- parseOne('he will eat any thing', X), doItAll(X, Y), pretty(Y).
+
+(i6
+  + [(hate>s : verb),
+     {(dobj , spec([the:A],[(man>):noun]))},
+     {(subject , spec(proRef,[she:pronoun]))}])
+[(the : A),
+ (salient([she:pronoun]) , A),
+ [(the : B),
+  ([(man>):noun] , B),
+  [(hate>s : verb), {(dobj , B)}, {(subject , A)}]]]
+X = [(hate>s):verb,{dobj,spec([the:_A],[(man>''):noun])},{subject,spec(proRef,[she:pronoun])}],
+Y = [the:_B,(salient([she:pronoun]),_B),[the:_C,([(man>''):noun],_C),[(hate>s):verb,{dobj,_C},{subject,_B}]]] ? 
+yes
+| ?- 
+| ?- parseOne('he will eat every thing', X), doItAll(X, Y), pretty(Y).
+
+(i9
+  + [(will : aux),
+     {(auxcomp,
+        [(eat> : verb),
+         {(dobj , spec([any:A],[(thing>):noun]))}])},
+
+  ^C ^C
+Prolog interruption (h for help)?      {(subject , spec(proRef,[he:pronoun]))}])Prolog interruption (h for help)? 
+Prolog interruption (h for help)? a
+% Execution aborted
+| ?- parseOne('some man hopes he will find a unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i9
+  + [(will : aux),
+     {(auxcomp,
+        [(eat> : verb),
+         {(dobj , spec([every:A],[(thing>):noun]))}])},
+     {(subject , spec(proRef,[he:pronoun]))}])
+[(the : A),
+ (salient([he:pronoun]) , A),
+ [(every : B),
+  (([(thing>):noun] , B)
+    => [(will : aux),
+        {(auxcomp , [(eat>):verb,{dobj,B}])},
+        {(subject , A)}])]]
+X = [will:aux,{auxcomp,[(eat>''):verb,{dobj,spec([every:_A],[(thing>''):noun])}]},{subject,spec(proRef,[he:pronoun])}],
+Y = [the:_B,(salient([he:pronoun]),_B),[every:_C,([(thing>''):noun],_C)=>[will:aux,{auxcomp,[(eat>''):verb,{dobj,_C}]},{subject,_B}]]] ? 
+yes
+| ?- parseOne('some man hopes he will find a unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i38
+  + [(hope>s : verb),
+     {(xcomp,
+        spec(tense(A, +),
+             [(will : aux),
+              {(auxcomp,
+                 [(find> : verb),
+                  {(dobj , spec([a:B],[(unicorn>):noun]))}])},
+              {(subject , spec(proRef,[he:pronoun]))}]))},
+     {(subject , spec([some:C],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(the : B),
+      (tense(C, B),
+       [(the : D),
+        (salient([he:pronoun]) , D),
+        [(a : E),
+         (([(unicorn>):noun] , E)
+           & [(hope>s : verb),
+              {(xcomp,
+                 [B,
+                  (will : aux),
+                  [(find> : verb), {(dobj , E)}],
+                  {(subject , D)}])},
+              {(subject , A)}])]])])]
+X = [(hope>s):verb,{xcomp,spec(tense(_A,+),[will:aux,{auxcomp,[(find>''):verb,{dobj,spec(...)}]},{subject,spec(proRef,[he:pronoun])}])},{subject,spec([some:_C],[(man>''):noun])}],
+Y = [some:_D,([(man>''):noun],_D)&[the:_E,(tense(_A,_E),[the:_F,(salient([he:pronoun]),_F),[a:_G,([(unicorn>''):noun],_G)&[(hope>s):verb,{xcomp,[_E|...]}|...]]])]] ? 
+yes
+| ?- parseOne('some man hopes to find a unicorn', X), doItAll(X, Y), pretty(Y).
+
+(i38
+  + [(hope>s : verb),
+     {(xcomp,
+        [(to : aux),
+         {(auxcomp,
+            [(find> : verb),
+             {(dobj , spec([a:A],[(unicorn>):noun]))}])},
+         {(subject , [(zero,3)])}])},
+     {(subject , spec([some:B],[(man>):noun]))}])
+[(some : A),
+ (([(man>):noun] , A)
+   & [(hope>s : verb),
+      {(xcomp,
+         [(to : aux),
+          {(auxcomp , [(find>):verb,{dobj,B}])},
+          {(subject , [(zero,3)])}])},
+      {(subject , A)}])]
+X = [(hope>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,spec(...)}]},{subject,[(zero,3)]}]},{subject,spec([some:_B],[(man>''):noun])}],
+Y = [some:_C,([(man>''):noun],_C)&[(hope>s):verb,{xcomp,[to:aux,{auxcomp,[(find>''):verb,{dobj,_D}]},{subject,[(zero,3)]}]},{subject,_C}]] ? 
+yes
+| ?- 

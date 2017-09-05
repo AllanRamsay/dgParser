@@ -3,19 +3,14 @@ word('I', X) :-
     language@X -- english,
     X <> [subjpronoun, firstSing, -target, inflected].
 
+word('European', X) :-
+    language@X -- english,
+    X <> [nroot].
+
 word('a', X) :-
     language@X -- english,
-    X <> [-def, +numeric, sing],
-    det1(X).
-
-word('am', X) :-
-    language@X -- english,
-    be(X),
-    X <> [inflected, first, sing].
-
-word('am', X) :-
-    language@X -- english,
-    X <> [n, -specified, -modifiable, -target].
+    X <> [-def, sing, simpleDet(10)],
+    target@X <> [-def].
 
 word('about', X) :-
     language@X -- english,
@@ -53,6 +48,11 @@ word('although', X) :-
 
 word('am', X) :-
     language@X -- english,
+    be(X),
+    X <> [inflected, first, sing].
+
+word('am', X) :-
+    language@X -- english,
     verb(X, be),
     X <> [presTense, firstSing].
 
@@ -64,6 +64,10 @@ word('an', X) :-
     language@X -- english,
     word('a', X).
 
+word('another', X) :-
+    language@X -- english,
+    word('a', X).
+
 word('and', X) :-
     language@X -- english,
     conj(X),
@@ -71,39 +75,19 @@ word('and', X) :-
 
 word('another', X) :-
     language@X -- english,
-    det(X),
+    det(X, 10),
     X <>[-def],
     args@X -- [N],
     trigger(width@N, \+ \+ number@N=sing).
 
 word('any', X) :-
     language@X -- english,
-    standardDet(X).
-
-word('as', X) :-
-    language@X -- english,
-    X <> [cat(as), postmod, fulladjunct],
-    target@X <> [vp],
-    trigger(index@target@X, nonvar(index@NP)),
-    args@X -- [NP],
-    NP <> [np, fixedpostarg, theta(asArg)]. 
+    any(X).
 
 word('or', X) :-
     language@X -- english,
     conj(X),
     conjoined@X -- or.
-
-word('anybody', X) :-
-    language@X -- english,
-    X <> [subjobjpronoun, standardcase, -target].
-
-word('anyone', X) :-
-    language@X -- english,
-    X <> [subjobjpronoun, standardcase, -target].
-
-word('anything', X) :-
-    language@X -- english,
-    X <> [subjobjpronoun, standardcase, -target].
 
 word('anywhere', X) :-
     language@X -- english,
@@ -121,16 +105,18 @@ word('as', X) :-
     as(X).
 
 word('at', X) :-
-    det3(X),
+    det3(X, 10),
+    target@X <> [-zero],
     args@X -- [PREDET, NUM],
-    PREDET <> [adj, fixedpostarg, theta(predet)],
+    PREDET <> [word, fixedpostarg, theta(predet), adv],
     trigger(root@PREDET, (root@PREDET = ['least':_]; root@PREDET = ['most':_])),
-    NUM <> [det1, +numeric, fixedpostarg],
-    target@X <> [n, unspecified, saturated].
+    NUM <> [det1(_), +numeric, fixedpostarg, theta(num)],
+    target@X <> [n, -specified, saturated],
+    trigger(index@target@X, nonvar(index@NUM)).
 
 word('at', X) :-
     language@X -- english,
-    X <> [prep].
+    prep(X).
 
 word('be', X) :-
     language@X -- english,
@@ -182,7 +168,7 @@ word('best', X) :-
 
 word('both', X) :-
     language@X -- english,
-    X <> [det, inflected, +def, plural].
+    X <> [det(11), inflected, +def, plural].
 
 /**
 word('both', X) :-
@@ -193,6 +179,14 @@ word('both', X) :-
     T <> [-zero],
     trigger(used@T, conjoined@T == and).
 **/
+
+word('broke', X) :-
+    language@X -- english,
+    X <> [adj].
+
+word('broke', X) :-
+    X <> [verb, pastTense],
+    uverb(X).
 
 word('but', X) :-
     language@X -- english,
@@ -210,6 +204,10 @@ word('can', X) :-
     X <> [aux(S), tensed, inflected],
     S <> [infinitiveForm],
     -zero@subject@S.
+
+word('can', X) :-
+    language@X -- english,
+    X <> [nroot].
 
 word('cannot', X) :-
     language@X -- english,
@@ -246,7 +244,7 @@ word('each', X) :-
 
 word('either', X) :-
     language@X -- english,
-    X <> [det, -def, thirdSing].
+    X <> [det(10), -def, thirdSing].
 
 word('either', X) :-
     language@X -- english,
@@ -265,23 +263,11 @@ word('etc', X) :-
 
 word('every', X) :-
     language@X -- english,
-    X <> [det, thirdSing].
-
-word('everybody', X) :-
-    language@X -- english,
-    X <> [subjobjpronoun, standardcase, -target].
-
-word('everyone', X) :-
-    language@X -- english,
-    X <> [n, saturated, standardcase, -target].
-
-word('everything', X) :-
-    language@X -- english,
-    X <> [n, saturated, standardcase, -target].
+    X <> [det(10), thirdSing].
 
 word('exactly', X) :-
     X <> [cat(exactly), saturated, fulladjunct, strictpremod],
-    target@X <> [det1, saturated].
+    target@X <> [det1(_), saturated].
 
 word('few', X) :-
     language@X -- english,
@@ -290,6 +276,14 @@ word('few', X) :-
 word('five', X) :-
     language@X -- english,
     number(X, 5).
+
+word('former', X) :-
+    language@X -- english,
+    X <> [adj].
+
+word('former', X) :-
+    language@X -- english,
+    X <> [nroot].
 
 word('six', X) :-
     language@X -- english,
@@ -351,7 +345,7 @@ word('had', X) :-
 
 word('half', X) :-
     language@X -- english,
-    X <> [det1],
+    X <> [det1(10)],
     standardDet(X).
 
 word('has', X) :-
@@ -370,7 +364,7 @@ word('he', X) :-
 
 word('her', X) :-
     language@X -- english,
-    X <> [det, inflected, +def].
+    X <> [det(10), inflected, +def].
 
 word('her', X) :-
     language@X -- english,
@@ -403,7 +397,7 @@ word('himself', X) :-
 
 word('his', X) :-
     language@X -- english,
-    X <> [det, inflected],
+    X <> [det(10), inflected],
     +def@result@X.
 
 word('how', X) :-
@@ -423,7 +417,8 @@ word('in', X) :-
 word('in', X) :-
     language@X -- english,
     prep(X, []),
-    X <> [movedBefore(-)].
+    X <> [movedBefore(-)],
+    target@X <> [s].
 
 word('into', X) :-
     language@X -- english,
@@ -436,12 +431,11 @@ word('is', X) :-
 
 word('it', X) :-
     language@X -- english,
-    X <> [-target, inflected],
-    subjobjpronoun(X).
+    X <> [pronoun, -target, inflected].
 
 word('its', X) :-
     language@X -- english,
-    X <> [det, inflected, +def].
+    X <> [det(10), inflected, +def].
 
 word('itself', X) :-
     language@X -- english,
@@ -457,25 +451,22 @@ word('less', X) :-
     X <> [adv],
     target@X <> [a].
 
-/**
-word('least', X) :-
-    language@X -- english,
-    X <> [det([NP])],
-    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
-  
-word('least', X) :-
-    language@X -- english,
-    X <> [det, inflected].
-**/
-
 word('least', X) :-
     language@X -- english,
     X <> [adj, inflected].
 
+word('like', X) :-
+    language@X -- english,
+    prep(X).
+
+word('like', X) :-
+    language@X -- english,
+    X <> [vroot],
+    uverb(X).
+
 word('many', X) :-
     language@X -- english,
-    X <> [det1, inflected],
-    standardDet(X).
+    many(X).
 
 word('may', X) :-
     language@X -- english,
@@ -495,7 +486,7 @@ word('might', X) :-
 
 word('more', X) :-
     language@X -- english,
-    X <> [det, inflected],
+    X <> [det(8), inflected],
     standardDet(X).
 
 /**
@@ -516,16 +507,12 @@ word('more', X) :-
 
 word('most', X) :-
     language@X -- english,
-    X <> [det1, inflected],
-    standardDet(X).
-
-word('most', X) :-
-    language@X -- english,
-    X <> [adj, inflected].
+    most(X).
 
 word('my', X) :-
     language@X -- english,
-    X <> [det, inflected, +def].
+    X <> [det(10), inflected],
+    result@X <> [+def].
 
 word('myself', X) :-
     language@X -- english,
@@ -533,11 +520,11 @@ word('myself', X) :-
 
 word('neither', X) :-
     language@X -- english,
-    X <> [det, -def, thirdSing].
+    X <> [det(10), -def, thirdSing].
 
 word('no', X) :-
     language@X -- english,
-    X <> [det, -def].
+    X <> [det(10), -def].
 
 word('none', X) :-
     language@X -- english,
@@ -552,6 +539,11 @@ word('not', X) :-
     definition@X -- 'negation of a word or group of words',
     not(X).
 
+word('now', X) :-
+    language@X -- english,
+    X <> [np, fulladjunct, premod, objcase],
+    target@X <> [s, -zero].
+
 word('o', X) :-
     language@X -- english,
     X <> [n, specified(-), -target, inflected],
@@ -563,9 +555,10 @@ word('o', X) :-
 
 word('of', X) :-
     language@X -- english,
-    NN <> [n, saturated, postarg],
-    target@X <> noun,
-    prep(X, [NN]).
+    NN <> [n, saturated, notMoved],
+    target@X <> [noun],
+    trigger(index@target@X, notMoved(X)),
+    prep(X).
 
 word('on', X) :-
     language@X -- english,
@@ -577,7 +570,7 @@ word('one', X) :-
 
 word('one', X) :-
     language@X -- english,
-    X <> [nroot(_)].
+    X <> [noun, thirdSing, saturated, -target].
 
 word('only', X) :-
     language@X -- english,
@@ -604,7 +597,7 @@ word('other', X) :-
 
 word('our', X) :-
     language@X -- english,
-    X <> [det, inflected, +def].
+    X <> [det(10), inflected, +def].
 
 word('ourselves', X) :-
     language@X -- english,
@@ -634,9 +627,22 @@ word('out', X) :-
     X <> [nroot, -target].
 */
 
+word('outside', X) :-
+    language@X -- english,
+    prep(X).
+
 word('over', X) :-
     language@X -- english,
     X <> [prep].
+
+word('own', X) :-
+    language@X -- english,
+    X <> [vroot],
+    uverb(X).
+
+word('own', X) :-
+    language@X -- english,
+    X <> [adj].
 
 word('per', X) :-
     language@X -- english,
@@ -650,9 +656,13 @@ word('s', X) :-
     +def@result@X.
 **/
 
+word('same', X) :-
+    language@X -- english,
+    X <> [adj].
+
 word('several', X) :-
     language@X -- english,
-    X <> [det1, -def],
+    X <> [det1(10), -def],
     standardDet(X).
 
 word('she', X) :-
@@ -676,7 +686,13 @@ word('so', X) :-
 
 word('some', X) :-
     language@X -- english,
-    standardDet(X).
+    X <> [simpleDet(10)],
+    result@X <> [-def].
+
+word('some', X) :-
+    language@X -- english,
+    ofDet(X, 10),
+    result@X <> [-def].
 
 word('someone', X) :-
     language@X -- english,
@@ -696,12 +712,9 @@ word('than', X) :-
 
 word('that', X) :-
     language@X -- english,
-    -predicative@X,
-    X <> det.
-
-word('that', X) :-
-    language@X -- english,
-    X <> [subjobjpronoun, -target].
+    det2(X, 10),
+    target@X <> [standardcase],
+    result@X <> [third, sing, +def].
 
 word('that', X) :-
     language@X -- english,
@@ -738,12 +751,11 @@ word('th', X) :-
 
 word('the', X) :-
     language@X -- english,
-    det(X),
-    X <> [+def].
+    X <> [simpleDet(10), +def].
 
 word('their', X) :-
     language@X -- english,
-    X <> [det, inflected, +def].
+    X <> [det(10), inflected, +def].
 
 word('theirselves', X) :-
     language@X -- english,
@@ -767,23 +779,26 @@ word('there', X) :-
     X <> [prep([])],
     target@X <> [vp].
 
+word('there', X) :-
+    language@X -- english,
+    X <> [saturated, -target, casemarked(*(_)), -predicative],
+    cat@X -- there.
+
 word('these', X) :-
     language@X -- english,
-    X <> [subjobjpronoun, third, plural, -target].
+    det2(X, 10),
+    target@X <> [standardcase],
+    result@X <> [third, plural, +def].
 
 word('they', X) :-
     language@X -- english,
     X <> [subjpronoun].
 
-word('think', X) :-
-    language@X -- english,
-    X <> [sverb(S), vroot, present],
-    S <> tensedForm.
-
 word('this', X) :-
     language@X -- english,
-    X <> np,
-    -target@X.
+    det2(X, 10),
+    target@X <> [standardcase],
+    result@X <> [third, sing, +def].
 
 word('those', X) :-
     language@X -- english,
@@ -800,10 +815,11 @@ word('to', X) :-
     aux(X, COMP),
     M <> [cat(toGerund), fulladjunct, fixedpostmod, saturated, compact, movedAfter(-)],
     target@M <> [x, saturated],
+    end@target@M -- start@X,
     trigger(n:xbar@cat@target@M, (n(target@M) -> (unspecified(target@M), notMoved(M)); true)),
     trigger(index@M, notMoved(M)),
     altview@M -- toAsMod,
-    trigger(zero@subject@X, (+zero@subject@X -> addExternalView(X, M))).
+    trigger(zero@subject@X, ((+zero@subject@X, -zero@COMP) -> addExternalView(X, M))).
 
 word('to', X) :-
     language@X -- english,
@@ -845,7 +861,6 @@ word('us', X) :-
 word('very', X) :-
     language@X -- english,
     start@T -- end@X,
-    tag@X -- adverb,
     X <> [adv1(T), premod(T)],
     T <> [a].
 
@@ -904,7 +919,7 @@ word('whether', X) :-
 
 word('which', X) :-
     language@X -- english,
-    X <> [det],
+    X <> [det(10)],
     [start, end] :: [X, WH],
     wh@X -- [WH | _],
     WH <> [s, -target].
@@ -929,7 +944,7 @@ word('whom', X) :-
 
 word('whose', X) :-
     language@X -- english,
-    X <> [det, inflected],
+    X <> [det(10), inflected],
     setWHItem(X).
 
 word('why', X) :-
@@ -966,7 +981,7 @@ word('you', X) :-
 
 word('your', X) :-
     language@X -- english,
-    X <> [det, inflected, +def].
+    X <> [det(10), inflected, +def].
 
 word('yourself', X) :-
     language@X -- english,
@@ -975,20 +990,19 @@ word('yourself', X) :-
 word('.', X) :-
     language@X -- english,
     cat@X -- utterance,
-    tag@X -- punct,
     X <> [+specified, -target],
     args@X -- [S],
-    S <> [x, saturated, fixedprearg, tensedForm, theta(THETAS), +specified, compact],
+    S <> [x, saturated, fixedprearg, tensedForm, theta(THETAS), compact],
     trigger(v:xbar@cat@S, (v(S) -> THETAS = claim; THETAS = frag)),
     start@S -- 0.
 
 word('?', X) :-
     language@X -- english,
     cat@X -- utterance,
-    -target@X,
+    X <> [+specified, -target],
     args@X -- [S],
-    S <> [x, saturated, -zero, prearg, tensedForm, theta(THETAS)],
-    trigger(SV, (v(S) -> THETAS = query; THETAS = frag)),
+    S <> [x, saturated, fixedprearg, tensedForm, theta(THETAS), +specified, compact],
+    trigger(v:xbar@cat@S, (v(S) -> THETAS = query; THETAS = frag)),
     start@S -- 0.
 
 word(',', X) :-
@@ -1025,14 +1039,49 @@ word('May', X) :-
     month(X).
 
 word('APOS', X) :-
-    word('SSS', X).
-
-word('SSS', X) :-
     X <> [specified(+)],
-    det(X, [OWNER, THING]),
+    det3(X),
+    -zero@target@X,
+    +specified@result@X,
+    args@X -- [OWNER],
     OWNER <> [np, fixedprearg, theta(arg(owner)), compact, -zero],
-    THING <> [n, unspecified, fixedpostarg, theta(arg(headnoun)), saturated],
+    trigger(index@target@X, nonvar(index@OWNER)),
     trigger((xstart@OWNER, xend@OWNER), (C is (xend@OWNER-xstart@OWNER)*0.2, incCost(X, C))).
 
+word('ORD', X) :-
+    language@X -- english,
+    X <> [adj].
+
+word('AJ', X) :-
+    language@X -- english,
+    X <> [aroot].
+
+word('AV', X) :-
+    language@X -- english,
+    X <> [adv].
+
+word('NN', X) :-
+    language@X -- english,
+    X <> [nroot].
+
+word('NN1', X) :-
+    word('NN', X).
+
+word('NN2', X) :-
+    word('NN', X).
+
+word('VV', X) :-
+    language@X -- english,
+    X <> [vroot],
+    uverb(X).
+
+word('CRD', X) :-
+    language@X -- english,
+    number(X, _).
+
+word('PRP', X) :-
+    language@X -- english,
+    X <> [prep].
+    
 :- include(englishaffixes).
 

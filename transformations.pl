@@ -4,17 +4,21 @@
 %% Fancy bit: if we haven't run setup before, then sign
 %% will throw an exception, so we know we do need to run it
 :- catch(sign(X), _, setup(allwords)).
-%%%%%%%%%%%%%%% Last Week Task %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Last Week Task %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 /* Yet To-Do:
    1-fix the rplaced variables [X] to be X
-   2-Dealing with morphological differences cat> , cat>s should be considered shared item.
+   2-Dealing with morphological differences cat> , cat>s should be
+   considered shared item.
 /*
-[NOTE]: We no longer turning tress into lists using the =.. operator becasue now we now that a tree is a list of a head and a tail,the head is in the form (Word:Tag). The tail is a list of daughters which are other sub-trees of the form {Role,List}.
+[NOTE]: We are no longer turning trees into lists using the =..
+operator because now we know that a tree is a list of a head and a tail,
+the head is in the form (Word:Tag).The tail is a list of daughters which
+are other sub-trees of the form {Role,List}.
 */
 %%%%%%%%%%%%%%% Transformation (1)%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%--------------------------------------------------------------------
-%Step 1: Get open-class words for each tree separatly.
-%--------------------------------------------------------------------
+/*--------------------------------------------------------------------
+Step 1: Get open-class words for each tree separatly.
+--------------------------------------------------------------------*/
 getOpenClass(T, OPEN) :-
     getOpenClass(T, [], OPEN).
 
@@ -26,9 +30,11 @@ getOpenClass([H | T], OPEN0, OPEN2) :-
     !,
     getOpenClass(H, OPEN0, OPEN1),
     getOpenClass(T, OPEN1, OPEN2).
-
-%% I added the TAG (name) to the list of tags as it represents proper noun
-%% The TAG could be a veriable because not all words has a certain proper tag (for now), thus, having a variable as a tag is going to be ignored. 
+/*
+I added the TAG (name) to the list of tags as it represents proper noun
+The TAG could be a veriable because not all words has a certain proper
+tag (for now), thus, having a variable as a tag is going to be ignored.
+*/  
 getOpenClass((WORD:TAG), OPEN0, OPEN1) :-
     ((var(TAG); \+ member(TAG, [noun, verb, name])) ->
      OPEN1 = OPEN0;
@@ -40,9 +46,9 @@ getOpenClass({_ROLE, L}, OPEN0, OPEN1) :-
     !,
     getOpenClass(L, OPEN0, OPEN1).
 
-%-------------------------------------------------------------------------
-%Step 2: For two lists of open-class words, find & return the shared ones 
-%-------------------------------------------------------------------------
+/*-------------------------------------------------------------------------
+Step 2: For two lists of open-class words, find & return the shared ones
+-------------------------------------------------------------------------*/
 
 getSharedOpenClassItems(X, Y, SHARED) :-
     getOpenClass(X, OPENX),
@@ -75,9 +81,11 @@ shared2q([H0 | T0], [H1 | T1], SHARED2) :-
      shared2q(T0, [H1 | T1], SHARED2);
      shared2q([H0 | T0], T1, SHARED2)).
 
-%-------------------------------------------------------------------------
-%Step 3: Using the shared liset optained from the previous step, each tree will be scaned for these items and got replaced by variables-one tree at a time. 
-%-------------------------------------------------------------------------
+/*-------------------------------------------------------------------------
+  Step 3: Using the shared liset optained from the previous step, each tree
+  will be scaned for these items and got replaced by variables-one tree at a
+  time.
+-------------------------------------------------------------------------*/
 repSharedByVar(X, X, _VARS) :-
     (atomic(X); var(X)),
     !.
@@ -93,97 +101,257 @@ repSharedByVar({R, T0}, {R, T1}, VARS) :-
     repSharedByVar(T0, T1, VARS).
 repSharedByVar(X, X, _VARS).
 
-%%%%%Transformation (2)-Part(1): turn a tree into a term and a stack of specifiers.%%%%
-%% Run Example: parseOne('every man loved some woman .', X),rep3(X,Y,Z), pretty(Y+Z).
+%%%Transformation (2)-Part(1): turn a tree into a term and a stack of specifiers.%%%%
+/**-----------------------------------------------------------------------------------
+  note that before turning a tree into a term and a stack of specifiers, we call
+  fixTree first.
+  [To run this part]: parseOne('every man loved some woman .',X),fixTree(X,X1),
+  toTermAndStack(X1,Term,Stack),pretty(Term+Stack).
+-----------------------------------------------------------------------------------**/
 
-rep3(X,Y,V):-
-    rep3(X,Y,[],V).
+fixTree(V, V) :-
+    (var(V); atomic(V)),
+    !.
+fixTree([('.' : punct), {(claim, T0)}], T1) :-
+    !,
+    fixTree(T0, T1).
+fixTree([('?' : punct), {(query, T0)}], T1) :-
+    !,
+    fixTree(T0, T1).
+fixTree({R, T0}, (R, T1)) :-
+    fixTree(T0, T1).
+fixTree([{R, T0}], (R, T1)) :-
+    nonvar(T0),
+    !,
+    fixTree(T0, T1).
+fixTree([(be : verb), {(subject , S)}, {(predication(xbar(v(+),n(+))) , P)}], (P, S)) :-
+    !.
+fixTree([(be : verb), {(subject , S)}, {(predication(xbar(v(-),n(+))) , P)}], (P = S)) :-
+    !.
+fixTree([X0, {R, T} | L0], X1 & F) :-
+    nonvar(T),
+    !,
+    fixTree(X0, X1),
+    fixTree([{R, T} | L0], F).
+fixTree([H0 | T0], [H1 | T1]) :-
+    !,
+    fixTree(H0, H1),
+    fixTree(T0, T1).
+fixTree(X0, X1) :-
+    X0 =.. L0,
+    fixTree(L0, L1),
+    X1 =.. L1.
 
-rep3(X, X, VARS0, VARS0) :-
-    var(X),
+toTermAndStack(X,Term,Stack):-
+    toTermAndStack(X,Term,[],Stack).
+
+toTermAndStack(X, X, VARS, VARS) :-
+    (var(X); atomic(X)),
+    !.
+%%Sometimes we want to apply SUBSTACK on Term directly? explain more? why?
+toTermAndStack({(xcomp, X)}, {(xcomp, Z)}, MAINSTACK, MAINSTACK) :-
+    fail,
+    toTermAndStack(X, Y, SUBSTACK),
+    %% We are going to want to take some of what is in
+    %% SUBSTACK and add it to MAINSTACK
+    normalForming(SUBSTACK, Y, Z).
+
+toTermAndStack(['.':punct|T0],T1, VARS0,VARS1) :-
+    !,
+    toTermAndStack(T0,T1,VARS0,VARS1).
+
+toTermAndStack(spec(tense(T,-),L0), (at, V, E) & (L1, E), VARS0, [[some:V, (tense(T), V)], [some:E] | VARS1]) :-
+    !,
+    toTermAndStack(L0, L1, VARS0, VARS1).
+
+toTermAndStack(spec(tense(T, +), L0), (at, V, E) & (L2, E), VARS0,[[the: E, (tense(T), E)], [some: V] | VARS1]) :-
+    !,
+    collectAuxs(L0,L1),
+    toTermAndStack(L1, L2, VARS0,VARS1).
+
+toTermAndStack(spec([his:_],[W:TAG]), V, VARS0, [[the:V, (W:TAG, V) & own(X, V)], [the:X, (male, X)] | VARS0]) :-
     !.
 
-rep3([],[], VARS0, VARS0) :-
+toTermAndStack(spec([DET:_],[W:TAG]), V, VARS0, [[DET:V, (W:TAG, V)] | VARS0]) :-
     !.
 
-/*rep3([W:T|T0],[W:T|T1], VARS0,VARS1) :-
-    rep3(T0,T1,VARS0,VARS1),
+toTermAndStack(spec([DET:_],[W:TAG | L0]), [V|L1], VARS0,[[DET:V, (W:TAG,V)]|VARS1]) :-
+    \+ (W=of),
+    toTermAndStack(L0, L1, VARS0,VARS1),
     !.
+
+toTermAndStack(spec([DET:_],L0), [V|L1], VARS0,[[DET:V]|VARS1]) :-
+    toTermAndStack(L0, L1, VARS0,VARS1),
+    !.
+
+toTermAndStack(spec(name,[W:_TAG]),V, VARS0,[[the:V,(named(W),V)]|VARS0]) :-
+    !.
+
+toTermAndStack(spec(proRef,L), V, VARS0, [[the:V,(salient(L),V)]|VARS0]) :-
+    !.
+
+toTermAndStack({claim, T0}, T1, VARS0,VARS1) :-
+    !,
+    toTermAndStack(T0, T1, VARS0,VARS1).
+toTermAndStack({query, T0}, T1, VARS0,VARS1) :-
+    !,
+    toTermAndStack(T0, T1, VARS0,VARS1).
+
+toTermAndStack([H0 | T0], [H1 | T1], VARS0,VARS2) :-
+    !,
+    toTermAndStack(H0, H1, VARS0,VARS1),
+    toTermAndStack(T0, T1, VARS1,VARS2).
+
+toTermAndStack(X0, X1, VARS0, VARS1) :-
+    X0 =.. L0,
+    toTermAndStack(L0, L1, VARS0, VARS1),
+    X1 =.. L1.
+
+/**----------------------------------------------------------------------------
+  collectAux collect auxiliaries into single list for plus tensesd sentences.
+  Note:To be fixed so that we collcet auxiliaries as a single list
+----------------------------------------------------------------------------**/
+collectAuxs([],[]).
+collectAuxs(Word:aux,Word:aux):-
+	!.
+
+collectAuxs([H0|T0],[H1|T1]):-
+	!,
+	collectAuxs(H0,H1),
+	collectAuxs(T0,T1).
+
+collectAuxs({R, T0}, {R, T0}) :-
+    \+ (R=auxcomp),
+    !.
+
+collectAuxs({auxcomp, T0}, T1) :-
+    !,
+    collectAuxs(T0, T1).
+collectAuxs(X,X).
+
+
+%%%%%%%Transformation (2)-Part(2): Construct the forward-chaining normal form %%%%%%%%%%%%
+/**----------------------------------------------------------------------------------------
+  The normal form is constructed by applying the specifiers stack collected in the first
+  part to the term. But first this stack is to be sorted using sortQStack.
+  [To run this part]: parseOne('every man loved some woman .',X),fixTree(X,X1),
+  toTermAndStack(X1,Term,Stack),sortQStack(Stack,NStack),logicalNormalForming(NStack,Term,NF),
+  pretty(NF).
+  -----------------------------------------------------------------------------------------**/
+/**
+  [sortQStack]
+  Allan: 28/04/2017
+  
+  We can't just qsort on the stack for two reasons
+
+  (i) I'd like to be able to backtrack through quantifiers with the
+  same scope value, so that we can get the alternative readings of
+  "Every man loves some woman. Isn't she lucky" and "Someone is mugged
+  every five minutes in New York, and he's getting pretty sick of it"
+
+  (ii) If we just use qsort on the whole quantifier, then ones with
+  the same scope value get ordered by the next element of the
+  quantifier, e.g.
+
+  [(the : E), ((wife>):noun,E & own(F,E))],
+  [(the : F), (male , F)],
+  [(the : D), (named(John) , D)]
+
+  gets reordered to
+
+  [(the : A), (named(John) , A)],
+  [(the : B), ((wife>):noun,B & own(C,B))],
+  [(the : C), (male , C)]
+
+  You could use my qsort with qsort(L0, L1, [], comparequants)
+  where comparequants just looked at the score.
+  
+  **/
+scope(the, 0.0).
+scope(tense(past,+),0.1).
+
+scope(a, 3.0).
+scope(many, 3.0).
+scope(few, 3.0).
+scope(some, 3.0).
+scope(tense(past,-),3.0).
+
+scope(all, 3.1).
+scope(each, 3.1).
+scope(every, 3.0).
+
+scope(_,5.0).
+
+assignScopeScore([],[]).
+assignScopeScore([(Q1 : VAR) | REST],[S1,(Q1 : VAR) | REST]):-
+	!,
+	scope(Q1,S1).
+assignScopeScore([(Q1 : VAR)],[S1,(Q1 : VAR)]):-
+	!,
+	scope(Q1,S1).
+assignScopeScore([H0|T0],[H1|T1]):-
+	!,
+	assignScopeScore(H0,H1),
+	assignScopeScore(T0,T1).
+
+removeScopeScore([],[]).
+removeScopeScore([_S1,(Q1 : VAR) | REST],[(Q1 : VAR) | REST]).
+removeScopeScore([_S1,(Q1 : VAR)],[(Q1 : VAR)]).
+removeScopeScore([H0|T0],[H1|T1]):-
+	!,
+	removeScopeScore(H0,H1),
+	removeScopeScore(T0,T1).
+
+sortQStack(QS0, QS3):-
+    assignScopeScore(QS0,QS1),
+    qsort(QS1,QS2),
+    removeScopeScore(QS2,QS3).
+
+
+/*
+  Allan, 20/04/2017
+
+  I've changed these systematically so that they put the
+  variable in the standard place (i.e. directly after the
+  quantifier) as we did for every and some this morning.
+
   */
-rep3(['.':punct|T0],T1, VARS0,VARS1) :-
-    rep3(T0,T1,VARS0,VARS1),
-    !.
-rep3(spec(Tense,L0),[at(V)|L1], VARS0,VARS2) :-
-    Tense=tense(_,_),
-    rep3(L0, L1, VARS0,VARS1),
-    (member([spec(Tense,L0,V)], VARS1)->
-    VARS2=VARS1;
-    VARS2=[[spec(Tense,L0,V)]|VARS1]),
-    !.
 
-rep3(spec([DET:_],[W:TAG]), V, VARS0,VARS1) :-
-    (member([DET:V,([W:TAG],V)], VARS0)->
-    VARS1=VARS0;
-    VARS1=[[DET:V,([W:TAG],V)]|VARS0]),
-    !.
+/* Universals */
+pattern([every:V,(VP,V)],T,every(V, (VP, V) => T)).
+pattern([each:V,(VP,V)],T,each(V, (VP,V) => T)).
+pattern([all:V,(VP,V)],T,forall(V, (VP, V) => T)).
+pattern([most:V,(VP,V)],T,forall(V, (VP, V) & default(T) => T)).
+pattern([no:V,(VP,V)],T,every(V, (VP, V) => not(T))).
 
-rep3(spec([DET:_TAG],L0), [V|L1], VARS0,VARS2) :-
-    rep3(L0, L1, VARS0,VARS1),
-    (member([DET:V,(L0,V)], VARS1)->
-    VARS2=VARS1;
-    VARS2=[[DET:V,(L0,V)]|VARS1]),
-    !.
-rep3(spec(proRef,L), V, VARS0,VARS1) :-
-    (member(proRef:V,(L,V), VARS0)->
-    VARS1=VARS0;
-    VARS1=[proRef:V,(L,V)|VARS0]),
-    !.
+/* Existential */
+pattern([a:V,(VP,V)],T,a(V, (VP, V) & T)).
+pattern([some:V,(VP,V)],T,exists(V, (VP, V) & T)).
+pattern([some:V],T, exists(V, T)).
+pattern([many:V,(VP,V)],T,many(V, (VP,V) & T)).
+pattern([few:V,(VP,V)],T, few(V, (VP,V) & T)).
+pattern([tense(Tense,-):V], T, exists(V, tense(Tense, V) & T)).
 
-rep3({R, T0}, {R, T1},VARS0,VARS1) :-
-    \+ (R=claim),
-    !,
-    rep3(T0, T1, VARS0,VARS1).
+/* Referential */
+pattern([the:V, R],T,the(V :: {R},T)) :-
+    nonvar(R).
+pattern([tense(Tense,+):V],T, Q) :-
+    pattern([the:V, (tense(Tense), V)], T, Q).
 
-rep3({claim, T0}, {T1},VARS0,VARS1) :-
-    !,
-    rep3(T0, T1, VARS0,VARS1).
+/* others */
+pattern([Specifier:V,(VP,V)],T, X) :-
+    X =.. [Specifier, (VP,V),T].
+pattern(Specifier,T,Q) :-
+    Q =.. [Specifier,T].
 
-rep3([H0 | T0], [H1 | T1], VARS0,VARS2) :-
-    !,
-    rep3(H0, H1, VARS0,VARS1),
-    rep3(T0, T1, VARS1,VARS2).
-
-rep3(X, X, _VARS0,_VARS1).
-
-
-
-
-%%%%%%%Transformation (2)-Part(2): Construct the forward-chaining normal form %%%%%%%%%
-%% Run example:  parseOne('every man loved some woman .', X),rep3(X,T,Qstack),normalForming(Qstack,T,NF),pretty(NF).
-pattern([every:V,(VP,V)],T,[every:V,(VP,V) => T]).
-pattern([a:V,(VP,V)],T,[a:V,(VP,V) & T]).
-pattern([some:V,(VP,V)],T,[some:V,(VP,V) & T]).
-pattern([some:V,(VP,V)],T,[some:V,(VP,V) & T]).
-pattern([spec(tense(past,-),_Sentence,V)],T,[exists:V,(tense(past,V),T)]).
-%pattern([spec(tense(past,-),_Sentence,V)],T,[exists,(tense(past,-):V,T)]).
 normalForming([], T, T).
 normalForming([H | L], T, NF) :-
-    !,
     normalForming(L,T,NF0),
-    pattern(H, NF0, NF).
-%% Run example:  parseOne('every man loves a woman', X),rep2(X,T,Qstack),lnf(Qstack,T,LNF),pretty(LNF).
-pattern2([every:det:V,{VP}],T,[forall(V, {VP,V}) => T]).
-pattern2([a:det:V,{VP}],T,[exists(V, {VP,V}) & T]).
-pattern2([some:det:V,{VP}],T,[exists(V, {VP,V}) & T]).
+    (pattern(H, NF0, NF) -> true; fail).
 
-logicalNormalForming([], T, T).
-logicalNormalForming([H | L], T, NF) :-
-    !,
-    logicalNormalForming(L,T,NF0),
-    pattern2(H, NF0, [NF|_]).
 
-%%%%%%%%%%%%%% Transformation (4): Skolemisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Run example:  parseOne('every man loves a woman', X),rep2(X,T,Qstack),lnf(Qstack,T,LNF),qff(LNF,SNF),pretty(SNF).
+%%%%%%%%%%%%%% Transformation (3): Skolemisation %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Run example:   parseOne('every man loved some woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
 
 %it's convenient to have function to find the swapped version of the polarity.
 swap(+, -).
@@ -193,10 +361,49 @@ formula. As I go there are two things I need -- a stack of universally
 quantifier variables and a polarity marker. These start out as [] and
 + */
 
+/**
+  Allan, 20/04/2017
+
+  qff was already defined about right. The only changes
+  I've made are:
+
+  (i) make copies of the rules for some and all
+  so that they do the same thing for exists and some
+
+  (ii) add a rule for "the". Not convinced by it, but we can
+  change it once we start using the inference engine.
+
+  (ii) add the rule that says ((A & B), X) is the same as (A, X) & (B,
+  X). This is easily justified on the grounds that we can think of (P,
+  X) as saying that X is in the set denoted by P (standard
+  interpretation of predicates) and that (A & B) is the intersection
+  of A and B. Then obviously X is in (A & B) iff X is in A and X is in
+  B.
+
+ **/
+
 qff(A0, A1) :-
     qff(A0, A1, [], +).
-/* There are then a surprisingly small set of cases to consider.
- Simple ones: assuming that I've dealt with quantifiers outside a conjunction or disju ction, I will just deal with the conjuncts/disjuncts individually. It doesn't matter what the polarity is. */
+
+qff(V, V, _S, _P) :-
+    (var(V); atomic(V)),
+    !.
+
+qff((at, _, _) & P0, P1, S, P) :-
+    !,
+    qff(P0, P1, S, P).
+
+qff(([P0], V), (P1, V), _S, _P) :-
+    qff(P0, P1),
+    atomic(P1),
+    (var(V); atomic(V)),
+    !.
+
+/*
+  There are then a surprisingly small set of cases to consider.
+  Simple ones: assuming that I've dealt with quantifiers outside a conjunction or disjunction,
+  I will just deal with the conjuncts/disjuncts individually. It doesn't matter what the polarity is.
+*/
 qff(A0 & B0, A1 & B1, S, P) :-
     !,
     qff(A0, A1, S, P),
@@ -206,17 +413,41 @@ qff(A0 or B0, A1 or B1, S, P) :-
     qff(A0, A1, S, P),
     qff(B0, B1, S, P).
 
-/* Negation: just replace it by => absurd. Doesn't matter what the polarity
-was. not(A) is, by definition, a shorthand for A => absurd. So just do
-the replacement. */
+/*
+  Negation: just replace it by => absurd. Doesn't matter what the polarity
+  was. not(A) is, by definition, a shorthand for A => absurd. So just do
+  the replacement.
+*/
 
 qff(not(A0), QFF, S, P) :-
     !,
     qff(A0 => absurd, QFF, S, P).
 
-/*The quantifiers. In positive contexts, we just drop univerals (while
-adding them to the stack) and Skolemise existentials.*/
+/*
+  Stupid ones: "every" just means "forall", "a" just means "exists", ...
+*/
 
+qff(every(X, A0), A1, S, P) :-
+    !,
+    qff(forall(X, A0), A1, S, P).
+
+qff(a(X, A0), A1, S, P) :-
+    !,
+    qff(exists(X, A0), A1, S, P).
+
+qff(some(X, A0), A1, S, P) :-
+    !,
+    qff(exists(X, A0), A1, S, P).
+
+/*
+  The quantifiers. In positive contexts, we just drop univerals (while
+  adding them to the stack) and Skolemise existentials.
+*/
+
+qff(the(A :: {P0}, Q0), the(A :: {P1}, Q1), S, POL) :-
+    !,
+    qff(P0, P1, S, POL),
+    qff(Q0, Q1, S, POL).
 qff(forall(X, A0), A1, S, +) :-
     !,
     qff(A0, A1, [X | S], +).
@@ -226,7 +457,9 @@ qff(exists(X, A0), A1, S, +) :-
     X = [SK | S],
     qff(A0, A1, S, +).
 
-/* But in negative contexts we do it the other way round.*/
+/*
+  But in negative contexts we do it the other way round.
+*/
 
 qff(exists(X, A0), A1, S, -) :-
     !,
@@ -237,10 +470,12 @@ qff(forall(X, A0), A1, S, -) :-
     X = [SK | S],
     qff(A0, A1, S, -).
 
-/* Implications. This is the interesting one. These swap the polarity on
-the antecedent and leave it unchanged on the consequent. And that's
-all. We'll see that in action in a minute, because it's not 100% clear
-at first sight that this is right. */
+/*
+  Implications. This is the interesting one. These swap the polarity on
+  the antecedent and leave it unchanged on the consequent. And that's
+  all. We'll see that in action in a minute, because it's not 100% clear %
+  at first sight that this is right.
+*/
 
 qff(A0 => B0, A1 => B1, S, P0) :-
     !,
@@ -248,215 +483,257 @@ qff(A0 => B0, A1 => B1, S, P0) :-
     qff(A0, A1, S, P1),
     qff(B0, B1, S, P0).
 
-/* And otherwise we just leave it unchanged.*/
+qff(((A & B), V), Q, S, P) :-
+    !,
+    qff((A, V) & (B, V), Q, S, P).
 
-qff(A, A, _, _).
-
-
-
-
-
-
-
-
-
-
-
-/**-----------------------Allan's tasks notes----------------------------------
-Task 2:
-------
-every man loves some woman
-
-forall(X :: {man(X)},
-       exists(Y :: {woman(Y)},
-	           love(X, Y)))
-
-New ones[02-02-17 update]:
-[ (love>s):verb,
- {arg(dobj,+),[a:det,{arg(headnoun,-),[(woman>''):noun]}]}, 
- {arg(subject,+),[every:det,{arg(headnoun,-),[(man>''):noun]}]}] 
-
-[(every : det: X), {(arg(arg(headnoun),-) , [(man>):noun])}])},
- (a : det: Y), {(arg(arg(headnoun),-) , [(woman>):noun])}])}],
-   [(love>s : verb),
-   {arg(dobj, +), Y},
-   {arg(subject, +), X}]
-
-  
-Recurse through the tree. If the thing you find is a tree whose head is a determiner (that's quite a complicated condition), replace it by a variable and remember the association betwen the variable and this subtree.
-
-Task 3:
-------
- 
-  Y = [(love>s):verb,{arg(dobj,+),_A},{arg(subject,+),_B}],
-  Z = [[every:det:_B,{arg(headnoun,-),[(man>''):noun]}],[a:det:_A,{arg(headnoun,-),[(woman>''):noun]}]]
-
-pattern([every:det:B,{BP}]=[T, every:det:B, BP => T]).
-pattern([some:det:B,{BP}]=[T, some:det:B, BP & T]).
-
-  To combine a quantifier stack with a term:
-
-  (i) if the qstack is empty, return the term
-  (ii) get the top item on the quantifier stack. Find its pattern: that will be something like
-  [Q:det:B,{BP}]=[T, Q:det:B, f(B, BP, T)]
-
-  Apply the rest of the qstack to the term. Got a new term, T'.
-  Answer is f(B, BP, T').
-
-  
-Task 4:
--------
-  Skolem normal form
-  -------------------
-  forall(X, man(X) => exists(Y, woman(Y) & love(X, Y)))
-  
-  man(X) => woman(sk17([X]))
-  man(X) => love(X, sk17([X]))
-
-  woman(sk17(X)) :- man(X).
-  ...
-
-  Cases (at all times I've got a qstack, which starts empty and a polarity, which starts 1):
-
-  not(exists(X, P)) ===== forall(X, not(P))
-  not(A and B) === not(A) or not(B)
-  ...
-   
-  forall(X, P) ==> snf(P, [X | QSTACK], POL)
-  exists(X, P) ==> newskolem(X, QSTACK), snf(P, QSTACK, POL)
-  P & Q ==> snf(P, QSTACK, POL) & snf(Q, QSTACK, POL)
-  P or Q ==> snf(P, QSTACK, POL) or snf(Q, QSTACK, POL)
-  not(P) ==> snf(P => absurd, QSTACK, POL)
-  P => Q ==> snf(P, QSTACK, rev(POL)) => snf(Q, QSTACK, POL)
-
-General discussion about other quantifiers:
-------------------------------------------
-  Ordinary SATCHMO does the right things with all and some. My ordinary
-  conception of these two is about right. I'm not going to worry about them.
-  That bit is solved.
-
-  "most" is quite like "all". Some oddities, need to keep track of consistency, ...
-  "each", "every", "all" are all basically the same. "any" is tricky!
-
-  "a few" is pretty like "some". I'm going to need to keep track of cardinalities,
-  but for sure I'm going to have to do that with numbers and "at least six" and ...
-
-  bare NPs are also tricky. "I like cats", "he was eating cakes", "cheetahs are faster than snails".
-
-  *All* quantifiers are either basically conjunctive or basically implicational.
-  
-Task 4 Cont.:
--------
-
- nnf,poalrity marking, Skolem normal form-->Prolog rules 
-  ------------------------------------------------------
-
-  man(X) => woman(sk17([X]))
-  man(X) => love(X, sk17([X]))
-
-  woman(sk17(X)) :- man(X).
-  ...
-  Cases:-
-  ...
-
-From nf:
-[(every:det : A),
- ((arg(headnoun,-) , [(man>''):noun])
-   => [(a:det : B),
-       ((arg(headnoun,-) , [(woman>):noun])
-         & [(love>s : verb),
-            {(arg(dobj,+) , B)},
-            {(arg(subject,+) , A)}])])]
-
-Get the variables to the right place
-  
-[(every:det : A),
- (((arg(headnoun,-) , [(man>''):noun]), A)
-   => [(a:det : B),
-       (((arg(headnoun,-) , [(woman>):noun]), B)
-         & [(love>s : verb),
-            {(arg(dobj,+) , B)},
-            {(arg(subject,+) , A)}])])]
-
-nnf(A & B) = nnf(A) & nnf(B)
-nnf(A or B) = nnf(A) or nnf(B)
-nnf(forall(X, A)) == forall(X, nnf(A))
-nnf(exists(X, A)) == exists(X, nnf(A))
-nnf(A => B) = nnf(not(A) or B)
-nnf(A) = A
-
-  nnf(not(A & B)) = nnf(not(A)) or nnf(not(B))
-  nnf(not(A or B)) = nnf(not(A)) & nnf(not(B))
-  nnf(not(A => B)) = nnf(A) & nnf(not(B))
-  nnf(not(forall(X, A))) = exists(X, not(nnf(A)))
-  nnf(not(exists(X, A))) = forall(X, not(nnf(A)))
-  nnf(not(A)) = not(A)
-
-pol(A & B, +) = pol(A, +) & pos(B, +)
-pol(A or B) = pol(A, +) or pol(B, +)
-pol(A => B, +) = pol(A, -) => pol(B, +)
-pol(forall(X, A), +) => forall(X, pol(A, +))
-pol(A & B, -) => pol(A, -) & pol(B, -) ???
-pol(A or B, -) => pol(A, -) or pol(B, -) ???
-pol(A => B, -) => pol(A, -) & pol(not(B), +)
-pol(not(B), +) => pol(B, -)
-
-p(t0)
-r(t1)
-(i) forall(X, p(X)) => forall(Y, q(Y))
-(ii) forall(X, p(X) => forall(Y, q(Y)))
-
-  nf(i) p(sk) => q(Y)
-  nf(ii) p(X) => q(Y)
+qff(default(P0), default(P1), S, P) :-
+    !,
+    qff(P0, P1, S, P).
+qff((A0, B0), (A1, B1), S, P) :-
+    !,
+    qff(A0, A1, S, P),
+    qff(B0, B1, S, P).
+qff(X0:_TAG, X1, S, P) :-
+    !,
+    qff(X0, X1, S, P).
+qff(X0>_AFF, X1, S, P) :-
+    !,
+    qff(X0, X1, S, P).
+/*
+  And otherwise we just leave it unchanged.
+*/
+qff([H0 | T0], [H1 | T1], S, P) :-
+    !,
+    qff(H0, H1, S, P),
+    qff(T0, T1, S, P).
+qff(X0, X1, S, P) :-
+    X0 =.. L0,
+    qff(L0, L1, S, P),
+    X1 =.. L1.
 
 
-p => (q & r) --> p => q & p => r
-not(p) --> p => absurd
-  
+curry(X, X) :-
+    (var(X); atomic(X)),
+    !.
+curry([H0 | T0], [H1 | T1]) :-
+    !,
+    curry(H0, H1),
+    curry(T0, T1).
+curry((A, B), X) :-
+    A -- (C, D),
+    !,
+    curry((C, (B, D)), X).
+curry(X0, X1) :-
+    X0 =.. L0,
+    curry(L0, L1),
+    X1 =.. L1.
 
-  human(X)- => mortal(X)+
-  husband(X, Y)- => man(X)+
-  husband(A, R)-
-  man < human
+forwards(X, X) :-
+    (var(X); atomic(X)),
+    !.
+forwards((tense(_), _) & P0, P1) :-
+    !,
+    forwards(P0, P1).
+forwards(default(P0), default(P1)) :-
+    !,
+    forwards(P0, P1).
+forwards(A0 => B0, R) :-
+    !,
+    forwards(A0, A1),
+    forwards(B0, B1),
+    (B1 = (X & Y) ->
+     (forwards(A1 => X, P),
+      forwards(A1 => Y, Q),
+      R = (P & Q));
+     R = (A1 => B1)).
+forwards(A0 & B0, A1 & B1) :-
+    !,
+    forwards(A0, A1),
+    forwards(B0, B1).
+forwards([H0 | T0], [H1 | T1]) :-
+    !,
+    forwards(H0, H1),
+    forwards(T0, T1).
+forwards(X0, X1) :-
+    X0 =.. L0,
+    forwards(L0, L1),
+    X1 =.. L1.
 
-a, 
-exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & |A|=1)
-some
-exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & |A|>1)
-many
-exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & large(|A|))
-a few
-exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & small(|A|))
-few
-exists(X :: {p(X)}, q(X)) == exists(X, p(X) & q(X) & small(|A|) & I thought A would be bigger than that)
 
-exists(p(X), q(X))
+doItAll(TXT, XN) :-
+    parseOne(TXT, X0),
+    X0 = [_, {SPEECHACT, X1}],
+    (SPEECHACT = claim ->
+     P = +;
+     SPEECHACT = query ->
+     P = -;
+     throw('WeirdTree'(X0))),
+    %% This is what we do to a parse tree to get its normal form
+    %% We would like to do this independently (wrong word) to embedded
+    %% sentences ("I know she loves me", "I doubt that anyone likes me", ...)
+    %% At the moment we do it with implicit +polarity
+    %% We should make the polarity explicit, and in certain contexts it
+    %% will be negative
+    fixTree(X1, X2),
+    toTermAndStack(X2, X3, QS0),
+    sortQStack(QS0, QS1),
+    normalForming(QS1, X3, X4),
+    qff(X4, X5, [], P),
+    curry(X5, X6),
+    forwards(X6, X7),
+    %%
+    pretty(X7),
+    anchor(X7, XN),
+    pretty(XN),
+    (SPEECHACT = claim ->
+     addToMinutes(XN);
+     SPEECHACT = query ->
+     tryToAnswer(XN);
+     format('Er ??? ~w~~n', [SPEECHACT])).
 
-P intersect Q != 0
+/*
+  Allan 28/4/2017
+  anchor has to look at its argument and see if it
+  looks like with the((A :: {D}), P)
 
-each, every, all, ...
-forall(X :: {p(X)}, q(X)) == forall(X, p(X) => q(X))
+  Try to prove D. If that succeeds, then it should bind
+  A.
 
-forall(p(X), q(X))
+  Do it again to P!
 
-P subseteq Q
-  
-the man, he, Mary, had slept ...
-the(X :: {p(X)}, q(X)) == the(X :: {p(X)}, q(X)) != exists1(X, p(X) & q(X))
-qff(the(X :: {p(X)}, q(X)) = the(X :: {qff(p(X))}, qff(q(X)))
+  If it works, then P is the answer.
 
-many cats are lazy
-many(X :: {cat(X)}, lazy(X))
+  If it doesn't, then we have to pretend that there is
+  something that fits D (you'd never heard of John, but
+  you didn't say "Who's John?", you just got on with it).
 
-many(cat(X), lazy(X))
+  How do we do that? By binding A to a new Skolem constant
+  and returning D & P. That's pretty close to accommodation.
+  */
 
-large(|cat intersect lazy|) |= cat intersect lazy != 0
+anchor(the(A :: {D},P),the(A :: {D},P)):-
+    !,  
+    format('~nTrying to answer ~w~n', [the(A :: {D},P)]),
+    (prove(D, '') ->
+     format('~nYes ~w~n', [D]);
+     format('~nNo~n', [])),
+    anchor(P,P).
+anchor(X, X).
 
-qff(exists(X, p(X) & q(X))) = p(sk1) & q(sk1)
-qff(exists(X :: {p(X)}, q(X)) = nonemptyintersection(p(sk1)}, q(sk1))
+addToMinutes(A & B):-
+    !,
+    addToMinutes(A),
+    addToMinutes(B).
+addToMinutes(A) :-
+    assert(kb(minutes, A)).
 
-qff(forall(X :: {p(X)}, q(X)) = subset(p'(X), q'(X))
+startConversation :-
+    retractall(kb(minutes, _)).
+
+tryToAnswer(X) :-
+    format('~nTrying to answer ~w~n', [X]),
+    (prove(X, '') ->
+     format('~nYes ~w~n', [X]);
+     format('~nNo~n', [])).
 
 
 
-----------------------------------------------------------------------------  **/
+
+
+  /** Allan 27/4/2017
+
+    
+the((A :: {(man>):noun,A}),
+    the((B :: {tense(past),B}),
+        a(C,
+          (((woman>):noun , C)
+            & exists(D,
+                     ((at , B,D)
+                       & (((will : aux)
+                            & ((auxcomp,
+                                ((have> : aux)
+                                  & (auxcomp,
+                                     ((love>ed):verb & dobj,C))))
+                                & (subject , A))),
+                          D)))))))
+    
+the((A :: {(man>):noun,A}),
+    exists((B :: {tense(past), will, have}, B}),
+        a(C,
+          (((woman>):noun , C)
+            & exists(D,
+                     ((at , B,D)
+                       & ((love>ed):verb & dobj,C) & (subject , A), D)))))))
+
+Each man kills the thing he loves
+* Every man kills the thing he loves
+
+If you think of a man, then I am telling you that that man loves something and he kills that thing
+
+(((man>):noun , A)
+  => (((woman>):noun , [sk1,A])
+       & (tense(past, [sk2, A])
+           & ((at , [sk2,A],[sk0,A])
+               & (((love>ed):verb , [sk0,A])
+                   & ((dobj,[sk1,A] , [sk0,A])
+                       & (subject,A , [sk0,A])))))))
+(((man>):noun , A)
+  => (woman>):noun , [sk1,A])
+& (man>):noun , A)
+  => (tense(past, [sk2, A])
+& (man>):noun , A)
+  =>((at , [sk2,A],[sk0,A])
+& (man>):noun , A)
+  => (((love>ed):verb , [sk0,A])
+& ...
+                   & ((dobj,[sk1,A] , [sk0,A])
+                       & (subject,A , [sk0,A])))))))
+
+P => (Q & R) --> (P => Q) & (P => R)
+
+    Let's get the normal forms of
+
+  "every man loved some woman"
+  "John is a man"
+  "John loved a woman"
+
+  and package up "every man loved some woman" and "John is
+  a man" as the knowledge base for a call of satchmo and
+  "John loved a woman" as the goal.
+
+
+the((A :: {named(John),A}),
+    (((man>):noun , [sk0])
+      & (be:verb & (predication,[sk0])&(subject,A))))
+
+-->
+the((A :: {named(John),A}),
+    (((man>):noun , [sk0])
+       A=[sk0]))
+
+There's someone called John. There's a man. They are the same thing.
+|-
+John has all the properties that any man has.
+-->
+the((A :: {named(John),A}), man(A))
+
+NL inference is done in a context. The context consists of general background knowledge plus whatever is in the minutes
+of this conversation.
+
+When I say something, it gets added to the minutes.
+
+But it might have contained some referring expressions. We ought to try to deal with those before we add it
+to the minutes.
+
+How do we deal with them? For nice simple ones (like "John" in our example) that aren't interacting with any
+other quantifiers, we have to prove that there is something that fits this description, and we'd like to show that
+there is nothing else which can be proven to fit it. When we do this proof, we will get a Skolem constant.
+
+To handle "John loved a woman", we will assume that the minutes or the background knowledge include named(John, [sk12]).
+
+So given a sentence, look for wide scope referring expressions. Try to prove that there is something like this, using
+the minutes+BK. prove(named(John, X)) will bind X to [sk12]. This *will* substitute sk12 for X in the NF for "John loved a woman". We will get man(sk0), sk12=sk0.
+    
+**/
+

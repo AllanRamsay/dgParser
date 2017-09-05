@@ -22,22 +22,30 @@ word('', X) :-
 
 word('s', X) :-
     language@X -- english,
-    specifier@X -- generic,
-    X <> [suffix(numPerson), third, plural, -target, standardcase].
+    X <> [specifier(SPEC), unspecified, suffix(numPerson), third, plural, -target, standardcase],
+    def@X -- D,
+    trigger(SPEC, (SPEC = [generic], D = -)).
 
 word('', X) :-
     language@X -- english,
-    X <> [suffix(numPerson), thirdSing, standardcase],
-    specified@X -- mass@X,
+    X <> [suffix(numPerson), thirdSing, standardcase, movedAfter(-), unspecified, -specifier],
     trigger(index@X, default(nmod(X))).
 
-word('ed', X) :-
+word('ed1', X) :-
     language@X -- english,
-    X <> [suffix(tns), pastTenseSuffix(PT), pastPartSuffix(PP), -target],
-    trigger((PT, PP),
-	    ((PT=ed, PP=ed) -> edForm(X);
-	     (PT=ed -> pastTense(X);
-	      PP=ed -> pastPart(X)))).
+    X <> [suffix(tns), pastTenseSuffix(ed), -target],
+    pastTense(X).
+
+word('ed2', X) :-
+    language@X -- english,
+    X <> [suffix(tns), pastPartSuffix(ed), -target],
+    pastPart(X).
+
+word('ed', X) :-
+    word(ed1, X).
+
+word('ed', X) :-
+    word(ed2, X).
 
 word('en', X) :-
     language@X -- english,

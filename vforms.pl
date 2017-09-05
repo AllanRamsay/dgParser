@@ -1,7 +1,7 @@
 
 gerundAsMod(V, X, T) :-
     shifted@V -- [],
-    unspecified(V),
+    V <> [unspecified],
     var(wh@T),
     theta@X -- gerundAsMod,
     T <> [standardcase],
@@ -35,29 +35,27 @@ present(X) :-
 
 past(X) :-
     tense@X -- past.
-    
+
+finite(X, finite@X).
+
 presPartForm(X) :-
-    X <> [present, -target],
-    trigger(specified@X, (specified(X, +) -> objcase(subject@X); true)),
-    finite@X -- participle.
+    X <> [present, -target, finite(participle), -specifier],
+    trigger(specified@X, (specified(X, 0) -> true; objcase(subject@X))).
 
 pastPartForm(X) :-
-    X <> [past, -target, +active].
+    X <> [past, -target, +active, finite(participle), -specifier].
 
 pastPartForm(X) :-
-    X <> [present, -target, -active].
+    X <> [present, -target, -active, finite(participle), -specifier].
 
 pastPart(X) :-
     pastPartForm(X),
-    trigger(specified@X, (specified(X, +) -> objcase(subject@X); true)),
-    trigger(active@X, (-active@X -> addGerund(X); zero@subject@X = -)),
-    finite@X -- participle.
+    trigger(specified@X, (specified(X, 0) -> true; objcase(subject@X))),
+    trigger(active@X, (-active@X -> addGerund(X); zero@subject@X = -)).
     
 presPart(X) :-
     X <> [presPartForm, +active],
     addGerund(X).
-
-finite(X, finite@X).
 
 tensedForm(X) :-
     X <> [finite(tensed)],
@@ -68,7 +66,7 @@ tensed(X) :-
     trigger(language@X, (language@X = english -> -zero@subject@X; true)),
     X <> [tensedForm, +active, -target],
     subject@X <> subjcase,
-    specifier@X -- tense(tense@X, aux@X).
+    specifier@X -- *tense(tense@X, aux@X).
 
 presTenseForm(X) :-
     X <> [tensedForm, present].
@@ -94,17 +92,17 @@ infinitiveForm(X) :-
     -target@X.
 
 infinitive(X) :-
-    X <> infinitiveForm,
-    trigger(specified@X, (specified(X, +) -> objcase(subject@X); true)).
+    X <> [infinitiveForm],
+    subject@X <> [objcase].
 
 toForm(X) :-
     finite@X -- to.
 
 baseForm(X) :-
     X <> [-target, +active],
-    case@subject@X -- *SCASE,
+    subject@X <> [standardcase(SCASE)],
     trigger(zero@subject@X, (+zero@subject@X -> infinitive(X); true)),
-    trigger((theta@X; finite@X),
+    trigger((theta@X; finite@X; SCASE),
 	    ((tensed(X), notThirdSing(X)); infinitive(X))).
 
 subjunctive(X) :-

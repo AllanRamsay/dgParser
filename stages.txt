@@ -1,0 +1,11 @@
+Parse sentences from the BNC using the given tags: for VVX-NNX, use
+VVX (but we will want to recognise that VVG can be a gerund), for
+VVD-VVN use VVD, but again recognise that VVD can be past tense or
+past part.
+
+Do this for lots of sentences, with a limit of say 500 for edges:
+collect largest compact sentence, collect transitivity information.
+
+Redo it, but using the transitivity info as a guide. Do this
+probabilistically. Probably have to do something sensible with probs:
+geometric average?

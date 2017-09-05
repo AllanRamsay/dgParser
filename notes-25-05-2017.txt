@@ -1,0 +1,36 @@
+| ?- doItAll('I believe every one loves me .', X).
+
+(i33
+  + [(. : punct),
+     {(claim,
+        spec(tense(A, -),
+             [(believe> : verb),
+              {(subject , spec(proRef,[I:pronoun]))},
+              {(xcomp,
+                 spec(tense(present, -),
+                      [(love>s : verb),
+                       {(subject,
+                          spec([(every : B)], [(one> : noun)]))},
+                       {(dobj , spec(proRef,[me:pronoun]))}]))}]))}])
+the((A :: {salient([I:pronoun]),A}),
+    the((B :: {salient([me:pronoun]),B}),
+        ((((one>):noun , C)
+           => ((believe>):verb , [sk1,C]))
+          & (((one>):noun,C => (subject,A),[sk1,C])
+              & (((one>):noun , C)
+                  => ((xcomp,
+                       (((love>s : verb)
+                          & (subject,C & dobj,B)),
+                        [sk3, C])),
+                      [sk1, C]))))))
+
+===>
+
+the((A :: {salient([I:pronoun]),A}),
+    the((B :: {salient([me:pronoun]),B}),
+        ((believe>):verb , [sk1]))
+          & (subject,A),[sk1])
+              & ((xcomp,
+                       (((one>):noun , C)
+                       => (((love>s : verb), [sk3,C] &(subject,C)[sk3,C] & (dobj,B,[sk3,C])),
+                       [sk1]))))

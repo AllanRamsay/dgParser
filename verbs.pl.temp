@@ -1,0 +1,70 @@
+
+verb(X, be) :-
+    root@X -- [be],
+    language@X -- english,
+    trigger((finite@X, tense@X), \+ presPartForm(X)),
+    finite@COMP -- participle,
+    tense@COMP -- present,
+    aux(X, COMP).
+
+verb(X, be) :-
+    root@X -- [be],
+    language@X -- english,
+    %% trigger(set:position@moved@subject@X, (movedAfter(subject@X) -> movedBefore(PRED); true)),
+    PRED <> [x, +predicative, -zero, +specified, saturated, postarg],
+    theta@PRED -- predication,
+    tverb(X, PRED).
+
+verb(X, come) :-
+    iverb(X).
+verb(X, come) :-
+    X <> [+active],
+    tverb(X, ADJ),
+    ADJ <> [a, theta(cost)],
+    root@ADJ -- [cheap>_].
+
+verb(X, expect) :-
+    tverb(X).
+verb(X, expect) :-
+    X <> [sverb(S)],
+    S <> [toForm].
+verb(X, expect) :-
+    X <> [sverb(S)],
+    S <> [tensedForm].
+    
+verb(X, have) :-
+    X <> [aux(S)],
+    S <> [pastPart].
+
+verb(X, have) :-
+    tverb(X).
+
+verb(X, do) :-
+    aux(X, S),
+    X <> [tensedForm],
+    S <> [infinitiveForm].
+verb(X, do) :-
+    tverb(X).
+
+verb(X, begin) :-
+    tverb(X).
+
+verb(X, begin) :-
+    X <> [sverb(S)],
+    S <> [toForm],
+    +zero@subject@S.
+
+verb(X, make) :-
+    tverb(X).
+
+verb(X, meet) :-
+    tverb(X).
+verb(X, meet) :-
+    iverb(X),
+    subject@X <> [plural].
+
+verb(X, buy) :-
+    tverb(X).
+
+verb(X, win) :-
+    tverb(X).

@@ -1,0 +1,703 @@
+
+word('a', X) :-
+    language@X -- english,
+    X <> [det, -def],
+    args@X -- [N],
+    trigger(number@N, number@N=sing).
+
+word('ago', X) :-
+    language@X -- english,
+    X <> [postp].
+
+word('all', X) :-
+    language@X -- english,
+    X <> [det, thirdPlural, -def].
+
+word('all', X) :-
+    language@X -- english,
+    X <> [det([NP])],
+    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
+
+word('all', X) :-
+    language@X -- english,
+    X <> [det([NP])],
+    NP <> [np, fixedpostarg, +def, standardcase, theta(arg(headnoun2))],
+    hd@NP <> [n].
+
+word('an', X) :-
+    language@X -- english,
+    word('a', X).
+
+word('and', X) :-
+    language@X -- english,
+    X <> [conj].
+
+word('any', X) :-
+    language@X -- english,
+    X <> [det, thirdSing, -def].
+
+word('are', X) :-
+    language@X -- english,
+    verb(X, be),
+    X <> [presTense, plural, inflected].
+
+word('at', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('at', X) :-
+    det(X, [PREDET, NUM | args@NUM]),
+    tag@X -- det,
+    NUM <> [word, fixedpostarg, theta(arg(num))],
+    trigger(specified@NUM, tag@NUM == num),
+    PREDET <> [adj, fixedpostarg, theta(predet)],
+    trigger(root@PREDET, (root@PREDET = ['least']; root@PREDET = ['most'])).
+
+word('but', X) :-
+    language@X -- english,
+    X <> [conj],
+    args@X -- [A1, _A2],
+    A1 <> [s].
+
+word('each', X) :-
+    language@X -- english,
+    X <> [det, thirdSing].
+
+word('each', X) :-
+    language@X -- english,
+    X <> [det([NP]), thirdSing],
+    NP <> [pp, fixedpostarg, +def, plural, casemarked(of), theta(arg(headnoun))].
+
+word('every', X) :-
+    language@X -- english,
+    X <> [det, thirdSing].
+
+word('be', X) :-
+    language@X -- english,
+    verb(X, be),
+    trigger(finite@X, \+ finite@X = tensed),
+    X <> [vroot, pastTenseSuffix(-), pastPartSuffix(en)].
+
+word('before', X) :-
+    language@X -- english,
+    X <> [postp].
+
+word('each', X) :-
+    language@X -- english,
+    X <> [det, thirdSing].
+
+word('each', X) :-
+    language@X -- english,
+    X <> [det([NP]), thirdSing],
+    NP <> [pp, fixedpostarg, +def, plural, casemarked(of), theta(arg(headnoun))].
+word('by', X) :-
+    language@X -- english,
+    X <> [prep, inflected].
+
+word('do', X) :-
+    language@X -- english,
+    verb(X, do),
+    X <> [present, -target, vroot].
+
+word('did', X) :-
+    language@X -- english,
+    verb(X, do),
+    X <> [pastTense, -target, inflected].
+
+word('done', X) :-
+    language@X -- english,
+    verb(X, do),
+    X <> [pastPart, -target, inflected].
+
+word('every', X) :-
+    language@X -- english,
+    X <> [det, thirdSing].
+
+word('few', X) :-
+    language@X -- english,
+    X <> [det, thirdSing].
+
+word('few', X) :-
+    language@X -- english,
+    X <> [det([NP]), thirdSing],
+    NP <> [pp, fixedpostarg, +def, plural, casemarked(of), theta(arg(headnoun))].
+
+word('few', X) :-
+    language@X -- english,
+    definition@X -- 'a quantifier that can be used with count nouns and is often preceded by SQ a SQ',
+    X <> [aroot1([])].
+                    
+word('few', X) :- 
+    language@X -- english,
+    definition@X -- 'a small elite group',
+    X <> [nroot, -target].
+
+word('for', X) :-
+    language@X -- english,
+    X <> [prep, inflected].
+
+word('from', X) :-
+    language@X -- english,
+    X <> [prep, inflected].
+
+word('had', X) :-
+    language@X -- english,
+    verb(X, have),
+    X <> [past, -target, inflected].
+
+word('has', X) :-
+    language@X -- english,
+    verb(X, have),
+    X <> [presTense, thirdSing, inflected].
+
+word('have', X) :-
+    language@X -- english,
+    verb(X, have),
+    X <> [vroot, present, notThirdSing].
+    
+word('he', X) :-
+    language@X -- english,
+    X <> [pronoun, subjcase, thirdSing, -target, inflected].
+
+word('her', X) :-
+    language@X -- english,
+    X <> [objpronoun, -target, inflected].
+
+word('her', X) :-
+    language@X -- english,
+    X <> [det, inflected, +def].
+
+word('him', X) :-
+    language@X -- english,
+    X <> [objpronoun, inflected, third, sing].
+
+word('his', X) :-
+    language@X -- english,
+    X <> [det, inflected],
+    +def@result@X.
+    
+word('I', X) :-
+    language@X -- english,
+    X <> [pronoun, subjcase, firstSing, -target, inflected].
+
+word('if', X) :-
+    language@X -- english,
+    cat@X -- if,
+    X <> [-target],
+    args@X -- [ANTECEDENT, CONSEQUENT],
+    CONSEQUENT <> [s, compact, prearg, -zero, theta(consequent)],
+    ANTECEDENT <> [s, compact, fixedpostarg, theta(antecedent)].
+
+word('in', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('into', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('up', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('us', X) :-
+    language@X -- english,
+    X <> [objpronoun, second, plural].
+
+word('one', X) :-
+    language@X -- english,
+    number(X, 1).
+
+word('two', X) :-
+    language@X -- english,
+    number(X, 2).
+
+word('over', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('behind', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('before', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('beside', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('until', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('upon', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('here', X) :-
+    language@X -- english,
+    X <> [adv1(T), postmod(T), +predicative],
+    T <> s,
+    trigger((set:position@moved@T, start@hd@T),
+	    (movedBefore(T, +) -> end@X < start@hd@T; true)).
+
+word('am', X) :-
+    language@X -- english,
+    verb(X, be),
+    X <> [presTense, firstSing].
+
+word('is', X) :-
+    language@X -- english,
+    verb(X, be),
+    X <> [presTense, thirdSing].
+
+word('it', X) :-
+    language@X -- english,
+    X <> [pronoun, -target].
+
+word('least', X) :-
+    language@X -- english,
+    X <> [adj, inflected].
+
+word('many', X) :-
+    language@X -- english,
+    X <> [det, inflected].
+
+word('many', X) :-
+    language@X -- english,
+    X <> [det([NP])],
+    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
+
+word('me', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('most', X) :-
+    language@X -- english,
+    X <> [det, inflected].
+
+word('most', X) :-
+    language@X -- english,
+    X <> [det([NP])],
+    NP <> [pp, fixedpostarg, +def, casemarked(of), theta(arg(headnoun1))].
+
+word('my', X) :-
+    language@X -- english,
+    X <> [det, inflected, +def].
+
+word('your', X) :-
+    language@X -- english,
+    X <> [det, inflected, +def].
+
+word('our', X) :-
+    language@X -- english,
+    X <> [det, inflected, +def].
+
+word('their', X) :-
+    language@X -- english,
+    X <> [det, inflected, +def].
+
+word('its', X) :-
+    language@X -- english,
+    X <> [det, inflected, +def].
+
+word('fro', X) :-
+    language@X -- english,
+    X <> [prep([])].
+
+word('of', X) :-
+    language@X -- english,
+    X <> [prep([NN])],
+    NN <> [n, saturated, postarg],
+    target@X <> noun.
+
+word('on', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('or', X) :-
+    language@X -- english,
+    X <> [conj].
+
+word('she', X) :-
+    language@X -- english,
+    X <> [pronoun, subjcase, thirdSing, -target].
+
+word('some', X) :-
+    language@X -- english,
+    X <> [det, -def].
+
+word('s', X) :-
+    language@X -- english,
+    X <> [det([NP]), strictprearg(NP), inflected],
+    NP <> [np],
+    +def@result@X.
+
+word('that', X) :-
+    language@X -- english,
+    X <> [v, -target, -predicative, -modifiable],
+    comp@X -- *(that),
+    args@X -- [S],
+    S <> [s, tensedForm, -zero, -comp, notMoved],
+    theta@S -- comp,
+    end@X -- xstart@S,
+    syntax@X\args\comp\hd -- syntax@S,
+    dir@S <> after.
+
+word('that', X) :-
+    language@X -- english,
+    -predicative@X,
+    X <> det.
+
+word('that', X) :-
+    language@X -- english,
+    X <> [pronoun, -target].
+
+word('that', X) :-
+    relpronoun(X).
+
+word('the', X) :-
+    language@X -- english,
+    X <> [det, inflected, +def].
+
+word('them', X) :-
+    language@X -- english,
+    X <> [objpronoun].
+
+word('than', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('then', X) :-
+    language@X -- english,
+    X <> [prep([])],
+    target@X <> [s].
+
+word('there', X) :-
+    language@X -- english,
+    X <> [prep([])],
+    target@X <> [s].
+
+word('they', X) :-
+    language@X -- english,
+    X <> [subjpronoun].
+
+word('think', X) :-
+    language@X -- english,
+    X <> [sverb(S), vroot, present],
+    S <> tensedForm.
+
+word('this', X) :-
+    language@X -- english,
+    X <> np,
+    -target@X.
+
+word('three', X) :-
+    language@X -- english,
+    X <> [det, plural],
+    -def@result@X.
+
+word('to', X) :-
+    language@X -- english,
+    X <> [prep, inflected].
+
+word('to', X) :-
+    language@X -- english,
+    X <> [aux(COMP), inflected, toForm],
+    COMP <> [infinitiveForm].
+
+word('very', X) :-
+    language@X -- english,
+    start@T -- end@X,
+    X <> [adv1(T), premod(T)],
+    T <> [a].
+
+word('was', X) :-
+    language@X -- english,
+    verb(X, be),
+    X <> [pastTense, sing, inflected].
+
+word('were', X) :-
+    language@X -- english,
+    verb(X, be),
+    X <> [pastTense, plural, inflected].
+
+word('what', X) :-
+    language@X -- english,
+    X <> [whpronoun(WH)],
+    WH <> [np, -target].
+
+word('whatever', X) :-
+    language@X -- english,
+    X <> [whpronoun(WH)],
+    WH <> [np, -target].
+ 
+word('which', X) :-
+    language@X -- english,
+    X <> [det],
+    [start, end] :: [X, WH],
+    wh@X -- [WH | _],
+    WH <> [s, -target].
+
+word('which', X) :-
+    relpronoun(X).
+
+word('how', X) :-
+    whmod(X).
+
+word('when', X) :-
+    whmod(X).
+
+word('whenever', X) :-
+    whmod(X),
+    target@X <> [s].
+
+word('where', X) :-
+    whmod(X).
+
+word('wherever', X) :-
+    whmod(X).
+
+word('who', X) :-
+    relpronoun(X).
+
+word('why', X) :-
+    whmod(X).
+
+word('whom', X) :-
+    language@X -- english,
+    X <> [np, inflected, objcase],
+    -target@X,
+    setWHItem(X).
+
+word('whose', X) :-
+    language@X -- english,
+    X <> [det, inflected],
+    setWHItem(X).
+
+word('with', X) :-
+    language@X -- english,
+    X <> [prep].
+
+word('you', X) :-
+    language@X -- english,
+    X <> [pronoun, second, plural, -target].
+
+word('these', X) :-
+    language@X -- english,
+    X <> [pronoun, third, plural, -target].
+
+word('those', X) :-
+    language@X -- english,
+    X <> [pronoun, third, plural, -target].
+              
+word('hi', X) :- 
+    language@X -- english,
+    definition@X -- 'an expression of greeting',
+    cat@X -- greeting,
+    X <> [saturated, strictpremod(S), inflected],
+    S <> [s].
+
+word('against', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('although', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('among', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('since', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('toward', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('towards', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('via', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('whereby', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('wherein', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('whether', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('within', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('without', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('onto', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('per', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('because', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('cannot', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('during', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('etc', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('anyone', X) :-
+    language@X -- english,
+    X <> [pronoun, standardcase, -target].
+
+word('anything', X) :-
+    language@X -- english,
+    X <> [pronoun, standardcase, -target].
+
+word('anybody', X) :-
+    language@X -- english,
+    X <> [pronoun, standardcase, -target].
+
+word('everyone', X) :-
+    language@X -- english,
+    X <> [pronoun, standardcase, -target].
+
+word('everything', X) :-
+    language@X -- english,
+    X <> [pronoun, standardcase, -target].
+
+word('everybody', X) :-
+    language@X -- english,
+    X <> [pronoun, standardcase, -target].
+
+word('something', X) :-
+    language@X -- english,
+    X <> [pronoun, standardcase, -target].
+
+word('someone', X) :-
+    language@X -- english,
+    X <> [pronoun, standardcase, -target].
+
+word('something', X) :-
+    language@X -- english,
+    X <> [pronoun, standardcase, -target].
+
+word('herself', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('itself', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('myself', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('himself', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('yourself', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('ourselves', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('theirselves', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('themselves', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('oneself', X) :-
+    language@X -- english,
+    X <> [pronoun, objcase, -target].
+
+word('nor', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('else', X) :-
+    language@X -- english,
+    X <> prep.
+
+word('will', X) :-
+    language@X -- english,
+    X <> [aux(S), tensed, inflected],
+    S <> [infinitiveForm],
+    -zero@subject@S.
+
+word('can', X) :-
+    language@X -- english,
+    X <> [aux(S), tensed, inflected],
+    S <> [infinitiveForm],
+    -zero@subject@S.
+
+word('might', X) :-
+    language@X -- english,
+    X <> [aux(S), tensed, inflected],
+    S <> [infinitiveForm],
+    -zero@subject@S.
+
+word('may', X) :-
+    language@X -- english,
+    X <> [aux(S), tensed, inflected],
+    S <> [infinitiveForm],
+    -zero@subject@S.
+
+word('would', X) :-
+    language@X -- english,
+    X <> [aux(S), tensed, inflected],
+    S <> [infinitiveForm],
+    -zero@subject@S.
+
+word('should', X) :-
+    language@X -- english,
+    X <> [aux(S), tensed, inflected],
+    S <> [infinitiveForm],
+    -zero@subject@S.
+
+word('could', X) :-
+    language@X -- english,
+    X <> [aux(S), tensed, inflected],
+    S <> [infinitiveForm],
+    -zero@subject@S.
+
+word('other', X) :-
+    language@X -- english,
+    definition@X -- 'belonging to the distant past',
+    X <> [nroot].
+
+:- include(englishaffixes).
+:- include(closed).

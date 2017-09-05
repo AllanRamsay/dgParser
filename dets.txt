@@ -1,0 +1,1538 @@
+
+
+a a: accidental repetitions
+  withdrawal:NN1 by:PRP          a:AT0 a:AT0 revival:NN1 of:PRF Afghan:AJ0 nationalism:NN1
+  Jaguar:NN1 had:VHD             a:AT0 a:AT0 hectic:AJ0 session:NN1 ,:PUN with:PRP
+  burdened:VVN by:PRP            a:AT0 a:AT0 top-heavy:AJ0 bureaucracy:NN1 ,:PUN losing:VVG
+  a:PNI of:PRF                   a:AT0 a:AT0 natter:NN1 with:PRP me:PNP .:PUN
+  effectively:AV0 advocating:VVG a:AT0 a:AT0 popular:AJ0 front:NN1
+  against:PRP fascism:NN1
+
+a all: anomaly
+  but:CJC quite:AV0              a:PNI all:DT0 the:AT0 same:DT0 .:PUN
+  ***************:***************
+
+a an: accidental repetitions
+  Yusupov:NP0 made:VVD           a:AT0 an:AT0 unexpected:AJ0 sacrifice:NN1 of:PRF a:AT0
+  could:VM0 heat:VVI             a:AT0 an:AT0 of:PRF beans:NN2
+  very:AV0 ,:PUN
+
+a each: accidental repetition
+  print:NN1 fades:NN2            a:DT0 each:DT0 time:NN1 it:PNP is:VBZ
+  read:VVN
+
+a few
+  where:AVQ only:AV0             a:AT0 few:DT0 items:NN2 or:CJC rooms:NN2 will:VM0
+  are:VBB only:AV0               a:AT0 few:DT0 of:PRF the:AT0 varied:AJ0 topics:NN2
+  give:VVI only:AV0              a:AT0 few:DT0 useful:AJ0 results:NN2 ,:PUN for:AV0
+  was:VBD that:CJT               a:AT0 few:DT0 weeks:NN2 after:PRP finishing:VVG this:DT0
+  takes:VVZ only:AV0             a:AT0 few:DT0 minutes:NN2 .:PUN ***************:*************** ***************:***************
+  happened:VVN only:AV0          a:AT0 few:DT0 minutes:NN2 earlier:AV0 .:PUN ***************:***************
+  in:AVP-PRP only:AV0            a:AT0 few:DT0 years:NN2 in:PRP a:AT0 garden:NN1
+  standing:NN1-VVG only:AV0      a:AT0 few:DT0 yards:NN2 to:PRP the:AT0 side:NN1
+  to:AVP-PRP only:AV0            a:AT0 few:DT0 hundred:CRD feet:NN2 ,:PUN and:CJC
+  out:AVP as:PRP                 a:AT0 few:DT0 of:PRF them:PNP
+  came:VVD out:AVP
+
+a five: the number here is part of an N-N modifier -- "five year supply deal" is a supply deal for five years.
+  have:VHB signed:VVN            a:AT0 five:CRD year:NN1 supply:NN1 deal:NN1 with:PRP
+  ,:PUN with:PRP                 a:AT0 five:CRD per:NN0 stake:NN1 ,:PUN strongly:AV0
+  &pound;3.3m:NN0 for:PRP        a:AT0 five:CRD per:NN0 share:NN1 stake:NN1 in:PRP
+  to:TO0 take:VVI                a:AT0 five:CRD to:PRP Frost:NP0 's:POS four:CRD
+  England:NP0 on:PRP             a:AT0 five:CRD hour:NN1 cycle:NN1 ride:NN1 along:AVP-PRP
+  pike:NN0 following:VVG         a:AT0 five:CRD minute:NN1 fight:NN1 after:CJS it:PNP
+  carp:NN1 in:PRP                a:AT0 five:CRD hour:NN1 session:NN1 but:CJC this:DT0
+  around:AV0 &mdash:PUN          a:AT0 five:CRD -valve:NN1 per:PRP cylinder:NN1 V12:ZZ0
+  all:DT0 within:PRP             a:AT0 five:CRD minute:NN1 drive:NN1 of:PRF the:AT0
+  ,:PUN yet:AV0                  a:AT0 five:CRD year:NN1 old:AJ0 ,:PUN who:PNQ
+a four
+  representation:NN1 of:PRF      a:AT0 four:CRD dimensional:AJ0 world:NN1 .:PUN ***************:***************
+  WORK:NN1 as:PRP                a:AT0 four:CRD part:NN1 serial:NN1 for:PRP the:AT0
+  &pound;156:NN0 for:PRP         a:AT0 four:CRD person:NN1 household:NN1 .:PUN ***************:***************
+  he:PNP scored:VVD              a:AT0 four:CRD ,:PUN and:CJC allowed:AJ0-VVD Gomes:NP0
+  and:CJC scored:VVD             a:AT0 four:CRD batting:VVG one-handed:AJ0 &mdash:PUN &mdash:PUN
+  two:CRD and:CJC                a:AT0 four:CRD ,:PUN and:CJC then:AV0 Walsh:NP0
+  also:AV0 negotiating:VVG       a:AT0 four:CRD hundred:CRD and:CJC twenty-five:CRD thousand-dollar:AJ0
+  of:PRF attending:VVG           a:AT0 four:CRD day:NN1 show:NN1 has:VHZ also:AV0
+  Moving:VVG from:PRP            a:AT0 four:CRD to:PRP a:AT0 six:CRD of:PRF
+  barrow:NN1 into:PRP            a:AT0 four:CRD wheeled:AJ0-VVD multi-purpose:NN1 truck:NN1 which:DTQ
+
+a many: poetic or rubbish
+  But:CJC many:DT0               a:AT0 many:DT0 foot:NN1 of:PRF land:NN1 the:AT0
+  weaver:NN1 ,:PUN               a:AT0 many:DT0 tailed:AJ0 whip:NN1 in:PRP the:AT0
+
+a most: most is an adverb on the following adjective
+  ):PUR ,:PUN                    a:AT0 most:DT0 boring:VVG subject:NN1 .:PUN ***************:***************
+  then:AV0 had:VHN               a:AT0 most:AV0 frightful:AJ0 pain:NN1 in:PRP her:DPS
+  ,:PUN is:VBZ                   a:AT0 most:AV0 elegant:AJ0 houseplant:NN1 ,:PUN with:PRP
+  point:NN1 ;:PUN                a:AT0 most:DT0 &bquo:PUQ un-prig:NN1 &equo:PUQ like:PRP
+  officiate:VVI at:PRP           a:AT0 most:AV0 solemn:AJ0 sacrament:NN1 &equo:PUQ .:PUN
+  impinge:VVI &mdash:PUN         a:AT0 most:AV0 unwelcome:AJ0 ,:PUN even:AV0 unbelievable:AJ0
+  We:PNP spent:VVD               a:AT0 most:AV0 agreeable:AJ0 couple:NN1 of:PRF hours:NN2
+  truly:AV0 is:VBZ               a:AT0 most:AV0 remarkable:AJ0 week:NN1 .:PUN ***************:***************
+  to:TO0 be:VBI                  a:AT0 most:AV0 promising:AJ0 match:NN1 until:CJS play:NN1
+  This:DT0 is:VBZ                a:AT0 most:AV0 comprehensive:AJ0 work:NN1 which:DTQ lists:VVZ
+
+a much: much is an adverb on the following adjective
+  series:NN0 is:VBZ              a:AT0 much:AV0 richer:AJC visual:AJ0 experience:NN1 ,:PUN
+  required:VVN over:AVP-PRP      a:AT0 much:AV0 longer:AJC period:NN1 .:PUN ***************:***************
+  student:NN1 has:VHZ            a:AT0 much:AV0 clearer:AJC idea:NN1 of:PRF what:DTQ
+  found:VVN to:PRP               a:AT0 much:DT0 lesser:AJ0 extent:NN1 in:PRP non-episcopal:AJ0
+  though:CJS at:PRP              a:AT0 much:AV0 lower:AJC level:NN1 than:CJS those:DT0
+  part:NN1 of:PRF                a:AT0 much:AV0 longer:AV0 creative:AJ0 process:NN1 and:CJC
+  they:PNP reflect:VVB           a:AT0 much:AV0 broader:AJC and:CJC deeper:AV0 literary:AJ0
+  not:XX0 provide:VVI            a:AT0 much:AV0 heavier:AJC clue:NN1 ,:PUN and:CJC
+  &equo:PUQ offers:NN2           a:AT0 much:AV0 more:AV0 fruitful:AJ0 area:NN1 for:PRP
+  mind:NN1 was:VBD               a:AT0 much:AV0 more:AV0 literal:AJ0 one:CRD-PNI .</p>:PUN
+
+a my; anomaly
+  help:NN1 of:PRF                a:AT0 my:DPS little:DT0 black:AJ0 book:NN1 of:PRF
+
+a of: just look like mistakes
+  There:EX0 is:VBZ               a:PNI of:PRF individual:NN1 suffering:NN1-VVG with:PRP deaths:NN2
+  I:PNP have:VHB                 a:PNI of:PRF fever:NN1 ,:PUN I:PNP cough:VVB
+  stumble:VVI on:PRP             a:DT0 of:PRF them:PNP in:PRP Portugal:NP0 ,:PUN
+  imagination:NN1 and:CJC        a:PNI of:PRF practice:NN1 to:TO0 read:VVI a:AT0
+  doing:VDG quite:AV0            a:PNI of:PRF &bquo:PUQ line:NN1 learning:NN1-VVG &equo:PUQ
+  there:EX0 is:VBZ               a:PNI of:PRF room:NN1 for:PRP personal:AJ0 interpretation:NN1
+  produced:VVD without:PRP       a:PNI of:PRF fuss:NN1 is:VBZ permissable:AJ0 &mdash:PUN
+  ,:PUN with:PRP                 a:PNI of:PRF witty:AJ0 ,:PUN self:NN1 mockery:NN1
+  piece:NN1 includes:VVZ         a:PNI of:PRF descriptive:AJ0 colour:NN1 ;:PUN only:AV0
+  was:VBD in:PRP                 a:PNI of:PRF a:AT0 state:NN1 ,:PUN I:PNP
+
+a one: number is part of the following N-N compound. "one in a million"
+  performed:VVN as:PRP           a:AT0 one:CRD man:NN1 show:NN1 .:PUN ***************:***************
+  conducted:VVD on:PRP           a:AT0 one:CRD to:PRP one:CRD basis:NN1 (:PUL
+  was:VBD not:XX0                a:AT0 one:CRD hit:NN1 wonder:NN1 by:PRP going:VVG
+  to:TO0 host:VVI                a:AT0 one:CRD day:NN1 workshop:NN1 for:PRP BLACK:AJ0
+  destruction:NN1 by:PRP         a:AT0 one:CRD in:PRP a:AT0 million:CRD chance:NN1
+  This:DT0 is:VBZ                a:AT0 one:CRD metre:NN1 band:NN1 marked:VVN inside:PRP
+  continuous:AJ0 over:PRP        a:AT0 one:CRD minute:NN1 period:NN1 .:PUN ***************:***************
+  will:VM0 win:VVI               a:AT0 one:CRD night:NN1 stay:NN1 at:PRP the:AT0
+  revert:VVI to:PRP              a:AT0 one:CRD handed:AJ0-VVD shot:NN1 on:PRP these:DT0
+  ***************:*************** Such:DT0 a:AT0 one:CRD may:VM0 feel:VVI that:CJT Pound:NN1
+
+a some: anomaly
+  of:PRF imagining:VVG           a:AT0 some:AT0 one:NN1 other:AJ0 .:PUN ***************:***************
+  to:TO0 experience:VVI          a:AT0 some:AT0 thing:NN1 in:PRP the:AT0 external:AJ0
+  nettle:NN1 for:PRP             a:AT0 some:AT0 body:NN1 &mdash:PUN it:PNP might:VM0
+  There:EX0 's:VBZ               a:AT0 some:AT0 thing:NN1 in:PRP the:AT0 stillness:NN1
+  there:EX0 was:VBD              a:AV0 some:AT0 thing:NN1 between:PRP us:PNP .:PUN
+
+a the: anomaly
+  &mdash:PUN and:CJC             a:AV0 the:AT0 Soviet:NP0 Union:NP0 &mdash:PUN can:VM0
+  convicted:VVN by:PRP           a:AT0 the:AT0 crown:NN1 court:NN1 in:PRP a:AT0
+  held:VVN up:AVP-PRP            a:AT0 the:AT0 dry:AJ0 cleaners:NN2 !:PUN ***************:***************
+  will:VM0 disappoint:VVI        a:AT0 the:AT0 growing:AJ0 lobby:NN1 wanting:NN1-VVG of:PRF
+  you:PNP on:PRP                 a:AT0 the:AT0 straight:AJ0 and:CJC narrow:AJ0 .:PUN
+  he:PNP works:VVZ               a:AT0 the:AT0 Polytechnic:NN1 Institute:NN1 ;:PUN at:PRP
+  its:DPS credentials:NN2        a:AT0 the:AT0 party:NN0 of:PRF the:AT0 working:AJ0
+  Think:VVB that:CJT             a:AT0 the:AT0 farmer:NN1 is:VBZ having:VHG a:AT0
+
+a three: as above
+  representation:NN1 of:PRF      a:AT0 three:CRD dimensional:AJ0 world:NN1 ,:PUN itself:PNX
+  there:EX0 is:VBZ               a:AT0 three:CRD point:NN1 scoring:VVG ceiling:NN1 which:DTQ
+  clerks:NN2 of:PRF              a:AT0 three:CRD per:NN0 increase:NN1 in:PRP the:AT0
+  Challenge:NN1 into:PRP         a:AT0 three:CRD city:NN1 event:NN1 .:PUN ***************:***************
+  bill:NN1 for:PRP               a:AT0 three:CRD person:NN1 household:NN1 and:CJC &pound;156:NN0
+  &pound;150,000:NN0 for:PRP     a:AT0 three:CRD to:PRP four-year:NN1 company:NN1 history:NN1
+  two:CRD to:PRP                 a:AT0 three:CRD .:PUN ***************:*************** ***************:*************** ***************:***************
+  Although:CJS primarily:AV0     a:AT0 three:CRD season:NN1 walking:NN1 boot:NN1 ,:PUN
+  work:VVB to:PRP                a:AT0 three:CRD or:CJC four:CRD week:NN1 menu:NN1
+  less:DT0 than:CJS              a:AT0 three:CRD year:NN1 period:NN1 ,:PUN and:CJC
+
+a two: as above
+  fed:VVN to:PRP                 a:AT0 two:CRD stage:NN1 frequency:NN1 divider:NN1 formed:VVD
+  ,:PUN making:VVG               a:AT0 two:CRD day:NN1 17p:NN0 gain:NN1 .:PUN
+  to:TO0 attack:VVI              a:AT0 two:CRD days:NN2 ,:PUN 17:CRD hours:NN2
+  deadlock:NN1 with:PRP          a:AT0 two:CRD to:PRP a:AT0 three:CRD .:PUN
+  Challenge:NN1 is:VBZ           a:AT0 two:CRD day:NN1 self-supported:NN1 trip:NN1 across:PRP
+  people:NN0 ,:PUN               a:AT0 two:CRD person:NN1 high:AJ0 or:CJC low:AJ0
+  had:VHD completed:VVN          a:AT0 two:CRD hour:NN1 programme:NN1 my:DPS friends:NN2
+  sometimes:AV0 accompanied:VVD  a:AT0 two:CRD hour:NN1 programme:NN1 of:PRF film:NN1
+  result:NN1 of:PRF              a:AT0 two:CRD year:NN1 campaign:NN1 at:PRP a:AT0
+  back:AVP after:PRP             a:AT0 two:CRD year:NN1 absence:NN1 caused:VVN by:PRP
+
+all a: "all" is a predeterminer on some NP from which it has become detached: "it is all a question" = "all of it is a question", "they all slept" = "all of them slept", ... Curious that you say "they all slept" but "they are all sleeping".
+  is:VBZ above:PRP               all:DT0 a:AT0 category:NN1 of:PRF book:NN1 in:PRP
+  It:PNP is:VBZ                  all:DT0 a:AT0 question:NN1 ,:PUN he:PNP wrote:VVD
+  give:VVI them:PNP              all:DT0 a:AT0 good:AJ0 education:NN1 and:CJC every:AT0
+  job:NN1 in:PRP                 all:AV0 a:AT0 handful:NN1 of:PRF restaurants:NN2 and:CJC
+  least:DT0 of:PRF               all:DT0 a:AT0 great:AJ0 detective:NN1 ,:PUN believes:VVZ
+  it:PNP 's:VBZ                  all:DT0 a:AT0 matter:NN1 of:PRF putting:VVG the:AT0
+  That:DT0 was:VBD               all:DT0 a:AT0 long:AJ0 time:NN1 ago:AV0 now:AV0
+  it:PNP 's:VBZ                  all:DT0 a:AT0 bit:NN1 new:AJ0 to:PRP me:PNP
+  It:PNP is:VBZ                  all:DT0 a:AT0 matter:NN1 of:PRF acclimatisation:NN1 ...:PUN
+  It:PNP s:ZZ0                   all:DT0 a:AT0 stramash:NN1 of:PRF gossip:NN1 down:AVP
+
+all an: "above all" is a phrase
+  and:CJC above:PRP              all:DT0 an:AT0 honest:AJ0 look:NN1 at:PRP why:AVQ
+  it:PNP was:VBD                 all:DT0 an:AT0 unwanted:AJ0 distraction:NN1 from:PRP the:AT0
+  was:VBD above:PRP              all:DT0 an:AT0 individualist:NN1 ,:PUN subjective:AJ0 art:NN1
+
+all any: "all" is a modifier on the VP
+  making:VVG it:PNP              all:DT0 any:DT0 easier:AJC for:PRP the:AT0 new:AJ0
+  form:NN1 room:NN1              all:AV0 any:AT0 one:NN1 could:VM0 talk:VVI about:PRP
+  It:PNP 's:VBZ                  all:AV0 any:AT0 one:NN1 wants:VVZ ,:PUN and:CJC
+  cleavage:NN1 is:VBZ            all:AV0 any:AT0 one:NN1 looks:VVZ at:PRP .:PUN
+
+all each: "all" is a modifier on the VP
+  We:PNP are:VBB                 all:DT0 each:PNX 's:VHZ authors:NN2 .:PUN &equo:PUQ
+
+all five: "all five" is a compound determiner, just like "five" is itself (so can take "of NN", and can omit the NN entirely)
+  examples:NN2 of:PRF            all:AV0 five:CRD have:VHB been:VBN secured:VVN for:PRP
+  screening:NN1 of:PRF           all:DT0 five:CRD Star:NN1 Trek:NN1 films:NN2 ,:PUN
+  have:VHB lost:VVN              all:DT0 five:CRD matches:NN2 so:AV0 far:AJ0 .:PUN
+  ago:AV0 between:PRP            all:DT0 five:CRD research:NN1 councils:NN2 and:CJC the:AT0
+  suggests:VVZ that:CJT          all:DT0 five:CRD Tribune:NN1 women:NN2 will:VM0 make:VVI
+  to:TO0 keep:VVI                all:DT0 five:CRD major:AJ0 steel:NN1 plants:NN2 in:PRP
+  Fernandel:NP0 played:VVD       all:DT0 five:CRD brothers:NN2 in:PRP five:CRD linked:AJ0
+  Berle:NP0 proposed:VVD         all:DT0 five:CRD freedoms:NN2 ,:PUN with:PRP an:AT0
+  based:VVN on:PRP               all:DT0 five:CRD freedoms:NN2 was:VBD accepted:VVN by:PRP
+  enter:VVI for:PRP              all:DT0 five:CRD competitions:NN2 but:CJC remember:VVB ,:PUN
+
+all four
+  recommend:VVB reading:NN1-VVG  all:DT0 four:CRD plays:NN2 and:CJC also:AV0 The:AT0
+  clear:AJ0 to:PRP               all:DT0 four:CRD of:PRF them:PNP that:CJT the:AT0
+  At:PRP luncheon:NN1            all:DT0 four:CRD of:PRF them:PNP fetched:VVD up:AVP
+  ***************:*************** If:CJS all:DT0 four:CRD of:PRF the:AT0 fields:NN2 below:AV0
+  sun:NN1 has:VHZ                all:DT0 four:CRD paws:NN2 buried:VVD under:PRP its:DPS
+  contents:NN2 of:PRF            all:DT0 four:CRD saucepans:NN2 .:PUN ***************:*************** ***************:***************
+  squaring:VVG cross:PRP         all:DT0 four:CRD at:AV0 .:PUN ***************:*************** ***************:***************
+  not:XX0 cut:VVN                all:DT0 four:CRD at:PRP one:CRD go:VVB ?:PUN
+  discussions:NN2 between:PRP    all:DT0 four:CRD parties:NN2 .:PUN ***************:*************** ***************:***************
+  ,:PUN and:CJC                  all:DT0 four:CRD are:VBB becoming:VVG understandable:AJ0 twitchy:NN1
+
+all his: "all NP(+def)"
+  he:PNP remained:VVD            all:DT0 his:DPS life:NN1 even:CJS he:PNP gave:VVD
+  conscious:AJ0 in:PRP           all:DT0 his:DPS creating:NN1 ,:PUN learning:VVG his:DPS
+  ***************:*************** From:PRP all:DT0 his:DPS great:AJ0 range:NN1 of:PRF delicate:AJ0
+  ***************:*************** For:PRP all:DT0 his:DPS standard:NN1 procedures:NN2 ,:PUN I:PNP
+  length:NN1 of:PRF              all:DT0 his:DPS arm:NN1 ,:PUN ***************:*************** ***************:***************
+  ,:PUN for:PRP                  all:DT0 his:DPS energy:NN1 and:CJC ambition:NN1 .:PUN
+  label:NN1 on:PRP               all:DT0 his:DPS umbrellas:NN2 with:PRP his:DPS name:NN1
+  're:VBB not:XX0                all:AV0 his:PNP .:PUN &equo:PUQ ***************:*************** ***************:***************
+  man:NN1 with:PRP               all:DT0 his:DPS wits:NN2 about:PRP him:PNP .:PUN
+  pilot:NN1 needs:VVZ            all:DT0 his:DPS wits:NN2 about:PRP him:PNP .:PUN
+
+all many: adverb
+  which:DTQ is:VBZ               all:DT0 many:DT0 of:PRF the:AT0 experts:NN2 demand:VVB
+
+all most: adverb
+  conversations:NN2 were:VBD     all:AV0 most:AV0 useful:AJ0 in:PRP helping:NN1-VVG people:NN0
+  This:DT0 is:VBZ                all:AV0 most:AV0 irregular:AJ0 and:CJC we:PNP shall:VM0
+
+all much: adverb
+  they:PNP were:VBD              all:DT0 much:AV0 affected:VVN by:PRP it:PNP .:PUN
+  it:PNP 's:VBZ                  all:AV0 much:AV0 worse:AJC .:PUN ***************:*************** ***************:***************
+
+all my: "all NP(+def)"
+  Read:VVB in:PRP                all:DT0 my:DPS Remarks:NN2 on:PRP these:DT0 Books:NN2
+  of:PRF leaving:VVG             all:DT0 my:DPS nursing:NN1 manuals:NN2 at:PRP home:NN1
+  I:PNP lost:VVD                 all:DT0 my:DPS earthly:AJ0 faculties:NN2 and:CJC fought:VVD
+  know:VVB Sharon:NP0            all:DT0 my:DPS life:NN1 all:AV0 I:PNP fuckin':VVG
+  for:PRP it:PNP                 all:DT0 my:DPS life:NN1 ,:PUN for:PRP such:DT0
+  that:CJT with:PRP              all:DT0 my:DPS previous:AJ0 work:NN1 I:PNP barely:AV0
+  ,:PUN with:PRP                 all:DT0 my:DPS preliminary:NN1 notes:NN2 and:CJC measurements:NN2
+  measurements:NN2 ,:PUN         all:DT0 my:DPS plans:NN2 and:CJC blueprints:NN2 ,:PUN
+  it:PNP was:VBD                 all:DT0 my:DPS fault:NN1 .</p>:PUN ***************:*************** ***************:***************
+  and:CJC with:PRP               all:DT0 my:DPS savings:NN2 gone:VVN ,:PUN I:PNP
+
+all of: "all NP(+def)". In "all of an equally high standard" it's an adverb on the whole VP.
+  expressed:VVN in:PRP           all:DT0 of:PRF the:AT0 organisational:AJ0 aspects:NN2 of:PRF
+  not:XX0 give:VVI               all:DT0 of:PRF the:AT0 support:NN1 required:VVD .:PUN
+  year:NN1 &mdash:PUN            all:DT0 of:PRF them:PNP long-term:AJ0 detainees:NN2 held:VVD
+  to:TO0 be:VBI                  all:DT0 of:PRF an:AT0 equally:AV0 high:AJ0 standard:NN1
+  have:VHB problems:NN2          all:DT0 of:PRF their:DPS own:DT0 .:PUN ***************:***************
+  ,:PUN to:PRP                   all:DT0 of:PRF the:AT0 participants:NN2 in:PRP the:AT0
+  constitutes:VVZ almost:AV0     all:DT0 of:PRF the:AT0 book:NN1 .:PUN ***************:***************
+  Ackroyd:NP0 is:VBZ             all:DT0 of:PRF the:AT0 formidable:AJ0 pasticheur:NN1 that:CJT
+  ,:PUN not:XX0                  all:DT0 of:PRF them:PNP writers:NN2 ;:PUN it:PNP
+  mind:NN1 ,:PUN                 all:DT0 of:PRF which:DTQ are:VBB virtually:AV0 unknown:AJ0
+
+all one: bit of a mess. Some of them are adverbs, the others I can't get
+  had:VHD surrounded:VVN         all:AV0 one:CRD of:PRF these:DT0 other:AJ0 events:NN2
+  about:PRP it:PNP               all:DT0 one:CRD of:PRF these:DT0 days:NN2 .:PUN
+  then:AV0 ,:PUN                 all:AV0 one:CRD-PNI just:AJ0 grade:NN1 II:CRD .:PUN
+  and:CJC removing:VVG           all:AV0 one:CRD-PNI or:CJC two:CRD of:PRF the:AT0
+  this:DT0 was:VBD               all:DT0 one:CRD society:NN0 ,:PUN in:PRP which:DTQ
+  freight-forwarding:NN1 from:PRP all:AV0 one:CRD South:NN1 American:AJ0 country:NN1 ,:PUN
+  ***************:*************** But:CJC all:AV0 one:CRD-PNI feels:VVZ is:VBZ a:AT0 talented:AJ0
+  release:NN1 of:PRF             all:AV0 one:CRD of:PRF the:AT0 black:AJ0 activists:NN2
+  and:CJC is:VBZ                 all:DT0 one:CRD single:AJ0 force:NN1 .:PUN ***************:***************
+  ,:PUN being:VBG                all:DT0 one:CRD race:NN1 .:PUN ***************:*************** ***************:***************
+
+all some: "In all" is a phrase, the others are just weird
+  ***************:*************** In:PRP all:DT0 some:DT0 7,200:CRD trading:AJ0 invoices:NN2 were:VBD
+  and:CJC in:PRP                 all:DT0 some:DT0 17:CRD Members:NN2 and:CJC Friends:NN2
+  extends:VVZ to:AVP-PRP         all:AV0 some:DT0 chrome:NN1 brightwork:NN1 and:CJC black:AJ0
+  explain:VVI that:CJT           all:DT0 some:DT0 people:NN0 get:VVB is:VBZ ten:CRD
+
+all the: DET+NP(+def)
+  can:VM0 make:VVI               all:DT0 the:AT0 difference:NN1 to:PRP some:AT0 one:NN1
+  he:PNP satisfies:VVZ           all:DT0 the:AT0 conditions:NN2 relating:VVG to:TO0 Gift:VVI
+  &bquo:PUQ &hellip:PUN          all:DT0 the:AT0 residue:NN1 of:PRF my:DPS estate:NN1
+  people:NN0 get:VVB             all:DT0 the:AT0 care:NN1 they:PNP need:VVB in:PRP
+  you:PNP for:PRP                all:DT0 the:AT0 help:NN1 you:PNP gave:VVD to:PRP
+  to:TO0 organise:VVI            all:DT0 the:AT0 available:AJ0 services:NN2 so:AV0 efficiently:AV0
+  Team:NN0 for:PRP               all:DT0 the:AT0 effort:NN1 and:CJC resources:NN2 you:PNP
+  help:NN1 makes:VVZ             all:DT0 the:AT0 difference:NN1 to:PRP people:NN0 sick:NN1
+  to:TO0 commemorate:VVI         all:DT0 the:AT0 prisoners:NN2 on:PRP whose:DTQ behalf:VVB
+  write:VVI until:CJS            all:DT0 the:AT0 prisoners:NN2 of:PRF conscience:NN1 in:PRP
+
+all their: DET+NP(+def)
+  ,:PUN in:PRP                   all:DT0 their:DPS slippery:AJ0 bliss:NN1 .:PUN ***************:***************
+  working:VVG with:PRP           all:DT0 their:DPS complexities:NN2 .:PUN ***************:*************** ***************:***************
+  floor:NN1 and:CJC              all:DT0 their:DPS teeth:NN2 drop:VVB out:AVP .</p>:PUN
+  provide:VVI for:PRP            all:DT0 their:DPS needs:NN2 and:CJC take:VVB them:PNP
+  check:NN1 to:PRP               all:DT0 their:DPS patients:NN2 aged:PRP 75:CRD and:CJC
+  ,:PUN for:PRP                  all:DT0 their:DPS excellence:NN1 ,:PUN he:PNP did:VDD
+  crowds:NN2 and:CJC             all:DT0 their:DPS meetings:NN2 seemed:VVD a:AT0 success:NN1
+  them:PNP through:PRP           all:DT0 their:DPS traumas:NN2 and:CJC their:DPS losses:NN2
+  ,:PUN like:PRP                 all:DT0 their:DPS products:NN2 ,:PUN is:VBZ a:AT0
+  to:TO0 extract:VVI             all:DT0 their:DPS blue:NN1 and:CJC white:AJ0 asbestos:NN1
+
+all three
+  much:AV0 to:PRP                all:DT0 three:CRD books:NN2 &mdash:PUN like:PRP that:DT0
+  bring:VVB together:AV0         all:DT0 three:CRD of:PRF the:AT0 worlds:NN2 we:PNP
+  combination:NN1 of:PRF         all:DT0 three:CRD .:PUN ***************:*************** ***************:*************** ***************:***************
+  ***************:*************** And:CJC all:DT0 three:CRD of:PRF them:PNP made:VVD for:PRP
+  decency:NN1 for:PRP            all:DT0 three:CRD of:PRF them:PNP ,:PUN while:CJS
+  ***************:*************** Soon:AV0 all:DT0 three:CRD of:PRF them:PNP were:VBD reeling:VVG
+  person:NN1 answered:VVD        all:DT0 three:CRD questions:NN2 correctly:AV0 ::PUN Alan:NP0
+  ***************:*************** Now:CJS all:DT0 three:CRD passenger:NN1 sectors:NN2 prefer:VVB unit:NN1
+  &pound;12million:NN0 and:CJC   all:AV0 three:CRD million:CRD pounds:NN2 had:VHD been:VBN
+  age:NN1 &mdash:PUN             all:DT0 three:CRD topics:NN2 being:VBG an:AT0 essential:AJ0
+all two
+  frightened:VVN off:AVP-PRP     all:AV0 two:CRD rivals:NN2 in:PRP the:AT0 Makerfield:NP0
+  Circus:NP0 because:CJS         all:AV0 two:CRD of:PRF the:AT0 barriers:NN2 were:VBD
+  black:AJ0 and:CJC              all:AV0 two:CRD from:PRP minority:NN1 groups:NN2 ,:PUN
+  16-year-olds:NN2 abandon:VVB   all:AV0 two:CRD or:CJC three:CRD academic:AJ0 subjects:NN2
+  sense:NN1 of:PRF               all:DT0 two:CRD thousand:CRD to:PRP four:CRD thousand:CRD
+  found:VVD that:CJT             all:AV0 two:CRD bishops:NN2 were:VBD willing:AJ0 and:CJC
+all your
+  could:VM0 covenant:VVI         all:DT0 your:DPS taxable:AJ0 income:NN1 if:CJS you:PNP
+  use:NN1 of:PRF                 all:DT0 your:DPS correct:AJ0 drawing:NN1 and:CJC pure:AJ0
+  feel:VVI that:CJT              all:DT0 your:DPS creative:AJ0 skill:NN1 is:VBZ being:VBG
+  off:AVP from:PRP               all:DT0 your:DPS old:AJ0 friends:NN2 ,:PUN and:CJC
+  type:NN1 in:PRP                all:DT0 your:DPS accounting:NN1 figures:NN2 again:AV0 ,:PUN
+  scene:NN1 of:PRF               all:DT0 your:DPS contrivances:NN2 .:PUN &equo</p>:PUQ ***************:***************
+  ***************:*************** Get:VVB all:DT0 your:DPS benefits:NN2 sorted:VVD out:AVP and:CJC
+  's:VBZ not:XX0                 all:DT0 your:DPS fault:NN1 .:PUN ***************:*************** ***************:***************
+  Flying:VVG demands:NN2         all:DT0 your:DPS concentration:NN1 and:CJC it:PNP is:VBZ
+  should:VM0 forget:VVI          all:DT0 your:DPS other:AJ0 problems:NN2 and:CJC concentrate:VVB
+
+an a
+  likened:VVD to:PRP             an:AT0 a:AJ0 menu:NN1 from:PRP which:DTQ entrepreneurs:NN2
+
+an all: "all" here is a modifier on a following adjective!
+  faces:NN2 as:PRP               an:AT0 all:DT0 or:CJC none:PNI process:NN1 ,:PUN
+  final:NN1 was:VBD              an:AT0 all:DT0 Derby:NN1 affair:NN1 ,:PUN in:PRP
+  probably:AV0 at:PRP            an:AT0 all:DT0 time:NN1 high:NN1 .:PUN ***************:***************
+  to:TO0 become:VVI              an:AT0 all:DT0 HST:NN1 operation:NN1 so:CJS some:DT0
+  ,:PUN and:CJC                  an:AT0 all:DT0 black:AJ0 movie:NN1 house:NN1 ,:PUN
+  more:AV0 than:CJS              an:AT0 all:DT0 too:AV0 easily:AV0 imagined:AJ0-VVD regression:NN1
+  &mdash:PUN albeit:CJS          an:AT0 all:DT0 new:AJ0 3.2-litre:NN1 204bhp:NN0 unit:NN1
+  ,:PUN with:PRP                 an:AT0 all:DT0 too:AV0 frequent:AJ0 tragic:AJ0 outcome:NN1
+  This:DT0 means:VVZ             an:AT0 all:DT0 round:AJ0 rise:NN1 of:PRF 4lb:NN0
+  This:DT0 means:VVZ             an:AT0 all:DT0 round:AJ0 rise:NN1 of:PRF 4lb:NN0
+
+an an: rubbish
+  's:POS was:VBD                 an:AT0 an:AT0 excellent:AJ0 PR:NP0 ploy:NN1 as:CJS
+
+an every: should have been "an ever present ingredient"
+  Image:NN1 &mdash:PUN           an:AT0 every:AT0 present:NN1 ingredient:NN1 to:PRP the:AT0
+
+an my: "and"
+  I:CRD me:PNP                   an:AT0 my:DPS garden:NN1 attracts:VVZ every:AT0 thing:NN1
+
+an of: quite frequent, but still rubbish
+  There:EX0 were:VBD             an:PNI of:PRF nice:AJ0 people:NN0 working:VVG in:PRP
+  There:EX0 were:VBD             an:PNI of:PRF tedious:AJ0 hours:NN2 for:PRP me:PNP
+  There:EX0 are:VBB              an:PNI of:PRF people:NN0 monitoring:VVG the:AT0 situation:NN1
+  university:NN1 ,:PUN           an:PNI of:PRF students:NN2 from:PRP wealthy:AJ0 backgrounds:NN2
+  will:VM0 be:VBI                an:PNI of:PRF weekend:NN1 working:VVG .:PUN &equo:PUQ
+  you:PNP get:VVB                an:PNI of:PRF hassle:NN1 when:AVQ all:DT0 your:DPS
+  ***************:*************** Like:PRP an:PNI of:PRF other:AJ0 things:NN2 Malcolm:NP0 worked:VVD
+  heat:VVI a:AT0                 an:AT0 of:PRF beans:NN2 very:AV0 ,:PUN very:AV0
+  would:VM0 get:VVI              an:PNI of:PRF value:NN1 from:PRP working:VVG with:PRP
+  to:TO0 be:VBI                  an:PNI of:PRF noise:NN1 going:VVG on:AVP ,:PUN
+
+any a: rubbish
+  there:EX0 was:VBD              any:AV0 a:AT0 problem:NN1 with:PRP contemporary:AJ0 music:NN1
+  platform:NN1 for:PRP           any:DT0 a:AT0 potential:NN1 bidder:NN1 &mdash:PUN has:VHZ
+
+any of: "of NP(+def)"
+  Books:NN2 on:PRP               any:DT0 of:PRF these:DT0 topics:NN2 are:VBB likely:AJ0
+  critic:NN1 in:PRP              any:DT0 of:PRF these:DT0 cases:NN2 to:TO0 describe:VVI
+  ,:PUN choose:VVB               any:DT0 of:PRF the:AT0 four:CRD points:NN2 of:PRF
+  mentioned:VVN in:PRP           any:DT0 of:PRF the:AT0 books:NN2 .:PUN ***************:***************
+  never:AV0 win:VVI              any:DT0 of:PRF the:AT0 races:NN2 Ronnie:NP0 had:VHD
+  not:XX0 included:VVN           any:DT0 of:PRF the:AT0 well:AV0 known:VVD speeches:NN2
+  piece:NN1 from:PRP             any:DT0 of:PRF those:DT0 just:AV0 mentioned:VVN is:VBZ
+  ***************:*************** Than:CJS any:DT0 of:PRF her:DPS lineaments:NN2 can:VM0 show:VVI
+  conception:NN1 of:PRF          any:DT0 of:PRF 'em:NN1 .:PUN ***************:*************** ***************:***************
+  students:NN2 from:PRP          any:DT0 of:PRF the:AT0 drama:NN1 schools:NN2 ;:PUN
+
+any one: "any NP(counted)". "one" here is indeed a number, not "anyone". 
+  covered:VVD at:PRP             any:DT0 one:CRD time:NN1 by:PRP our:DPS on:PRP
+  donations:NN2 in:PRP           any:DT0 one:CRD tax:NN1 year:NN1 ):PUR .:PUN
+  covered:VVD at:PRP             any:DT0 one:CRD time:NN1 by:PRP our:DPS London:NP0
+  infection:NN1 at:PRP           any:DT0 one:CRD time:NN1 .:PUN ***************:*************** ***************:***************
+  ***************:*************** Can:VM0 any:AT0 one:NN1 can:VM0 offer:VVI a:AT0 holiday:NN1
+  credit:NN1 for:PRP             any:AT0 one:NN1 's:POS freedom:NN1 .:PUN ***************:***************
+  out:AVP whether:CJS            any:AT0 one:NN1 has:VHZ been:VBN found:VVN responsible:AJ0
+  reader:NN1 of:PRF              any:DT0 one:CRD of:PRF these:DT0 elements:NN2 .:PUN
+  ***************:*************** ***************:*************** any:AT0 one:NN1 who:PNQ expects:VVZ this:DT0 book:NN1
+  ***************:*************** If:CJS any:DT0 one:CRD element:NN1 in:PRP his:DPS style:NN1
+
+any the: looks like you can form something adjectival out of "any the ADJ"
+  made:VVD you:PNP               any:DT0 the:AT0 better:AJC ?:PUN ***************:*************** ***************:***************
+  is:VBZ never:AV0               any:AV0 the:AT0 original:AJ0 object:NN1 but:CJC only:AV0
+  one:NN1 was:VBD                any:DT0 the:AT0 wiser:AJC .:PUN ***************:*************** ***************:***************
+  leave:VVB no:PNI               any:DT0 the:AT0 wiser:AJC .:PUN ***************:*************** ***************:***************
+  power:NN1 was:VBD              any:AV0 the:AT0 foundation:NN1 upon:PRP which:DTQ the:AT0
+  MacDonald:NP0 was:VBD          any:DT0 the:AT0 less:DT0 of:PRF a:AT0 socialist:NN1
+  ,:PUN in:PRP                   any:DT0 the:AT0 slightest:AJS manner:NN1 .:PUN &equo:PUQ
+
+any three: "any NP(counted)"
+  circle:NN1 through:PRP         any:DT0 three:CRD points:NN2 .:PUN ***************:*************** ***************:***************
+any two: "any NP(counted)"
+  not:XX0 even:AV0               any:DT0 two:CRD or:CJC three:CRD books:NN2 ,:PUN
+  or:CJC even:AV0                any:DT0 two:CRD ,:PUN because:CJS if:CJS opposed:VVN
+  products:NN2 of:PRF            any:DT0 two:CRD mines:NN2 .:PUN ***************:*************** ***************:***************
+  &equo:PUQ between:PRP          any:DT0 two:CRD axes:NN2 .:PUN ***************:*************** ***************:***************
+  distance:NN1 between:PRP       any:DT0 two:CRD atoms:NN2 anywhere:AV0 ,:PUN then:AV0
+
+each a: "each" is a pronoun or soem kind of post-determiner
+  We:PNP gave:VVD                each:PNX a:AT0 long:AJ0 hug:NN1 .:PUN ***************:***************
+  sending:VVG them:PNP           each:DT0 a:AT0 booklet:NN1 when:AVQ their:DPS policies:NN2
+  or:CJC hit:VVD                 each:PNX a:AT0 clout:NN1 .:PUN ***************:*************** ***************:***************
+  gave:VVD us:PNP                each:DT0 a:AT0 balloon:NN1 and:CJC told:VVD us:PNP
+  10ft:NN0 ,:PUN                 each:DT0 a:DT0 different:AJ0 ,:PUN and:CJC each:DT0
+  gave:VVD us:PNP                each:DT0 a:AT0 box:NN1 of:PRF 25:CRD albums:NN2
+  have:VHB known:VVN             each:PNX a:AT0 long:AJ0 time:NN1 ,:PUN and:CJC
+  triplets:NN2 ,:PUN             each:DT0 a:AT0 thousandth:ORD of:PRF a:AT0 second:NN1
+  ***************:*************** In:PRP each:DT0 a:AT0 Tam:NN1 o'Shanter:NN1 called:VVD a:AT0
+  made:VVD them:PNP              each:DT0 a:AT0 cup:NN1 of:PRF tea:NN1 ,:PUN
+
+each all
+  We:PNP avoided:VVD             each:PNX all:DT0 evening:NN1 until:CJS it:PNP was:VBD
+
+each an: ", each an NN" makes an appositive noun modifier
+  play:NN1 ,:PUN                 each:DT0 an:AT0 intrinsic:AJ0 dimension:NN1 of:PRF social:AJ0
+  found:VVN in:PRP               each:PNX an:AT0 all-embracing:NN1 spiritual:AJ0 compatibility:NN1 .:PUN
+  sale:NN1 &mdash:PUN            each:DT0 an:AT0 individual:AJ0 design:NN1 &mdash:PUN and:CJC
+  faces:NN2 ,:PUN                each:DT0 an:AT0 equilateral:AJ0 triangle:NN1 .:PUN ***************:***************
+  faces:NN2 ,:PUN                each:DT0 an:AT0 equilateral:AJ0 triangle:NN1 .:PUN ***************:***************
+
+each his: "to each his own" is a fixed phrase
+  &bquo:PUQ To:PRP               each:DT0 his:DPS own:DT0 ,:PUN &equo:PUQ says:VVZ
+
+each many: not connected ("each" can occur without an N)
+  to:TO0 see:VVI                 each:PNX many:DT0 more:DT0 times:NN2 .:PUN ***************:***************
+
+each of: standard stuff
+  men:NN2 ,:PUN                  each:DT0 of:PRF his:DPS contemporaries:NN2 in:PRP turn:NN1
+  churches:NN2 ,:PUN             each:DT0 of:PRF which:DTQ encodes:VVZ the:AT0 symbols:NN2
+  image:NN1 of:PRF               each:DT0 of:PRF us:PNP may:VM0 be:VBI in:PRP
+  cassettes:NN2 ,:PUN            each:DT0 of:PRF which:DTQ can:VM0 hold:VVI all:DT0
+  reason:NN1 why:AVQ             each:DT0 of:PRF these:DT0 six:CRD women:NN2 would:VM0
+  looked:VVD at:PRP              each:DT0 of:PRF the:AT0 women:NN2 in:PRP turn:NN1
+  me:PNP when:AVQ                each:DT0 of:PRF my:DPS parents:NN2 died:VVD ,:PUN
+  part:NN1 ,:PUN                 each:DT0 of:PRF whom:PNQ will:VM0 be:VBI sent:VVN
+  plants:NN2 of:PRF              each:DT0 of:PRF the:AT0 eight:CRD varieties:NN2 to:TO0
+  ***************:*************** Certainly:AV0 each:DT0 of:PRF the:AT0 six:CRD crab:NN1 apples:NN2
+
+each one: "one" here is a noun
+  message:NN1 ,:PUN              each:DT0 one:PNI having:VHG had:VHN experience:NN1 of:PRF
+  it:PNP connects:VVZ            each:DT0 one:PNI of:PRF them:PNP with:PRP their:DPS
+  is:VBZ up:PRP                  each:DT0 one:PNI of:PRF us:PNP ,:PUN he:PNP
+  apples:NN2 from:PRP            each:DT0 one:PNI .:PUN ***************:*************** ***************:*************** ***************:***************
+  tip:NN1 of:PRF                 each:DT0 one:PNI ;:PUN houses:NN2 blurred:VVD past:AV0
+  cottages:NN2 ,:PUN             each:DT0 one:PNI reduced:VVD to:PRP its:DPS ground:NN1
+  's:VBZ ,:PUN                   each:DT0 one:PNI in:PRP turn:NN1 ,:PUN while:CJS
+  phrases:NN2 ,:PUN              each:DT0 one:PNI is:VBZ of:PRF equal:AJ0 value:NN1
+  ***************:*************** ***************:*************** each:DT0 one:PNI in:PRP his:DPS god:NN1 's:POS
+  ***************:*************** &bquo:PUQ each:DT0 one:PNI in:PRP the:AT0 name:NN1 &equo:PUQ
+
+each some: free-standing "each"
+  easily:AV0 teach:VVI           each:PNX some:AT0 thing:NN1 and:CJC share:NN1 emotions:NN2
+
+each the: free-standing "each"
+  ***************:*************** In:PRP each:DT0 the:AT0 primitive:NN1 ,:PUN sometimes:AV0 bestial:AJ0
+  square:VVB up:PRP              each:PNX the:AT0 spouses:NN2 of:PRF the:AT0 first:ORD
+  demonstrate:VVI to:PRP         each:PNX the:AT0 blatant:AJ0 ludicrousness:NN1 of:PRF el:NN1
+
+each their: free-standing "each"
+  people:NN0 envy:VVB            each:PNX their:DPS success:NN1 while:CJS feeling:VVG faintly:AV0
+  But:CJC without:PRP            each:PNX their:DPS lives:NN2 would:VM0 be:VBI incomplete:AJ0
+
+each two: free-standing "each"
+  Bridgestone:NP0 ,:PUN          each:DT0 two:CRD to:PRP three:CRD times:NN2 the:AT0
+
+every few: "few" is a counter?
+  it:PNP regularly:AV0           every:AT0 few:DT0 circles:NN2 .:PUN ***************:*************** ***************:***************
+  the:AT0 airspeed:NN1           every:AT0 few:DT0 seconds:NN2 .:PUN ***************:*************** ***************:***************
+  the:AT0 speed:NN1              every:AT0 few:DT0 seconds:NN2 .:PUN ***************:*************** ***************:***************
+  the:AT0 movement:NN1           every:AT0 few:DT0 feet:NN2 .:PUN ***************:*************** ***************:***************
+  time:NN1 because:CJS           every:AT0 few:DT0 seconds:NN2 he:PNP stopped:VVD and:CJC
+  wash:VVB them:PNP              every:AT0 few:DT0 months:NN2 .:PUN ***************:*************** ***************:***************
+  the:AT0 clothes:NN2            every:AT0 few:DT0 months:NN2 ,:PUN or:CJC moths:NN2
+  the:AT0 action:NN1             every:AT0 few:DT0 minutes:NN2 to:TO0 make:VVI tiny:AJ0
+  have:VHB continued:VVN         every:AT0 few:DT0 months:NN2 since:CJS then:AV0 .:PUN
+  ***************:*************** bomb:VVB every:AT0 few:DT0 minutes:NN2 ,:PUN their:DPS target:NN1
+
+every five: "five" is a counter
+  tested:VVN at:AV0              every:AT0 five:CRD years:NN2 you:PNP should:VM0 have:VHI
+  issued:VVN with:PRP            every:AT0 five:CRD new:AJ0 shares:NN2 .:PUN ***************:***************
+  a:AT0 track:NN1                every:AT0 five:CRD seconds:NN2 for:PRP 20:CRD minutes:NN2
+  Four:CRD out:PRP               every:AT0 five:CRD restaurants:NN2 serve:VVB them:PNP ,:PUN
+  ,:PUN and:CJC                  every:AT0 five:CRD peasant:NN1 households:NN2 contributing:VVG for:PRP
+  ,:PUN whilst:CJS               every:AT0 five:CRD peasant:NN1 households:NN2 had:VHD to:TO0
+  a:AT0 visitation:NN1           every:AT0 five:CRD years:NN2 ,:PUN when:AVQ he:PNP
+  one:CRD in:PRP                 every:AT0 five:CRD TV:NN1 sets:NN2 sold:VVD in:PRP
+  two:CRD out:PRP                every:AT0 five:CRD full-time:AJ0 workers:NN2 in:PRP Britain:NP0
+  be:VBI re-ridged:VVN           every:AT0 five:CRD years:NN2 or:CJC so:AV0 and:CJC
+
+every four
+  ***************:*************** For:PRP every:AT0 four:CRD windows:NN2 on:PRP a:AT0 Mark:NN1
+  verst:NN1 for:PRP              every:AT0 four:CRD and:CJC a:AT0 half:DT0 hours.The:NN0
+  replacing:VVG them:PNP         every:AT0 four:CRD years:NN2 .:PUN ***************:*************** ***************:***************
+  small:AJ0 and:CJC              every:AT0 four:CRD years:NN2 the:AT0 visit:NN1 of:PRF
+  week:NN1 in:PRP                every:AT0 four:CRD ,:PUN &equo:PUQ explains:VVZ Wendy:NP0
+  One:CRD-PNI in:PRP             every:AT0 four:CRD purchases:NN2 from:PRP your:DPS local:AJ0
+  in:PRP brightness:NN1          every:AT0 four:CRD days:NN2 or:CJC so:AV0 .:PUN
+  in:PRP brightness:NN1          every:AT0 four:CRD days:NN2 or:CJC so:AV0 .:PUN
+  one:CRD-PNI in:PRP             every:AT0 four:CRD of:PRF Romania:NP0 's:POS 23:CRD
+  one:CRD for:PRP                every:AT0 four:CRD doctors:NN2 ,:PUN and:CJC an:AT0
+
+every one: "everyone"
+  addresses:NN2 of:PRF           every:AT0 one:NN1 who:PNQ wrote:VVD to:PRP them:PNP
+  ,:PUN so:CJS                   every:AT0 one:NN1 can:VM0 say:VVI ,:PUN &bquo:PUQ
+  like:PRP practically:AV0       every:AT0 one:NN1 else:AV0 on:PRP the:AT0 island:NN1
+  mind:NN1 where:AVQ             every:AT0 one:NN1 copies:NN2 and:CJC steals:VVZ from:PRP
+  steals:VVZ from:PRP            every:AT0 one:NN1 else:AV0 ,:PUN where:CJS every:AT0
+  ***************:*************** Not:XX0 every:AT0 one:NN1 who:PNQ reads:VVZ the:AT0 book:NN1
+  will:VM0 touch:VVI             every:AT0 one:NN1 on:PRP the:AT0 raw:AJ0 &equo:PUQ
+  aspect:NN1 of:PRF              every:AT0 one:CRD of:PRF his:DPS novels:NN2 ,:PUN
+  ):PUR but:CJC                  every:AT0 one:NN1 suffered:VVD from:PRP an:AT0 unceasing:AJ0
+  some:AT0 thing:NN1             every:AT0 one:NN1 wonders:VVZ when:AVQ starting:VVG out:AVP
+
+every three
+  two:CRD out:PRP                every:AT0 three:CRD human:NN1 beings:NN2 live:VVB under:PRP
+  changed:VVN once:CJS           every:AT0 three:CRD years:NN2 .:PUN ***************:*************** ***************:***************
+  in:PRP Britain:NP0             every:AT0 three:CRD minutes:NN2 .:PUN ***************:*************** ***************:***************
+  breast:NN1 X-rays:NN2          every:AT0 three:CRD years:NN2 to:PRP all:DT0 women:NN2
+  be:VBI screened:VVN            every:AT0 three:CRD years:NN2 on:PRP request:NN1 .:PUN
+  ):PUR after:CJS                every:AT0 three:CRD or:CJC four:CRD compiled:AJ0 instructions:NN2
+  50,000:CRD people:NN0          every:AT0 three:CRD months:NN2 .:PUN ***************:*************** ***************:***************
+  be:VBI sent:VVN                every:AT0 three:CRD years:NN2 to:TO0 assuage:VVI the:AT0
+  VAT:NN1 return:VVB             every:AT0 three:CRD months:NN2 with:PRP the:AT0 Customs:NN2
+  ,:PUN for:PRP                  every:AT0 three:CRD children:NN2 you:PNP help:VVB us:PNP
+
+every two
+  pee:NN1 once:CJS               every:AT0 two:CRD or:CJC three:CRD hours:NN2 ,:PUN
+  be:VBI replaced:VVN            every:AT0 two:CRD to:PRP five:CRD years:NN2 ,:PUN
+  reapply:AV0 at:AV0             every:AT0 two:CRD hours:NN2 ,:PUN as:CJS sweat:NN1
+  one:CRD limb:NN1               every:AT0 two:CRD months:NN2 ,:PUN slightly:AV0 longer:AJC
+  one:CRD step:NN1               every:AT0 two:CRD minutes:NN2 ,:PUN and:CJC that:CJT
+  be:VBI done:VDN                every:AT0 two:CRD weeks:NN2 .:PUN ***************:*************** ***************:***************
+  or:CJC gunshots:NN2            every:AT0 two:CRD days:NN2 in:PRP Brazil:NP0 and:CJC
+  older:AJC once:CJS             every:AT0 two:CRD months:NN2 .:PUN ***************:*************** ***************:***************
+  the:AT0 wall-nest:NN1          every:AT0 two:CRD or:CJC three:CRD days:NN2 ;:PUN
+  a:AT0 report:NN1               every:AT0 two:CRD months:NN2 from:PRP the:AT0 Bednota:NN1
+
+few of: DET+NP(of). But interesting that it includes "a few of", "so few of", "as few of"
+  that:CJT so:CJS                few:DT0 of:PRF Gainsborough:NP0 's:POS letters:NN2 have:VHB
+  only:AV0 a:AT0                 few:DT0 of:PRF the:AT0 varied:AJ0 topics:NN2 which:DTQ
+  that:CJT precious:AJ0          few:DT0 of:PRF us:PNP are:VBB blessed:VVN with:PRP
+  can:VM0 be:VBI                 few:DT0 of:PRF us:PNP who:PNQ can:VM0 not:XX0
+  colonies:NN2 ,:PUN             few:DT0 of:PRF the:AT0 insects:NN2 surviving:VVG to:TO0
+  there:EX0 are:VBB              few:DT0 of:PRF us:PNP who:PNQ never:AV0 need:VVB
+  but:CJC which:DTQ              few:DT0 of:PRF the:AT0 chief:AJ0 officers:NN2 seem:VVB
+  as:PRP a:AT0                   few:DT0 of:PRF them:PNP came:VVD out:AVP from:PRP
+  ,:PUN and:CJC                  few:DT0 of:PRF its:DPS responsibilities:NN2 .:PUN ***************:***************
+  ;:PUN very:AV0                 few:DT0 of:PRF our:DPS players:NN2 have:VHB winning:AJ0
+
+five a: "five a day", "sixty miles an hour", plus some rubbish
+  of:PRF almost:AV0              five:CRD a:AT0 day:NN1 ,:PUN according:PRP the:AT0
+  of:PRF almost:AV0              five:CRD a:AT0 day:NN1 ,:PUN one:CRD-PNI could:VM0
+  ,:PUN to:PRP                   five:CRD a:AT0 fire-insulating:NN1 coating:NN1 .:PUN ***************:***************
+  did:VDD n't:XX0                five:CRD a:AT0 monkeys:NN2 what:DTQ they:PNP were:VBD
+
+five an: as above
+  at:PRP nearly:AV0              five:CRD an:AT0 over:NN1 ,:PUN despite:PRP some:DT0
+  at:PRP almost:AV0              five:CRD an:AT0 over:NN1 .:PUN ***************:*************** ***************:***************
+
+five each: accident
+  nine:CRD to:PRP                five:CRD each:DT0 weekday:NN1 ,:PUN and:CJC nurses:NN2
+
+five of: DET+NP(of)
+  out:PRP the:AT0                five:CRD of:PRF them:PNP .:PUN ***************:*************** ***************:***************
+  there:EX0 were:VBD             five:CRD of:PRF us:PNP who:PNQ shared:VVD the:AT0
+  Harkness:NP0 ,:PUN             five:CRD of:PRF the:AT0 country:NN1 's:POS leading:AJ0
+  In:PRP only:AV0                five:CRD of:PRF those:DT0 factories:NN2 were:VBD the:AT0
+  livery:NN1 to:PRP              five:CRD of:PRF its:DPS top-link:NN1 diesels:NN2 .:PUN
+  were:VBD without:PRP           five:CRD of:PRF their:DPS Welsh:AJ0 squad:NN1 members:NN2
+  He:PNP won:VVD                 five:CRD of:PRF the:AT0 1988:CRD contests:NN2 and:CJC
+  the:AT0 big:AJ0                five:CRD of:PRF Sony:NN1 ,:PUN Thorn:NP0 EMI:NP0
+  the:AT0 last:ORD               five:CRD of:PRF them:PNP as:AV0 first:ORD the:AT0
+  church:NN1 for:PRP             five:CRD of:PRF the:AT0 victims:NN2 .:PUN ***************:***************
+
+four a: as above
+  lectures:NN2 &mdash:PUN        four:CRD a:AT0 week:NN1 .:PUN ***************:*************** ***************:***************
+  compared:VVD with:PRP          four:CRD a:AT0 week:NN1 previously:AV0 .:PUN ***************:***************
+
+four an: as above
+  Julien:NN1 conceded:VVD        four:CRD an:AT0 over:NN1 from:PRP 34:CRD overs:NN2
+
+four each: needs a look
+  faction:NN1 ,:PUN              four:CRD each:DT0 from:PRP the:AT0 factions:NN2 led:VVN
+
+four every: accident
+  late:AJ0 opening:NN1           four:CRD every:AT0 Friday:NP0 ,:PUN seven:CRD on:PRP
+
+four five
+  two:CRD three:CRD              four:CRD five:CRD six:CRD not:XX0 yet:AV0 seven:CRD
+  two:CRD three:CRD              four:CRD five:CRD six:CRD not:XX0 yet:AV0 seven:CRD
+
+four of: standard DET+NP(of), plus "one in N of NP"
+  one:CRD-PNI in:PRP             four:CRD of:PRF all:DT0 those:DT0 dying:NN1-VVG with:PRP
+  one:CRD-PNI in:PRP             four:CRD of:PRF all:DT0 those:DT0 who:PNQ died:VVD
+  one:CRD-PNI in:PRP             four:CRD of:PRF those:DT0 dying:NN1-VVG with:PRP AIDS:NN1
+  Mahmud:NP0 are:VBB             four:CRD of:PRF 315:CRD Kurdish:NN0 children:NN2 and:CJC
+  to:PRP all:DT0                 four:CRD of:PRF them:PNP that:CJT the:AT0 forensic:AJ0
+  luncheon:NN1 all:DT0           four:CRD of:PRF them:PNP fetched:VVD up:AVP in:PRP
+  were:VBD only:AV0              four:CRD of:PRF us:PNP left:VVD when:AVQ the:AT0
+  If:CJS all:DT0                 four:CRD of:PRF the:AT0 fields:NN2 below:AV0 are:VBB
+  family:NN0 of:PRF              four:CRD of:PRF modest:AJ0 intent:NN1 ,:PUN yet:AV0
+  I:CRD ATTENDED:NN0             four:CRD of:PRF the:AT0 evening:NN1 sessions:NN2 of:PRF
+
+four the: accident
+  in:PRP stage:NN1               four:CRD the:AT0 refinement:NN1 of:PRF imagery:NN1 and:CJC
+  'Six:NN1 to:PRP                four:CRD the:AT0 rat:NN1 ,:PUN &equo:PUQ he:PNP
+
+four three
+  for:PRP number:NN1             four:CRD three:CRD six:CRD .:PUN &equo:PUQ ***************:***************
+
+his a: accident
+  just:AV0 given:VVN             his:PNP a:AT0 jolt:NN1 .:PUN ***************:*************** ***************:***************
+
+his all: "(give) his all" is a fixed expression. First one is accident
+  use:NN1 of:PRF                 his:DPS all:DT0 night:NN1 does:VDZ rather:AV0 direct:VVI
+  and:CJC giving:VVG             his:DPS all:DT0 to:TO0 express:VVI the:AT0 joys:NN2
+
+his every: "his every N"
+  rumours:NN2 surrounding:VVG    his:PNP every:AT0 activity:NN1 .:PUN ***************:*************** ***************:***************
+  turn:NN1 on:PRP                his:PNP every:AT0 approach:NN1 to:PRP Notting:NP0 Hill:NP0
+  eyes:NN2 followed:VVD          his:PNP every:AT0 move:NN1 .:PUN ***************:*************** ***************:***************
+  energy:NN1 in:PRP              his:PNP every:AT0 movement:NN1 .:PUN ***************:*************** ***************:***************
+  ever:AV0 ::PUN                 his:PNP every:AT0 decibel:NN1 rang:VVD out:AVP with:PRP
+  on:AVP to:PRP                  his:PNP every:AT0 word:NN1 ,:PUN and:CJC to:PRP
+  ground:NN1 ,:PUN               his:PNP every:AT0 move:NN1 was:VBD shadowed:VVN .:PUN
+
+his few: "his NP(count)"
+  ***************:*************** With:PRP his:DPS few:DT0 belongings:NN2 it:PNP was:VBD home:AV0
+  use:NN1 of:PRF                 his:DPS few:DT0 square:AJ0 feet:NN2 of:PRF soil:NN1
+  Noriega:NP0 and:CJC            his:DPS few:DT0 remaining:AJ0 allies:NN2 would:VM0 be:VBI
+  ,:PUN and:CJC                  his:DPS few:DT0 references:NN2 to:PRP understanding:VVG the:AT0
+
+his five: "his NP(count)"
+  Table:NN1 in:PRP               his:DPS five:CRD years:NN2 with:PRP the:AT0 company:NN1
+  attempted:AJ0-VVD with:PRP     his:DPS five:CRD leitmotifs:NN2 for:PRP Giselle:NP0 (:PUL
+  promptly:AV0 consigned:VVD     his:DPS five:CRD per:NN0 of:PRF the:AT0 vote:NN1
+  manager:NN1 on:PRP             his:DPS five:CRD previous:AJ0 appearances:NN2 .:PUN ***************:***************
+  three:CRD of:PRF               his:DPS five:CRD races:NN2 and:CJC he:PNP is:VBZ
+  three:CRD of:PRF               his:DPS five:CRD years:NN2 as:CJS mayor:NN1 of:PRF
+  undermined:VVN in:PRP          his:DPS five:CRD years:NN2 as:CJS chancellor:NN1 .:PUN
+  dwarfed:VVN by:PRP             his:DPS five:CRD lively:AJ0 ,:PUN wryly:AV0 humorous:AJ0
+  four:CRD of:PRF                his:DPS five:CRD races:NN2 during:PRP the:AT0 1982&ndash;3:NN1
+
+his four
+  three:CRD of:PRF               his:DPS four:CRD at-bats:NN2 .:PUN ***************:*************** ***************:***************
+  ::PUN all:DT0                  his:DPS four:CRD books:NN2 were:VBD printed:VVD addresses:NN2
+  son:NN1 or:CJC                 his:DPS four:CRD younger:AJC daughters:NN2 .:PUN ***************:***************
+  of:PRF all:DT0                 his:DPS four:CRD races:NN2 last:ORD season:NN1 was:VBD
+  split:VVN among:PRP            his:DPS four:CRD younger:AJC brothers:NN2 .:PUN ***************:***************
+  cost:NN1 of:PRF                his:DPS four:CRD expeditions:NN2 .:PUN ***************:*************** ***************:***************
+  but:CJC after:CJS              his:DPS four:CRD centuries:NN2 in:PRP the:AT0 summer:NN1
+  Esau:NN1 and:CJC               his:DPS four:CRD hundred:CRD men:NN2 are:VBB within:PRP
+  to:TO0 join:VVI                his:DPS four:CRD stable:NN1 companions:NN2 in:PRP the:AT0
+  three:CRD of:PRF               his:DPS four:CRD races:NN2 as:PRP a:AT0 two-year-old:NN1
+
+his many: "his NP(count)"
+  does:VDZ in:PRP                his:DPS many:DT0 renowned:AJ0 arias:NN2 on:PRP the:AT0
+  one:CRD of:PRF                 his:DPS many:DT0 civil:AJ0 disobedience:NN1 campaigns:NN2 ,:PUN
+  some:DT0 of:PRF                his:DPS many:DT0 friends:NN2 in:PRP the:AT0 gallery:NN1
+  for:PRP naming:VVG             his:DPS many:DT0 buildings:NN2 ,:PUN hotels:NN2 and:CJC
+  him:PNP to:PRP                 his:DPS many:DT0 friends:NN2 ,:PUN not:XX0 only:AV0
+  perhaps:AV0 surprised:VVD      his:DPS many:DT0 jaundiced:AJ0 critics:NN2 in:PRP the:AT0
+  which:DTQ of:PRF               his:DPS many:DT0 disguises:NN2 represents:VVZ the:AT0 true:AJ0
+  reading:NN1 of:PRF             his:DPS many:DT0 surviving:VVG letters:NN2 will:VM0 reveal:VVI
+  one:CRD of:PRF                 his:DPS many:DT0 correspondents:NN2 ::PUN &bquo:PUQ To:PRP
+  Most:DT0 of:PRF                his:DPS many:DT0 failures:NN2 are:VBB ,:PUN mercifully:AV0
+
+his most: "most" is adv modifying following adj
+  satisfaction:NN1 to:PRP        his:DPS most:AV0 intimate:AJ0 Spanish:AJ0 friend:NN1 ,:PUN
+  Many:DT0 of:PRF                his:DPS most:AV0 memorable:AJ0 literary:AJ0 effects:NN2 attest:VVB
+  is:VBZ at:PRP                  his:DPS most:AV0 imaginative:AJ0 when:AVQ least:DT0 imaginary:AJ0
+  giving:VVG him:PNP             his:DPS most:AV0 effective:AJ0 methodological:AJ0 tool:NN1 .:PUN
+  comedy:NN1 with:PRP            his:DPS most:AV0 provocative:AJ0 look:NN1 .:PUN ***************:***************
+  him:PNP ,:PUN                  his:PNP most:AV0 natural:AJ0 form:NN1 of:PRF self-expression:NN1
+  is:VBZ at:PRP                  his:DPS most:AV0 virulent:AJ0 when:CJS attacking:VVG his:DPS
+  go:VVI into:PRP                his:DPS most:AV0 prolific:AJ0 period:NN1 of:PRF writing:NN1-VVG
+  Dostoevsky:NP0 at:PRP          his:DPS most:DT0 unrelentingly:AV0 careful:AJ0 and:CJC sensitive:AJ0
+  was:VBD at:PRP                 his:DPS most:AV0 two-faced:AJ0 in:PRP his:DPS dealings:NN2
+
+his much: likewise "much"
+  Lawrence:NP0 and:CJC           his:DPS much:DT0 more:DT0 pathetic:AJ0 followers:NN2 .</hi>:PUN
+  opening:NN1 of:PRF             his:DPS much:DT0 acclaimed:AJ0 film:NN1 of:PRF Henry:NN1
+  corrected:VVN in:PRP           his:DPS much:DT0 later:AV0 I:CRD handwriting:NN1 and:CJC
+  seven:CRD ,:PUN                his:DPS much:DT0 loved:VVD elder:AJC sister:NN1 ,:PUN
+
+his of: "his" is pronoun (like "hers")
+  works:NN0 of:PRF               his:DPS of:PRF the:AT0 same:DT0 period:NN1 were:VBD
+
+his one: det+NP(count)
+  neck:NN1 and:CJC               his:DPS one:CRD foot:NN1 was:VBD treading:VVG on:PRP
+  ::PUN even:AV0                 his:DPS one:CRD novel:NN1 We:PNP think:VVB the:AT0
+  had:VHD won:VVN                his:DPS one:CRD-PNI and:CJC only:AJ0 grand:NN1 10:CRD
+  foolish:AJ0 on:PRP             his:DPS one:CRD co-starring:NN1 trip:NN1 &mdash:PUN the:AT0
+  foolish:AJ0 on:PRP             his:DPS one:CRD co-starring:NN1 trip:NN1 &mdash:PUN the:AT0
+  course:NN1 but:CJC             his:DPS one:CRD run:NN1 this:DT0 season:NN1 hardly:AV0
+
+his the: accident or det with elliptical N
+  his:PNP ,:PUN                  his:PNP the:AT0 pointed:AJ0 &mdash:PUN although:CJS in:PRP
+  ,:PUN but:CJC                  his:PNP the:AT0 drums:NN2 .:PUN ***************:*************** ***************:***************
+
+his three: DET+NP(count)
+  which:DTQ time:NN1             his:DPS three:CRD books:NN2 had:VHD started:VVN to:TO0
+  each:DT0 of:PRF                his:DPS three:CRD games:NN2 off:PRP the:AT0 first:ORD
+  response:NN1 from:PRP          his:DPS three:CRD other:AJ0 beers:NN2 ,:PUN production:NN1
+  ,:PUN cornered:VVD             his:DPS three:CRD tiny:AJ0 children:NN2 in:PRP their:DPS
+  player:NN1 in:PRP              his:DPS three:CRD months:NN2 with:PRP Celtic:NN1 were:VBD
+  ,:PUN throwing:VVG             his:DPS three:CRD opponents:NN2 in:PRP the:AT0 preliminary:NN1
+  given:VVN up:AVP-PRP           his:DPS three:CRD stripes:NN2 to:TO0 join:VVI the:AT0
+  Young:NP0 and:CJC              his:DPS three:CRD Officers:NN2 back:AVP there:AV0 on:PRP
+  runs:NN2 away:PRP              his:DPS three:CRD women:NN2 &equo:PUQ (:PUL p.:NN0
+  Butcher:NP0 and:CJC            his:DPS three:CRD British:AJ0 and:CJC two:CRD Belgian:AJ0
+his two
+  extends:VVZ to:PRP             his:DPS two:CRD work-places:NN2 .:PUN ***************:*************** ***************:***************
+  one:CRD of:PRF                 his:DPS two:CRD bathrooms:NN2 lies:VVZ some:DT0 weight-lifting:AJ0
+  gift:NN1 ;:PUN                 his:DPS two:CRD prizes:NN2 (:PUL the:AT0 Macnaughton:NP0
+  two:CRD in:PRP                 his:DPS two:CRD decade:NN1 career:NN1 .:PUN ***************:***************
+  Finnegan:NP0 for:PRP           his:DPS two:CRD recent:AJ0 articles:NN2 which:DTQ ,:PUN
+  James:NP0 (:PUL                his:DPS two:CRD acknowledged:AJ0 mentors:NN2 &mdash:PUN one:CRD
+  from:AV0 by:PRP                his:DPS two:CRD children:NN2 .:PUN ***************:*************** ***************:***************
+  waited:VVD until:CJS           his:DPS two:CRD attackers:NN2 &mdash:PUN each:DT0 to:TO0
+  most:DT0 of:PRF                his:DPS two:CRD decades:NN2 in:PRP office:NN1 Marcos:NP0
+  possibility:NN1 that:CJT       his:DPS two:CRD heavyweights:NN2 ,:PUN Mason:NP0 and:CJC
+
+many a: first is DET+N(elliptical), but the others are an expression: "many a ..."
+  ***************:*************** For:PRP many:DT0 a:AT0 stay:NN1 in:PRP hospital:NN1 is:VBZ
+  ***************:*************** But:CJC many:DT0 a:AT0 foot:NN1 of:PRF land:NN1 the:AT0
+  ***************:*************** But:CJC many:DT0 a:AT0 many:DT0 foot:NN1 of:PRF land:NN1
+  smartly:AV0 with:PRP           many:DT0 a:AT0 divers:AJ0 care</l>:NN1 ***************:*************** ***************:***************
+  picking:VVG out:AVP            many:DT0 a:AT0 garden:NN1 pest:NN1 .:PUN ***************:***************
+  has:VHZ prevented:VVN          many:DT0 a:AT0 nasty:AJ0 accident:NN1 .:PUN ***************:***************
+  had:VHD spent:VVN              many:DT0 a:AT0 dawn:NN1 listening:VVG to:PRP each:PNX
+  has:VHZ won:VVN                many:DT0 a:AT0 tight:AJ0 match:NN1 in:PRP his:DPS
+  ***************:*************** On:PRP many:DT0 a:AT0 winter:NN1 morning:NN1 I:PNP jumped:VVD
+  raced:VVN it:PNP               many:DT0 a:AT0 time:NN1 with:PRP Nev:NP0 ,:PUN
+
+many an
+  have:VHI been:VBN              many:DT0 an:AT0 occasion:NN1 when:AVQ agents:NN2 ,:PUN
+  has:VHZ given:VVN              many:DT0 an:AT0 anonymous:AJ0 carver:NN1 a:AT0 little:AJ0
+  spoke:VVD for:PRP              many:DT0 an:AT0 onlooker:NN1 that:DT0 day:NN1 .:PUN
+  extremes:NN2 ,:PUN             many:DT0 an:AT0 artist:NN1 initially:AV0 turned:VVD to:PRP
+  ,:PUN haunted:VVD              many:DT0 an:AT0 ageing:NN1 western:AJ0 artist:NN1 ,:PUN
+  and:CJC massacre:VVB           many:DT0 an:AT0 adopted:AJ0 foreign:AJ0 word:NN1 .:PUN
+  &mdash:PUN and:CJC             many:DT0 an:AT0 older:AJC one:PNI who:PNQ already:AV0
+  was:VBD for:PRP                many:DT0 an:AT0 institution:NN1 for:PRP recreating:VVG one:PNI
+  would:VM0 explode:VVI          many:DT0 an:AT0 illusion:NN1 of:PRF carefully:AV0 tended:AJ0-VVD
+  attention:NN1 through:PRP      many:DT0 an:AT0 hour:NN1 of:PRF boring:AJ0 burble:NN1
+
+many each: accident, "many" + elliptical N
+  and:CJC how:AVQ                many:DT0 each:DT0 grower:NN1 should:VM0 produce:VVI on:PRP
+
+many his: accident, "many" + elliptical N
+  ***************:*************** To:PRP many:DT0 his:DPS shrewdest:AJS move:NN1 was:VBD to:TO0
+
+many many: emphasis
+  coat:NN1 of:PRF                many:DT0 many:DT0 colours:NN2 ,:PUN and:CJC ,:PUN
+  be:VBI &bquo:PUQ               many:DT0 many:DT0 decades:NN2 &equo:PUQ before:PRP consent:NN1
+
+many most: "most" is adverbial modifier on following adj
+  art:NN1 which:DTQ              many:DT0 most:AV0 certainly:AV0 would:VM0 not:XX0 hang:VVI
+
+many of: DET+NP(+def) But note that "how many" is quite common.
+  ask:VVI how:AVQ                many:DT0 of:PRF our:DPS congregation:NN1 have:VHB been:VBN
+  ,:PUN and:CJC                  many:DT0 of:PRF those:DT0 we:PNP care:VVB for:AVP-PRP
+  clear:VVB how:AVQ              many:DT0 of:PRF the:AT0 almost:AV0 80:CRD other:AJ0
+  Guatemala:NP0 &mdash:PUN       many:DT0 of:PRF Naham&aacute;n:NP0 's:POS friends:NN2 who:PNQ
+  that:CJT includes:VVZ          many:DT0 of:PRF the:AT0 80,000:CRD British:AJ0 members:NN2
+  ***************:*************** In:PRP many:DT0 of:PRF these:DT0 countries:NN2 the:AT0 new:AJ0
+  ***************:*************** Although:CJS many:DT0 of:PRF these:DT0 detainees:NN2 were:VBD released:VVN
+  travelling:VVG around:AVP-PRP  many:DT0 of:PRF these:DT0 countries:NN2 &mdash:PUN due:PRP
+  interviews:NN2 with:PRP        many:DT0 of:PRF them:PNP .:PUN ***************:*************** ***************:***************
+  regretted:VVN that:CJT         many:DT0 of:PRF the:AT0 Government:NN0 's:POS measures:NN2
+
+many the: "many the N" is a fixed phrase like "many a", but in the third case we have "many" with elliptical N. Yuk
+  slate:NN1 ,:PUN                many:DT0 the:AT0 work:NN1 of:PRF Madge:NN1 Whiteman:NN1
+  known:VVN as:PRP               many:DT0 the:AT0 months:NN2 that:CJT elapsed:VVD proved:VVD
+  ***************:*************** In:PRP many:DT0 the:AT0 class-rooms:NN2 are:VBB simply:AV0 partitioned:AJ0-VVD
+
+most a: accident, "most" has elliptical N
+  become:VVN for:PRP             most:DT0 a:AT0 distant:AJ0 ,:PUN shadowy:AJ0 figure:NN1
+
+most an: accident. But "The most" is indeed connected
+  ***************:*************** The:AT0 most:DT0 an:AT0 artist:NN1 can:VM0 do:VDI is:VBZ
+
+most any: elliptical N
+  roads:NN2 the:AT0              most:DT0 any:DT0 sane:AJ0 drive:NN1 will:VM0 usually:AV0
+
+most every: "almost"!
+  and:CJC excluding:VVG          most:AV0 every:AT0 thing:NN1 else:AV0 &hellip:PUN ***************:***************
+
+most of: DET+NP(+def)
+  make:VVB the:AT0               most:DT0 of:PRF this:DT0 and:CJC scoot:VVB off:AVP
+  ***************:*************** For:PRP most:DT0 of:PRF them:PNP there:EX0 is:VBZ a:AT0
+  operations:NN2 ,:PUN           most:DT0 of:PRF which:DTQ took:VVD place:NN1 at:PRP
+  Albania:NP0 and:CJC            most:DT0 of:PRF its:DPS population:NN1 are:VBB ethnic:AJ0
+  sentences:NN2 of:PRF           most:DT0 of:PRF the:AT0 military:AJ0 prisoners:NN2 were:VBD
+  common:AJ0 to:PRP              most:DT0 of:PRF the:AT0 reviews:NN2 ,:PUN and:CJC
+  to:TO0 strike:VVI              most:DT0 of:PRF his:DPS readers:NN2 as:AV0 natural:AJ0
+  ,:PUN in:PRP                   most:DT0 of:PRF what:DTQ he:PNP has:VHZ written:VVN
+  to:TO0 write:VVI               most:DT0 of:PRF his:DPS books:NN2 becomes:VVZ a:AT0
+  ***************:*************** But:CJC most:DT0 of:PRF those:DT0 who:PNQ stayed:VVD alive:AJ0
+
+most the: elliptical N
+  obscured:VVD for:PRP           most:DT0 the:AT0 suicide:NN1 of:PRF the:AT0 art:NN1
+  earlier:AV0 than:CJS           most:DT0 the:AT0 new:AJ0 opportunities:NN2 opening:VVG up:AVP
+  that:CJT the:AT0               most:DT0 the:AT0 Americans:NN2 now:AV0 want:VVB (:PUL
+  ***************:*************** For:PRP most:DT0 the:AT0 only:AJ0 alternative:NN1 is:VBZ a:AT0
+
+most their: accident. "most" really is a degree adverb
+  have:VHB stressed:VVN          most:AV0 their:DPS use:NN1 in:PRP boosting:VVG quality:NN1
+
+most two: "two pack" is nominal modifier
+  However:AV0 ,:PUN              most:AV0 two:CRD pack:NN1 systems:NN2 ,:PUN similar:AJ0
+
+much a: "as much NP", "so much NP"
+  just:AV0 as:CJS                much:DT0 a:AT0 distinct:AJ0 unity:NN1 ,:PUN as:CJS
+  not:XX0 so:AV0                 much:AV0 a:AT0 character:NN1 as:PRP a:AT0 type:NN1
+  are:VBB as:AV0                 much:AV0 a:AT0 part:NN1 of:PRF the:AT0 entertainment:NN1
+  is:VBZ very:AV0                much:AV0 a:AT0 doing:NN1 thing:NN1 ,:PUN so:CJS
+  is:VBZ very:AV0                much:AV0 a:AT0 physical:AJ0 business:NN1 .:PUN ***************:***************
+  is:VBZ very:AV0                much:AV0 a:AT0 match:NN1 for:PRP Berowne:NP0 ;:PUN
+  probably:AV0 as:AV0            much:AV0 a:AT0 result:NN1 of:PRF a:AT0 popular:AJ0
+  know:VVI how:AVQ               much:DT0 a:AT0 growing:AJ0 girl:NN1 needs:NN2 ,:PUN
+  is:VBZ as:AV0                  much:AV0 a:AT0 crime:NN1 as:CJS violence:NN1 from:PRP
+  almost:AV0 as:AV0              much:AV0 a:AT0 symbol:NN1 of:PRF Jewishness:NN1 as:CJS
+
+much all: "degree adv + much + all"
+  was:VBD pretty:AV0             much:AV0 all:DT0 no-hopers:NN2 &mdash:PUN no:AT0 thing:NN1
+  city:NN1 very:AV0              much:AV0 all:DT0 of:PRF a:AT0 piece:NN1 ,:PUN
+
+much an: as above
+  Not:XX0 so:AV0                 much:AV0 an:AT0 eye:NN1 as:PRP a:AT0 template:NN1
+  Not:XX0 so:AV0                 much:AV0 an:AT0 object:NN1 as:PRP a:AT0 place:NN1
+  was:VBD very:AV0               much:AV0 an:AT0 Englishman:NN1 .:PUN ***************:*************** ***************:***************
+  Not:XX0 so:AV0                 much:AV0 an:AT0 installation:NN1 as:PRP a:AT0 duration:NN1
+  still:AV0 very:AV0             much:AV0 an:AT0 information:NN1 medium:NN1 rather:PRP a:AT0
+  govern:VVB how:AVQ             much:DT0 an:AT0 artist:NN1 earns:NN2 from:PRP his:DPS
+  be:VBI very:AV0                much:AV0 an:AT0 &bquo:PUQ open-door:NN1 &equo:PUQ person:NN1
+  not:XX0 so:AV0                 much:AV0 an:AT0 exposition:NN1 of:PRF Gironella:NP0 's:POS
+  therefore:AV0 very:AV0         much:AV0 an:AT0 account:NN1 of:PRF the:AT0 movement:NN1
+  was:VBD very:AV0               much:AV0 an:AT0 evolutionary:AJ0 product:NN1 ,:PUN getting:VVG
+
+much any: accident
+  not:XX0 matter:VVI             much:DT0 any:DT0 more:AV0 .:PUN ***************:*************** ***************:***************
+  only:AV0 so:AV0                much:AV0 any:DT0 man:NN1 can:VM0 do:VDI on:PRP
+
+much each: accident. But note prevalence of "how much"
+  year:NN1 how:AVQ               much:DT0 each:DT0 company:NN1 car:NN1 insured:VVD for:PRP
+  specifically:AV0 how:AVQ       much:DT0 each:DT0 asset:NN1 is:VBZ worth:NN1 .:PUN
+  by:PRP how:AVQ                 much:DT0 each:DT0 council:NN0 spends:VVZ .:PUN ***************:***************
+
+much his: "as much NP", "so much NP"
+  were:VBD very:AV0              much:AV0 his:DPS own:DT0 ,:PUN laboriously:AV0 arrived:VVD
+  not:XX0 so:AV0                 much:AV0 his:DPS justified:AJ0 rejection:NN1 of:PRF her:PNP
+  on:AVP-PRP how:AVQ             much:DT0 his:DPS property:NN1 might:VM0 be:VBI worth:NN1
+  Asked:VVD how:AVQ              much:DT0 his:DPS firm:NN1 had:VHD laid:VVN Cordoba:NP0
+  him:PNP how:AVQ                much:DT0 his:DPS poetry:NN1 owed:VVD to:PRP his:DPS
+  was:VBD very:AV0               much:AV0 his:DPS own:DT0 man:NN1 .:PUN ***************:***************
+  is:VBZ as:AV0                  much:AV0 his:DPS country:NN1 as:CJS the:AT0 wild:AJ0
+  ,:PUN however:AVQ              much:DT0 his:DPS father:NN1 might:VM0 extol:VVI the:AT0
+  was:VBD as:AV0                 much:AV0 his:DPS right:NN1 as:CJS his:DPS licence:NN1
+
+much much: emphasis
+  ***************:*************** And:CJC much:AV0 much:AV0 much:AV0 much:AV0 rather:AV0 feed:VVB
+  And:CJC much:AV0               much:AV0 much:AV0 much:AV0 rather:AV0 feed:VVB you:PNP
+  much:AV0 much:AV0              much:AV0 much:AV0 rather:AV0 feed:VVB you:PNP brandy:NN1
+  It:PNP is:VBZ                  much:AV0 much:AV0 harder:AJC to:TO0 tame:VVI a:AT0
+
+much my: "as much NP", "so much NP"
+  not:XX0 so:AV0                 much:AV0 my:DPS concern:NN1 here:AV0 ,:PUN because:CJS
+
+much of: DET+NP(of)
+  London:NP0 and:CJC             much:DT0 of:PRF the:AT0 rest:NN1 in:PRP Scottish:AJ0
+  encouraging:AJ0 as:CJS         much:DT0 of:PRF the:AT0 material:NN1 was:VBD ,:PUN
+  had:VHD passed:VVN             much:DT0 of:PRF the:AT0 literature:NN1 obtained:VVN form:VVB
+  author:NN1 spent:VVD           much:DT0 of:PRF his:DPS life:NN1 as:PRP a:AT0
+  ***************:*************** How:AVQ much:DT0 of:PRF the:AT0 books:NN2 about:PRP Pollock:NP0
+  discrimination:NN1 ,:PUN       much:DT0 of:PRF it:PNP being:VBG historical:AJ0 and:CJC
+  arts:NN2 on:PRP                much:DT0 of:PRF an:AT0 equal:AJ0 footing:NN1 .:PUN
+  ***************:*************** For:PRP much:DT0 of:PRF its:DPS course:NN1 ,:PUN the:AT0
+  ***************:*************** For:PRP much:DT0 of:PRF the:AT0 time:NN1 ,:PUN he:PNP
+  who:PNQ did:VDD                much:DT0 of:PRF the:AT0 living:NN1 which:DTQ is:VBZ
+
+much some: accident
+  ***************:*************** However:AVQ much:DT0 some:DT0 people:NN0 at:PRP Cambridge:NP0 disapproved:VVD
+
+much the: things we've already seen, plus "much the same"
+  just:AV0 how:AVQ               much:DT0 the:AT0 work:NN1 has:VHZ grown:VVN .:PUN
+  may:VM0 seem:VVI               much:DT0 the:AT0 same:DT0 as:CJS in:PRP a:AT0
+  historian:NN1 in:PRP           much:DT0 the:AT0 same:DT0 way:NN1 in:PRP which:DTQ
+  aloud:AV0 in:PRP               much:DT0 the:AT0 same:DT0 way:NN1 as:CJS Hamlet:NP0
+  Not:XX0 so:AV0                 much:AV0 the:AT0 compromises:NN2 ,:PUN the:AT0 deceits:NN2
+  and:CJC against:PRP            much:DT0 the:AT0 same:DT0 enemies:NN2 ,:PUN now:AV0
+  which:DTQ costs:VVZ            much:AV0 the:AT0 same:DT0 .:PUN ***************:*************** ***************:***************
+  wines:NN2 show:VVB             much:DT0 the:AT0 same:DT0 style:NN1 as:CJS their:DPS
+  ,:PUN in:PRP                   much:DT0 the:AT0 same:DT0 way:NN1 as:CJS Mrs:NP0
+  clear:AJ0 how:AVQ              much:DT0 the:AT0 Broadcasting:NN1 Act:NN1 has:VHZ changed:VVN
+
+much their: accident. "how much", with elliptical N
+  realise:VVI how:AVQ            much:DT0 their:DPS vitality:NN1 means:VVZ to:PRP the:AT0
+  about:AV0 how:AVQ              much:DT0 their:DPS meaning:NN1 has:VHZ altered:VVN .:PUN
+
+much your: same
+  out:AVP how:AVQ                much:DT0 your:DPS community:NN0 charge:NN1 is:VBZ per:PRP
+  exactly:AV0 how:AVQ            much:DT0 your:DPS repayments:NN2 are:VBB going:VVG to:TO0
+
+my all: same as "his all"
+  him:PNP ;:PUN                  my:DPS all:DT0 only:AJ0 to:TO0 be:VBI a:AT0
+  to:TO0 devote:VVI              my:DPS all:DT0 to:PRP what:DTQ I:PNP am:VBB
+
+my every
+  sun:NN1 turns:VVZ              my:DPS every:AT0 scale:NN1 to:PRP a:AT0 pure:AJ0
+
+my few
+  year:NN1 and:CJC               my:DPS few:DT0 friends:NN2 were:VBD drifting:VVG away:AV0
+  ,:PUN except:PRP               my:DPS few:DT0 niggles:NN2 .:PUN ***************:*************** ***************:***************
+  &bquo:PUQ On:PRP               my:DPS few:DT0 visits:NN2 prior:PRP my:DPS appointment:NN1
+
+my four
+  return:VVI with:PRP            my:DPS four:CRD children:NN2 .:PUN &equo:PUQ ***************:***************
+  ***************:*************** After:CJS my:DPS four:CRD days:NN2 Ken:NP0 was:VBD to:TO0
+
+my many
+  think:VVB of:PRF               my:DPS many:DT0 friends:NN2 in:PRP that:DT0 country:NN1
+  I:PNP dared:VVD                my:DPS many:DT0 happy:AJ0 returns:NN2 ,:PUN and:CJC
+  shreds:NN2 of:PRF              my:DPS many:DT0 identities:NN2 ,:PUN I:PNP would:VM0
+  third:ORD of:PRF               my:DPS many:DT0 run-ins:NN2 with:PRP that:DT0 typically:AV0
+
+my most
+  I:PNP think:VVB                my:DPS most:AV0 rewarding:AJ0 part:NN1 at:PRP drama:NN1
+  me:PNP at:PRP                  my:DPS most:AV0 apathetic:AJ0 &mdash:PUN and:CJC my:DPS
+  &mdash:PUN and:CJC             my:DPS most:AV0 miserable:AJ0 .:PUN ***************:*************** ***************:***************
+  me:PNP at:PRP                  my:DPS most:AV0 hostile:AJ0 .:PUN ***************:*************** ***************:***************
+  while:NN1 finishing:VVG        my:DPS most:AV0 recent:AJ0 cup:NN1 of:PRF coffee:NN1
+  This:DT0 was:VBD               my:DPS most:AV0 productive:AJ0 rig:NN1 prior:PRP the:AT0
+
+my one
+  It:PNP 's:VBZ                  my:DPS one:CRD regret:NN1 that:CJT the:AT0 ball:NN1
+  Eating:NP0 is:VBZ              my:DPS one:CRD-PNI little:AJ0 comfort:NN1 .:PUN ***************:***************
+  machines:NN2 clutching:VVG     my:DPS one:CRD pound:NN1 coin:NN1 ,:PUN but:CJC
+
+my three
+  one:CRD of:PRF                 my:DPS three:CRD violins:NN2 ':POS ):PUR is:VBZ
+
+my two
+  There:EX0 were:VBD             my:DPS two:CRD sisters:NN2 consorting:VVG with:PRP the:AT0
+  was:VBD just:AV0               my:DPS two:CRD suitcases:NN2 and:CJC my:DPS travelling:NN1
+  &mdash:PUN though:CJS          my:DPS two:CRD companions:NN2 ,:PUN one:CRD British:AJ0
+  down:AVP and:CJC               my:DPS two:CRD mates:NN2 have:VHB taken:VVN it:PNP
+  had:VHN for:PRP                my:DPS two:CRD hours:NN2 is:VBZ more:DT0 mosquito:NN1
+  cinema:NN1 by:PRP              my:DPS two:CRD brothers:NN2 &lsqb:PUL five:CRD and:CJC
+  year:NN1 and:CJC               my:DPS two:CRD closest:AJS lieutenants:NN2 ,:PUN my:DPS
+  potty:AJ0 about:PRP            my:DPS two:CRD sons:NN2 ,:PUN &equo:PUQ she:PNP
+  ;:PUN and:CJC                  my:DPS two:CRD great-uncles:NN2 slept:VVD downstairs:AV0 .:PUN
+  Selfridge:NP0 for:PRP          my:DPS two:CRD girls:NN2 ,:PUN Tara:NP0 and:CJC
+
+one a: mainly accidents. Some examples of "everyone", and some with one+N(elliptical)
+  switches:NN2 ,:PUN             one:CRD-PNI a:AT0 &bquo:PUQ dummy:NN1 &equo:PUQ ,:PUN
+  give:VVB that:CJT              one:CRD-PNI a:AT0 go:VVB ?:PUN ***************:*************** ***************:***************
+  give:VVI every:AT0             one:NN1 a:AT0 proper:AJ0 home:NN1 .:PUN ***************:***************
+  Give:VVB every:AT0             one:NN1 a:AT0 ring:NN1 .:PUN &equo:PUQ ***************:***************
+  make:VVI some:AT0              one:NN1 a:AT0 wonderful:AJ0 wife:NN1 !:PUN &equo:PUQ
+  rate:NN1 of:PRF                one:CRD-PNI a:AT0 day:NN1 ;:PUN the:AT0 enormous:AJ0
+  ,:PUN the:AT0                  one:CRD a:AT0 poem:NN1 for:PRP lost:AJ0 youth:NN1
+  knowledge:NN1 gives:VVZ        one:CRD-PNI a:AT0 better:AJC sense:NN1 of:PRF what:DTQ
+  Has:VHZ any:AT0                one:NN1 a:AT0 suggestion:NN1 about:PRP how:AVQ ,:PUN
+  homers:NN2 -:PUN               one:CRD-PNI a:AT0 grand:AJ0 slam:ITJ &mdash:PUN as:CJS
+
+one all: one+N(elliptical)
+  &mdash:PUN particularly:AV0    one:CRD-PNI all:DT0 foreign:AJ0 drug:NN1 companies:NN2 face:VVB
+
+one an: assortment. one+N(elliptical), "one an X and the other a Y", "everyone"
+  would:VM0 vouchsafe:VVI        one:CRD-PNI an:AT0 insight:NN1 into:PRP the:AT0 intimate:AJ0
+  recruited:VVN &mdash:PUN       one:CRD-PNI an:AT0 overseas:AJ0 professional:NN1 &mdash:PUN to:TO0
+  clergymen:NN2 ,:PUN            one:CRD-PNI an:AT0 organist:NN1 ,:PUN and:CJC one:CRD-PNI
+  give:VVI every:AT0             one:NN1 an:AT0 equal:AJ0 chance:NN1 .:PUN ***************:***************
+  give:VVI every:AT0             one:NN1 an:AT0 equal:AJ0 opportunity:NN1 at:PRP the:AT0
+
+one any: "anyone, anything"
+  deny:VVI any:AT0               one:NN1 any:AT0 thing:NN1 .:PUN &equo:PUQ Yes:ITJ
+
+one each: miscellany. DET+elliptical N, "gave them one each", where "each" is really linked to "them", "ate one each of the peaches", where "one each" is a determiner.
+  a:AT0 anew:AV0                 one:CRD-PNI each:DT0 time:NN1 before:PRP the:AT0 penis:NN1
+  fleet:NN0 ,:PUN                one:CRD-PNI each:DT0 from:PRP the:AT0 fifties:CRD ,:PUN
+  liaison:NN1 ,:PUN              one:CRD-PNI each:DT0 of:PRF whom:PNQ is:VBZ a:AT0
+  to:PRP their:DPS               one:CRD-PNI each:DT0 .:PUN ***************:*************** ***************:*************** ***************:***************
+  articles:NN2 (:PUL             one:CRD-PNI each:DT0 ):PUR both:DT0 of:PRF which:DTQ
+  a:AT0 similar:AJ0              one:PNI each:DT0 time:NN1 .:PUN &equo:PUQ ***************:***************
+  we:PNP had:VHD                 one:CRD-PNI each:DT0 .:PUN ***************:*************** ***************:*************** ***************:***************
+  folder:NN1 containing:VVG      one:CRD-PNI each:DT0 of:PRF the:AT0 &pound;2:NN0 coins:NN2
+  folder:NN1 containing:VVG      one:CRD-PNI each:DT0 of:PRF the:AT0 &pound;2:NN0 coins:NN2
+  folder:NN1 containing:VVG      one:CRD-PNI each:DT0 of:PRF the:AT0 &pound;2:NN0 coins:NN2
+
+one every: "one"+elliptical N, where "every N" is generally temporal
+  a:AT0 different:AJ0            one:PNI every:AT0 middle:NN1 of:PRF the:AT0 week:NN1
+  A:AT0 different:AJ0            one:PNI every:AT0 week:NN1 but:CJC they:PNP had:VHD
+  One:CRD-PNI by:PRP             one:CRD-PNI every:AT0 one:NN1 else:AV0 's:POS balloon:NN1
+  a:AT0 different:AJ0            one:PNI every:AT0 time:NN1 she:PNP went:VVD out:AVP
+  the:AT0 same:DT0               one:CRD-PNI every:AT0 time:NN1 .:PUN ***************:*************** ***************:***************
+  office:NN1 average:NN1         one:CRD-PNI every:AT0 thirty:CRD seconds:NN2 .:PUN ***************:***************
+  rate:NN1 of:PRF                one:CRD-PNI every:AT0 half:DT0 hour:NN1 ,:PUN before:CJS
+  &mdash:PUN nearly:AV0          one:CRD-PNI every:AT0 two:CRD seconds:NN2 .:PUN ***************:***************
+  rate:NN1 of:PRF                one:CRD-PNI every:AT0 one-and-a-half:CRD days:NN2 .:PUN ***************:***************
+  television:NN1 reminded:VVD    one:CRD-PNI every:AT0 other:AJ0 second:NN1 ,:PUN &bquo:PUQ
+
+one five: accident, "someone"
+  of:PRF some:AT0                one:NN1 five:CRD feet:NN2 eight:CRD inches:NN2 high:AJ0
+
+one his: elliptical N
+  ,:PUN the:AT0                  one:CRD his:DPS band:NN1 always:AV0 played:VVD at:PRP
+
+one many: elliptical N
+  institutions:NN2 is:VBZ        one:CRD-PNI many:DT0 anthropologists:NN2 would:VM0 agree:VVI with:PRP
+
+one most: elliptical N
+  and:CJC the:AT0                one:CRD-PNI most:AV0 likely:AJ0 to:TO0 attract:VVI other:AJ0
+  is:VBZ the:AT0                 one:CRD most:DT0 people:NN0 will:VM0 be:VBI waiting:VVG
+  and:CJC the:AT0                one:CRD-PNI most:AV0 inclined:VVD to:TO0 put:VVI some:DT0
+  ,:PUN the:AT0                  one:CRD-PNI most:AV0 commonly:AV0 relied:VVD on:AVP in:PRP
+  seems:VVZ the:AT0              one:CRD-PNI most:AV0 affected:VVN by:PRP the:AT0 story:NN1
+  was:VBD the:AT0                one:CRD most:AV0 qualified:VVD by:PRP objective:AJ0 criteria:NN2
+
+one much: "someone"
+  deserve:VVB some:AT0           one:NN1 much:AV0 better:AJC .:PUN ***************:*************** ***************:***************
+  that:CJT some:AT0              one:NN1 much:AV0 better:AV0 qualified:VVD than:CJS I:PNP
+
+one my: elliptical N
+  to:PRP the:AT0                 one:CRD my:DPS mother:NN1 used:VVD when:AVQ she:PNP
+  installed:VVN was:VBD          one:CRD-PNI my:DPS father:NN1 would:VM0 have:VHI loved:VVN
+
+one of: DET+NP(of)
+  Brian:NP0 was:VBD              one:CRD of:PRF the:AT0 very:AJ0 first:ORD members:NN2
+  volunteer:NN1 and:CJC          one:CRD of:PRF national:AJ0 network:NN1 of:PRF volunteers:NN2
+  people:NN0 ,:PUN               one:CRD of:PRF whom:PNQ is:VBZ infected:VVD .:PUN
+  Executor:NN1 in:CJS            one:CRD of:PRF them:PNP dies:VVZ before:CJS you:PNP
+  purposes:NN2 (:PUL             one:CRD of:PRF these:DT0 alternatives:NN2 ):PUR ::PUN
+  visited:VVN by:PRP             one:CRD of:PRF the:AT0 team:NN0 who:PNQ will:VM0
+  not:XX0 ask:VVB                one:CRD of:PRF our:DPS Home:NN1 Care:NN1 team:NN0
+  If:CJS appropriate:AJ0         one:CRD of:PRF our:DPS specialist:NN1 nurses:NN2 will:VM0
+  Beran:NN1 ,:PUN                one:CRD of:PRF AI:NP0 's:POS earliest:AJS releases:NN2
+  ,:PUN was:VBD                  one:CRD of:PRF the:AT0 eight:CRD prisoners:NN2 featured:VVD
+
+one some: elliptical N
+  the:AT0 middle:AJ0             one:PNI some:AT0 thing:NN1 was:VBD sticking:VVG straight:AV0
+  a:AT0 new:AJ0                  one:PNI some:DT0 distance:NN1 away:AV0 ,:PUN or:CJC
+
+one the: huge miscellany. But do get "one by one" as a fixed phrase.
+  it:PNP is:VBZ                  one:CRD-PNI the:AT0 novel:AJ0 shares:NN2 with:PRP many:DT0
+  to:PRP the:AT0                 one:CRD the:AT0 night:NN1 after:CJS and:CJC seeing:VVG
+  One:CRD by:PRP                 one:CRD the:AT0 members:NN2 of:PRF the:AT0 crowd:NN0
+  is:VBZ not:XX0                 one:CRD-PNI the:AT0 institution:NN1 of:PRF policing:NN1 is:VBZ
+  ,:PUN and:CJC                  one:CRD-PNI the:AT0 tendency:NN1 towards:PRP which:DTQ in:PRP
+  One:CRD by:PRP                 one:CRD the:AT0 gerbils:NN2 were:VBD scooped:VVN up:AVP
+  &mdash:PUN the:AT0             one:CRD the:AT0 highlighted:AJ0 products:NN2 of:PRF London:NP0
+  scene:NN1 of:PRF               one:CRD-PNI the:AT0 gravest:AJS blows:NN2 to:PRP democracy:NN1
+  ,:PUN even:AV0                 one:CRD-PNI the:AT0 size:NN1 of:PRF BAe:NP0 ,:PUN
+  Not:XX0 even:AV0               one:CRD-PNI the:AT0 size:NN1 of:PRF GM:NN1 ,:PUN
+
+one their: accident
+  denying:VVG any:AT0            one:NN1 their:DPS basic:AJ0 right:NN1 to:TO0 sin:VVI
+  lines:NN2 approach:VVB         one:PNX their:DPS form:NN1 is:VBZ inflected:VVD .:PUN
+
+one two
+  foot:NN1 ,:PUN                 one:CRD two:CRD three:CRD four:CRD ,:PUN and:CJC
+  like:PRP the:AT0               one:CRD two:CRD years:NN2 ago:AV0 between:PRP Withers:NP0
+  than:CJS the:AT0               one:CRD two:CRD years:NN2 ago:AV0 ,:PUN a:AT0
+
+one your: elliptical N. But note that these "elliptical Ns" can have relative and appositive post-modifiers.
+  &bquo:PUQ The:AT0              one:CRD your:DPS Uncle:NP0 Walter:NP0 gave:VVD you:PNP
+
+some a: accident
+  richer:AJC and:CJC             some:DT0 a:PNI poorer:AJC .:PUN ***************:*************** ***************:***************
+
+some all: accident
+  home:NN1 of:PRF                some:DT0 all:DT0 too:AV0 visible:AJ0 faceless:AJ0 architecture:NN1
+
+some an: accident, elliptical N with post-modifier
+  butterfly:NN1 ,:PUN            some:DT0 an:AT0 intellectual:NN1 too:AV0 ready:AJ0 to:TO0
+
+some few: some+NP(count)
+  ,:PUN in:PRP                   some:DT0 few:DT0 cases:NN2 ,:PUN made:VVD you:PNP
+  ,:PUN with:PRP                 some:DT0 few:DT0 exceptions:NN2 ,:PUN the:AT0 main:AJ0
+  ,:PUN and:CJC                  some:DT0 few:DT0 others:NN2 &equo:PUQ .:PUN ***************:***************
+
+some five
+  ,:PUN only:AV0                 some:DT0 five:CRD or:CJC six:CRD minutes:NN2 to:TO0
+  There:EX0 are:VBB              some:DT0 five:CRD main:AJ0 styles:NN2 to:TO0 consider:VVI
+  that:CJT took:VVD              some:DT0 five:CRD hours:NN2 for:PRP very:AV0 little:AJ0
+  Kitted:VVD up:AVP-PRP          some:DT0 five:CRD minutes:NN2 later:AV0 with:PRP a:AT0
+  speaking:VVG for:PRP           some:DT0 five:CRD minutes:NN2 or:CJC more:AV0 with:PRP
+  gap:NN1 of:PRF                 some:DT0 five:CRD days:NN2 between:PRP provocation:NN1 and:CJC
+
+some four
+  1987:CRD ,:PUN                 some:DT0 four:CRD years:NN2 after:PRP David:NP0 had:VHD
+  They:PNP described:VVD         some:DT0 four:CRD hundred:CRD used:VVN by:PRP monks:NN2
+  Peter:NP0 Ward:NP0             some:DT0 four:CRD years:NN2 ago:AV0 .:PUN ***************:***************
+  speaker:NN1 for:PRP            some:DT0 four:CRD hours:NN2 .:PUN ***************:*************** ***************:***************
+  the:AT0 second:ORD             some:DT0 four:CRD hours:NN2 later:AV0 ,:PUN at:PRP
+  This:DT0 is:VBZ                some:DT0 four:CRD times:NN2 faster:AV0 than:CJS the:AT0
+  knife:NN1 ,:PUN                some:DT0 four:CRD months:NN2 after:PRP the:AT0 show:NN1
+  place:NN1 ,:PUN                some:DT0 four:CRD horses:NN2 out:VVB from:PRP the:AT0
+  against:PRP Columbus:NN1       some:DT0 four:CRD and:CJC a:AT0 half:DT0 centuries:NN2
+
+some most: "most" is adv modifier on following adj
+  services:NN2 makes:VVZ         some:DT0 most:DT0 inaccurate:AJ0 statements:NN2 (:PUL Letters:NN2
+
+some much: rubbish
+  when:CJS for:PRP               some:DT0 much:DT0 of:PRF his:DPS life:NN1 he:PNP
+
+some of
+  help:NN1 explain:VVI           some:DT0 of:PRF the:AT0 reasons:NN2 why:AVQ the:AT0
+  and:CJC telephoning:VVG        some:DT0 of:PRF our:DPS low-dependency:NN1 clients:NN2 to:TO0
+  to:TO0 answer:VVI              some:DT0 of:PRF the:AT0 questions:NN2 you:PNP might:VM0
+  you:PNP transfer:VVB           some:DT0 of:PRF your:DPS income:NN1 to:PRP a:AT0
+  to:TO0 answer:VVI              some:DT0 of:PRF the:AT0 questions:NN2 you:PNP might:VM0
+  find:VVB that:CJT              some:DT0 of:PRF those:DT0 we:PNP care:VVB for:PRP
+  in:PRP alleviating:VVG         some:DT0 of:PRF the:AT0 huge:AJ0 problems:NN2 the:AT0
+  Here:AV0 are:VBB               some:DT0 of:PRF the:AT0 people:NN0 involved:VVD in:AVP-PRP
+  been:VBN passing:VVG           some:DT0 of:PRF the:AT0 cards:NN2 on:PRP his:DPS
+  factors:NN2 &mdash:PUN         some:DT0 of:PRF which:DTQ may:VM0 never:AV0 be:VBI
+
+some one: "someone"
+  there:EX0 is:VBZ               some:AT0 one:NN1 at:PRP home:NN1 who:PNQ can:VM0
+  hours:NN2 in:PRP               some:AT0 one:NN1 outwardly:AV0 fit:AJ0 and:CJC well:AV0
+  difference:NN1 to:PRP          some:AT0 one:NN1 who:PNQ feels:VVZ unsafe:AJ0 alone:AJ0
+  We:PNP say:VVB                 some:AT0 one:NN1 has:VHZ AIDS:NN1 when:AVQ the:AT0
+  take:VVI to:PRP                some:AT0 one:NN1 about:PRP matters:NN2 covered:VVD in:PRP
+  ***************:*************** When:AVQ some:AT0 one:NN1 is:VBZ ill:AJ0 with:PRP AIDS:NN1
+  care:VVI for:PRP               some:AT0 one:NN1 between:PRP referral:NN1 to:PRP ACET:NP0
+  ,:PUN or:CJC                   some:AT0 one:NN1 you:PNP know:VVB .:PUN ***************:***************
+  ,:PUN which:DTQ                some:AT0 one:NN1 has:VHZ received:VVN on:PRP his:DPS
+  we:PNP have:VHB                some:AT0 one:NN1 in:PRP the:AT0 office:NN1 who:PNQ
+
+some some: rubbish/accident
+  which:DTQ allowed:VVD          some:DT0 some:DT0 5,000:CRD East:NP0 Germans:NN2 who:PNQ
+
+some the: elliptical N
+  gloomily:AV0 ,:PUN             some:DT0 the:AT0 best:AJS examples:NN2 of:PRF the:AT0
+  and:CJC for:PRP                some:DT0 the:AT0 advertisements:NN2 confirmed:VVD their:DPS darkest:AJS
+  ***************:*************** With:PRP some:DT0 the:AT0 feet:NN2 .:PUN ***************:*************** ***************:***************
+  ***************:*************** With:PRP some:DT0 the:AT0 shoulders:NN2 .:PUN ***************:*************** ***************:***************
+  because:CJS for:PRP            some:DT0 the:AT0 Church:NN1 is:VBZ but:AV0 a:AT0
+  she:PNP nominated:VVD          some:DT0 the:AT0 sexiest:AJS men:NN2 in:PRP the:AT0
+
+some three
+  was:VBD only:AV0               some:DT0 three:CRD miles:NN2 north:NN1 of:PRF our:DPS
+  it:PNP supports:VVZ            some:DT0 three:CRD hundred:CRD brand:AJ0 or:CJC very:AV0
+  point:NN1 is:VBZ               some:DT0 three:CRD feet:NN2 shallower:AJC than:CJS when:AVQ
+  essay:NN1 of:PRF               some:DT0 three:CRD thousand:CRD words:NN2 to:PRP his:DPS
+  London:NP0 &mdash:PUN          some:DT0 three:CRD points:NN2 behind:PRP &mdash:PUN than:CJS
+  had:VHD gone:VVN               some:DT0 three:CRD or:CJC four:CRD steps:NN2 past:PRP
+  identical:AJ0 for:PRP          some:DT0 three:CRD centuries:NN2 ,:PUN from:PRP the:AT0
+
+some two
+  ,:PUN and:CJC                  some:DT0 two:CRD hundred:CRD and:CJC fifty:CRD soldiers:NN2
+  it:PNP was:VBD                 some:DT0 two:CRD hundred:CRD and:CJC thirty:CRD metres:NN2
+  in:AVP-PRP just:AV0            some:DT0 two:CRD years:NN2 from:PRP now:AV0 ,:PUN
+  view:NN1 of:PRF                some:DT0 two:CRD hundred:CRD people:NN0 who:PNQ had:VHD
+  recently:AV0 (:PUL             some:DT0 two:CRD or:CJC three:CRD generations:NN2 ago:AV0
+  reaching:VVG to:PRP            some:DT0 two:CRD metres:NN2 above:PRP the:AT0 ground:NN1
+
+the a: rubbish/"a" is a name for a type of compound
+  show:VVI that:CJT              the:AT0 a:AJ0 principle:NN1 is:VBZ upheld:VVN .:PUN
+  occurs:VVZ because:CJS         the:AT0 a:AT0 acids:NN2 absorb:VVB to:TO0 yeast:VVI
+  further:AV0 enhance:VVI        the:AT0 a:AT0 acid:NN1 content:NN1 .:PUN ***************:***************
+  acids:NN2 from:PRP             the:AT0 a:AT0 acids:NN2 and:CJC so:AV0 provide:VVB
+  ***************:*************** Between:PRP the:AT0 a:AT0 ***************:*************** ***************:*************** ***************:*************** ***************:***************
+  is:VBZ on:PRP                  the:AT0 a:AJ0 science:NN1 of:PRF geometry:NN1 ,:PUN
+
+the all: "all" is modifier on following adjective (esp "all too X Y")
+  and:CJC produce:VVB            the:AT0 all:DT0 too:AV0 well:AV0 known:VVD Dellinger:NP0
+  limited:VVD and:CJC            the:AT0 all:DT0 pervasive:AJ0 security:NN1 network:NN1 is:VBZ
+  responsible:AJ0 for:PRP        the:AT0 all:DT0 those:DT0 individual:NN1 successes:NN2 ,:PUN
+  most:DT0 was:VBD               the:AT0 all:DT0 too:AV0 often:AV0 blanket:VVB opposition:NN1
+  wrestlers:NN2 is:VBZ           the:AT0 all:DT0 too:AV0 human:AJ0 Jacob:NP0 .:PUN
+  come:VVI to:PRP                the:AT0 all:DT0 important:AJ0 differences:NN2 between:PRP my:DPS
+  (:PUL &bquo:PUQ                the:AT0 all:DT0 purpose:NN1 paper:NN1 &equo:PUQ ):PUR
+  one:CRD of:PRF                 the:AT0 all:DT0 time:NN1 surprise:NN1 hits:NN2 ,:PUN
+  than:CJS being:VBG             the:AT0 all:DT0 singing:NN1-VVG ,:PUN all:DT0 dancing:NN1
+
+the every: rubbish
+  to:TO0 be:VBI                  the:AT0 every:AT0 thing:NN1 ,:PUN the:AT0 heavyweight:NN1
+  unthinkable:AJ0 after:CJS      the:AT0 every:AT0 one:NN1 world:NN1 she:PNP had:VHD
+
+the few: DET+NP(count)
+  one:CRD of:PRF                 the:AT0 few:DT0 in:PRP which:DTQ a:AT0 generous:AJ0
+  to:TO0 climb:VVI               the:AT0 few:DT0 steps:NN2 to:PRP the:AT0 communal:AJ0
+  Representatives:NN2 of:PRF     the:AT0 few:DT0 people:NN0 they:PNP had:VHD come:VVN
+  ***************:*************** Among:PRP the:AT0 few:DT0 Standish:NP0 neighbours:NN2 on:PRP the:AT0
+  of:PRF by:PRP                  the:AT0 few:DT0 families:NN2 who:PNQ could:VM0 afford:VVI
+  one:CRD of:PRF                 the:AT0 few:DT0 facts:NN2 I:PNP can:VM0 swear:VVI
+  mistakes:NN2 and:CJC           the:AT0 few:DT0 successes:NN2 ,:PUN and:CJC sense:NN1
+  ,:PUN but:CJC                  the:AT0 few:DT0 who:PNQ respect:VVB silence:NN1 ,:PUN
+  one:CRD of:PRF                 the:AT0 few:DT0 listed:AJ0 pubs:NN2 of:PRF the:AT0
+  one:CRD of:PRF                 the:AT0 few:DT0 other:AJ0 passengers:NN2 braving:VVG the:AT0
+the five
+  end:NN1 of:PRF                 the:AT0 five:CRD weeks:NN2 groups:NN2 will:VM0 present:VVI
+  four:CRD out:PRP               the:AT0 five:CRD of:PRF them:PNP .:PUN ***************:***************
+  which:DTQ of:PRF               the:AT0 five:CRD is:VBZ the:AT0 most:AV0 fragrant:AJ0
+  whispered:VVD about:PRP        the:AT0 five:CRD different:AJ0 meanings:NN2 of:PRF how:AVQ
+  time:NN1 of:PRF                the:AT0 five:CRD daytime:NN1 trains:NN2 between:PRP Euston:NP0
+  Four:CRD out:PRP               the:AT0 five:CRD Railfreight:NN1 sub-sectors:NN2 deal:VVB mainly:AV0
+  to:TO0 perform:VVI             the:AT0 five:CRD jumps:NN2 as:PRP a:AT0 technical:AJ0
+  to:TO0 buy:VVI                 the:AT0 five:CRD barrel:NN1 capacity:NN1 plant:NN1 .:PUN
+  ***************:*************** But:CJC the:AT0 five:CRD year:NN1 supply:NN1 deal:NN1 signed:VVN
+  ***************:*************** Let:VVB the:AT0 five:CRD last:ORD build:NN1 the:AT0 wall:NN1
+the four
+  Programmes:NN2 for:PRP         the:AT0 four:CRD London:NP0 areas:NN2 will:VM0 take:VVI
+  attacked:VVN by:PRP            the:AT0 four:CRD policemen:NN2 on:PRP 4:CRD March:NP0
+  any:DT0 of:PRF                 the:AT0 four:CRD points:NN2 of:PRF the:AT0 compass:NN1
+  had:VHD done:VDN               the:AT0 four:CRD weeks:NN2 work:NN1 .:PUN ***************:***************
+  three:CRD of:PRF               the:AT0 four:CRD religious:AJ0 provinces:NN2 of:PRF Ireland:NP0
+  therefore:AV0 for:PRP          the:AT0 four:CRD thousand:CRD Jews:NN2 and:CJC for:PRP
+  Robinson:NP0 ,:PUN             the:AT0 four:CRD church:NN1 representatives:NN2 ,:PUN Bishop:NP0
+  expectation:NN1 ,:PUN          the:AT0 four:CRD archbishops:NN2 had:VHD produced:VVN a:AT0
+  note:NN1 during:PRP            the:AT0 four:CRD decades:NN2 of:PRF its:DPS existence:NN1
+  ones:PNI at:PRP                the:AT0 four:CRD corners:NN2 .:PUN ***************:*************** ***************:***************
+the many
+  generated:VVN by:PRP           the:AT0 many:DT0 missions:NN2 and:CJC research:NN1 trips:VVZ
+  one:CRD of:PRF                 the:AT0 many:DT0 prisoners:NN2 who:PNQ have:VHB subsequently:AV0
+  one:CRD of:PRF                 the:AT0 many:DT0 books:NN2 which:DTQ address:VVB the:AT0
+  morality:NN1 of:PRF            the:AT0 many:DT0 ,:PUN particularly:AV0 on:PRP the:AT0
+  alteration:NN1 of:PRF          the:AT0 many:DT0 &bquo:PUQ ordinary:AJ0 &equo:PUQ pubs:NN2
+  are:VBB among:PRP              the:AT0 many:DT0 ingredients:NN2 often:AV0 combined:VVD with:PRP
+  origin:NN1 of:PRF              the:AT0 many:DT0 Country:NP0 House:NP0 murders:NN2 which:DTQ
+  pleasure:NN1 to:PRP            the:AT0 many:DT0 cinema:NN1 goers:NN2 from:PRP the:AT0
+  protein:NN1 for:PRP            the:AT0 many:DT0 young:AJ0 birds:NN2 .:PUN ***************:***************
+  ,:PUN particularly:AV0         the:AT0 many:DT0 mixtures:NN2 now:AV0 available:AJ0 .:PUN
+
+the most: "most" is adj modifier
+  ,:PUN is:VBZ                   the:AT0 most:AV0 effective:AJ0 way:NN1 of:PRF ensuring:VVG
+  We:PNP make:VVB                the:AT0 most:DT0 of:PRF this:DT0 and:CJC scoot:VVB
+  of:PRF even:AV0                the:AT0 most:AV0 simple:AJ0 task:NN1 .:PUN ***************:***************
+  education:NN1 &mdash:PUN       the:AT0 most:AV0 common:AJ0 slot:NN1 is:VBZ &bquo:PUQ
+  ,:PUN was:VBD                  the:AT0 most:AV0 successful:AJ0 advertisement:NN1 ever:AV0 run:VVN
+  to:TO0 be:VBI                  the:AT0 most:AV0 popular:AJ0 solution:NN1 .:PUN ***************:***************
+  prosecutors:NN2 offer:VVB      the:AT0 most:AV0 ridiculous:AJ0 reasons:NN2 &mdash:PUN &bquo:PUQ
+  besides:PRP which:DTQ          the:AT0 most:AV0 comprehensive:AJ0 biographical:AJ0 dictionary:NN1 of:PRF
+  which:DTQ is:VBZ               the:AT0 most:AV0 wide-ranging:AJ0 of:PRF the:AT0 three:CRD
+  dedicated:VVD to:PRP           the:AT0 most:AV0 sublime:AJ0 of:PRF subjects:NN2 and:CJC
+
+the much: "much" is adj modifier
+  ,:PUN in:PRP                   the:AT0 much:AV0 smaller:AJC party:NN0 political:AJ0 support:NN1
+  ):PUR and:CJC                  the:AT0 much:AV0 improved:VVD New:NP0 Guinea:NP0 hybrid:NN1
+  combined:VVD with:PRP          the:AT0 much:AV0 higher:AJC touch:NN1 down:AVP-PRP speed:NN1
+  helped:VVN by:PRP              the:AT0 much:AV0 more:AV0 widespread:AJ0 availability:NN1 of:PRF
+  could:VM0 meet:VVI             the:AT0 much:AV0 higher:AJC rate:NN1 of:PRF return:NN1
+  new:AJ0 is:VBZ                 the:AT0 much:AV0 greater:AJC degree:NN1 of:PRF sophistication:NN1
+  closure:NN1 of:PRF             the:AT0 much:AV0 decayed:AJ0-VVD ex-North:AJ0 London:NP0 Railway:NN1
+  ):PUR in:PRP                   the:AT0 much:AV0 more:AV0 theoretical<hi:AJ0 Notes:NN2 from:PRP
+  troublemakers:NN2 and:CJC      the:AT0 much:AV0 larger:AJC number:NN1 of:PRF those:DT0
+  Cantos:NN2 but:CJC             the:AT0 much:AV0 more:AV0 straightforward:AJ0 and:CJC generally:AV0
+
+the of: rubbish
+  ):PUR to:PRP                   the:AT0 of:PRF the:AT0 action:NN1 &mdash:PUN the:AT0
+  adequate:AJ0 for:PRP           the:AT0 of:PRF British:AJ0 commitments:NN2 on:PRP the:AT0
+
+the one: count NP or elliptical N after "one"
+  monographs:NN2 on:PRP          the:AT0 one:CRD hand:NN1 ,:PUN and:CJC catalogues:NN2
+  have:VHI been:VBN              the:AT0 one:CRD mentioned:VVD and:CJC which:DTQ formed:AJ0-VVD
+  Which:DTQ is:VBZ               the:AT0 one:PNI that:CJT has:VHZ litost:NN1 &mdash:PUN
+  affair:NN1 is:VBZ              the:AT0 one:CRD about:PRP which:DTQ least:DT0 is:VBZ
+  ,:PUN on:PRP                   the:AT0 one:CRD in:PRP the:AT0 novel:NN1 ::PUN
+  novel:NN1 and:CJC              the:AT0 one:PNI which:DTQ it:PNP resumes:NN2 are:VBB
+  author:NN1 of:PRF              the:AT0 one:CRD could:VM0 not:XX0 be:VBI sued:VVN
+  reminder:NN1 that:CJT          the:AT0 one:CRD and:CJC only:AJ0 Philip:NP0 Roth:NN1
+  churchyard:NN1 ;:PUN           the:AT0 one:CRD where:AVQ Rupert:NP0 Brooke:NP0 is:VBZ
+  ,:PUN not:XX0                  the:AT0 one:CRD-PNI which:DTQ was:VBD secret:AJ0 and:CJC
+
+the some: "the someone" and "the something" seem to be a thing. Others are rubbish.
+  perceived<hi:VVN because:CJS   the:AT0 some:AT0 thing:NN1 behind:AV0 was:VBD there:AV0
+  who:PNQ 's:VBZ                 the:AT0 some:AT0 thing:NN1 ,:PUN a:AT0 good:AJ0
+  fortunes:NN2 for:PRP           the:AT0 some:DT0 of:PRF the:AT0 world:NN1 's:VBZ
+  one:CRD-PNI with:PRP           the:AT0 some:AT0 thing:NN1 which:DTQ is:VBZ at:AV0
+  no:AV0 who:PNQ                 the:AT0 some:AT0 one:NN1 was:VBD .:PUN ***************:***************
+
+the the: rubbish
+  yeasts:NN2 on:PRP              the:AT0 the:AT0 skins:NN2 ferment:VVB the:AT0 sweet:AJ0
+  awkwardly:AV0 around:PRP       the:AT0 the:AT0 post-1997:NN1 political:AJ0 structure:NN1 and:CJC
+  split:NN1 between:PRP          the:AT0 the:AT0 Anglican:NN1 and:CJC Roman:AJ0 Catholic:NN1
+  explained:VVD how:AVQ          the:AT0 the:AT0 pamphlet:NN1 was:VBD the:AT0 culmination:NN1
+  who:PNQ met:VVD                the:AT0 the:AT0 girl:NN1 while:CJS she:PNP was:VBD
+  makes:VVZ him:PNP              the:AT0 the:AT0 first:ORD black:NN1 in:PRP that:DT0
+  resolution:NN1 of:PRF          the:AT0 the:AT0 occupied-territories:NN2 question:NN1 .:PUN ***************:***************
+  by:PRP making:VVG              the:AT0 the:AT0 Commission:NN0 &bquo:PUQ more:AV0 strong:AJ0
+  purposes:NN2 when:AVQ          the:AT0 the:AT0 police:NN2 burst:VVN into:PRP his:DPS
+  great:AJ0 that:CJT             the:AT0 the:AT0 authorities:NN2 have:VHB extended:VVN the:AT0
+
+the three
+  more:DT0 of:PRF                the:AT0 three:CRD helpful:AJ0 elements:NN2 ,:PUN perhaps:AV0
+  wide-ranging:AJ0 of:PRF        the:AT0 three:CRD elements:NN2 ,:PUN including:PRP questions:NN2
+  contrasts:NN2 with:PRP         the:AT0 three:CRD later:AJC busts:NN2 on:PRP a:AT0
+  that:CJT enter:VVB             the:AT0 three:CRD fictions:NN2 ;:PUN the:AT0 biography:NN1
+  been:VBN through:PRP           the:AT0 three:CRD years:NN2 what:DTQ did:VDD you:PNP
+  Those:DT0 are:VBB              the:AT0 three:CRD steps:NN2 ,:PUN wrote:VVD Harsnet:NP0
+  itself:PNX only:AV0            the:AT0 three:CRD dimensional:AJ0 representation:NN1 of:PRF a:AT0
+  go:VVI with:PRP                the:AT0 three:CRD rollers:NN2 on:PRP the:AT0 grinder:NN1
+  grinder:NN1 ,:PUN              the:AT0 three:CRD draft:NN1 pistons:NN2 ,:PUN the:AT0
+  pistons:NN2 ,:PUN              the:AT0 three:CRD times:NN2 three:CRD malic:AJ0 moulds:NN2
+
+the two
+  communication:NN1 are:VBB      the:AT0 two:CRD foundation:NN1 stones:NN2 that:CJT must:VM0
+  can:VM0 combine:VVI            the:AT0 two:CRD visits:NN2 .:PUN ***************:*************** ***************:***************
+  loss:NN1 of:PRF                the:AT0 two:CRD vehicles:NN2 ,:PUN but:CJC did:VDD
+  outsiders:NN2 ,:PUN            the:AT0 two:CRD events:NN2 may:VM0 seem:VVI little:AV0
+  directly:AV0 from:PRP          the:AT0 two:CRD men:NN2 .:PUN ***************:*************** ***************:***************
+  ***************:*************** If:CJS the:AT0 two:CRD girls:NN2 compare:VVB notes:NN2 one:CRD
+  methods:NN2 of:PRF             the:AT0 two:CRD sorts:NN2 of:PRF writer:NN1 have:VHB
+  yantra:NN1 ,:PUN               the:AT0 two:CRD used:AJ0-VVD together:AV0 making:VVG a:AT0
+  peaks:NN2 with:PRP             the:AT0 two:CRD sexual:AJ0 encounters:NN2 between:PRP Jane:NP0
+  and:CJC yet:AV0                the:AT0 two:CRD environments:NN2 have:VHB more:AV0 in:AV0
+
+their all: Aaagh. This isn't "gave their all", it's "their+(all attempting to live together)"
+  advisability:NN1 of:PRF        their:DPS all:DT0 attempting:VVG to:TO0 live:VVI together:AV0
+
+their every: think we've seen this one
+  professions:NN2 informs:VVZ    their:DPS every:AT0 activity:NN1 .:PUN ***************:*************** ***************:***************
+  instead:CJS dominating:VVG     their:DPS every:AT0 thought:NN1 .:PUN ***************:*************** ***************:***************
+
+their few: DET+NP(COUNT)
+  allowing:VVG for:PRP           their:DPS few:DT0 plus:PRP points:NN2 &mdash:PUN a:AT0
+  price:NN1 for:PRP              their:DPS few:DT0 years:NN2 of:PRF glory:NN1 with:PRP
+
+their five
+  K-Swiss:AJ0 use:NN1            their:DPS five:CRD strip:NN1 lacing:VVG system:NN1 for:PRP
+  heady:AJ0 of:PRF               their:DPS five:CRD regular:AJ0 beers:NN2 .:PUN ***************:***************
+  records:NN2 from:PRP           their:DPS five:CRD matches:NN2 .:PUN ***************:*************** ***************:***************
+  goal:NN1 in:PRP                their:DPS five:CRD World:NN1 Cup:NN1 qualifying:VVG matches:NN2
+  launch:NN1 for:PRP             their:DPS five:CRD channel:NN1 subscription:NN1 TV:NN1 system:NN1
+  rest:NN1 because:CJS           their:DPS five:CRD group:NN0 matches:NN2 have:VHB been:VBN
+  rest:NN1 because:CJS           their:DPS five:CRD group:NN0 matches:NN2 have:VHB been:VBN
+
+their four
+  somewhere:AV0 within:PRP       their:DPS four:CRD walls:NN2 .:PUN ***************:*************** ***************:***************
+  first:ORD of:PRF               their:DPS four:CRD children:NN2 signalled:VVD a:AT0 complete:AJ0
+  10:CRD to:PRP                  their:DPS four:CRD .:PUN ***************:*************** ***************:*************** ***************:***************
+  points:NN2 in:PRP              their:DPS four:CRD games:NN2 ,:PUN include:VVB the:AT0
+  one:CRD of:PRF                 their:DPS four:CRD daughters:NN2 married:VVD Sir:NP0 John:NP0
+
+their many
+  swoops:NN2 on:PRP              their:DPS many:DT0 hide-outs:VVZ even:AV0 before:CJS the:AT0
+  ,:PUN with:PRP                 their:DPS many:DT0 offshoots:NN2 in:PRP the:AT0 world:NN1
+  ,:PUN and:CJC                  their:DPS many:DT0 descendants:NN2 ,:PUN provide:VVB us:PNP
+  traffic:NN1 past:PRP           their:DPS many:DT0 shops:NN2 in:PRP railway:NN1 stations:NN2
+  profit:VVI from:PRP            their:DPS many:DT0 spells:NN2 of:PRF domination:NN1 .:PUN
+  can:VM0 in:PRP                 their:DPS many:DT0 ways:NN2 find:VVB the:AT0 answers:NN2
+  profit:VVI from:PRP            their:DPS many:DT0 spells:NN2 of:PRF domination:NN1 .:PUN
+  not:XX0 notice:VVI             their:DPS many:DT0 imperfections:NN2 .:PUN ***************:*************** ***************:***************
+
+their most
+  looking:VVG at:PRP             their:DPS most:AV0 lucrative:AJ0 areas:NN2 ;:PUN finding:VVG
+  are:VBB at:PRP                 their:DPS most:AV0 luminous:AJ0 .:PUN ***************:*************** ***************:***************
+  are:VBB at:PRP                 their:DPS most:AV0 palatable:AJ0 when:AVQ young:AJ0 and:CJC
+  theories:NN2 in:PRP            their:DPS most:AV0 sophisticated:AJ0 form:NN1 .:PUN ***************:***************
+  per:AV0 ,:PUN                  their:DPS most:AV0 regular:AJ0 and:CJC demanding:AJ0 customer:NN1
+  deal:VVI with:PRP              their:DPS most:AV0 intractable:AJ0 problems:NN2 ,:PUN they:PNP
+  one:CRD of:PRF                 their:DPS most:AV0 sustained:AJ0-VVD periods:NN2 of:PRF pressure:NN1
+  pleasures:NN2 at:PRP           their:DPS most:AV0 enjoyable:AJ0 when:AVQ we:PNP ritualise:VVB
+  on:PRP even:AV0                their:DPS most:AV0 sympathetic:AJ0 listeners:NN2 ,:PUN expecting:VVG
+  must:VM0 thank:VVI             their:DPS most:AV0 prolific:AJ0 scorer:NN1 Willie:NP0 Watters:NP0
+
+their much
+  do:VDB with:PRP                their:DPS much:DT0 longer:AV0 ,:PUN global:AJ0 rich-lists:NN2
+  GoodFellas:NP0 marks:VVZ       their:DPS much:DT0 anticipated:AJ0 reunion:NN1 &mdash:PUN and:CJC
+
+their one
+  roof:NN1 with:PRP              their:DPS one:CRD try:NN1 of:PRF the:AT0 game:NN1
+  'd:VHD had:VHN                 their:DPS one:CRD hit:NN1 with:PRP &bquo:PUQ Guns:NN2
+  sticklebacks:NN2 to:PRP        their:DPS one:CRD-PNI each:DT0 .:PUN ***************:*************** ***************:***************
+  they:PNP won:VVD               their:DPS one:CRD Italian:AJ0 league:NN1 title:NN1 in:PRP
+
+their the: rubbish
+  was:VBD closing:VVG            their:DPS the:AT0 theatres:NN2 ,:PUN but:CJC the:AT0
+
+their three
+  sense:NN1 of:PRF               their:DPS three:CRD long:AJ0 encounters:NN2 is:VBZ that:CJT
+  Chambery:NN1 ,:PUN             their:DPS three:CRD resorts:NN2 in:PRP Austria:NP0 from:PRP
+  young:AJ0 and:CJC              their:DPS three:CRD sons:NN2 married:VVD young:AJ0 as:AV0
+  herself:PNX and:CJC            their:DPS three:CRD children:NN2 .:PUN ***************:*************** ***************:***************
+  Referring:VVG to:PRP           their:DPS three:CRD temperaments:NN2 as:CJS &bquo:PUQ those:DT0
+  will:VM0 play:VVI              their:DPS three:CRD first-phase:AJ0 games:NN2 in:PRP Sardinia:NP0
+  will:VM0 play:VVI              their:DPS three:CRD first-phase:AJ0 games:NN2 in:PRP Sardinia:NP0
+  to:TO0 play:VVI                their:DPS three:CRD World:NN1 Cup:NN1 qualifying:VVG round:AJ0
+  will:VM0 play:VVI              their:DPS three:CRD first-round:NN1 matches:NN2 in:PRP Cagliari:NN1
+  will:VM0 play:VVI              their:DPS three:CRD first-round:NN1 matches:NN2 in:PRP Cagliari:NN1
+
+their two
+  ,:PUN and:CJC                  their:DPS two:CRD children:NN2 ,:PUN Sonja:NP0 and:CJC
+  up:AVP with:PRP                their:DPS two:CRD oblique:AJ0 edges:NN2 absolutely:AV0 square:AJ0
+  Reaction:NN1 to:PRP            their:DPS two:CRD recently-rescued:AJ0 Sam:NP0 Powell:NP0 ales:NN2
+  men:NN2 and:CJC                their:DPS two:CRD suicides:NN2 !:PUN ***************:*************** ***************:***************
+  to:TO0 move:VVI                their:DPS two:CRD young:AJ0 sons:NN2 to:PRP safety:NN1
+  health:NN1 of:PRF              their:DPS two:CRD young:AJ0 boys:NN2 ,:PUN Sam:NP0
+  defence:NN1 of:PRF             their:DPS two:CRD flocks:NN2 of:PRF 10,000:CRD battery:NN1
+  son-in-law:NN1 and:CJC         their:DPS two:CRD children:NN2 &mdash:PUN to:PRP Pollsmoor:NN1
+  said:VVD that:CJT              their:DPS two:CRD accomplices:NN2 arrested:VVD in:PRP Ireland:NP0
+  Barracks:NP0 in:PRP            their:DPS two:CRD Land-Rovers:NP0 on:PRP the:AT0 start:NN1
+
+three a: "a" = "per"
+  more:AV0 than:CJS              three:CRD a:AT0 week:NN1 ):PUR .:PUN ***************:***************
+  average:NN1 of:PRF             three:CRD a:AT0 day:NN1 .:PUN ***************:*************** ***************:***************
+
+three all: accident, three+N(elliptical), "all" as post-modifier.
+  the:AT0 other:AJ0              three:CRD all:DT0 had:VHD military:AJ0 experience:NN1 but:CJC
+
+three four
+  one:CRD two:CRD                three:CRD four:CRD ,:PUN and:CJC then:AV0 he:PNP
+  One:CRD two:CRD                three:CRD four:CRD five:CRD six:CRD not:XX0 yet:AV0
+  One:CRD two:CRD                three:CRD four:CRD five:CRD six:CRD not:XX0 yet:AV0
+
+three most
+  ***************:*************** The:AT0 three:CRD most:AV0 popular:AJ0 mixes:NN2 in:PRP catering:NN1-VVG
+  for:PRP the:AT0                three:CRD most:AV0 important:AJ0 team:NN0 events:NN2 in:PRP
+  country:NN1 's:VBZ             three:CRD most:AV0 politically:AV0 prominent:AJ0 church:NN1 leaders:NN2
+  back:AVP the:AT0               three:CRD most:AV0 significant:AJ0 new:AJ0 cars:NN2 still:AV0
+  of:PRF the:AT0                 three:CRD most:AV0 popular:AJ0 Tchaikovsky:NP0 overtures:NN2 ,:PUN
+  Of:PRF the:AT0                 three:CRD most:AV0 admired:AJ0-VVD firms:NN2 ,:PUN Glaxo:NN1
+  ,:PUN the:AT0                  three:CRD most:AV0 distinguished:AJ0 figures:NN2 in:PRP this:DT0
+
+three of
+  one:CRD-PNI in:PRP             three:CRD of:PRF adults:NN2 in:PRP some:DT0 African:AJ0
+  (:PUL even:CJS                 three:CRD of:PRF the:AT0 sculptures:NN2 mentioned:VVN are:VBB
+  together:AV0 all:DT0           three:CRD of:PRF the:AT0 worlds:NN2 we:PNP inhabit:VVB
+  in:PRP getting:VVG             three:CRD of:PRF the:AT0 four:CRD religious:AJ0 provinces:NN2
+  And:CJC all:DT0                three:CRD of:PRF them:PNP made:VVD for:PRP the:AT0
+  Project:NN1 ,:PUN              three:CRD of:PRF which:DTQ this:DT0 year:NN1 come:VVN
+  only:AV0 see:VVI               three:CRD of:PRF four:CRD fields:NN2 and:CJC if:CJS
+  for:PRP all:DT0                three:CRD of:PRF them:PNP ,:PUN while:CJS others:NN2
+  graveyard:NN1 with:PRP         three:CRD of:PRF her:DPS friends:NN2 ,:PUN their:DPS
+  Oh:ITJ ,:PUN                   three:CRD of:PRF the:AT0 Duke:NP0 's:POS boobies:NN2
+
+three the: accident/rubbish
+  show:NN1 ,:PUN                 three:CRD the:AT0 end:NN1 .:PUN ***************:*************** ***************:***************
+  From:PRP year:NN1              three:CRD the:AT0 maximum:NN1 is:VBZ &pound;500:NN0 .:PUN
+  rather:PRP the:AT0             three:CRD the:AT0 brochure:NN1 presumes:NN2 ,:PUN that:CJT
+
+two a: "a"="per"
+  rate:NN1 of:PRF                two:CRD a:AT0 week:NN1 ,:PUN and:CJC on:PRP
+  &mdash:PUN almost:AV0          two:CRD a:AT0 day:NN1 on:PRP each:DT0 channel:NN1
+  can:VM0 buy:VVI                two:CRD a:AT0 penny:NN1 ,:PUN &equo:PUQ the:AT0
+  they:PNP are:VBB               two:CRD a:AT0 penny:NN1 &mdash:PUN or:CJC rather:AV0
+  hour:NN1 or:CJC                two:CRD a:AT0 day:NN1 .:PUN ***************:*************** ***************:***************
+
+two an
+  just:AV0 over:AV0              two:CRD an:AT0 over:NN1 from:PRP 105:CRD was:VBD
+
+two any: "number two"!
+  being:VBG number:NN1           two:CRD any:DT0 more:AV0 .:PUN ***************:*************** ***************:***************
+
+two each
+  economies:NN2 and:CJC          two:CRD each:DT0 to:PRP savings:NN2 and:CJC cost:NN1
+  They:PNP took:VVD              two:CRD each:DT0 .:PUN ***************:*************** ***************:*************** ***************:***************
+
+two every: accident
+  one:CRD or:CJC                 two:CRD every:AT0 other:AJ0 day:NN1 or:CJC so:AV0
+
+two four: "four hour"
+  you:PNP said:VVD               two:CRD four:CRD hour:NN1 sessions:NN2 failed:VVD to:TO0
+
+two his: accident, ellipsis
+  year:NN1 or:CJC                two:CRD his:DPS wicket-taking:NN1 ability:NN1 seemed:VVD to:TO0
+
+two most
+  with:PRP the:AT0               two:CRD most:AV0 senior:AJ0 actors:NN2 .:PUN ***************:***************
+  &bquo:PUQ the:AT0              two:CRD most:AV0 spectacular:AJ0 class:NN1 alliances:NN2 in:PRP
+  that:CJT the:AT0               two:CRD most:AV0 difficult:AJ0 and:CJC specialist:AJ0 design:NN1
+  are:VBB the:AT0                two:CRD most:AV0 valuable:AJ0 weapons:NN2 against:PRP pests:NN2
+  of:PRF the:AT0                 two:CRD most:AV0 demanding:AJ0 years:NN2 of:PRF her:DPS
+  face:VVB the:AT0               two:CRD most:AV0 powerful:AJ0 teams:NN2 in:PRP Europe:NP0
+  ,:PUN the:AT0                  two:CRD most:AV0 senior:AJ0 commanders:NN2 are:VBB Pol:NN1
+  that:CJT the:AT0               two:CRD most:AV0 important:AJ0 people:NN0 in:PRP the:AT0
+  of:PRF the:AT0                 two:CRD most:AV0 Anglo-Catholic:AJ0 professors:NN2 in:PRP England:NP0
+  ***************:*************** The:AT0 two:CRD most:AV0 notorious:AJ0 characters:NN2 of:PRF the:AT0
+
+two of
+  already:AV0 adopted:VVN        two:CRD of:PRF the:AT0 prisoners:NN2 as:CJS prisoners:NN2
+  work:NN1 of:PRF                two:CRD of:PRF Manz&ugrave:NP0 's:POS Italian:AJ0 colleagues:NN2
+  can:VM0 be:VBI                 two:CRD of:PRF some:AT0 one:NN1 .:PUN ***************:***************
+  They:PNP are:VBB               two:CRD of:PRF a:AT0 kind:NN1 ,:PUN it:PNP
+  &bquo:PUQ The:AT0              two:CRD of:PRF us:PNP .:PUN &equo:PUQ ***************:***************
+  ,:PUN and:CJC                  two:CRD of:PRF his:DPS brother':NN1 s:ZZ0 mates:NN2
+  risks:NN2 are:VBB              two:CRD of:PRF the:AT0 main:AJ0 things:NN2 you:PNP
+  to:PRP the:AT0                 two:CRD of:PRF us:PNP ,:PUN she:PNP says:VVZ
+  wife:NN1 had:VHD               two:CRD of:PRF her:DPS own:DT0 ,:PUN that:CJT
+  for:PRP the:AT0                two:CRD of:PRF us:PNP ,:PUN he:PNP wrote:VVD
+
+two some: accident/rubbish
+  well:ITJ ,:PUN                 two:CRD some:AT0 thing:NN1 ,:PUN thought:VVD Patrick:NP0
+
+two the: ellipsis
+  glass:NN1 ,:PUN                two:CRD the:AT0 show:NN1 ,:PUN three:CRD the:AT0
+  while:CJS in:PRP               two:CRD the:AT0 Greens:NP0 did:VDD better:AV0 .:PUN
+  minute:NN1 or:CJC              two:CRD the:AT0 Asian:NN1 suddenly:AV0 slid:VVD out:AVP
+  restrict:VVI to:PRP            two:CRD the:AT0 number:NN1 of:PRF parties:NN2 allowed:VVD
+  minute:NN1 or:CJC              two:CRD the:AT0 door:NN1 would:VM0 open:VVI again:AV0
+
+two three
+  ,:PUN one:CRD                  two:CRD three:CRD four:CRD ,:PUN and:CJC then:AV0
+  ***************:*************** One:CRD two:CRD three:CRD four:CRD five:CRD six:CRD not:XX0
+  ***************:*************** One:CRD two:CRD three:CRD four:CRD five:CRD six:CRD not:XX0
+
+your all
+  're:VBB giving:VVG             your:DPS all:DT0 for:PRP your:DPS country:NN1 ?:PUN
+
+your every: fixed phrase (seen it?)
+  guest:NN1 so:CJS               your:DPS every:AT0 whim:NN1 is:VBZ catered:VVN for:AVP-PRP
+  to:TO0 understand:VVI          your:DPS every:AT0 need:NN1 .:PUN ***************:*************** ***************:***************
+
+your many
+  to:PRP all:DT0                 your:DPS many:DT0 friends:NN2 and:CJC colleagues:NN2 in:PRP
+
+your most
+  probability:NN1 be:VBI         your:DPS most:AV0 interesting:AJ0 and:CJC valuable:AJ0 possession:NN1
+  attention:NN1 and:CJC          your:DPS most:AV0 energetic:AJ0 practice:NN1 .:PUN ***************:***************
+  lumps:NN2 on:PRP               your:DPS most:AV0 tender:AJ0 spot:NN1 .:PUN ***************:***************
+  make:VVB them:PNP              your:DPS most:AV0 accessible:AJ0 .:PUN ***************:*************** ***************:***************
+  should:VM0 be:VBI              your:DPS most:AV0 eloquent:AJ0 argument:NN1 .:PUN ***************:***************
+  leaves:NN2 from:PRP            your:DPS most:AV0 decorative:AJ0 house:NN1 plants:NN2 and:CJC
+  arrange:VVI for:PRP            your:DPS most:AV0 active:AJ0 work:NN1 to:TO0 be:VBI
+  ***************:*************** Indulge:VVB your:DPS most:AV0 precious:AJ0 moments:NN2 in:PRP the:AT0
+  to:TO0 complement:VVI          your:DPS most:AV0 outrageous:AJ0 outfit:NN1 .:PUN ***************:***************
+  is:VBZ probably:AV0            your:DPS most:AV0 valuable:AJ0 possession:NN1 and:CJC ,:PUN
+
+your one
+  give:VVI it:PNP                your:DPS one:CRD-PNI more:DT0 day:NN1 and:CJC then:AV0
+  I:PNP was:VBD                  your:DPS one:CRD and:CJC only:AJ0 friend:NN1 would:VM0
+
+your two
+  ,:PUN hold:VVB                 your:DPS two:CRD hands:NN2 forward:AV0 in:PRP you:PNP
+  people:NN0 ;:PUN               your:DPS two:CRD sons:NN2 also:AV0 ,:PUN Hophni:NP0
+  fingers:NN2 of:PRF             your:DPS two:CRD hands:NN2 ,:PUN one:CRD at:PRP

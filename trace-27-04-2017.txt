@@ -1,0 +1,1006 @@
+SICStus 3.12.8 (i386-darwin-8.9.1): Tue May  8 13:13:57 CEST 2007
+Licensed to man.ac.uk
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/setup.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po...
+%  module charsio imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/charsio.bundle in module charsio
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po in module charsio, 0 msec 8512 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/setup.pl in module user, 0 msec 11448 bytes
+yes
+| ?- setup(allwords).
+% compiling /Library/WebServer/CGI-Executables/dgParser/useful.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po...
+%  module terms imported into user
+%   loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po...
+%   module assoc imported into terms
+%    loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po...
+%    module lists imported into assoc
+%    loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po in module lists, 0 msec 11328 bytes
+%   loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po in module assoc, 0 msec 22728 bytes
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po in module terms, 0 msec 31128 bytes
+% Undefined predicates will just fail (fail)
+% compiled /Library/WebServer/CGI-Executables/dgParser/useful.pl in module user, 10 msec 58792 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/features.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/features.pl in module user, 10 msec 21620 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/pretty.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/pretty.pl in module user, 10 msec 12480 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/io.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/io.pl in module user, 10 msec 760 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/disjoin.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/disjoin.pl in module user, 10 msec 16720 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-64, file: '/Library/WebServer/CGI-Executables/dgParser/signatures.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/signatures.pl in module user, 0 msec 5272 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/agree.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/agree.pl in module user, 0 msec 8272 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/classes.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/classes.pl in module user, 40 msec 166040 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/negation.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/negation.pl in module user, 0 msec 1408 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/vforms.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/vforms.pl in module user, 10 msec 23320 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/pronouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/pronouns.pl in module user, 0 msec 3456 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/verbs.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/verbs.pl in module user, 0 msec 36464 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/mclasses.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/mclasses.pl in module user, 0 msec 1648 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/determiners.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/determiners.pl in module user, 10 msec 31224 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/nouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/nouns.pl in module user, 0 msec 2160 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/lookup.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/lookup.pl in module user, 0 msec 10008 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/chart.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/chart.pl in module user, 10 msec 64704 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/treepr.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/treepr.pl in module user, 10 msec 9520 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/conll.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/conll.pl in module user, 0 msec 7872 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl in module user, 0 msec 5344 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/preprocess.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/preprocess.pl in module user, 0 msec 12632 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/spelling.pl...
+* abolish(user:(spellingRule/3)) - no matching predicate
+* Approximate lines: 113-115, file: '/Library/WebServer/CGI-Executables/dgParser/spelling.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/spelling.pl in module user, 0 msec 12960 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+%  consulting /Library/WebServer/CGI-Executables/dgParser/setup.pl...
+%  consulted /Library/WebServer/CGI-Executables/dgParser/setup.pl in module user, 0 msec -48 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 19776 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/allwords.pl...
+%  including /Library/WebServer/CGI-Executables/dgParser/englishopen.pl...
+%   including /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl...
+%    including /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl...
+%    included /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl in module user, 0 msec 15120 bytes
+%   included /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl in module user, 30 msec 514472 bytes
+%  included /Library/WebServer/CGI-Executables/dgParser/englishopen.pl in module user, 80 msec 982224 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/allwords.pl in module user, 8930 msec 94721280 bytes
+yes
+| ?- parseOne('the man had been sleeping .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[[(some : A)],
+ [(some : B), ((woman>):noun , B)],
+ [(tense(past,-) : C)],
+ [(every : D), ((man>):noun , D)]]
+exists(A,
+       exists(B,
+              (((woman>):noun , B)
+                & exists(C,
+                         (tense(past, C)
+                           & every(D,
+                                   (((man>):noun , D)
+                                     => ((at , C,A)
+                                          & (((love>ed : verb)
+                                               & (dobj,B & subject,D)),
+                                             A)))))))))
+(((woman>):noun , [sk1])
+  & (tense(past, [sk2])
+      & (((man>):noun , A)
+          => ((at , [sk2],[sk0])
+               & (((love>ed):verb , [sk0])
+                   & ((dobj,[sk1] , [sk0])
+                       & (subject,A , [sk0])))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists([sk0],exists([sk1],((woman>''):noun,[sk1])&exists([sk2],tense(past,[sk2])&every(_C,((man>''):noun,_C)=>((at,[sk2],[sk0])&((love>ed):verb&(dobj,[sk1])&(subject,_C),[sk0])))))),
+QFF = ((woman>''):noun,[sk1])&tense(past,[sk2])&((man>''):noun,_C)=>((at,[sk2],[sk0])&((love>ed):verb,[sk0])&((dobj,[sk1]),[sk0])&((subject,_C),[sk0])) ? 
+yes
+| ?- parseOne('a man will have been sleeping .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i29
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(kill>s : verb),
+              {(dobj,
+                 spec([(the : A)],
+                      [(thing> : noun),
+                       {(modifier(rcmod, -),
+                          whclause=[(love>s : verb),
+                                    {(dobj , spec(whSpec,[which:pronoun]))},
+                                    {(subject , spec(proRef,[he:pronoun]))}])}]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[[(the : A)],
+ [(the : B), (salient([he:pronoun]) , B)],
+ [(some : C)],
+ [(every : D), ((man>):noun , D)],
+
+! Type error in argument 2 of =.. /2
+! atom expected, but [the:_180] found
+! goal:  _186=..[[the:_180],the(_171::{salient([he:pronoun]),_171},exists(_156,every(_153,((man>''):noun,_153)=>exists(_138,tense(present,_138)&(at,_138,_156)&((kill>s):verb&(dobj,[_180|...])&(subject,_153),_156)))))]
+| ?-  [(tense(present,-) : E)]]
+| ?- parseOne('a man will have been sleeping .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i19
+  + [(. : punct),
+     {(claim,
+        spec(tense(A, +),
+             [(will : aux),
+              {(auxcomp,
+                 [(have> : aux),
+                  {(auxcomp,
+                     [(be>en : aux),
+                      {(auxcomp , [(sleep>ing):verb])}])}])},
+              {(subject , spec([a:B],[(man>):noun]))}]))}])
+[[(tense(past,+) : A)],
+ [(a : B), ((man>):noun , B)],
+ [(some : C)]]
+the((A :: {tense(past),A}),
+    a(B,
+      (((man>):noun , B)
+        & exists(C,
+                 ((at , A,C)
+                   & (((will : aux)
+                        & ((auxcomp,
+                            ((have> : aux)
+                              & (auxcomp,
+                                 ((be>en : aux)
+                                   & (auxcomp , [(sleep>ing):verb])))))
+                            & (subject , B))),
+                      C))))))
+the((A :: {tense(past),A}),
+    a(B,
+      (((man>):noun , B)
+        & exists(C,
+                 ((at , A,C)
+                   & (((will : aux)
+                        & ((auxcomp,
+                            ((have> : aux)
+                              & (auxcomp,
+                                 ((be>en : aux)
+                                   & (auxcomp , [(sleep>ing):verb])))))
+                            & (subject , B))),
+                      C))))))
+X = ['.':punct,{claim,spec(tense(past,+),[will:aux,{auxcomp,[(have>''):aux,{auxcomp,[(be>en):aux|...]}]},{subject,spec([a:_A],[(man>''):noun])}])}],
+NF = the(_B::{tense(past),_B},a(_C,((man>''):noun,_C)&exists(_D,(at,_B,_D)&(will:aux&(auxcomp,(have>''):aux&(auxcomp,(be>en):aux&(auxcomp,[(sleep>ing):verb])))&(subject,_C),_D)))),
+QFF = the(_B::{tense(past),_B},a(_C,((man>''):noun,_C)&exists(_D,(at,_B,_D)&(will:aux&(auxcomp,(have>''):aux&(auxcomp,(be>en):aux&(auxcomp,[(sleep>ing):verb])))&(subject,_C),_D)))) ? 
+yes
+| ?- parseOne('the man was sleeping .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i13
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, +),
+             [(had : aux),
+              {(auxcomp,
+                 [(be>en : aux),
+                  {(auxcomp , [(sleep>ing):verb])}])},
+              {(subject , spec([the:A],[(man>):noun]))}]))}])
+[[(the : A), ((man>):noun , A)],
+ [(tense(past,+) : B)],
+ [(some : C)]]
+the((A :: {(man>):noun,A}),
+    the((B :: {tense(past),B}),
+        exists(C,
+               ((at , B,C)
+                 & (((had : aux)
+                      & ((auxcomp,
+                          ((be>en : aux)
+                            & (auxcomp , [(sleep>ing):verb])))
+                          & (subject , A))),
+                    C)))))
+the((A :: {(man>):noun,A}),
+    the((B :: {tense(past),B}),
+        ((at , B,[sk0])
+          & ((had:aux , [sk0])
+              & (((auxcomp,
+                   ((be>en : aux)
+                     & (auxcomp , [(sleep>ing):verb]))),
+                  [sk0])
+                  & (subject,A , [sk0]))))))
+X = ['.':punct,{claim,spec(tense(past,+),[had:aux,{auxcomp,[(be>en):aux,{auxcomp,[(sleep>ing):verb]}]},{subject,spec([the:_A],[(man>''):noun])}])}],
+NF = the(_B::{(man>''):noun,_B},the(_C::{tense(past),_C},exists([sk0],(at,_C,[sk0])&(had:aux&(auxcomp,(be>en):aux&(auxcomp,[(sleep>ing):verb]))&(subject,_B),[sk0])))),
+QFF = the(_B::{(man>''):noun,_B},the(_C::{tense(past),_C},(at,_C,[sk0])&(had:aux,[sk0])&((auxcomp,(be>en):aux&(auxcomp,[(sleep>ing):verb])),[sk0])&((subject,_B),[sk0]))) ? 
+yes
+| ?- parseOne('the man slept .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i9
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, +),
+             [(be : aux),
+              {(auxcomp , [(sleep>ing):verb])},
+              {(subject , spec([the:A],[(man>):noun]))}]))}])
+[[(the : A), ((man>):noun , A)],
+ [(tense(past,+) : B)],
+ [(some : C)]]
+the((A :: {(man>):noun,A}),
+    the((B :: {tense(past),B}),
+        exists(C,
+               ((at , B,C)
+                 & (((be : aux)
+                      & ((auxcomp , [(sleep>ing):verb])
+                          & (subject , A))),
+                    C)))))
+the((A :: {(man>):noun,A}),
+    the((B :: {tense(past),B}),
+        ((at , B,[sk0])
+          & ((be:aux , [sk0])
+              & ((auxcomp,[(sleep>ing):verb] , [sk0])
+                  & (subject,A , [sk0]))))))
+X = ['.':punct,{claim,spec(tense(past,+),[be:aux,{auxcomp,[(sleep>ing):verb]},{subject,spec([the:_A],[(man>''):noun])}])}],
+NF = the(_B::{(man>''):noun,_B},the(_C::{tense(past),_C},exists([sk0],(at,_C,[sk0])&(be:aux&(auxcomp,[(sleep>ing):verb])&(subject,_B),[sk0])))),
+QFF = the(_B::{(man>''):noun,_B},the(_C::{tense(past),_C},(at,_C,[sk0])&(be:aux,[sk0])&((auxcomp,[(sleep>ing):verb]),[sk0])&((subject,_B),[sk0]))) ? 
+yes
+| ?- parseOne('the man loved a woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i7
+  + [(. : punct),
+     {(claim,
+        [(sleep>ed : verb),
+         {(subject , spec([the:A],[(man>):noun]))}])}])
+[[(the : A), ((man>):noun , A)]]
+the((A :: {(man>):noun,A}),
+    ((sleep>ed):verb & subject,A))
+the((A :: {(man>):noun,A}),
+    ((sleep>ed):verb & subject,A))
+X = ['.':punct,{claim,[(sleep>ed):verb,{subject,spec([the:_A],[(man>''):noun])}]}],
+NF = the(_B::{(man>''):noun,_B},(sleep>ed):verb&(subject,_B)),
+QFF = the(_B::{(man>''):noun,_B},(sleep>ed):verb&(subject,_B)) ? 
+yes
+| ?- parseOne('the man will have loved a woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([a:A],[(woman>):noun]))},
+              {(subject , spec([the:B],[(man>):noun]))}]))}])
+[[(the : A), ((man>):noun , A)],
+ [(a : B), ((woman>):noun , B)],
+ [(some : C)],
+ [(tense(past,-) : D)]]
+the((A :: {(man>):noun,A}),
+    a(B,
+      (((woman>):noun , B)
+        & exists(C,
+                 exists(D,
+                        (tense(past, D)
+                          & ((at , D,C)
+                              & (((love>ed : verb)
+                                   & (dobj,B & subject,A)),
+                                 C))))))))
+the((A :: {(man>):noun,A}),
+    a(B,
+      (((woman>):noun , B)
+        & exists(C,
+                 exists(D,
+                        (tense(past, D)
+                          & ((at , D,C)
+                              & (((love>ed : verb)
+                                   & (dobj,B & subject,A)),
+                                 C))))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([a:_A],[(woman>''):noun])},{subject,spec([the:_B],[(man>''):noun])}])}],
+NF = the(_C::{(man>''):noun,_C},a(_D,((woman>''):noun,_D)&exists(_E,exists(_F,tense(past,_F)&(at,_F,_E)&((love>ed):verb&(dobj,_D)&(subject,_C),_E))))),
+QFF = the(_C::{(man>''):noun,_C},a(_D,((woman>''):noun,_D)&exists(_E,exists(_F,tense(past,_F)&(at,_F,_E)&((love>ed):verb&(dobj,_D)&(subject,_C),_E))))) ? 
+yes
+| ?- parseOne('the man will have loved a woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i39
+  + [(. : punct),
+     {(claim,
+        spec(tense(A, +),
+             [(will : aux),
+              {(auxcomp,
+                 [(have> : aux),
+                  {(auxcomp,
+                     [(love>ed : verb),
+                      {(dobj , spec([a:B],[(woman>):noun]))}])}])},
+              {(subject , spec([the:C],[(man>):noun]))}]))}])
+[[(the : A), ((man>):noun , A)],
+ [(tense(past,+) : B)],
+ [(a : C), ((woman>):noun , C)],
+ [(some : D)]]
+the((A :: {(man>):noun,A}),
+    the((B :: {tense(past),B}),
+        a(C,
+          (((woman>):noun , C)
+            & exists(D,
+                     ((at , B,D)
+                       & (((will : aux)
+                            & ((auxcomp,
+                                ((have> : aux)
+                                  & (auxcomp,
+                                     ((love>ed):verb & dobj,C))))
+                                & (subject , A))),
+                          D)))))))
+the((A :: {(man>):noun,A}),
+    the((B :: {tense(past),B}),
+        a(C,
+          (((woman>):noun , C)
+            & exists(D,
+                     ((at , B,D)
+                       & (((will : aux)
+                            & ((auxcomp,
+                                ((have> : aux)
+                                  & (auxcomp,
+                                     ((love>ed):verb & dobj,C))))
+                                & (subject , A))),
+                          D)))))))
+X = ['.':punct,{claim,spec(tense(past,+),[will:aux,{auxcomp,[(have>''):aux,{auxcomp,[(love>ed):verb|...]}]},{subject,spec([the:_B],[(man>''):noun])}])}],
+NF = the(_C::{(man>''):noun,_C},the(_D::{tense(past),_D},a(_E,((woman>''):noun,_E)&exists(_F,(at,_D,_F)&(will:aux&(auxcomp,(have>''):aux&(auxcomp,(love>ed):verb&(dobj,_E)))&(subject,_C),_F))))),
+QFF = the(_C::{(man>''):noun,_C},the(_D::{tense(past),_D},a(_E,((woman>''):noun,_E)&exists(_F,(at,_D,_F)&(will:aux&(auxcomp,(have>''):aux&(auxcomp,(love>ed):verb&(dobj,_E)))&(subject,_C),_F))))) ? 
+yes
+| ?- setup(allwords).
+% compiling /Library/WebServer/CGI-Executables/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Library/WebServer/CGI-Executables/dgParser/useful.pl in module user, 20 msec 2576 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/features.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/features.pl in module user, 20 msec 808 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/pretty.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/pretty.pl in module user, 10 msec 200 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/io.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/io.pl in module user, 0 msec -1080 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/disjoin.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/disjoin.pl in module user, 10 msec 1208 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-64, file: '/Library/WebServer/CGI-Executables/dgParser/signatures.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/signatures.pl in module user, 0 msec -24 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/agree.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/agree.pl in module user, 0 msec -216 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/classes.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/classes.pl in module user, 50 msec 4144 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/negation.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/vforms.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/vforms.pl in module user, 0 msec -64 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/pronouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/pronouns.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/verbs.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/verbs.pl in module user, 10 msec -40 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/mclasses.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/mclasses.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/determiners.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/determiners.pl in module user, 10 msec -3904 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/nouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/lookup.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/lookup.pl in module user, 0 msec 384 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/chart.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/chart.pl in module user, 20 msec 2984 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/treepr.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/treepr.pl in module user, 0 msec 224 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/conll.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/conll.pl in module user, 0 msec 688 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl in module user, 0 msec -1448 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/preprocess.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/preprocess.pl in module user, 10 msec 664 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/spelling.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/spelling.pl in module user, 0 msec 72 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 1328 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/allwords.pl...
+%  including /Library/WebServer/CGI-Executables/dgParser/englishopen.pl...
+%   including /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl...
+%    including /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl...
+%    included /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl in module user, 10 msec 14960 bytes
+%   included /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl in module user, 50 msec 509160 bytes
+%  included /Library/WebServer/CGI-Executables/dgParser/englishopen.pl in module user, 100 msec 967240 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/allwords.pl in module user, 12560 msec -368 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i44
+  + [(. : punct),
+     {(claim,
+        [(will : aux),
+         {(auxcomp,
+            [(have> : aux),
+             {(auxcomp,
+                [(love>ed : verb),
+                 {(dobj , spec([a:A],[(woman>):noun]))}])}])},
+         {(subject , spec([the:B],[(man>):noun]))}])}])
+[[(the : A), ((man>):noun , A)],
+ [(a : B), ((woman>):noun , B)]]
+the((A :: {(man>):noun,A}),
+    a(B,
+      (((woman>):noun , B)
+        & ((will : aux)
+            & ((auxcomp,
+                ((have> : aux)
+                  & (auxcomp , (love>ed):verb&(dobj,B))))
+                & (subject , A))))))
+the((A :: {(man>):noun,A}),
+    a(B,
+      (((woman>):noun , B)
+        & ((will : aux)
+            & ((auxcomp,
+                ((have> : aux)
+                  & (auxcomp , (love>ed):verb&(dobj,B))))
+                & (subject , A))))))
+X = ['.':punct,{claim,[will:aux,{auxcomp,[(have>''):aux,{auxcomp,[(love>ed):verb|...]}]},{subject,spec([the:_B],[(man>''):noun])}]}],
+NF = the(_C::{(man>''):noun,_C},a(_D,((woman>''):noun,_D)&will:aux&(auxcomp,(have>''):aux&(auxcomp,(love>ed):verb&(dobj,_D)))&(subject,_C))),
+QFF = the(_C::{(man>''):noun,_C},a(_D,((woman>''):noun,_D)&will:aux&(auxcomp,(have>''):aux&(auxcomp,(love>ed):verb&(dobj,_D)))&(subject,_C))) ? setup(allwords).
+Top-level options:
+   RET y     no more choices
+     ; n     more choices
+       b     break
+       <     reset printdepth
+       < <n> set printdepth
+       ^     reset subterm
+       ^ <n> set subterm
+     ? h     print this information
+ ? 
+yes
+| ?- setup(allwords).
+% compiling /Library/WebServer/CGI-Executables/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Library/WebServer/CGI-Executables/dgParser/useful.pl in module user, 10 msec 904 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/features.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/features.pl in module user, 20 msec -88 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/pretty.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/pretty.pl in module user, 10 msec -88 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/io.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/io.pl in module user, 0 msec -1080 bytes
+% compiling /Library/WebServer/CGI-Executables/dgParser/disjoin.pl...
+% compiled /Library/WebServer/CGI-Executables/dgParser/disjoin.pl in module user, 20 msec 392 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-64, file: '/Library/WebServer/CGI-Executables/dgParser/signatures.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/signatures.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/agree.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/agree.pl in module user, 0 msec -600 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/classes.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/classes.pl in module user, 40 msec 3496 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/negation.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/vforms.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/vforms.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/pronouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/pronouns.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/verbs.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/verbs.pl in module user, 10 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/mclasses.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/mclasses.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/determiners.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/determiners.pl in module user, 0 msec -3928 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/nouns.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/lookup.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/lookup.pl in module user, 10 msec -152 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/chart.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/chart.pl in module user, 10 msec 1768 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/treepr.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/treepr.pl in module user, 0 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/conll.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/conll.pl in module user, 10 msec -88 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/parseconstrained.pl in module user, 0 msec -1752 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/preprocess.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/preprocess.pl in module user, 0 msec 40 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/spelling.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/spelling.pl in module user, 0 msec -216 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 296 bytes
+% consulting /Library/WebServer/CGI-Executables/dgParser/allwords.pl...
+%  including /Library/WebServer/CGI-Executables/dgParser/englishopen.pl...
+%   including /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl...
+%    including /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl...
+%    included /Library/WebServer/CGI-Executables/dgParser/englishaffixes.pl in module user, 10 msec 14960 bytes
+%   included /Library/WebServer/CGI-Executables/dgParser/englishclosed.pl in module user, 50 msec 509232 bytes
+%  included /Library/WebServer/CGI-Executables/dgParser/englishopen.pl in module user, 110 msec 967312 bytes
+% consulted /Library/WebServer/CGI-Executables/dgParser/allwords.pl in module user, 10470 msec -240 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[[(some : A)],
+ [(some : B), ((woman>):noun , B)],
+ [(tense(past,-) : C)],
+ [(every : D), ((man>):noun , D)]]
+exists(A,
+       exists(B,
+              (((woman>):noun , B)
+                & exists(C,
+                         (tense(past, C)
+                           & every(D,
+                                   (((man>):noun , D)
+                                     => ((at , C,A)
+                                          & (((love>ed : verb)
+                                               & (dobj,B & subject,D)),
+                                             A)))))))))
+(((woman>):noun , [sk1])
+  & (tense(past, [sk2])
+      & (((man>):noun , A)
+          => ((at , [sk2],[sk0])
+               & (((love>ed):verb , [sk0])
+                   & ((dobj,[sk1] , [sk0])
+                       & (subject,A , [sk0])))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = exists([sk0],exists([sk1],((woman>''):noun,[sk1])&exists([sk2],tense(past,[sk2])&every(_C,((man>''):noun,_C)=>((at,[sk2],[sk0])&((love>ed):verb&(dobj,[sk1])&(subject,_C),[sk0])))))),
+QFF = ((woman>''):noun,[sk1])&tense(past,[sk2])&((man>''):noun,_C)=>((at,[sk2],[sk0])&((love>ed):verb,[sk0])&((dobj,[sk1]),[sk0])&((subject,_C),[sk0])) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+! Syntax error
+! token cannot start an expression
+! in line 948
+! <<here>>
+! end of file in /*comment*/ 
+! Approximate lines: 570-972, file: '/Library/WebServer/CGI-Executables/dgParser/transformations.pl'
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec 152 bytes
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -80 bytes
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[[(every : A), ((man>):noun , A)],
+ [(some : B)],
+ [(some : C), ((woman>):noun , C)],
+ [(tense(past,-) : D)]]
+every(A,
+      (((man>):noun , A)
+        => exists(B,
+                  exists(C,
+                         (((woman>):noun , C)
+                           & exists(D,
+                                    (tense(past, D)
+                                      & ((at , D,B)
+                                          & (((love>ed : verb)
+                                               & (dobj,C & subject,A)),
+                                             B)))))))))
+(((man>):noun , A)
+  => (((woman>):noun , [sk1,A])
+       & (tense(past, [sk2, A])
+           & ((at , [sk2,A],[sk0,A])
+               & (((love>ed):verb , [sk0,A])
+                   & ((dobj,[sk1,A] , [sk0,A])
+                       & (subject,A , [sk0,A])))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = every(_C,((man>''):noun,_C)=>exists([sk0,_C],exists([sk1,_C],((woman>''):noun,[sk1,_C])&exists([sk2,_C],tense(past,[sk2,_C])&(at,[sk2|...],[sk0|...])&((love>ed):verb&(dobj,[sk1|...])&(subject,_C),[sk0|...]))))),
+QFF = ((man>''):noun,_C)=>(((woman>''):noun,[sk1,_C])&tense(past,[sk2,_C])&(at,[sk2,_C],[sk0,_C])&((love>ed):verb,[sk0,_C])&((dobj,[sk1,_C]),[sk0,_C])&((subject,_C),[sk0,_C])) ? 
+yes
+| ?- % consulting /Library/WebServer/CGI-Executables/dgParser/transformations.pl...
+% consulted /Library/WebServer/CGI-Executables/dgParser/transformations.pl in module user, 10 msec -80 bytes
+yes
+| ?- parseOne('the man loved some woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[[(every : A), ((man>):noun , A)],
+ [(some : B)],
+ [(some : C), ((woman>):noun , C)],
+ [(tense(past,-) : D)]]
+every(A,
+      (((man>):noun , A)
+        => exists(B,
+                  exists(C,
+                         (((woman>):noun , C)
+                           & exists(D,
+                                    (tense(past, D)
+                                      & ((at , D,B)
+                                          & (((love>ed : verb)
+                                               & (dobj,C & subject,A)),
+                                             B)))))))))
+(((man>):noun , A)
+  => (((woman>):noun , [sk1,A])
+       & (tense(past, [sk2, A])
+           & ((at , [sk2,A],[sk0,A])
+               & (((love>ed):verb , [sk0,A])
+                   & ((dobj,[sk1,A] , [sk0,A])
+                       & (subject,A , [sk0,A])))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = every(_C,((man>''):noun,_C)=>exists([sk0,_C],exists([sk1,_C],((woman>''):noun,[sk1,_C])&exists([sk2,_C],tense(past,[sk2,_C])&(at,[sk2|...],[sk0|...])&((love>ed):verb&(dobj,[sk1|...])&(subject,_C),[sk0|...]))))),
+QFF = ((man>''):noun,_C)=>(((woman>''):noun,[sk1,_C])&tense(past,[sk2,_C])&(at,[sk2,_C],[sk0,_C])&((love>ed):verb,[sk0,_C])&((dobj,[sk1,_C]),[sk0,_C])&((subject,_C),[sk0,_C])) ? 
+yes
+| ?- parseOne('the man loved his wife .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([the:B],[(man>):noun]))}]))}])
+[[(the : A), ((man>):noun , A)],
+ [(some : B)],
+ [(some : C), ((woman>):noun , C)],
+ [(tense(past,-) : D)]]
+the((A :: {(man>):noun,A}),
+    exists(B,
+           exists(C,
+                  (((woman>):noun , C)
+                    & exists(D,
+                             (tense(past, D)
+                               & ((at , D,B)
+                                   & (((love>ed : verb)
+                                        & (dobj,C & subject,A)),
+                                      B))))))))
+the((A :: {(man>):noun,A}),
+    (((woman>):noun , [sk1])
+      & (tense(past, [sk2])
+          & ((at , [sk2],[sk0])
+              & (((love>ed):verb , [sk0])
+                  & ((dobj,[sk1] , [sk0])
+                      & (subject,A , [sk0])))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([the:_B],[(man>''):noun])}])}],
+NF = the(_C::{(man>''):noun,_C},exists([sk0],exists([sk1],((woman>''):noun,[sk1])&exists([sk2],tense(past,[sk2])&(at,[sk2],[sk0])&((love>ed):verb&(dobj,[sk1])&(subject,_C),[sk0]))))),
+QFF = the(_C::{(man>''):noun,_C},((woman>''):noun,[sk1])&tense(past,[sk2])&(at,[sk2],[sk0])&((love>ed):verb,[sk0])&((dobj,[sk1]),[sk0])&((subject,_C),[sk0])) ? 
+yes
+| ?- parseOne('the man loved the wife of him .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([his:A],[(wife>):noun]))},
+              {(subject , spec([the:B],[(man>):noun]))}]))}])
+[[(the : A), ((man>):noun , A)],
+ [(some : B)],
+ [(tense(past,-) : C)],
+ [(his : D), ((wife>):noun , D)]]
+the((A :: {(man>):noun,A}),
+    exists(B,
+           exists(C,
+                  (tense(past, C)
+                    & his(((wife>):noun , D),
+                          ((at , C,B)
+                            & (((love>ed : verb)
+                                 & (dobj,D & subject,A)),
+                               B)))))))
+the((A :: {(man>):noun,A}),
+    (tense(past, [sk1])
+      & his(((wife>):noun , B),
+            ((at , [sk1],[sk0])
+              & (((love>ed):verb & (dobj,B)&(subject,A)),
+                 [sk0])))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([his:_A],[(wife>''):noun])},{subject,spec([the:_B],[(man>''):noun])}])}],
+NF = the(_C::{(man>''):noun,_C},exists([sk0],exists([sk1],tense(past,[sk1])&his(((wife>''):noun,_D),(at,[sk1],[sk0])&((love>ed):verb&(dobj,_D)&(subject,_C),[sk0]))))),
+QFF = the(_C::{(man>''):noun,_C},tense(past,[sk1])&his(((wife>''):noun,_D),(at,[sk1],[sk0])&((love>ed):verb&(dobj,_D)&(subject,_C),[sk0]))) ? 
+yes
+| ?- parseOne('each man loved the woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i21
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj,
+                 spec([(the : A)],
+                      [(wife> : noun),
+                       {(modifier(ppmod, -),
+                          [(of : prep),
+                           {(comp , spec(proRef,[him:pronoun]))}])}]))},
+              {(subject , spec([the:B],[(man>):noun]))}]))}])
+[[(the : A)],
+ [(the : B), (salient([him:pronoun]) , B)],
+ [(the : C), ((man>):noun , C)],
+ [(some : D)],
+
+! Type error in argument 2 of =.. /2
+! atom expected, but [the:_162] found
+! goal:  _168=..[[the:_162],the(_153::{salient([him:pronoun]),_153},the(_135::{(man>''):noun,_135},exists(_121,exists(_118,tense(past,_118)&(at,_118,_121)&((love>ed):verb&(dobj,[_162|...])&(subject,_135),_121)))))]
+| ?-  [(tense(past,-) : E)]]
+| ?- parseOne('each man loved him .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([the:A],[(woman>):noun]))},
+              {(subject , spec([each:B],[(man>):noun]))}]))}])
+[[(the : A), ((woman>):noun , A)],
+ [(some : B)],
+ [(tense(past,-) : C)],
+ [(each : D), ((man>):noun , D)]]
+the((A :: {(woman>):noun,A}),
+    exists(B,
+           exists(C,
+                  (tense(past, C)
+                    & each(D,
+                           (((man>):noun , D)
+                             => ((at , C,B)
+                                  & (((love>ed : verb)
+                                       & (dobj,A & subject,D)),
+                                     B))))))))
+the((A :: {(woman>):noun,A}),
+    (tense(past, [sk1])
+      & each(B,
+             (((man>):noun , B)
+               => ((at , [sk1],[sk0])
+                    & (((love>ed : verb)
+                         & (dobj,A & subject,B)),
+                       [sk0]))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([the:_A],[(woman>''):noun])},{subject,spec([each:_B],[(man>''):noun])}])}],
+NF = the(_C::{(woman>''):noun,_C},exists([sk0],exists([sk1],tense(past,[sk1])&each(_D,((man>''):noun,_D)=>((at,[sk1],[sk0])&((love>ed):verb&(dobj,_C)&(subject,_D),[sk0])))))),
+QFF = the(_C::{(woman>''):noun,_C},tense(past,[sk1])&each(_D,((man>''):noun,_D)=>((at,[sk1],[sk0])&((love>ed):verb&(dobj,_C)&(subject,_D),[sk0])))) ? 
+yes
+| ?- parseOne('every man loved some woman .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i10
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec(proRef,[him:pronoun]))},
+              {(subject , spec([each:A],[(man>):noun]))}]))}])
+[[(the : A), (salient([him:pronoun]) , A)],
+ [(some : B)],
+ [(tense(past,-) : C)],
+ [(each : D), ((man>):noun , D)]]
+the((A :: {salient([him:pronoun]),A}),
+    exists(B,
+           exists(C,
+                  (tense(past, C)
+                    & each(D,
+                           (((man>):noun , D)
+                             => ((at , C,B)
+                                  & (((love>ed : verb)
+                                       & (dobj,A & subject,D)),
+                                     B))))))))
+the((A :: {salient([him:pronoun]),A}),
+    (tense(past, [sk1])
+      & each(B,
+             (((man>):noun , B)
+               => ((at , [sk1],[sk0])
+                    & (((love>ed : verb)
+                         & (dobj,A & subject,B)),
+                       [sk0]))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec(proRef,[him:pronoun])},{subject,spec([each:_A],[(man>''):noun])}])}],
+NF = the(_B::{salient([him:pronoun]),_B},exists([sk0],exists([sk1],tense(past,[sk1])&each(_C,((man>''):noun,_C)=>((at,[sk1],[sk0])&((love>ed):verb&(dobj,_B)&(subject,_C),[sk0])))))),
+QFF = the(_B::{salient([him:pronoun]),_B},tense(past,[sk1])&each(_C,((man>''):noun,_C)=>((at,[sk1],[sk0])&((love>ed):verb&(dobj,_B)&(subject,_C),[sk0])))) ? 
+yes
+| ?- parseOne('John is a man .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i12
+  + [(. : punct),
+     {(claim,
+        spec(tense(past, -),
+             [(love>ed : verb),
+              {(dobj , spec([some:A],[(woman>):noun]))},
+              {(subject , spec([every:B],[(man>):noun]))}]))}])
+[[(every : A), ((man>):noun , A)],
+ [(some : B)],
+ [(some : C), ((woman>):noun , C)],
+ [(tense(past,-) : D)]]
+every(A,
+      (((man>):noun , A)
+        => exists(B,
+                  exists(C,
+                         (((woman>):noun , C)
+                           & exists(D,
+                                    (tense(past, D)
+                                      & ((at , D,B)
+                                          & (((love>ed : verb)
+                                               & (dobj,C & subject,A)),
+                                             B)))))))))
+(((man>):noun , A)
+  => (((woman>):noun , [sk1,A])
+       & (tense(past, [sk2, A])
+           & ((at , [sk2,A],[sk0,A])
+               & (((love>ed):verb , [sk0,A])
+                   & ((dobj,[sk1,A] , [sk0,A])
+                       & (subject,A , [sk0,A])))))))
+X = ['.':punct,{claim,spec(tense(past,-),[(love>ed):verb,{dobj,spec([some:_A],[(woman>''):noun])},{subject,spec([every:_B],[(man>''):noun])}])}],
+NF = every(_C,((man>''):noun,_C)=>exists([sk0,_C],exists([sk1,_C],((woman>''):noun,[sk1,_C])&exists([sk2,_C],tense(past,[sk2,_C])&(at,[sk2|...],[sk0|...])&((love>ed):verb&(dobj,[sk1|...])&(subject,_C),[sk0|...]))))),
+QFF = ((man>''):noun,_C)=>(((woman>''):noun,[sk1,_C])&tense(past,[sk2,_C])&(at,[sk2,_C],[sk0,_C])&((love>ed):verb,[sk0,_C])&((dobj,[sk1,_C]),[sk0,_C])&((subject,_C),[sk0,_C])) ? 
+yes
+| ?- parseOne('John is some man .', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i8
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(be : verb),
+              {(predication , spec([a:A],[(man>):noun]))},
+              {(subject , spec(name,[John:name]))}]))}])
+[[(the : A), (named(John) , A)],
+ [(a : B), ((man>):noun , B)],
+ [(some : C)],
+ [(tense(present,-) : D)]]
+the((A :: {named(John),A}),
+    a(B,
+      (((man>):noun , B)
+        & exists(C,
+                 exists(D,
+                        (tense(present, D)
+                          & ((at , D,C)
+                              & (((be : verb)
+                                   & (predication,B & subject,A)),
+                                 C))))))))
+the((A :: {named(John),A}),
+    a(B,
+      (((man>):noun , B)
+        & exists(C,
+                 exists(D,
+                        (tense(present, D)
+                          & ((at , D,C)
+                              & (((be : verb)
+                                   & (predication,B & subject,A)),
+                                 C))))))))
+X = ['.':punct,{claim,spec(tense(present,-),[be:verb,{predication,spec([a:_A],[(man>''):noun])},{subject,spec(name,['John':name])}])}],
+NF = the(_B::{named('John'),_B},a(_C,((man>''):noun,_C)&exists(_D,exists(_E,tense(present,_E)&(at,_E,_D)&(be:verb&(predication,_C)&(subject,_B),_D))))),
+QFF = the(_B::{named('John'),_B},a(_C,((man>''):noun,_C)&exists(_D,exists(_E,tense(present,_E)&(at,_E,_D)&(be:verb&(predication,_C)&(subject,_B),_D))))) ? 
+yes
+| ?- parseOne('John is some man', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i8
+  + [(. : punct),
+     {(claim,
+        spec(tense(present, -),
+             [(be : verb),
+              {(predication , spec([some:A],[(man>):noun]))},
+              {(subject , spec(name,[John:name]))}]))}])
+[[(the : A), (named(John) , A)],
+ [(some : B)],
+ [(some : C), ((man>):noun , C)],
+ [(tense(present,-) : D)]]
+the((A :: {named(John),A}),
+    exists(B,
+           exists(C,
+                  (((man>):noun , C)
+                    & exists(D,
+                             (tense(present, D)
+                               & ((at , D,B)
+                                   & (((be : verb)
+                                        & (predication,C & subject,A)),
+                                      B))))))))
+the((A :: {named(John),A}),
+    (((man>):noun , [sk1])
+      & (tense(present, [sk2])
+          & ((at , [sk2],[sk0])
+              & ((be:verb , [sk0])
+                  & ((predication,[sk1] , [sk0])
+                      & (subject,A , [sk0])))))))
+X = ['.':punct,{claim,spec(tense(present,-),[be:verb,{predication,spec([some:_A],[(man>''):noun])},{subject,spec(name,['John':name])}])}],
+NF = the(_B::{named('John'),_B},exists([sk0],exists([sk1],((man>''):noun,[sk1])&exists([sk2],tense(present,[sk2])&(at,[sk2],[sk0])&(be:verb&(predication,[sk1])&(subject,_B),[sk0]))))),
+QFF = the(_B::{named('John'),_B},((man>''):noun,[sk1])&tense(present,[sk2])&(at,[sk2],[sk0])&(be:verb,[sk0])&((predication,[sk1]),[sk0])&((subject,_B),[sk0])) ? 
+yes
+| ?- parseOne('John will be some man', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i6
+  + [(be : verb),
+     {(predication , spec([some:A],[(man>):noun]))},
+     {(subject , spec(name,[John:name]))}])
+[[(the : A), (named(John) , A)],
+ [(some : B), ((man>):noun , B)]]
+the((A :: {named(John),A}),
+    exists(B,
+           (((man>):noun , B)
+             & (be:verb & (predication,B)&(subject,A)))))
+the((A :: {named(John),A}),
+    (((man>):noun , [sk0])
+      & (be:verb & (predication,[sk0])&(subject,A))))
+X = [be:verb,{predication,spec([some:_A],[(man>''):noun])},{subject,spec(name,['John':name])}],
+NF = the(_B::{named('John'),_B},exists([sk0],((man>''):noun,[sk0])&be:verb&(predication,[sk0])&(subject,_B))),
+QFF = the(_B::{named('John'),_B},((man>''):noun,[sk0])&be:verb&(predication,[sk0])&(subject,_B)) ? 
+yes
+| ?- parseOne('John had been some man', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i9
+  + [(had : verb),
+     {(xcomp,
+        [(be>en : verb),
+         {(predication , spec([some:A],[(man>):noun]))},
+         {(subject , [(zero,2)])}])},
+     {(subject , spec(name,[John:name]))}])
+[[(the : A), (named(John) , A)],
+ [(some : B), ((man>):noun , B)]]
+the((A :: {named(John),A}),
+    exists(B,
+           (((man>):noun , B)
+             & ((had : verb)
+                 & ((xcomp,
+                     ((be>en : verb)
+                       & (predication,B & subject,[(zero,2)])))
+                     & (subject , A))))))
+the((A :: {named(John),A}),
+    (((man>):noun , [sk0])
+      & ((had : verb)
+          & ((xcomp,
+              ((be>en : verb)
+                & (predication,[sk0] & subject,[(zero,2)])))
+              & (subject , A)))))
+X = [had:verb,{xcomp,[(be>en):verb,{predication,spec([some:_A],[(man>''):noun])},{subject,[(zero,2)]}]},{subject,spec(name,['John':name])}],
+NF = the(_B::{named('John'),_B},exists([sk0],((man>''):noun,[sk0])&had:verb&(xcomp,(be>en):verb&(predication,[sk0])&(subject,[(zero,2)]))&(subject,_B))),
+QFF = the(_B::{named('John'),_B},((man>''):noun,[sk0])&had:verb&(xcomp,(be>en):verb&(predication,[sk0])&(subject,[(zero,2)]))&(subject,_B)) ? 
+yes
+| ?- parseOne('John was some man', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i9
+  + [(will : aux),
+     {(auxcomp,
+        [(be> : verb),
+         {(predication , spec([some:A],[(man>):noun]))}])},
+     {(subject , spec(name,[John:name]))}])
+[[(the : A), (named(John) , A)],
+ [(some : B), ((man>):noun , B)]]
+the((A :: {named(John),A}),
+    exists(B,
+           (((man>):noun , B)
+             & ((will : aux)
+                 & ((auxcomp , (be>):verb&(predication,B))
+                     & (subject , A))))))
+the((A :: {named(John),A}),
+    (((man>):noun , [sk0])
+      & ((will : aux)
+          & ((auxcomp , (be>):verb&(predication,[sk0]))
+              & (subject , A)))))
+X = [will:aux,{auxcomp,[(be>''):verb,{predication,spec([some:_A],[(man>''):noun])}]},{subject,spec(name,['John':name])}],
+NF = the(_B::{named('John'),_B},exists([sk0],((man>''):noun,[sk0])&will:aux&(auxcomp,(be>''):verb&(predication,[sk0]))&(subject,_B))),
+QFF = the(_B::{named('John'),_B},((man>''):noun,[sk0])&will:aux&(auxcomp,(be>''):verb&(predication,[sk0]))&(subject,_B)) ? parseOne('John was some man', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+Top-level options:
+   RET y     no more choices
+     ; n     more choices
+       b     break
+       <     reset printdepth
+       < <n> set printdepth
+       ^     reset subterm
+       ^ <n> set subterm
+     ? h     print this information
+ ? 
+yes
+| ?- parseOne('John was some man', X), doItAll(X,NF), pretty(NF), qff(NF, QFF), pretty(QFF).
+
+(i6
+  + [(be : verb),
+     {(predication , spec([some:A],[(man>):noun]))},
+     {(subject , spec(name,[John:name]))}])
+[[(the : A), (named(John) , A)],
+ [(some : B), ((man>):noun , B)]]
+the((A :: {named(John),A}),
+    exists(B,
+           (((man>):noun , B)
+             & (be:verb & (predication,B)&(subject,A)))))
+the((A :: {named(John),A}),
+    (((man>):noun , [sk0])
+      & (be:verb & (predication,[sk0])&(subject,A))))
+X = [be:verb,{predication,spec([some:_A],[(man>''):noun])},{subject,spec(name,['John':name])}],
+NF = the(_B::{named('John'),_B},exists([sk0],((man>''):noun,[sk0])&be:verb&(predication,[sk0])&(subject,_B))),
+QFF = the(_B::{named('John'),_B},((man>''):noun,[sk0])&be:verb&(predication,[sk0])&(subject,_B)) ? 
+yes
+| ?- 
+
+

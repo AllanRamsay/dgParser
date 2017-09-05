@@ -1,0 +1,649 @@
+
+\documentclass[11pt]{article}
+\evensidemargin=0in 
+\oddsidemargin=0in
+\textwidth=6.5in
+\topmargin=-1.0in
+\textheight=10.5in
+\usepackage{defns}
+\usepackage{natbib}
+\bibliographystyle{elsart-harv}
+
+\begin{document}
+\title{More thoughts on determiners}\date{}
+\maketitle
+
+This is an extended rumination on the syntactic properties of
+determiners. Once I'm comfortable with the structure I will return to
+the semantics, and to writing a program that embodies all of this. But
+for now I'm just thinking about syntax. 
+
+This rumination is pretty informal, and leads through a series of
+suggestions, observations and provocations. What I need to know right
+now is
+
+\begin{itemize}
+\item
+where do I say something that is transparently stupid?
+\item
+what should I read to see other people who have said the same thing?
+\item
+what examples have I missed? I'm extracting examples by running
+regexes over the BNC. This will tell you about whether the examples
+you make up in your head occur in freely occurring text, but it won't
+prompt you to think of things you haven't thought of. So any ideas on
+what I \textbf{haven't} looked at would be very welcome.
+\end{itemize}
+
+As just noted, the examples are obtained by running regexes on the
+BNC, which is 100 million words and is the largest corpus I have
+access to (I am aware of one larger one, namely the TenTen corpora --
+$10^{10}$ words per language, but I haven't got and can't get a
+copy). But 100 million is enough to provide some useful
+information. Regexes are a fairly blunt instrument, and they produce
+quite a lot of false positives. False negatives don't worry me -- if
+something doesn't occur in the BNC then it is vanishingly rare (less
+than 1 in $10^8$). False positives aren't a big theoretical issue,
+because so long as there are some real positives then the phenomenon I
+am interested in does occur, but I do remove them manually because
+they clutter up the argument.
+
+\subsection*{DET + of + NP(+def)}
+
+We start with the observation that a wide range of quantifiers
+(e.g. \q{many}, \q{some}, numbers) can combine
+with \q{of NP(+def)}, and that this is fairly common (17\% of occurrences
+of these quantifiers).
+
+{\small\begin{verbatim}
+                we just have to ask how *** many of *** our congregation have been added during
+           provide home care for one in *** four of *** all those dying with AIDS in
+                  at home for up one in *** four of *** all those who died of AIDS
+                              Brian was *** one of *** the very first members of the
+             These factors help explain *** some of *** the reasons why the total number
+n necessary office work and telephoning *** some of *** our low-dependency clients to see how
+                            We make the *** most of *** this and scoot off to the
+    Cedria is a full-time volunteer and *** one of *** national network of volunteers .
+sexual intercourse between two people , *** one of *** whom is infected .
+                                    For *** most of *** them there is a cure
+\end{verbatim}}
+
+There's nothing monstrously weird about this. It's how you do
+quantification over known sets, and while it's not obvious (to me) why
+you need to include \q{of} as a case-marker, it's no more unobvious
+than why you have to use it in things like \q{a piece of cake}. At any
+rate, I'm not going to worry about it.
+
+When you come to look at \q{all}, the case-marker becomes optional: 
+
+{\small\begin{verbatim}
+              Interest was expressed in *** all of the *** organisational aspects of home care including
+                          This can make *** all the *** difference to someone who feels unsafe
+           a single agency can not give *** all of the *** support required .
+       donor to state that he satisfies *** all the *** conditions relating to Gift Aid (
+                          &bquo &hellip *** all the *** residue of my estate &equo .
+organisations to ensure that people get *** all the *** care they need in the way
+                    &bquo Thank you for *** all the *** help you gave to us and
+\end{verbatim}}
+
+Cases without \q{of} are quite a lot more frequent (this would have
+been evident
+if I had included more examples, but that would have been too many
+examples to look at), but I can't see any
+difference in meaning, and I could include \q{of} in nearly all the
+cases above that don't have it and omit it from the ones that do,
+without changing the grammaticality or the meaning.
+
+This doesn't happen with any of the other determiners that take \q{of}:
+here are \textbf{all} the occurrences of these determiners with an NP beginning
+with \q{the} in the A section of the BNC (16 million words). In almost
+all of them, the determiner has an elliptical N (see below), and the \q{the} is the
+start of the following NP; and the others feel strongly ungrammatical
+\q{some the best examples of the Gibbons technique}, \q{the scene of one
+the gravest blows to democracy carried out}. None of them seem to me to
+involve complex determiners of the kind we had with \q{all the
+  things}, \q{all the works}, \ldots above.
+
+{\small\begin{verbatim}
+              problem , however , it is *** one the *** novel shares with many of the
+           the travelling to get to the *** one the *** night after and seeing a different
+            work you have done made you *** any the *** better ?
+                        One the glass , *** two the *** show , three the end .
+                                 One by *** one the *** members of the crowd trickled out
+jective interpretation of events is not *** one the *** institution of policing is geared up
+          Now , he concluded gloomily , *** some the *** best examples of the Gibbons technique
+tutionally established in America , and *** one the *** tendency towards which in this country
+                                 One by *** one the *** gerbils were scooped up , turned
+        real winner , though &mdash the *** one the *** highlighted products of London 's solariums
+               to gloat at the scene of *** one the *** gravest blows to democracy carried out
+       difficult for any company , even *** one the *** size of BAe , to go
+                               Not even *** one the *** size of GM , which has
+                   by the KGB , and for *** some the *** advertisements confirmed their darkest fears .
+otally different situation now from the *** one the *** Government inherited . &equo
+             number of votes , while in *** two the *** Greens did better .
+              they are of Welsh slate , *** many the *** work of Madge Whiteman .
+          deserve to be better known as *** many the *** months that elapsed proved fatal .
+                      After a minute or *** two the *** Asian suddenly slid out from the
+     the sexual instinct &bquo is never *** any the *** original object but only a surrogate
+               in 1989 , to restrict to *** two the *** number of parties allowed to fight
+                  for many hours on day *** one the *** river seemed amazingly narrow , one
+                                 One by *** one the *** dogs on the left of the
+                                 One by *** one the *** Corporals who commanded each rig section
+      James Whittaker , that anyone was *** any the *** wiser .
+                  &bquo But if there is *** one the *** people of Birkenhead will support him
+                                   With *** some the *** feet .
+                                   With *** some the *** shoulders .
+      , even foreseeable , obscured for *** most the *** suicide of the art .
+                   So he turned up with *** one the *** following day .
+\end{verbatim}}
+
+So \q{all} does something no other determiner does: it allows you to
+drop the case marker when it combines with a NP(+def). Note that not all
+NP(+def)s have an explicit determiner. Pronouns are also +def, but in
+this case \q{all} follows the pronoun.
+
+{\small\begin{verbatim}
+          ( &bquo no the characters say *** they all *** speak in some version of her
+              or genuine life , has for *** them all *** the aspects of a hallucination .
+                its aims , matter , and *** they all *** feel an excitement about the job
+             sooner or later it gets to *** them all *** , even Hilda , love at
+               I have been able to give *** them all *** a good education and every chance
+            And that is perhaps the way *** they all *** want it .</hi>
+               me I should respond , as *** they all *** told me my true nature ,
+                                    Are *** they all *** cottars and tinkers ?
+\end{verbatim}}
+
+I think that these examples all do universal quantification over the
+plural set denoted by \q{they}/\q{them}, e.g. that if we replace
+\q{they} by \q{the people} then\q{Are they all cottars
+and tinkers ?} is pretty much the same as \q{Are all the people cottars
+and tinkers ?}. 
+
+It's not quite as simple as that, because when \q{all} is associated
+with \q{they} then it can (must?) follow the adjacent verb if it is an
+auxiliary or a copula:
+
+{\small\begin{verbatim}
+                None of them is new and *** they are all *** straightforward .
+                  Over a period of time *** they will all *** be ill .
+                      The point is that *** they are all *** vital young men with love on
+                                    And *** they 'd all *** packed them up this morning .</p>
+     would look at that noticeboard and *** they would all *** understand the implications behind what he
+fered alternative accommodation , which *** they were all *** sensible enough to accept .
+                    a risk , and a risk *** they could all *** get by without taking .
+               reminded her of me ) and *** they were all *** dumped in my front hall .
+       pain arising from injuries , but *** they are all *** banned .
+                                    And *** they are all *** widows now .
+\end{verbatim}}
+
+Once we recognise that this can happen, we can have a look at other
+examples where \q{all} follows a definite NP. My regexes here do produce
+quite a lot of false positives, but I am pretty confident that in the
+examples below you could replace \q{NP all} by \q{all NP} and retain the
+same truth conditions.
+
+{\small\begin{verbatim}
+   poverty and the availability of hand *** guns all play *** their part .
+         their second message , and the *** fuss all died *** down , but he 's always
+           of that term , my final-year *** class all came *** up my office to give me
+                                    The *** boys all liked *** him , too &mdash and some
+      to give an undertaking that their *** entries all comply *** with age ceilings .
+             in which the ladies of the *** chorus all wore *** wellington boots .
+\end{verbatim}}
+
+I am \textbf{not} saying that these are the only ways that \q{all} gets used, but
+they do look to me like a very closely linked group: \q{all} means every
+member of the set/property denoted by the specifiee, if the specifiee
+is \texttt{+def} then you may, but don't have to, choose to mark it with \q{of};
+and if you don't mark it with \q{of} then you can, and in some
+circumstances must, right-shift \q{all}. Note that something similar-ish
+happens with \q{each}, where you do mark the target with \q{of} if it's an
+accusative pronoun but you just right-shift it if it's a subject-case
+one. These are quite a lot rarer than ones with \q{all}, but I think
+that that's just because \q{each} is rarer than \q{all}. 
+
+{\small\begin{verbatim}
+                 as some would see it ) *** they each *** had for the Tradition &mdash at
+                   In some older dances *** they each *** hold a corner of a handkerchief
+          the amount of time and effort *** they each *** put into the deal .
+            on its books and is sending *** them each *** a booklet when their policies are
+                                Clearly *** they each *** believed there was a real issue
+\end{verbatim}}
+
+Note that \q{each} and \q{all} both occur with the \q{of NP(+def)} form as
+well:
+
+{\small\begin{verbatim}
+     January and March this year &mdash *** all of them *** long-term detainees held without charge or
+          shares with many others , not *** all of them *** writers ; it is a condition
+           areas or &bquo rooms &equo , *** each of them *** having a different function or theme
+             one of them senses smoke , *** all of them *** will sound an alarm .
+             leaf by leaf , then patted *** each of them *** carefully with a tea towel .
+        possible in the seventies , not *** all of them *** successful &hellip
+                                   What *** all of them *** contend is that the auditory effect
+\end{verbatim}}
+
+Again I can see barely any difference between \q{all of them} and \q{them
+all}: \q{She threw all of them away except one} and \q{She threw them all
+away except one} are virtually interchangeable. The last one is
+interesting: this is how you do an \q{of NP(+def)} version of the
+subject -- \q{What all of them contend is \ldots} = \q{What they all contend is
+\ldots}. Likewise \q{all of them will sound an alarm}
+= \q{they will all sound an alarm}.
+
+I don't think that \q{all} and \q{each} in examples like \q{they are
+  all vital young men} and \q{they each believed there was a real
+  issue} are adverbials: the parellels with \q{all of them are vital
+  young men} and \q{each of them believed there was a real issue} make
+me discinclined to believe this, as does the fact that \q{all} in
+\q{it gets to them all} has to be linked to \q{them}. \q{all} in these
+sentences isn't just some floating adverbial, it's a specifier on the
+preceding NP.
+
+\paragraph{Summary to this point:} a lot of determiners can combine with a simple
+NN or a phrase of the form \q{of NP(+def)}. In the cases of \q{all} and
+\q{each}, you
+can drop the \q{of} from this construction, and in that case you may
+(and sometimes must) shift the \q{all}/\q{each} to follow its target.
+
+\subsection*{Ellipsis}
+
+Determiners normally determine something. There are, however, fairly frequent
+cases of things that you would normally regard as determiners with no
+following NN. Again, my regexes for this are a bit flaky, but here's a
+pile of examples:
+
+{\small\begin{verbatim}
+   in military or police custody &mdash *** some executed *** without trial and many others as
+      is internationalism , a feature , *** some might *** say , of twentieth-century art ;
+               of art , or aesthetics , *** many do *** not in fact contain any art
+          possible , so we apologise if *** any are *** missing , and guarantee , they
+   but it is increasingly unlikely that *** any would *** be acceptable to the United board
+       , another was better organised , *** two had *** marvellous raw materials , another was
+            in Canada from my village , *** four came *** back .
+\end{verbatim}}
+
+There are some others which are so common that we've more or less
+come to assume that there are two distinct words: we say that \q{this} and
+\q{that} can be either determiners or pronouns, and that \q{one} can be a
+a determiner or a noun. But once we accept that \q{many}, \q{some},
+numbers bigger than one, \ldots can appear without a noun, then it looks
+as though maybe \q{this} and \q{that} are also noun-less determiners
+rather than pronouns. \q{One} can appear as all sorts of apparently
+different things -- I may return to that later. I've only done
+examples with \q{this} below, because \q{that}, like \q{one}, is so
+multipurpose that we get loads of other readings which will just
+confuse things. I quite like \q{For some this makes
+hospitalization inevitable}, because it also contains an elliptical
+use of \q{some} as well.
+
+{\small\begin{verbatim}
+    helpful in identifying the need for *** this service *** .
+             , bquo With the opening of *** this office *** in Glasgow , ACET 's volunteer 
+not all employers offer their employees *** this facility *** ) .
+              or dying with AIDS , even *** this is *** increasingly common . equo
+                               For some *** this makes *** hospitalization inevitable .
+            specified in the Deed , and *** this is *** the sum that is payable each
+\end{verbatim}}
+
+\paragraph{Summary}: at least some things which are normally thought of as
+determiners can appear without a following NN. Just to make matters
+even more challenging, some of these can also include a phrase that
+you would normally think of as an NN post-modifier:
+determiner+0+relative clause, determiner+0+PP (always a post-modifier:
+if you wanted a premodifier you'd say \q{a long one}, \q{a simple one}, \ldots
+
+{\small\begin{verbatim}
+                     Indeed , there are *** some who *** feel that there should be no
+               While the party contains *** many who *** actively seek peace and reconciliation ,
+              The Conference would wish *** all who *** may take part in the referendum
+ghly organized pressure group headed by *** many who *** had previously mounted the Pro-Life Anti-abortion
+             His words were taken up by *** many who *** would not have dreamed of opening
+
+  Military Prison outside Kuwait City , *** some for *** over a month , reportedly in
+         , lined with Baroque statues ( *** many between *** 1700 and 1720 ) , and
+                 in a number of books , *** some by *** investigative outsiders , some in memoirs
+                  state , it is seen by *** many in *** the alliance to inhere in the
+    dedicated pastors and much liked by *** many in *** the local community , immediately opposed
+\end{verbatim}}
+
+\subsection*{Semi-determiners}
+
+It is fairly common practice to distinguish between adjectives and
+specifiers/determiners. \q{red} is an adjective, i.e. is a word which adds some
+information to the description supplied by the head noun; \q{the} is a
+determiner, i.e. it tells you what to do with this description (e.g. find
+an entity which can be proved to fit the description using only
+information that is in the minutes). We know that for some kinds of
+NP, you don't have to have a specifier (\q{I was playing tennis},
+\q{She prefers peaches to pears}): there is a lot of discussion of
+what you are supposed to do with the descriptor in these situations,
+almost all of it wrong (\citet{Ramsay:92b} gets it right, everyone else
+gets it wrong), but it is clear that there is some kind of
+implicit specifier here. And that sort of already says that you can
+add information to an NN/NP which already as a specifier -- \q{I was
+playing really rubbish tennis}, \q{She prefers ripe peaches to
+underripe pears}.
+
+Well, it sort of already says that, but of course the specifier on a
+bare noun like \q{tennis} or \q{peaches} is only implicit, so maybe
+that's why you can add an adjective to it. There are, however, some
+words that would, again, normally be regarded as determiners but which
+can be preceded by explicit determiners. I'm just going to include
+some cases with \q{two} and \q{many} here, because other examples tend
+to be less clearcut and include more false positives. I will do some
+later, but for now I'm just offering these as examples to show that
+there are cases where things that are normally regarded as specifiers
+can appear in more adjective-like positions: 
+
+{\small\begin{verbatim}
+ard planning and good communication are *** the two *** foundation stones that must be in
+         help and perhaps I can combine *** the two *** visits .
+ first hand information is generated by *** the many *** missions and research trips Amnesty sends
+      even the functions and methods of *** the two *** sorts of writer have drawn apart
+                         This is one of *** the many *** books which address the snobbery of
+\end{verbatim}}
+
+We already know that there is an order in which simple adjectives can
+occur -- that you can say \q{a big red bus} but not a \q{a red big
+bus}, \q{a fine young lamb} but not so easily \q{a young fine lamb} --
+and one simple way to deal with this is by assigning a \scare{strength}
+to each adjective, requiring them to be attached in order of strength
+(this is a fairly yuk way of doing it, and it should really be something
+about either the permanance or the discriminatoriness of the property
+described by the adjective, but it's a useful working approximation).
+
+So I am now going to say that there are two things we care about:
+
+\begin{description}
+\item\textbf{modified:} an NN can have modifiers attached to it. The
+modifier will assign a number to the feature \texttt{modified}, with
+the constraint that you can't add a modifier to a phrase which already
+has higher value modifier attached to it.
+
+\item\textbf{specifier:} a phrase has a specifier if it consists of a
+description and an instruction telling you what to do with that
+description (er, this is a very proof-theoretic way of looking at it,
+which of course is what I like. It could be rephrased model
+theoretically, e.g. by saying that a specifier takes an entity of type
+$e \implies t$ and turns it into something of type $(e \implies t)
+\implies t$ (e.g. \q{a} = $\lambda P \lambda Q \exists X(P.X \and
+Q.X)$, where $P$ and $Q$ are themselves properties/functions from $e
+\implies t$)). 
+\end{description}
+
+Given that, we can say that a word can modify something headed by an N
+so long as it hasn't already been modified by something stronger; and
+that certain bare nouns come with a built-in specifier, and certain
+modifiers can supply one. \textbf{There is no strong link between
+  these}, in particular a modifier can add a specifier to something
+that already has one. So in \q{the two foundation stones}, \q{stones}
+has a built-in specifier; this is inherited when the adjective
+\q{foundation} is added; \q{two} is a stronger modifier than
+\q{foundation}, so it can be added, doing two things: it improves the
+description by saying how many foundation stones there were, and it
+adds a specifier; \q{the} is stronger yet, and its job is to add a
+different specifier without enriching the description. All of \q{
+  planning and good communication are stones}, \q{ planning and good
+  communication are foundation stones}, \q{planning and good
+  communication are two foundation stones}, \q{ planning and good
+  communication are the two foundation stones} are grammatical and
+meaningful (well, the first one's a bit odd): as we add modifiers we
+get to know more about these stones, and we get different instructions
+about what to do with this description (do what you do with bare
+plurals for \q{stones} and \q{foundation stones}, introduce some
+stones into the minutes with \q{two foundation stones}, find a pair of
+foundation stones in the minutes with \q{the two foundation stones}).
+
+\paragraph{Summary:} some words which modify phrases headed by Ns
+include an instruction about what to do with the description encoded
+by the target phrase. These instructions can be overridden by
+\scare{stronger} modifiers.
+
+\subsection*{Special cases}
+
+A lot of N modifiers display very idiosyncratic behaviours. With any
+luck, the patterns described above can be used to explain, though
+probably not predict, these behaviours. The current section looks at a
+number of such cases.
+
+\subsubsection*{\q{few}}
+
+\q{few} accepts elliptical targets (first four below) and combines
+with \q{of} (next four). Nothing
+so odd here.
+
+{\small\begin{verbatim}
+                   down a word or two , *** few will *** turn as naturally to painting or
+           &equo common in such chefs , *** few are *** offered jobs .
+           baskets for the summer , but *** few arrange *** for a similarly splendid winter and
+                 And of those that do , *** few will *** try them more than once or
+
+                           There can be *** few of *** us who can not make a
+se-pipe will disperse larger colonies , *** few of *** the insects surviving to climb back
+committed organic gardeners , there are *** few of *** us who never need to resort
+      autocracy can produce , but which *** few of *** the chief officers seem willing to
+\end{verbatim}}
+
+It can also combine with a preceding \q{the}, just like
+\q{many}. Uniquely (I think) it can combine with a preceding \q{a}:
+
+{\small\begin{verbatim}
+               for the format is one of *** the few *** in which a generous number of
+ropologist Jacques Maquet knew was that *** a few *** weeks after finishing this sombre painting
+            who could not wait to climb *** the few *** steps to the communal toilet on
+                     Representatives of *** the few *** people they had come to know
+        shouts of laughter broke out as *** a few *** of them came out from the
+                  They had made sure of *** the few *** proprietors between there and Dunkeld ;
+\end{verbatim}}
+
+\q{a few} and \q{the few} do appear with \q{of NP[+def]}, but they are
+pretty rare -- 3\% (24/719) of the occurrences of \q{a/the few} in \texttt{BNC/A}.
+
+{\small\begin{verbatim}
+        shouts of laughter broke out as *** a few of *** them came out from the gate
+                    to the end , one of *** the few of *** her generation who integrated the immense
+            crack of the 15 pounders as *** a few of *** them opened fire , the guns
+                                     As *** a few of *** us stand and look at the
+\end{verbatim}}
+
+\q{few} does also display a couple of other unusual
+behaviours. Firstly, it accepts a small range of adverbs as modifiers:
+
+{\small\begin{verbatim}
+                                 I have *** far fewer *** friends and I am partially sighted
+  the illustrations in any general book *** relatively few *** are in colour ; a careful
+        who had any career success were *** extremely few *** in number .
+            my own life there have been *** very few *** genuine beginnings , only three or
+      listed &mdash and there are still *** dismally few *** &mdash such an attitude inevitably leadsd
+                              There are *** surprisingly few *** popular patterns of cutlery &mdash most
+\end{verbatim}}
+
+Secondly, \q{a few} co-occurs very frequently with \q{only}:
+
+{\small\begin{verbatim}
+gesting visits at breakneck speed where *** only a few *** items or rooms will be seen
+rmation about sitters for portraits are *** only a few *** of the varied topics which can
+      terms of reference which can give *** only a few *** useful results , for on the
+                               It takes *** only a few *** minutes .
+   to remember events that had happened *** only a few *** minutes earlier .
+          country , may be contrived in *** only a few *** years in a garden by reversing
+\end{verbatim}}
+
+\q{the few} does also occur, though very very rarely: seven instances
+in the entire BNC. Some are elliptical, or elliptical with a
+post-modifier, but I don't think there's a huge amount to be read into that.
+
+{\small\begin{verbatim}
+   extended to all , essentially affect *** only the few *** ; and now an attempted prohibition
+               to live out my life with *** only the few *** possessions I have managed to buy
+                  had no voice at , and *** only the few *** remaining Polish gentry had any representation
+             oil and orange juice , but *** only the few *** scheme-housing children had bathrooms .
+               , at the highest level , *** only the few *** are competent .
+                  in so low a tone that *** only the few *** near them had heard him .
+                    Up now I have heard *** only the few *** reluctant words in the lane .
+\end{verbatim}}
+
+I'm not at all sure that there is any big connection between \q{only}
+and \q{a/the few}. I think that it is probably a sentence modifier,
+probably along the lines suggested by \citet{Ramsay:94a}. I will
+return to this to see how \q{only} combines with other specifiers.
+
+\subsubsection*{\q{least}, \q{most}}
+
+\q{least} and \q{most} share a number of behaviours. Most of these are
+fairly straightforward, and I will go through these first to eliminate
+them before we get to the interesting ones.
+
+The first, and most obvious, thing is that \q{most} can behave as a fully-fledged specifier:
+
+{\small\begin{verbatim}
+          town as the defendant &equo ( *** most blacks *** live in the same part of
+                           In reality , *** most attorneys *** have made almost no preparation for
+              interests , as is true of *** most groups *** of artists , but their initial
+                    It will be clear to *** most people *** here that the attack is deserved
+                  , and are still , for *** most people *** , including themselves , palpably Jewish
+\end{verbatim}}
+
+Some people think that \q{most attorneys have made almost no
+  preparation} means \q{more than half the set of attorneys have made
+  almost no preparation}, some think it's a rule that allows you to
+infer \q{X has made almost no preparation} from the assumption that X
+is an attorney so long as you have no evidence that he or she has
+actually made some preparation. They are both tenable positions, and I
+am not concerned (here) with which, if either, is right. I am simply
+taking these as examples where \q{most} is a specifier. The regex that
+returned me these examples does \textbf{not} return anything
+comparable for \q{least}. I do not believe that \q{least} can be used
+in this way.
+
+Then they can both function as straightforward adjectives, meaning
+something like \q{smallest} and \q{greatest}: you could more-or-less
+substitute \q{smallest} and \q{greatest} for \q{least} and \q{most} in
+the folloing examples and get something that was almost grammatical
+and meant almost the same. These uses just about always occur with
+\q{the}: I found no examples of either of these being used as an
+adjective with \q{a}. This shouldn't be surprising -- there can only be one thing
+that is at the extreme end of a scale, so uniqueness is pretty well guaranteed.
+
+{\small\begin{verbatim}
+      wisest of our ancestors never had *** the least conception *** of any of 'em .
+bquo something exquisitely fresh , with *** the least amount *** of modification in the process of
+at the constructivism that has received *** the most attention *** in psychology and philosophy has been
+ their wretched clothes &hellip without *** the least sign *** of sympathy . &equo
+                       But if there was *** the least chance *** of getting out before bedtime he
+\end{verbatim}}
+
+They can also both be used as adverbs, generally but not always for
+modifying adjectives (or adjectival gerunds (gerundives? I can never
+get this straight)). There are occasional uses as straight VP
+modifiers (see fourth group) but they are much rarer. This time you do
+get indefinite NPs (third group), which seems odd at first sight,
+because again the adjectival phrase (\q{most boring}, \q{most
+  frightful}) puts the entity at the extreme end of some scale, and
+hence uniqueness would seem to be guaranteed.
+
+{\small\begin{verbatim}
+           with other agencies , is the *** most effective *** way of ensuring the needs of
+                                    The *** most common *** way for the virus to spread
+                                  It is *** most important *** to appoint at one Executor when
+    this global epidemic wherever it is *** most needed *** .
+\end{verbatim}}
+
+{\small\begin{verbatim}
+           : Making it</hi> must be the *** least pious *** book that has ever been written
+                                    The *** least expensive *** method is to root your own
+                        But even in the *** least conducive *** conditions , with no wind ,
+aining the greatest efficiency with the *** least possible *** expense and labour
+\end{verbatim}}
+
+{\small\begin{verbatim}
+             as Harsnet had written ) , *** a most boring *** subject .
+            in the morning and then had *** a most frightful *** pain in her tummy . &equo</p>
+                  , the peace lily , is *** a most elegant *** houseplant , with glossy green lance-shaped
+             man of God to officiate at *** a most solemn *** sacrament &equo . &equo
+\end{verbatim}}
+
+\noindent(there are no examples of this with \q{least})
+
+{\small\begin{verbatim}
+              at the very heart of what *** he most wished *** to believe .
+       of little flights of steps where *** he least expected *** them .
+ Wimbledon remains favourite as the one *** they most want *** to win ) are due very
+      speak &mdash to those steps which *** they most enjoyed *** and thus performed best , they
+           who could not say the things *** he most wanted *** to say but who , nevertheless
+\end{verbatim}}
+
+I think that the above are all the straighforward uses of \q{most} and
+\q{least}. But they also take part in the construction that started
+this ramble through the thickets of determiners and specifiers --
+\q{at (the (very)?)? least/most N}:
+
+{\small\begin{verbatim}
+quo every Parishioner shall communicate *** at the least three *** times in the year , of
+                               There 's *** at least one *** track from all eight albums ,
+               Hall on perhaps two , or *** at the most three *** , separate occasions simply for the
+             the same basic source , or *** at the very least two *** sources .
+                       There 's usually *** at least two *** of them .
+                               There 's *** at least one *** blown over is n't there ?
+\end{verbatim}}
+
+These are fairly rare (these are all the instances of any variation on this pattern
+in the BNC). They all seem to have much the same truth conditions:
+a Montague-style translation would be $\lambda P \lambda Q (\exists X :: \{|X| \ge N
+\& P.X\} Q.X)$ -- I can't see that the presence of \q{the} makes any
+difference at all, and \q{very} is commentary rather than
+propositional content. The last one is interesting, since it seems to
+me to be another example of a quantifier where some element has been
+displaced -- I think that \q{Only send in three tracks at the most
+ ( naturally your best )} and \q{Only send in at the most three tracks
+ ( naturally your best )} say the same thing, with \q{at the most'}
+having been displaced for some kind of discourse reason.
+
+If we don't demand that \q{at (the (very)?)? least/most} is followed
+by a number, we get the following:
+
+{\small\begin{verbatim}
+ disappointing for a reader who expects *** at the least *** some evaluation of the shows .
+             are unhappy here , that 's *** at least *** partly my fault .
+          This makes the anthropologist *** at the least *** an uncomfortable associate , at the
+      evening to realise that there was *** at the very least *** and latest , an unfinished conversation
+                               There 's *** at least *** an hour or so of sunshine
+         is a cognisant act involving , *** at the very least *** , a conception of a one's
+       has a rather privileged status ; *** at the very least *** , that it has a beginning
+              have been revealed ; or , *** at the very least *** , and least interestingly , that
+            meal in a restaurant , then *** at the very least *** we should all have seen the
+achieved a respectable measure of unity *** at most *** levels of the party .
+                 with a debt which is , *** at the most *** charitable interpretation , expensive .
+\end{verbatim}}
+
+There are many more of these than of \q{at (the (very)?)? least/most
+N}. A few of them may actually be instances of this pattern,
+e.g. \q{There 's at least an hour or so of sunshine} is pretty similar
+to \q{There 's at least one hour or so of sunshine}, so maybe (maybe) \q{an}
+here is a number. Of the others, it is notable in
+a good number of cases that \q{at the very least} is wrapped in a pair of
+parenthetcal commas; and that examples involving \q{most} tend to have
+multiple readings -- one where \q{at (the (very)?)? most} is a
+specifier, and one where the whole thing is a PP (\q{at most levels
+  of the party}, \q{at the most charitable interpretation}). It's
+hard to see how you would disambiguate this unless the surrcounding
+syntactic context did it for you (which it will in these two examples,
+so maybe everything will just come out in the wash).
+
+I think the big question here is how strong is the connection between
+\q{at least N} and just plain \q{at least}. I don't see much wrong
+with the interpretation above for \q{at least N}, and while there may
+or may not be neat ways of computing whether or not \q{At least six dogs won
+  prizes} contradicts \q{At most three animals won prizes}, I think
+that saying that there was a set of dogs of cardinality $\ge$ 6 is
+about right. But obviously this won't work for things like \q{This
+  makes the anthropologist at the least an uncomfortable
+  associate}. So either the \q{at the least} has two different
+meanings, one when it combines with a number to make a complex
+specifier and one when it combines with something else, which would be
+annoying; or just saying that it's about the cardinality of a set
+won't work.
+
+\bibliography{refs}
+\end{document}

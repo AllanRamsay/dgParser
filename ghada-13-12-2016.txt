@@ -1,0 +1,238 @@
+A general issue.
+
+I make a (fairly standard) distinction between internal and external
+syntax. The internal syntax of a phrase is the way that you would
+describe it based on what it looks like: "eating the owl" is
+internally something like a VP or a zero-subject sentence. Its head is
+the verb "eating", and (depending on how you want to think about it)
+it's either got just its object ("the owl") or its object and a
+zero-subject.
+
+The external syntax comes from the way it is being used (also known as
+its distributional syntax). In "he concluded the banquet by eating the
+owl", "eating the owl" is being *used* as though it were an NP. So
+internally (always) it's a zero-subject sentence, externally (in this
+context) it's an NP.
+
+Of course most of the time, an entity's internal and external syntax
+are the same. Most of the time, things that look like NPs are used in
+places where you expect NPs, and things that look like sentences are
+used in places where you would expect sentences. That's almost a
+tautology. Of course things that look like Xs are used in places where
+you expect to find Xs, because that's what it means to say that these
+are places where you expect to find Xs.
+
+How I deal with this is quite intricate. We will look at that when I'm
+back, because I want you to be confident about how the grammar works,
+but for now I just want to note its consequences for the output of the
+parser.
+
+We start with a simple example, where everything is being used
+for its normal role (parseOne/2 pretty prints the first analysis,
+parseOne/1 just pretty prints it, parseAll/1 prints all analyses. You
+will normally want parseOne/2).
+
+| ?- parseOne('he concluded the banquet with an exquisite dessert', X).
+
+(i47
+  + [(conclude > ed),
+     {(dobj , [banquet>,{det,[the]}])},
+     {(subject , [he])},
+     {(ppmod,
+        [with,
+         {(comp,
+            [(dessert > ),
+             {(amod , [exquisite>])},
+             {(det , [an])}])}])}])
+
+Nice straightforward tree -- each subtree has a word as its head, and
+the daughters consist of a label and another subtree. I've fixed it so
+that leaf nodes are also lists with a word as their head, ut with no
+daughters, rather than the slightly untidy version of this that I had before.
+
+Now for one where something is being used for a non-standard role.
+
+| ?- parseOne('he concluded the banquet by eating the owl', X).
+
+(i43
+  + [(conclude > ed),
+     {(dobj,
+        [(banquet > ),
+         {(ppmod,
+            [by,
+             {(comp,
+                gerund=[(eat > ing),
+                        {(dobj , [owl>,{det,[the]}])},
+                        {(subject , [(zero,5)])}])}])},
+         {(det , [the])}])},
+     {(subject , [he])}])
+
+The thing to look at here is the bit where it says
+"gerund=...". That's a marker that we've got an item whose internal
+and external syntax are different -- internally it's a zero-subject
+sentence, externally it's something that is a weird kind of NP (look
+up gerund and gerundive -- I tend to get them muddled, but if you look
+them up you'll get the picture).
+
+So the general point is that where we have an internal-external
+mismatch, it will show up as EXT=SUBTREE in our trees.
+
+Now for some specific things that you are interested in.
+
+(i) I've added "if", so you can say things like
+
+| ?- parseOne('X is male if X is a man').
+
+(i24
+  + [if,
+     {(antecedent,
+        [is,
+         {(predication , [man>,{det,[a]}])},
+         {(subject , [X])}])},
+     {(consequent,
+        [is, {(predication , [male>])}, {(subject , [X])}])}])
+
+and also
+
+| ?- parseOne('if X is a man X is male').
+
+(i36
+  + [if,
+     {(antecedent,
+        [is,
+         {(predication , [man>,{det,[a]}])},
+         {(subject , [X])}])},
+     {(consequent,
+        [is, {(predication , [male>])}, {(subject , [X])}])}])
+
+Note that these two have the same tree, despite the different surface
+orders. 
+
+And I've fixed relative clauses so you can say
+| ?- parseOne('John loves a woman who is pretty').
+
+(i34
+  + [(love > s),
+     {(dobj,
+        [(woman > ),
+         {(rcmod,
+            whclause=[is,
+                      {(predication , [pretty>])},
+                      {(subject , [who])}])},
+         {(det , [a])}])},
+     {(subject , [John])}])
+
+(note the internal:external marker on "who is pretty", because this is
+a WH-marked clauses functioning as some kind of nominal modifier)
+
+So we can now parse a number of sentences that I think are suggestive
+of the kinds of thing we want to look at.
+
+| ?- parseOne('any man will marry a woman who is pretty and is nice to him').
+
+(i157
+  + [will,
+     {(auxcomp,
+        [(marry > ),
+         {(dobj,
+            [(woman > ),
+             {(rcmod,
+                whclause=[and,
+                          {(conj1 , [is,{predication,[pretty>]}])},
+                          {(conj2 , [is,{predication,[nice>]}])},
+                          {(subject , [who])},
+                          {(ppmod , [to,{comp,[him]}])}])},
+             {(det , [a])}])},
+         {(subject , [man>,{det,[any]}])}])}])
+
+| ?- parseOne('X will marry Y if X is a man and Y is a woman and Y is pretty and Y is nice to X').
+
+(i456
+  + [if,
+     {(antecedent,
+        [and,
+         {(conj1,
+            [is,
+             {(predication , [man>,{det,[a]}])},
+             {(subject , [X])}])},
+         {(conj2,
+            [and,
+             {(conj1,
+                [is,
+                 {(predication , [woman>,{det,[a]}])},
+                 {(subject , [Y])}])},
+             {(conj2,
+                [and,
+                 {(conj1,
+                    [is,
+                     {(predication , [pretty>])},
+                     {(subject , [Y])}])},
+                 {(conj2,
+                    [is,
+                     {(predication , [nice>])},
+                     {(subject , [Y])},
+                     {(ppmod , [to,{comp,[X]}])}])}])}])}])},
+     {(consequent,
+        [will,
+         {(auxcomp,
+            [(marry > ), {(dobj , [Y])}, {(subject , [X])}])}])}])
+
+(the point of this pair is that they mean the same thing!)
+
+
+| ?- parseOne('X and Y used to be married if X and Y are divorced').
+
+(i252
+  + [if,
+     {(antecedent,
+        [are,
+         {(auxcomp,
+            [(divorce > ed),
+             {(dobj , [and,{conj1,[X]},{conj2,[Y]}])}])}])},
+     {(consequent,
+        [(use > ed),
+         {(auxcomp,
+            [to,
+             {(auxcomp,
+                [(be > ),
+                 {(auxcomp,
+                    [(marry > ed),
+                     {(dobj,
+                        [and, {(conj1 , [X])}, {(conj2 , [Y])}])}])}])}])}])}])
+
+| ?- parseOne('X and Y are not married if X and Y used to be married').
+
+(i577
+  + [if,
+     {(antecedent,
+        [(use > ed),
+         {(auxcomp,
+            [to,
+             {(auxcomp,
+                [(be > ),
+                 {(auxcomp,
+                    [(marry > ed),
+                     {(dobj,
+                        [and, {(conj1 , [X])}, {(conj2 , [Y])}])}])}])}])}])},
+     {(consequent,
+        [are,
+         {(auxcomp,
+            [(marry > ed),
+             {(dobj , [and,{conj1,[X]},{conj2,[Y]}])},
+             {(advmod , [not])}])}])}])
+
+| ?- parseOne('John and Mary are divorced').
+
+(i29
+  + [are,
+     {(auxcomp,
+        [(divorce > ed),
+         {(dobj , [and,{conj1,[John]},{conj2,[Mary]}])}])}])
+
+| ?- parseOne('are John and Mary married').
+
+(i27
+  + [are,
+     {(auxcomp,
+        [(marry > ed),
+         {(dobj , [and,{conj1,[John]},{conj2,[Mary]}])}])}])

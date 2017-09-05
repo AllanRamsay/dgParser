@@ -1,9 +1,9 @@
 
-makeQ(L0, I, L1) :-
-    makeQ(L0, I, L1, _LANGUAGE).
+makeQ(L0, I, TAGS, L1) :-
+    makeQ(L0, I, TAGS, L1, _LANGUAGE).
 
-makeQ([], _I, [], _LANGUAGE).
-makeQ([H0 | T0], I, [H1 | T1], LANGUAGE) :-
+makeQ([], _I, _TAGS, [], _LANGUAGE).
+makeQ([H0 | T0], I, [TAG | TAGS], [H1 | T1], LANGUAGE) :-
     J is I+1,
     start@WORD -- I,
     end@WORD -- J,
@@ -15,17 +15,19 @@ makeQ([H0 | T0], I, [H1 | T1], LANGUAGE) :-
      +terminal@WORD;
      -terminal@WORD),
     gensym(i, index@WORD),
+    trigger(tag@WORD, (tag@WORD = TAG -> true; incCost(WORD, 10))),
     findall(WORD, lookup(H0, WORD, LANGUAGE), WORDS),
     (WORDS = [] ->
      (unknown(H0, WORD, LANGUAGE) ->
       H1 = WORD;
       throw('No such word'(H0)));
-      disjoin(WORDS, H1)), 
-    makeQ(T0, J, T1, LANGUAGE).
+      disjoin(WORDS, H1)),
+    makeQ(T0, J, TAGS, T1, LANGUAGE).
 
 initialiseAgenda(TEXT0, TEXT2, LANGUAGE) :-
     makeList(TEXT0, TEXT1),
-    makeQ(TEXT1, 0, TEXT2, LANGUAGE).
+    (?useTagger -> tag(TEXT1, TAGS); true),
+    makeQ(TEXT1, 0, TAGS, TEXT2, LANGUAGE).
 
 chartParse(TEXT0, X, LANGUAGE, MAX) :-
     gensym(reset),
@@ -90,7 +92,7 @@ addZero :-
     span@X -- 0,
     index@X -- z0,
     root@X -- [('zero', start@X)],
-    X <> [x, -target, notMoved, +zero],
+    X <> [x, -target, notMoved, +zero, specifier([zero]), specified(10)],
     trigger(n:xbar@cat@X, (n(X) -> saturated(X); v(X))),
     setCost(X, 0),
     assert(X).
@@ -272,7 +274,7 @@ argPosition(H0, A, H1) :-
       (EA -- SH0 ->
        notMoved(A);
        (-zero@A,
-	compact(A),
+	%% compact(A),
 	(EA < SH0 ->
 	 movedBefore(A);
 	 movedAfter(A))));
@@ -305,10 +307,10 @@ combineHdAndArg(H0, A, H1) :-
      find(A);
      find(H0)),
     default(zero@A = -),
-    ((specified@A == +, nonvar(specifier@A)) ->
+    (nonvar(specifier@A) ->
      ROOTA = spec(specifier@A, root@A);
      ROOTA = root@A),
-    append(root@H0, [{theta@A, ROOTA}], root@H1),
+    (append(root@H0, [{theta@A, ROOTA}], root@H1) -> true; root@H1 = [root@H0, {theta@A, ROOTA}]),
     checkWHPosition(H0, A),
     extendWH(H0, A),
     setPosition(H0, A, H1),
@@ -450,31 +452,48 @@ showAllEdges :-
     pretty(index@X+root@X+L+dtrs@X),
     fail.
 
-parseSegment(STREAM, X, S, N) :-
+showParsedSegment(STREAM, K, COMPLETE) :-
+    unset(quoteAtoms, QUOTED1),
+    format(STREAM, "/*", []), 
+    pretty(STREAM, COMPLETE),
+    pretty(STREAM, index@K+root@K),
+    format(STREAM, "~n*/~n", []),
+    write_canonical(STREAM, root@K),
+    format(STREAM, '.~n', []),
+    QUOTED1.
+    
+parseSegment(STREAM, X, S, N, LANGUAGE, MAX) :-
     !,
-    call_residue(((chartParse(X, arabic) -> true; true),
+    format(STREAM, 'parseSegment(~q, ~q, ~q).~n', [X, LANGUAGE, i500]),
+    call_residue(((chartParse(X, _T, LANGUAGE, MAX) -> true; true),
 		  (spanningEdge(K) ->
-		   (unset(quoteAtoms, QUOTED1),
-		    pretty(STREAM, complete),
-		    pretty(STREAM, index@K+root@K),
-		    QUOTED1);
-		   biggest2(K, L) ->
-		   (unset(quoteAtoms, QUOTED2),
-		    pretty(STREAM, incomplete),
-		    ((compact(K)->
-		       (pretty(STREAM, index@K+root@K), assert(saved(S, N, X, root@K)));
-		       true),
-		      (nonvar(index@L), compact(L)) ->
-		      (pretty(STREAM, index@L+root@L), assert(saved(S, N, X, root@L)))),
-		    QUOTED2);
+		   showParsedSegment(STREAM, K, complete);
+		   ((biggest2(K, L), compact(K)) ->
+		    (showParsedSegment(STREAM, K, incomplete),
+		     (nonvar(index@L), compact(L)) ->
+		     showParsedSegment(STREAM, L, incomplete)));
 		   fail)), _).
 
-parseSegment(STREAM, X) :-
-    parseSegment(STREAM, X, _, _),
+parseSegment(STREAM, X, LANGUAGE, MAX) :-
+    parseSegment(STREAM, X, _, _, LANGUAGE, MAX),
     !.
 
+parseSegment(X, LANGUAGE, MAX) :-
+    parseSegment(user_output, X, LANGUAGE, MAX).
+
+parseSegment(X, MAX) :-
+    parseSegment(X, arabic, MAX).
+
 parseSegment(X) :-
-    parseSegment(user_output, X).
+    parseSegment(X, i100).
+
+fracasSegments(I) :-
+    tagged(SRC, TAGGED),
+    format("%% SRC: tagger('~w')~n", [SRC]),
+    parseSegment(TAGGED, english, I),
+    fail.
+fracasSegments :-
+    fracasSegments(i30).
 
 writeNumbered(_STREAM, [], _N).
 writeNumbered(STREAM, [(A, E, P) | T], I) :-

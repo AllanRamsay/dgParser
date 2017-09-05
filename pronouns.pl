@@ -9,11 +9,11 @@ whpronoun(X) :-
 relpronoun(X, WH) :-
     language@X -- english,
     zero :: [X, WH],
-    specifier@X-- whSpec,
+    specifier@X-- [whSpec],
     X <> [whpronoun(WH)],
     WH <> [saturated, fulladjunct, -modifiable, postmod(_, _), compact],
     cat@WH -- whclause,
-    target@WH <> [n, unspecified, saturated],
+    target@WH <> [n, unspecified, saturated, -zero],
     trigger(index@target@WH, theta@WH=rcmod).
 
 relpronoun(X) :-

@@ -6,7 +6,8 @@ coreFiles([useful,
 	   features,
 	   pretty,
 	   io,
-	   disjoin]).
+	   disjoin,
+	   client]).
 
 compileable([signatures]).
 
@@ -18,6 +19,7 @@ noncompilable([agree,
 	       verbs,
 	       mclasses,
 	       determiners,
+	       miscellany,
 	       nouns,
 	       lookup,
 	       chart,
