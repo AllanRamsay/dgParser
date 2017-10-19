@@ -1,0 +1,114 @@
+\begin{thebibliography}{21}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Bos(2001)}]{Bos:01}
+Bos, J., 2001. Model building for natural language understanding. In: in:
+  Proceedings of ICoS-4. pp. 25--26.
+
+\bibitem[{Cooper(1983)}]{Cooper:83}
+Cooper, R., 1983. Quantification and Syntactic Theory. D. Reidel, Dordrecht.
+
+\bibitem[{Cryan and Ramsay(1997)}]{Ramsay:97e}
+Cryan, M., Ramsay, A.~M., 1997. Constructing a normal form for {P}roperty
+  {T}heory. In: Proceedings of the 14th International Conference on Automated
+  Deduction (CADE-14). Vol. 1249 of Lecture Notes in Artificial Intelligence.
+  Springer-Verlag, Berlin, pp. 237--251.
+\newline\urlprefix\url{http://link.springer.com/chapter/10.1007\%2F3-540-63104-6\_22}
+
+\bibitem[{Gabbay(1989)}]{Gabbay:89}
+Gabbay, D.~M., 1989. Labelled deductive systems. Tech. rep., Dept. of
+  Computing, Imperial College.
+
+\bibitem[{Gabbay(1996)}]{Gabbay:96}
+Gabbay, D.~M., 1996. Labelled Deductive Systems. Oxford University Press,
+  Oxford.
+
+\bibitem[{Keller(1987)}]{Keller:87}
+Keller, W.~R., 1987. Nested {C}ooper storage: the proper treatment of
+  quantification in ordinary noun phrases. Tech. Rep. CSRP. 73, University of
+  Sussex.
+
+\bibitem[{Loveland(1991)}]{Loveland:91}
+Loveland, D.~W., 1991. Near-horn {Prolog} and beyond. Journal of Automated
+  Reasoning 7, 1--26.
+
+\bibitem[{Loveland et~al.(1995)Loveland, Reed, and Wilson}]{Loveland:95}
+Loveland, D.~W., Reed, D.~W., Wilson, D.~S., 1995. Satchmore: Satchmo with
+  relevancy. Journal of Automated Reasoning 14~(2), 325--351.
+\newline\urlprefix\url{http://dx.doi.org/10.1007/BF00881861}
+
+\bibitem[{Manthey and Bry(1988)}]{Manthey:88}
+Manthey, R., Bry, F., 1988. Satchmo: a theorem prover in {Prolog}. In: Lusk,
+  R., Overbeek, R. (Eds.), Proceedings of the 9th International Conference on
+  Automated Deduction (CADE-9). Vol. 310 of Lecture Notes in Artificial
+  Intelligence. Springer-Verlag, Berlin, pp. 415--434.
+
+\bibitem[{Milward and Cooper(1994)}]{Milward:94}
+Milward, D., Cooper, R., 1994. Incremental interpretation: Applications, theory
+  and relationship to dynamic semantics. In: Wilks, Y. (Ed.), Proceedings of
+  the 15th International Conference on Computational Linguistics (COLING-94).
+  Kyoto, pp. 88748--754.
+
+\bibitem[{Ramsay(1991)}]{Ramsay:91a}
+Ramsay, A.~M., 1991. Generating relevant models. Journal of Automated Reasoning
+  7, 359--368.
+\newline\urlprefix\url{http://link.springer.com/article/10.1007/BF00249019}
+
+\bibitem[{Ramsay(1992)}]{Ramsay:92b}
+Ramsay, A.~M., 1992. Generic plural {NP}s and habitual {VP}s. In: Proceedings
+  of the 14th International Conference on Computational Linguistics
+  (COLING-92). Nantes, pp. 226--231.
+\newline\urlprefix\url{https://aclweb.org/anthology/C/C92/C92-1037.pdf}
+
+\bibitem[{Ramsay(1995)}]{Ramsay:95a}
+Ramsay, A.~M., 1995. Theorem proving for intensional logic. Journal of
+  Automated Reasoning 14, 237--255.
+\newline\urlprefix\url{http://link.springer.com/article/10.1007/BF00881857}
+
+\bibitem[{Ramsay(2001)}]{Ramsay:01b}
+Ramsay, A.~M., 2001. Theorem proving for untyped constructive
+  $\lambda$-calculus: implementation and application. Logic Journal of the
+  Interest Group in Pure and Applied Logics 9~(1), 89--106.
+\newline\urlprefix\url{http://www3.oup.co.uk/igpl}
+
+\bibitem[{Ramsay and Field(2006{\natexlab{a}})}]{Ramsay:06a}
+Ramsay, A.~M., Field, D.~G., 2006{\natexlab{a}}. How to change a person's mind:
+  understanding the difference between the effects and consequences of speech
+  acts. In: 5th International Conference on Inference in Computational
+  Semantics (ICoS 06). Buxton, pp. 27--36.
+\newline\urlprefix\url{http://www.aclweb.org/anthology/W06-3903}
+
+\bibitem[{Ramsay and Field(2006{\natexlab{b}})}]{Ramsay:06b}
+Ramsay, A.~M., Field, D.~G., 2006{\natexlab{b}}. Planning ramifications: when
+  ramifications are the norm, not the problem. In: 11th International Workshop
+  on Non-monotonic Reasoning (NMR-06). AAAI, Ambleside, pp. 344---351.
+\newline\urlprefix\url{http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.111.5227}
+
+\bibitem[{Ramsay and Field(2008)}]{Ramsay:08a}
+Ramsay, A.~M., Field, D.~G., 2008. Speech acts, epistemic planning and
+  {G}rice's maxims. Logic and Computation 18, 431--457.
+\newline\urlprefix\url{http://logcom.oxfordjournals.org/content/18/3/431.full.pdf}
+
+\bibitem[{Ramsay and Field(2009)}]{Ramsay:09b}
+Ramsay, A.~M., Field, D.~G., 2009. '{S}orry' is the hardest word. In:
+  Computational Approaches to Creativity (NAACL HLT Workshop). University of
+  Colorado, Boulder, pp. 94--101.
+\newline\urlprefix\url{http://www.aclweb.org/anthology/W09-2013}
+
+\bibitem[{Turner(1987)}]{Turner:87}
+Turner, R., 1987. A theory of properties. Journal of Symbolic Logic 52(2),
+  455--472.
+
+\bibitem[{van Eijck and Alshawi(1992)}]{vanEijck:92}
+van Eijck, J., Alshawi, H., 1992. Logical forms. In: Alshawi, H. (Ed.), The
+  Core Language Engine. Bradford Books/MIT Press, Cambridge, Mass., pp. 11--40.
+
+\bibitem[{Vestre(1991)}]{Vestre:91}
+Vestre, E., 1991. An algorithm for generating non-redundant quantifier
+  scopings. In: Fifth Conference of the European Chapter of the Assoc. for
+  Computational Linguistics. Berlin, pp. 251--256.
+
+\end{thebibliography}

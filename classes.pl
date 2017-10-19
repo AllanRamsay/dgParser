@@ -446,14 +446,11 @@ nroot(X, M) :-
 nroot(X) :-
     nroot(X, -).
 
-np(X, specified@X, specifier@X) :-
-    X <> [n, saturated].
-
 np(X) :-
-    X <> [np(_, [_])].
+    X <> [n, saturated, specified].
 
 properName(X, U) :-
-    X <> [n, fulladjunct, fixedpremod, specified(10), specifier([name])],
+    X <> [n, fulladjunct, fixedpremod, modified(10), specifier(*name)],
     trigger(tag@target@X, (tag@target@X = 'NP' -> true; incCost(X, 0.2))),
     target@X <> [n, saturated],
     tag@X -- 'NP',
@@ -461,19 +458,21 @@ properName(X, U) :-
     default(saturated(X)),
     default(setCost(X, 0)).
 
+pronoun1(X) :-
+    X <> [np, +pronominal, standardcase, modified(10)].
 pronoun(X) :-
-    X <> [np, +pronominal, standardcase, specified(10)].
+    X <> [pronoun1, specifier(*proRef)].
 
 subjobjpronoun(X) :-
-    X <>  [specifier([proRef])],
+    X <>  [specifier(*proRef)],
     pronoun(X),
     trigger((used@X, case@X), (subjcase(X) -> subjpronoun(X); objpronoun(X))).
 
 objpronoun(X) :-
-    X <> [pronoun, objcase, +def, -target, noRightShift, specifier([proRef])].
+    X <> [pronoun, objcase, +def, -target, noRightShift].
 
 subjpronoun(X) :-
-    X <> [pronoun, subjcase, +def, -target, -predicative, specifier([proRef])],
+    X <> [pronoun, subjcase, +def, -target, -predicative],
     trigger(language@X, (language@X -- arabic -> setnpred(X); true)).
     
 
@@ -489,6 +488,71 @@ setresumption(R) :-
     -zero@subject@target@X,
     +pronominal@subject@target@X,
     addExternalView(R, X).
+
+%%%% ADJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+/**
+  Nothing very surprising here. Note that as with various other
+  categories, we allow for cases where an adjective can have arguments,
+  because some can, but the default is that they don't.
+  **/
+
+adjModConstraints(X) :-
+    X <> [notMoved],
+    modifier@X -- amod,
+    trigger(theta@result@X, \+ theta@result@X = nmod).
+
+adj(X, args@X) :-
+    %% +predicative because they can be the complement of "be"
+    %% -- "he is happy"
+    X <> [a, +predicative, premod1(_), fulladjunct],
+    [cat, mod, args] :: [target@X, result@X],
+    target@X <> [n, saturated, notMoved],
+    modified@result@X -- 1.5,
+    trigger(index@target@X, adjModConstraints(X)),
+    tag@X -- 'AJ0'.
+
+adj(X) :-
+    adj(X, []).
+
+aroot2(X) :-
+    [cat] :: [target@X, result@X],
+    affixes@X -- [NUM],
+    X\affix\affixes\dir\root -- NUM,
+    NUM <> suffix(adjsuffix).
+
+aroot2(X, args@X) :-
+    X <> [aroot2].
+
+aroot1(X, ARGS) :-
+    X <> [aroot2(ARGS)].
+
+aroot(X, ARGS) :-
+    X <> [a, fulladjunct, aroot1(ARGS)].
+
+aroot(X) :-
+    X <> [aroot([])].
+    
+adv2(X, T) :-
+    X <> [fulladjunct, saturated],
+    target@X -- T,
+    T <> [-aux, -zero],
+    trigger(cost@T,
+	    (modified@result@X is 1+(start@T-start@X)/0.1,
+	     theta@X = advmod,
+	     (vp(T); (+n:xbar@cat@T, incCost(T, 3))))),
+    +v:xbar@cat@T.
+
+adv1(X, T) :-
+    X <> [a, adv2(T)].
+
+adv1(X) :-
+    X <> [adv1(T), premod(T)].
+
+adv(X) :-
+    X <> [adv1, -predicative],
+    tag@X -- 'AV0'.
+
 
 %%%% VERBS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -513,7 +577,7 @@ setresumption(R) :-
   **/
 
 basicSubjConstraints(V, SUBJ) :-
-    [position, head, zero, moved, language, dir, altview, wh] :: [SUBJ, subject@V],
+    [position, head, zero, moved, language, dir, altview, wh, specifier] :: [SUBJ, subject@V],
     agree :: [SUBJ, V],
     SUBJ <> [standardcase].
     
@@ -526,9 +590,9 @@ setSubjConstraints(V, SUBJ) :-
       So there's a feature, subject, where I store the information that I
       actually care about.
       **/
-    SUBJ <> [specifier([_])],
+    SUBJ <> [specified],
     V <> [basicSubjConstraints(SUBJ)],
-    trigger((specified@V, finite@V), (finite@V == tensed -> subjcase(SUBJ); objcase(SUBJ))),
+    %% trigger((specified@V, finite@V), (finite@V == tensed -> subjcase(SUBJ); objcase(SUBJ))),
     trigger(L, (L = arabic -> after(dir@SUBJ); before(dir@SUBJ))),
     trigger(set:position@moved@SUBJ, checkSubjConstraints(V, SUBJ)).
 
@@ -695,29 +759,38 @@ posttensemarker(X) :-
   Whatever you think about that, it's clear that the auxiliary has to
   say something about its complement. "be" takes present participle
   complements, "have" takes past participle complements, ...
+
+  We distinguish between auxiliaries and modals by changing the
+  theta-role of the complement -- for auxiliaries it's auxcomp, for
+  modals it's modalcomp.
+  
   **/
 
 vp(X) :-
     X <> [verb],
     args@X -- [subject@X].
 
-
-/**
 %% version (i)
-aux(X, COMP) :-
+aux(X, COMP, THETA) :-
     %% currently using version (ii). Going back to this one could
     %% have knock-on effects, particularly with ellipsis
     %% It's useful to mark auxiliaries as being different from other verbs
     X <> [+aux, verb, -target],
-    COMP <> [s, fixed, postarg, -zero, theta(auxcomp), noLeftShift],
+    COMP <> [s, fixed, postarg, -zero, theta(THETA), noLeftShift],
     args@X -- [COMP],
     [active, subject\case] :: [X, COMP],
     %% plant the stuff we need for handling WH-items: see above
     trigger(language@X, setWHView(X)).
-**/
+
+aux(X, COMP) :-
+    X <> [aux(COMP, identity)].
+
+modal(X, COMP) :-
+    X <> [aux(COMP, modalcomp)].
 
 %% version (ii)
 aux(X, COMP) :-
+    fail,
     %% It's useful to mark auxiliaries as being different from other verbs
     X <> [+aux, verb, -target, +invertsubj],
     COMP <> [vp, postarg, theta(auxcomp)],
@@ -799,7 +872,7 @@ tverb(X, A1, A2, tag@X) :-
     %% A1 is the subject. Just the usual constraints.
     A1 <> [theta(subject)],
     %% Say things about what the object is like and where it allowed to move to (see earlier)
-    A2 <> [postarg, specifier([_])],
+    A2 <> [postarg, specified],
     trigger(zero@A2, zeroObj(X, A2)),
     %% Plant machinery for spotting that we have a reduced relative
     %% trigger(complete@X, (\+ \+ tensedForm(X) -> trigger(shifted@X, plantReducedRelative(X)); true)),
@@ -902,7 +975,7 @@ tverb2(X, PREP) :-
     tverb2(X, A2, A3, PREP).
 
 tverb2(X) :-
-    tverb(X, to).
+    tverb2(X, to).
 
 /**
   Verbs with sentential complements. In many ways they're quite like
@@ -918,7 +991,7 @@ sverb(X, COMP, TAG) :-
     tverb(X, COMP, TAG),
     subject@X -- SUBJ,
     trigger(end@SUBJ, \+ (end@SUBJ < start@X, movedBefore(subject@COMP, +))),
-    COMP <> [s, specifier([_]), postarg, theta(xcomp), -zero],
+    COMP <> [s, specified, postarg, theta(xcomp), -zero],
     trigger(zero@COMP, (-zero@COMP -> true; terminal@X = +)),
     comp@COMP -- *(COMPLEMENTISER),
     trigger(set:position@moved@COMP, (notMoved(COMP) -> true; (movedAfter(COMP, +), COMPLEMENTISER == that))),
@@ -961,18 +1034,22 @@ uverb(X) :-
   Currently being treated as modifiers!
   **/
 
-det4(X, SPEC1) :-
+det5(X, SPEC1) :-
     X <> [a, premod1(T), -predicative],
     language@X -- language@T,
     target@X <> [n, saturated, modified(SPEC0)],
     ROOT -- root@X,
-    result@X <> [n, -target, standardcase, saturated, modified(SPEC1), specifier(ROOT)].
+    result@X <> [n, -target, standardcase, saturated, modified(SPEC1)].
+    
+det4(X, SPEC1) :-
+    X <> [det5(SPEC1)],
+    result@X <> [specifier(*ROOT)].
     
 det3(X, SPEC) :-
     X <> [det4(SPEC), notMoved].
     
 det2(X, SPEC) :-
-    X <> [det3(SPEC), saturated].
+    X <> [det3(SPEC), saturated, inflected].
     
 det1(X, SPEC) :-
     X <> [inflected, det2(SPEC)],
@@ -981,70 +1058,6 @@ det1(X, SPEC) :-
 det(X, SPEC) :-
     X <> [det1(SPEC)],
     target@X <> [n, standardcase].
-
-%%%% ADJECTIVES %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-/**
-  Nothing very surprising here. Note that as with various other
-  categories, we allow for cases where an adjective can have arguments,
-  because some can, but the default is that they don't.
-  **/
-
-adjModConstraints(X) :-
-    X <> [notMoved],
-    theta@X -- amod,
-    trigger(theta@result@X, \+ theta@result@X = nmod).
-
-adj(X, args@X) :-
-    %% +predicative because they can be the complement of "be"
-    %% -- "he is happy"
-    X <> [a, +predicative, premod1(_), fulladjunct],
-    [cat, mod, args] :: [target@X, result@X],
-    target@X <> [n, saturated, notMoved],
-    modified@result@X -- 1.5,
-    trigger(index@target@X, adjModConstraints(X)),
-    tag@X -- 'AJ0'.
-
-adj(X) :-
-    adj(X, []).
-
-aroot2(X) :-
-    [cat] :: [target@X, result@X],
-    affixes@X -- [NUM],
-    X\affix\affixes\dir\root -- NUM,
-    NUM <> suffix(adjsuffix).
-
-aroot2(X, args@X) :-
-    X <> [aroot2].
-
-aroot1(X, ARGS) :-
-    X <> [aroot2(ARGS)].
-
-aroot(X, ARGS) :-
-    X <> [a, fulladjunct, aroot1(ARGS)].
-
-aroot(X) :-
-    X <> [aroot([])].
-    
-adv2(X, T) :-
-    X <> [fulladjunct, saturated],
-    target@X -- T,
-    T <> [-aux, -zero],
-    trigger(cost@T,
-	    (modified@result@X is 1+(start@T-start@X)/0.1,
-	     theta@X = advmod,
-	     (vp(T); (+n:xbar@cat@T, incCost(T, 3))))),
-    +v:xbar@cat@T.
-
-adv1(X, T) :-
-    X <> [a, adv2(T)].
-
-adv1(X) :-
-    X <> [adv1(T), premod(T)].
-
-adv(X) :-
-    X <> [adv1, -predicative],
-    tag@X -- 'AV0'.
 
 conj1(X):-
     start@X -- 0,
@@ -1127,8 +1140,8 @@ commaAsSep(X) :-
   **/
 
 p(X) :-
-    X <> [n, specifier([_])],
-    case@X -- root@hd@X.
+    X <> [n, specified],
+    case@X -- [root@hd@X].
 
 /**
   In general, PPs can modify things that are nounlike and things that
@@ -1150,9 +1163,11 @@ p(X) :-
   **/
 
 prepmodN(X, T, COMP) :-
-    X <> [strictpostmod],
+    X <> [postmod(_, _), notMoved],
+    %% start@T -- end@COMP,
     COMP <> [notMoved],
-    T <> [baseNoun, specified(0), compact],
+    T <> [baseNoun, compact],
+    result@X <> [standardcase],
     var(wh@COMP).
 
 /**
@@ -1169,7 +1184,7 @@ prepmodN(X, T, COMP) :-
   **/
 
 prepmodS(X, T, _COMP) :-
-    T <> [vp, -aux].
+    T <> [vp, -aux, -zero].
 
 /**
   Called once we've decided that the PP is being used as a modifier to
@@ -1181,7 +1196,6 @@ prepmod(X, T, COMP) :-
     %% Apply a small penalty if the target is in the wrong place
     trigger(set:position@moved@X, (notMoved(X) -> true; movedBefore(T) -> incCost(T, 1.01))),
     %% trigger(set:position@moved@X, (movedBefore(X) -> true; notMoved(X))),
-    theta@X -- ppmod,
     (prepmodN(X, T, COMP); prepmodS(X, T, COMP)).
 
 /**
@@ -1211,18 +1225,18 @@ shiftedPPCOMP(X, COMP, T) :-
 prep(X, ARGS) :-
     target@X -- T,
     ROOT -- root@X,
+    modifier@X -- ppmod,
     [specifier, def] :: [X, COMP],
-    X <> [p, fulladjunct, postmod(T), casemarked(ROOT)],
-    trigger((start@T, end@T), end@T > start@T),
+    X <> [p, fulladjunct, postmod(T, _), casemarked([ROOT])],
     +predicative@X,
     modified@result@X -- 2,
     T <> [x],
     args@X -- ARGS,
     (ARGS = [COMP] ->
-     (COMP <> [noRightShift, compact, objcase, specifier([_])],
+     (COMP <> [noRightShift, compact, objcase, specified],
       [def, agree] :: [X, COMP],
       theta@COMP -- comp,
-      trigger((start@T, end@T), nonvar(index@COMP)),
+      trigger((start@T; end@T; index@T), nonvar(index@COMP)),
       trigger((end@COMP, set:position@moved@COMP), (notMoved(COMP) -> true; (end@COMP < start@X))));
      true),
   trigger((start@T, end@T), prepmod(X, T, COMP)),

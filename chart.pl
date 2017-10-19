@@ -45,18 +45,50 @@ chartParse(TEXT, X, LANGUAGE) :-
 chartParse(TEXT, LANGUAGE) :-
     call_residue((chartParse(TEXT, _, LANGUAGE) -> true; fail), _).
 
-parseOne(TEXT, root@X) :-
+parseOne(TEXT, dtree@X) :-
     call_residue((chartParse(TEXT, X, english),
-		  pretty(index@X+root@X)),
+		  nf(X, NF),
+		  format("~n\\begin{figure}[ht]~n\\hspace*{\\fill}\\begin{minipage}[t]{0.45\\linewidth}~n\\begin{verbatim}", []),
+		  format("\\hspace*{\\fill}~n\\end{verbatim}~n\\end{minipage}~n", []),
+		  format("~n\\caption{\\q{~w}}\\label{NF: ~w}~n\\end{figure}~n", [TEXT, TEXT])),
 		 _),
     !.
+
+latexParse(TEXT) :-
+    call_residue((chartParse(TEXT, X, english),
+		  denest(dtree@X, T0),
+		  %% pretty(denest(T0)),
+		  nfTree(T0, TN),
+		  pretty(nfTree(TN)),
+		  format("~n\\begin{figure}[ht!]~n\\hbox{\\hspace*{\\fill}~n\\begin{minipage}[t]{0.45\\linewidth}", []),
+		  npsTree(TN),
+		  format("\\end{minipage}~n\\hspace*{\\fill}}~n\\caption{\\q{~w}}\\label{~w}~n\\end{figure}~n", [TEXT, TEXT])),
+		 _),
+    !.
+
+nfParse(TEXT, TN) :-
+    call_residue((chartParse(TEXT, X, english),
+		  nf(X, TN),
+		  (?latex ->
+		   format("~n\\begin{figure}[ht!]~n\\hbox{\\hspace*{\\fill}~n\\begin{minipage}[t]{0.45\\linewidth}~n\\begin{verbatim}", []); true),
+		  pretty(TN),
+		  (?latex ->
+		   format("~n\\end{verbatim}~n\\end{minipage}~n\\hspace*{\\fill}}~n\\caption{\\q{~w}}\\label{NF:~w}~n\\end{figure}~n", [TEXT, TEXT]); true)),
+		 _),
+    !.
+nfParse(TEXT) :-
+    nfParse(TEXT, _TN).
 
 parseOne(TEXT) :-
     parseOne(TEXT, _).
 
 parseAll(TEXT) :-
     call_residue((chartParse(TEXT, X, english),
-		  pretty(index@X+root@X),
+		  denest(dtree@X, DN),
+		  nfTree(DN, NFTREE),
+		  pretty(nfTree(NFTREE)),
+		  nf(X, NF),
+		  pretty(nf(NF)),
 		  fail),
 		 _).
 
@@ -92,7 +124,8 @@ addZero :-
     span@X -- 0,
     index@X -- z0,
     root@X -- [('zero', start@X)],
-    X <> [x, -target, notMoved, +zero, specifier([zero]), specified(10)],
+    dtree@X -- zero,
+    X <> [x, -target, notMoved, +zero, modified(0)],
     trigger(n:xbar@cat@X, (n(X) -> saturated(X); v(X))),
     setCost(X, 0),
     assert(X).
@@ -144,14 +177,14 @@ setPosition(X, Y, Z) :-
 
 view(WORD, WORD).
 view(WORD, VIEW) :-
-    [position\moved, language, hd, cost] :: [WORD, VIEW],
+    [position\moved, language, hd, cost, dtree] :: [WORD, VIEW],
     disjunct(externalviews@WORD, VIEW).
 
 find(X) :-
-    [theta, structure\root] :: [X, Y],
+    [theta, structure\dtree] :: [X, Y],
     call(Y),
     view(Y, X),
-    (root@X == root@Y -> true; root@X = (altview@X=root@Y)).
+    (dtree@X == dtree@Y -> true; dtree@X = (altview@X=dtree@Y)).
 
 checkWHPosition(H, D) :-
     H <> [v],
@@ -251,12 +284,8 @@ combineModAndTarget(M, T, R) :-
     modified@R -- MODR,
     (var(span@M) -> find(M); find(T)),
     \+ (nonvar(MODT), nonvar(MODR), (MODT > MODR; (MODT == MODR, \+ compact(R)))),
-    (theta@M == specifier ->
-     root@R = spec(root@M, root@T);
-     (append(root@T, [{modifier(theta@M, specified@T), root@M}], root@R) -> true; root@R = [root@T, {modifier(theta@M, specified@T), root@M}])),
-    (zero@T == + ->
-     (after(dir@T) -> start@T = end@M; end@T = start@M);
-     true),
+    %% (zero@T == + -> (after(dir@T) -> start@T = end@M; end@T = start@M); true),
+    dtree@R -- [dtree@T, modifier(modifier@M, dtree@M)],
     setPosition(M, T, R),
     modPosition(M, T, R),
     checkWHPosition(T, M),
@@ -292,7 +321,7 @@ argPosition(H0, A, H1) :-
     (notMoved(A) -> true; incCost(H0, 0.3)).
 
 combineHdAndArg(H0, A, H1) :-
-    [syntax\args, theta, externalviews, complete, moved, hd] :: [H0, H1],
+    [syntax\args, theta, externalviews, complete, moved, hd, modifier, case] :: [H0, H1],
     \+ ((length(wh@H0, L) -> true; true), L = 2),
     %% \+ \+ wh@H0 -- [_],
     args@H0 -- [A | args@H1],
@@ -307,17 +336,16 @@ combineHdAndArg(H0, A, H1) :-
      find(A);
      find(H0)),
     default(zero@A = -),
-    (nonvar(specifier@A) ->
-     ROOTA = spec(specifier@A, root@A);
-     ROOTA = root@A),
-    (append(root@H0, [{theta@A, ROOTA}], root@H1) -> true; root@H1 = [root@H0, {theta@A, ROOTA}]),
     checkWHPosition(H0, A),
     extendWH(H0, A),
     setPosition(H0, A, H1),
     argPosition(H0, A, H1),
     mergeCosts(H0, A, H1),
+    %% A <> [specified],
+    %% +specified@A,
+    dtree@H1 -- [dtree@H0, arg(theta@A, specifier@A, dtree@A)],
     (args@H1 = [] -> complete@H1 = +; true),
-    (nonvar(shifted@H1) -> var(wh@H1); true),
+    %% (nonvar(shifted@H1) -> var(wh@H1); true),
     (used@A = +).
 
 findCombination(X, _Z) :-
@@ -339,7 +367,7 @@ findCombination(X, Z) :-
     index@Y -- ext(index@X),
     [position\moved, language, hd, cost] :: [X, Y],
     disjunct(externalviews@X, Y),
-    root@Y -- (altview@Y=root@X),
+    dtree@Y -- (altview@Y=dtree@X),
     (used@X = +),
     findCombination(Y, Z).
 
@@ -360,7 +388,7 @@ spanningEdge(Y) :-
 
 showThisEdge(X) :-
     (?showEdges ->
-     pretty(index@X+root@X+dtrs@X);
+     pretty(index@X+root@X+dtree@X+dtrs@X);
      true).
 
 checkNewEdge(X, AGENDA0, AGENDA2) :-
@@ -449,7 +477,7 @@ arglength([_ | T], L) :-
 showAllEdges :-
     call(X),
     arglength(args@X, L),
-    pretty(index@X+root@X+L+dtrs@X),
+    pretty(index@X+dtree@X+L+dtrs@X),
     fail.
 
 showParsedSegment(STREAM, K, COMPLETE) :-

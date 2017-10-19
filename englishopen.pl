@@ -27,6 +27,14 @@ word('Ancient', X) :-
     definition@X -- 'belonging to times long past especially of the historical period before the fall of the Western Roman Empire',
     X <> [aroot].
 
+word('accountant', X) :- 
+    language@X -- english,
+    X <> [nroot].
+
+word('architect', X) :- 
+    language@X -- english,
+    X <> [nroot].
+
 word('ate', X) :-
     language@X -- english,
     X <> [pastTense, inflected],
@@ -127,6 +135,10 @@ word('board', X) :-
     X <> [vroot, regularPast],
     tverb(X).
 
+word('bookkeeper', X) :- 
+    language@X -- english,
+    X <> [nroot].
+
 word('bore', X) :-
     language@X -- english,
     X <> [nroot].
@@ -186,6 +198,17 @@ word('business', X) :-
     language@X -- english,
     definition@X -- 'a commercial or industrial enterprise and the people who constitute it',
     X <> [nroot(_)].
+                    
+word('bunch', X) :- 
+    language@X -- english,
+    definition@X -- 'a grouping of a number of similar things',
+    X <> [nroot].
+
+word('bunch', X) :-
+    language@X -- english,
+    definition@X -- 'gather or cause to gather into a cluster',
+    X <> [vroot, regularPast],
+    uverb(X).
 
 word('buy', X) :-
     language@X -- english,
@@ -294,7 +317,11 @@ word('course', X) :-
     language@X -- english,
     definition@X -- 'a body of students who are taught together',
     X <> [nroot].
-                    
+      
+word('crook', X) :- 
+    language@X -- english,
+    X <> [nroot].
+
 word('day', X) :- 
     language@X -- english,
     definition@X -- 'time for Earth to make a complete rotation on its axis',
@@ -409,6 +436,16 @@ word('dwelt', X) :-
     language@X -- english,
     uverb(X),
     X <> [past, inflected].
+        
+word('ear', X) :- 
+    language@X -- english,
+    definition@X -- 'jewelry to ornament the ear',
+    X <> [nroot].
+                    
+word('earring', X) :- 
+    language@X -- english,
+    definition@X -- 'jewelry to ornament the ear',
+    X <> [nroot].
 
 word('eat', X) :-
     language@X -- english,
@@ -530,6 +567,17 @@ word('flee', X) :-
     language@X -- english,
     itverb(X),
     X <> [vroot, pastForms(-, -)].
+                    
+word('fool', X) :- 
+    language@X -- english,
+    definition@X -- 'a person who is gullible and easy to take advantage of',
+    X <> [nroot].
+
+word('fool', X) :-
+    language@X -- english,
+    definition@X -- 'make a fool or dupe of',
+    X <> [vroot, regularPast],
+    tverb(X).
 
 word('foot', X) :-
     language@X -- english,
@@ -593,7 +641,7 @@ word('fungi', X) :-
 
 word('gave', X) :-
     language@X -- english,
-    uverb(X),
+    tverb2(X),
     X <> [pastTense, inflected].
 
 word('get', X) :-
@@ -603,8 +651,14 @@ word('get', X) :-
 
 word('give', X) :-
     language@X -- english,
-    uverb(X),
+    tverb2(X),
     X <> [vroot, pastForms(-, -)].
+
+word('given', X) :-
+    language@X -- english,
+    X <> [inflected],
+    pastPart(X),
+    tverb2(X).
 
 word('glycerinate', X) :-
     language@X -- english,
@@ -625,6 +679,11 @@ word('gotten', X) :-
     language@X -- english,
     verb(X, get),
     X <> [pastPart, inflected].
+                    
+word('grape', X) :- 
+    language@X -- english,
+    definition@X -- 'any of various juicy fruit of the genus Vitis with green or purple skins',
+    X <> [nroot].
 
 word('great', X) :-
     language@X -- english,
@@ -935,6 +994,15 @@ word('man', X) :-
     language@X -- english,
     X <> [nroot].
 
+word('manage', X) :-
+    language@X -- english,
+    definition@X -- 'come to terms with',
+    X <> [vroot, regularPast],
+    sverb(X, S),
+    S <> [toForm],
+    +zero@subject@S,
+    specifier@subject@S -- *lambda.
+
 word('market', X) :-
     language@X -- english,
     definition@X -- 'make commercial',
@@ -1109,7 +1177,7 @@ word('peach', X) :-
 
 word('people', X) :-
     language@X -- english,
-    X <> [noun, thirdSing, specifier([generic]), inflected],
+    X <> [noun, thirdSing, specifier(*generic), inflected],
     nmod(X).
 
 word('people', X) :-
@@ -1226,6 +1294,10 @@ word('right', X) :-
     definition@X -- 'an abstract idea of that which is due to a person or governmental body by law or tradition or nature',
     X <> [nroot].
 
+word('ripe', X) :- 
+    language@X -- english,
+    X <> [aroot].
+
 word('rode', X) :-
     language@X -- english,
     itverb(X),
@@ -1259,7 +1331,7 @@ word('saw', X) :-
     language@X -- english,
     X <> [sverb(S), pastTense, inflected],
     -zero@subject@S,
-    S <> [specifier([_])],
+    S <> [specified],
     trigger(finite@S, (presPartForm(S); (tensedForm(S), comp@S == *(that)); infinitive(S))).
 
 word('saw', X) :-
@@ -1271,7 +1343,7 @@ word('say', X) :-
     language@X -- english,
     X <> [sverb(S), vroot],
     -zero@subject@S,
-    S <> [tensedForm, specifier([_])].
+    S <> [tensedForm, specified].
 
 word('say', X) :-
     language@X -- english,
@@ -1281,7 +1353,7 @@ word('see', X) :-
     language@X -- english,
     X <> [sverb(S), vroot, pastForms(-, -)],
     -zero@subject@S,
-    S <> [specifier([_])],
+    S <> [specified],
     trigger(finite@S, (presPartForm(S); (tensedForm(S), comp@S == *(that)); infinitive(S))).
 
 word('see', X) :-
@@ -1656,6 +1728,10 @@ word('undergone', X) :-
     language@X -- english,
     tverb(X),
     X <> [pastPart, inflected].
+
+word('unripe', X) :- 
+    language@X -- english,
+    X <> [aroot].
 
 word('undertake', X) :-
     language@X -- english,

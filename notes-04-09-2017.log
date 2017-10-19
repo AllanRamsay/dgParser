@@ -1,0 +1,431 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2015.8.28)  19 OCT 2017 14:55
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**notes-04-09-2017
+(./notes-04-09-2017.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/Users/ramsay/LATEX/defns.sty) (/Users/ramsay/LATEX/natbib.sty
+Package: natbib 2000/07/24 7.0a (PWD)
+\bibhang=\skip43
+\bibsep=\skip44
+LaTeX Info: Redefining \cite on input line 508.
+\c@NAT@ctr=\count87
+
+Local config file natbib.cfg used
+(/usr/local/texlive/2015/texmf-dist/doc/latex/din1505/natbib.cfg))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box26
+\UL@hyphenbox=\box27
+\UL@skip=\skip45
+\UL@hook=\toks14
+\UL@height=\dimen103
+\UL@pe=\count88
+\UL@pixel=\dimen104
+\ULC@box=\box28
+Package: ulem 2012/05/18
+\ULdepth=\dimen105
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/fancyvrb/fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+)
+\FV@CodeLineNo=\count89
+\FV@InFile=\read1
+\FV@TabBox=\box29
+\c@FancyVerbLine=\count90
+\FV@StepNumber=\count91
+\FV@OutFile=\write3
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\labelindent=\skip46
+\enit@outerparindent=\dimen106
+\enit@toks=\toks16
+\enit@inbox=\box30
+\enitdp@description=\count92
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pstricks/pstricks.sty
+Package: pstricks 2013/12/12 v0.60 LaTeX wrapper for `PSTricks' (RN,HV)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pstricks.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks17
+\XKV@tempa@toks=\toks18
+)
+\XKV@depth=\count93
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pst-fp.tex
+`pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count94
+\pstFP@xia=\count95
+\pstFP@xib=\count96
+\pstFP@xfa=\count97
+\pstFP@xfb=\count98
+\pstFP@rega=\count99
+\pstFP@regb=\count100
+\pstFP@regs=\count101
+\pstFP@times=\count102
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks19
+\pgfutil@tempdima=\dimen107
+\pgfutil@tempdimb=\dimen108
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks20
+\pgfkeys@temptoks=\toks21
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks22
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+\pgf@x=\dimen109
+\pgf@xa=\dimen110
+\pgf@xb=\dimen111
+\pgf@xc=\dimen112
+\pgf@y=\dimen113
+\pgf@ya=\dimen114
+\pgf@yb=\dimen115
+\pgf@yc=\dimen116
+\c@pgf@counta=\count103
+\c@pgf@countb=\count104
+\c@pgf@countc=\count105
+\c@pgf@countd=\count106
+\pgfutil@tempcnta=\count107
+\pgfutil@tempcntb=\count108
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen117
+\pgfmath@count=\count109
+\pgfmath@box=\box31
+\pgfmath@toks=\toks23
+\pgfmath@stack@operand=\toks24
+\pgfmath@stack@operation=\toks25
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count110
+))
+\pgffor@iter=\dimen118
+\pgffor@skip=\dimen119
+\pgffor@stack=\toks26
+\pgffor@toks=\toks27
+)
+\psLoopIndex=\count111
+
+`PSTricks' v2.60  <2014/10/25> (tvz)
+\pst@dima=\dimen120
+\pst@dimb=\dimen121
+\pst@dimc=\dimen122
+\pst@dimd=\dimen123
+\pst@dimg=\dimen124
+\pst@dimh=\dimen125
+\pst@dimm=\dimen126
+\pst@dimn=\dimen127
+\pst@dimo=\dimen128
+\pst@dimp=\dimen129
+\pst@hbox=\box32
+\pst@ibox=\box33
+\pst@boxg=\box34
+\pst@cnta=\count112
+\pst@cntb=\count113
+\pst@cntc=\count114
+\pst@cntd=\count115
+\pst@cntg=\count116
+\pst@cnth=\count117
+\pst@cntm=\count118
+\pst@cntn=\count119
+\pst@cnto=\count120
+\pst@cntp=\count121
+\@zero=\count122
+\pst@toks=\toks28
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen130
+\psxunit=\dimen131
+\psyunit=\dimen132
+\pst@C@@rType=\count123
+\pslinewidth=\dimen133
+\psk@startLW=\dimen134
+\psk@endLW=\dimen135
+\pst@customdefs=\toks29
+\pslinearc=\dimen136
+\pst@symbolStep=\dimen137
+\pst@symbolWidth=\dimen138
+\pst@symbolLinewidth=\dimen139
+\everypsbox=\toks30
+\psframesep=\dimen140
+\pslabelsep=\dimen141
+\sh@wgridXunit=\dimen142
+\sh@wgridYunit=\dimen143
+\pst@shift=\dimen144
+)
+File: pstricks.tex 2014/10/25 v2.60 `PSTricks' (tvz,hv)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pst-fp.tex)
+File: pst-fp.tex 2014/10/25 v2.60 `PST-fp' (hv)
+File: pstricks.pro 2012/10/16 v. 1.15, PostScript prologue file (hv)
+File: pst-algparser.pro 2011/10/31 v. 0.04, PostScript prologue file (hv)
+File: pst-tools.pro 2012/01/01 v. 0.02, PostScript prologue file (hv)
+File: pst-dots.pro 2006/12/19 v. 2.00, PostScript prologue file (hv)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pst-node/pst-node.sty
+Package: pst-node 2012/09/18 v1.01 LaTeX wrapper for `pst-node' (HV)
+Package: pst-node 2010/04/22 package wrapper for pst-node.tex
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pst-node/pst-node.tex
+ v1.35, 2014/08/04
+\psrow=\count124
+\pscol=\count125
+\psmatrixcnt=\count126
+\psrowsep=\skip47
+\pscolsep=\skip48
+\pst@args=\count127
+\num@pts=\count128
+\pst@argcnt=\count129
+)
+File: pst-node.tex 2014/08/04 1.35 `pst-node' (tvz,hv)
+File: pst-node.pro 2011/09/18 v. 1.14, PostScript prologue file (hv)
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pst-tree/pst-tree.sty
+Package: pst-tree 2009/01/25 package wrapper for pst-tree.tex
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pst-tree/pst-tree.tex
+ v1.12, 2011/02/28(tvz,dg,hv)
+\pstree@rootbox=\box35
+\pstree@box=\box36
+\psnodecnt=\count130
+\pstreelevel=\count131
+\pstreecnt=\count132
+\pstree@cnt=\count133
+\pstree@stop=\count134
+)
+File: pst-tree.tex 2011/02/28 1.12 `pst-tree' (tvz,hv)
+) (/Users/ramsay/LATEX/examples.sty
+Style Option `examples' version 1.12 <19 January 1994> (AGBH)
+\exampleindent=\dimen145
+\@exdepth=\count135
+\c@subexample=\count136
+\c@subsubexample=\count137
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/amscls/amsthm.sty
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks31
+\thm@bodyfont=\toks32
+\thm@headfont=\toks33
+\thm@notefont=\toks34
+\thm@headpunct=\toks35
+\thm@preskip=\skip49
+\thm@postskip=\skip50
+\thm@headsep=\skip51
+\dth@everypar=\toks36
+)
+(./notes-04-09-2017.aux)
+\openout1 = `notes-04-09-2017.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 56.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 56.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 56.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 72.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
+ [1
+
+] [2]
+Overfull \hbox (6.49785pt too wide) in paragraph at lines 212--213
+[][] 
+ []
+
+[3]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <9> on input line 236.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 236.
+
+Overfull \hbox (6.49785pt too wide) in paragraph at lines 251--252
+[][] 
+ []
+
+
+Overfull \hbox (6.49785pt too wide) in paragraph at lines 262--263
+[][] 
+ []
+
+[4] [5]
+Overfull \hbox (12.378pt too wide) in paragraph at lines 410--411
+[][] 
+ []
+
+
+Overfull \hbox (10.99413pt too wide) in paragraph at lines 426--427
+[][] 
+ []
+
+[6] [7] [8]
+Overfull \hbox (1.02046pt too wide) in paragraph at lines 625--626
+[][] 
+ []
+
+
+Overfull \hbox (1.89906pt too wide) in paragraph at lines 641--642
+[][] 
+ []
+
+
+Overfull \hbox (1.89906pt too wide) in paragraph at lines 657--658
+[][] 
+ []
+
+[9]
+Overfull \hbox (10.4515pt too wide) in paragraph at lines 690--691
+[][] 
+ []
+
+[10] [11]
+Overfull \hbox (8.4873pt too wide) in paragraph at lines 907--908
+[][] 
+ []
+
+[12]
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 973
+.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 973.
+
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 973.
+
+[13] [14] [15] [16] [17] [18]
+Overfull \hbox (0.90906pt too wide) in paragraph at lines 1564--1577
+\OT1/cmtt/m/n/10.95 forall(X :: \OMS/cmtt/m/n/10.95 f\OT1/cmtt/m/n/10.95 human(
+X)\OMS/cmtt/m/n/10.95 g\OT1/cmtt/m/n/10.95 , exists(Y, human(Y) & mother(Y, X))
+)\OMS/cmtt/m/n/10.95 g \OT1/cmr/m/n/10.95 there are an in-fi-nite num-
+ []
+
+[19]
+Overfull \hbox (74.70332pt too wide) in paragraph at lines 1605--1611
+[]  [] 
+ []
+
+
+Overfull \hbox (99.14645pt too wide) in paragraph at lines 1639--1639
+[][]\OT1/cmtt/m/n/9 https://www.agcensus.usda.gov/Publications/2012/Online[]Res
+ources/Highlights/Women[]Farmers/Highlights[]Women[]Farmers.pdf| 
+ []
+
+[20] (./notes-04-09-2017.bbl
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 73.
+ [21]) [22] [23] (./notes-04-09-2017.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 9433 strings out of 493090
+ 162805 string characters out of 6134868
+ 261101 words of memory out of 5000000
+ 12823 multiletter control sequences out of 15000+600000
+ 11105 words of font info for 41 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 36i,17n,40p,568b,827s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on notes-04-09-2017.dvi (23 pages, 268304 bytes).

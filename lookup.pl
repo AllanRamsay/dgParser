@@ -5,18 +5,19 @@ lookup([ROOT, TAG, SUFFIX], X1) :-
     X0\affixes -- X1,
     affixes@X1 -- [],
     word(SUFFIX, S),
-    root@X -- (ROOT>SUFFIX).
+    root@X1 -- (ROOT>SUFFIX).
 lookup([ROOT, TAG], X) :-
     word(ROOT, X),
     root@X -- ROOT.
 lookup([ROOT, TAG], X) :-
     \+ word(ROOT, X),
     word(TAG, X),
-    root@X -- [ROOT].
+    root@X -- ROOT.
 lookup(FORM0, W) :-
     atomic(FORM0),
     W <> [word, inflected],
     atom_codes(FORM0, FORM1),
+    dtree@W -- root@W,
     findall(C, (member(I, FORM1), atom_codes(C, [I])), FORM2),
     lookup1(FORM2, [], [], [WORDS]),
     member(W, WORDS).
@@ -35,7 +36,7 @@ lookup1(CHARS0, PREFIX, L0, L1) :-
     (PREFIX = [] -> CHARS0 = []; true),
     prefix2atom(PREFIX, FORM),
     WORDS1 -- [_ | _],
-    findall(W1, (word(FORM, W1), default(inflected(W1)), default(root@W1 = [FORM])), WORDS1),
+    findall(W1, (word(FORM, W1), default(inflected(W1)), default(root@W1 = FORM)), WORDS1),
     /**
       If you've already got something, then the next bit *has*
       to combine with what you've already got
@@ -53,16 +54,16 @@ mergeWord(P, R0, R1) :-
     P <> [prefix],
     affixes@R0 -- [P | affixes@R1],
     R0\affixes\root -- R1,
-    root@R0 -- [ROOT0],
-    root@P -- [ROOTP],
-    root@R1 -- [ROOT0>ROOTP].
+    root@R0 -- ROOT0,
+    root@P -- ROOTP,
+    root@R1 -- (ROOT0>ROOTP).
 mergeWord(R0, P, R1) :-
     P <> [suffix],
     affixes@R0 -- [P | affixes@R1],
     R0\affixes\root -- R1,
-    root@R0 -- [ROOT0],
-    root@P -- [ROOTP],
-    root@R1 -- [ROOT0>ROOTP].
+    root@R0 -- ROOT0,
+    root@P -- ROOTP,
+    root@R1 -- (ROOT0>ROOTP).
 
 lookup((AFORM, FORM, TAG), WORD, LANGUAGE) :-
     WORDX -- WORD\root\surface\tag,
@@ -98,4 +99,5 @@ lookup(N, X, _) :-
 unknown(U, X, english) :-
     ucase(U),
     !,
-    properName(X, U).
+    properName(X, U),
+    dtree@X -- root@X.

@@ -1,0 +1,1788 @@
+
+\documentclass[11pt,a4paper]{article}
+\evensidemargin=0in 
+\oddsidemargin=0in
+\textwidth=6.5in
+\topmargin=-1.0in
+\textheight=10.5in
+\usepackage{defns}
+\usepackage{natbib}
+\usepackage{ulem}
+\usepackage{fancyvrb}
+\usepackage{enumitem}
+\usepackage{pstricks, pst-node, pst-tree}
+\usepackage{examples}
+\bibliographystyle{elsart-harv}
+\usepackage{amsthm}
+\newcommand{\IN}{$\in$}
+
+\begin{document}
+
+\section{From derivation trees to normalised dependency trees}
+
+\medpara
+(preamble: there are two terms which are \textbf{not} interchangeable. A
+\defn{determiner} is a word with specific syntactic properties. A
+\defn{specifier} is an item with a specific semantic function. Most
+determiners function as specifiers most of the time, but they are not
+the same notion
+ (I may not be as careful about using these terms as I ought to be)).
+
+\medpara
+The grammar I am using is an HPSG/CG compromise. It's HPSG-like, but
+there are only two rules of combination: heads combine with their arguments,
+modifiers combine with their targets. The second of these two
+conflates two things -- simple adjuncts, which copy a lot of features
+from the target to the result, and specifiers, which change the value
+of specified. \textbf{Some things do both}, which actually makes this
+quite a nice rule. What I'm going to do is to say that actually
+everything does both, but sometime the modifier bit is null, and
+sometimes the specifier bit is null. So I have one rule for
+everything, which is nice; but I have to do some tidying up afterwards
+to remve null bits, which is less nice. Swings vs.\ roundabouts.
+
+\medpara 
+We start with a simple example:
+
+\begin{examples}
+\item He eats the ripe peaches.
+\end{examples}
+
+Doing this gives us \fig{he eats the ripe peaches .}
+
+\begin{figure}[ht]
+\centering{
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$eat>s$\\\hline\*tense(present,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*the\\\hline\end{tabular}}\nbput{dobj}}{
+   \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}
+   \TR{\begin{tabular}{|c|}\hline$the$\\\hline\end{tabular}}\nbput{}  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+}
+\caption{\q{he eats the ripe peaches .}}\label{he eats the ripe peaches .}
+\end{figure}
+
+There are two things to note about this tree before we proceed:
+
+\begin{itemize}
+\item
+As noted above, some nodes carry a specifier, either because some lexical item
+provided it (\q{the} in \q{the ripe peaches}) or because some
+sublexical item provided it (\q{-s} in \q{eats}) or implicitly (\q{he}
+is specified because it's a full NP by itself). Specifiers are marked
+in the second line of the box.
+
+\item
+As also noted above, I don't really distinguish between specifiers and
+modifiers, because some things can be both, and some can sometimes be
+one and sometimes both. So I say that \textbf{every} specifier carries
+the potential for including a modifier. However, some specifiers,
+however, don't actually realise this potential. In such cases, the
+label that \textbf{would have} marked this item as a modifier is
+unlabelled. This leads to \fig{he eats the ripe peaches .'}.
+\end{itemize}
+
+\newpage
+\begin{figure}[ht]
+\centering{
+
+\pstree[levelsep=70pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$eat>s$\\\hline\*tense(present,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*the\\\hline\end{tabular}}\nbput{dobj}}{
+   \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+}
+\caption{\q{he eats the ripe peaches .}, null modifier deleted}\label{he eats the ripe peaches .'}
+\end{figure}
+
+\noindent
+The notion that trees may contain nodes that don't actually contribute
+anything may be extended to other phenomena. The auxiliary in
+\xref{WAS} contributes a specifier, but it doesn't add anything to the
+propositional content. We therefore leave it without a label to its
+daughter (\fig{he was eating the ripe peaches .}(a)), which means that it is not doing anything and hence can be
+deleted (\fig{he was eating the ripe peaches .}(b)).
+
+\begin{examples}
+\item \label{WAS} he was eating the ripe peaches.
+\end{examples}
+
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\pstree[levelsep=67pt, nodesep=2pt,treesep=50pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$be$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\end{tabular}}\nbput{}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*the\\\hline\end{tabular}}\nbput{dobj}}{
+    \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}   }
+
+   \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject}  }
+ }
+}
+
+\centering{(a)}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\pstree[levelsep=67pt, nodesep=2pt,treesep=50pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*the\\\hline\end{tabular}}\nbput{dobj}}{
+   \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+
+\centering{(b)}
+\end{minipage}
+
+\hspace*{\fill}
+\caption{\q{he was eating the ripe peaches .}}\label{he was eating the ripe peaches .}
+\end{figure}
+
+
+We will \textbf{not} do this with modals. Modals have similar syntactic
+properties to auxiliaries, and they also contribute a specifier, but
+they do make a contribution to the propositional
+content. (\ref{MIGHT-CAN}a) and  (\ref{MIGHT-CAN}b) do not mean the
+same thing.
+
+\begin{examples}
+\item \label{MIGHT-CAN}
+\begin{examples}
+\item He might eat the unripe peaches .
+\item He can eat the unripe peaches .
+\end{examples}
+\end{examples}
+
+
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$might$\\\hline\*tense(present,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$eat>$\\\hline\end{tabular}}\nbput{modalcomp}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*the\\\hline\end{tabular}}\nbput{dobj}}{
+    \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}   }
+
+   \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject}  }
+ }
+}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$can$\\\hline\*tense(present,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$eat>$\\\hline\end{tabular}}\nbput{modalcomp}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*the\\\hline\end{tabular}}\nbput{dobj}}{
+    \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}   }
+
+   \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject}  }
+ }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{he might/can eat the ripe peaches .}}\label{he might/can eat the ripe peaches .}
+\end{figure}
+
+We now return to determiners. The first complication arises when we
+look at numbers. We start with a simple case:
+
+\begin{examples}
+\item He ate six ripe peaches.
+\end{examples}
+
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$ate$\\\hline\*tense(past,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{dobj}}{
+   \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}
+   \TR{\begin{tabular}{|c|}\hline$six$\\\hline\end{tabular}}\nbput{numAsMod}  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{he ate six ripe peaches .}}\label{he ate six ripe peaches .}
+\end{figure}
+
+\noindent
+\q{six} is a modifier which specifies the cardinality of the set of
+peaches, and also a specifier which marks the whole NP as
+indefinite. The outcome seems reasonable enough, even if the way I'm
+getting there is a bit unorthodox, since I'm treating \q{six} as a
+modifier \textbf{and} a specifier (\fig{he ate six ripe peaches .}).
+
+\newpage
+But we can combine other determiners with \q{six}: 
+
+\begin{examples}
+\item
+\begin{examples}
+\item he ate the six peaches.
+\item he ate some six peaches.\footnote{This one is slightly
+mannered, but definitely sayable: \q{Petipa studied and taught fur some six years in Madrid before returning},
+\texttt{BNC/A/A1/A12}: around 400 examples in the BNC, often but not
+overwhelmingly with
+temporal PPs as here.}
+\end{examples}
+\end{examples}
+
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$ate$\\\hline\*tense(past,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*the\\\hline\end{tabular}}\nbput{dobj}}{
+   \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}
+   \TR{\begin{tabular}{|c|}\hline$six$\\\hline\end{tabular}}\nbput{numAsMod}  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$ate$\\\hline\*tense(past,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{dobj}}{
+   \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}
+   \TR{\begin{tabular}{|c|}\hline$six$\\\hline\end{tabular}}\nbput{numAsMod}  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{he ate the/some six ripe peaches .}}\label{he ate the/some six ripe peaches .}
+\end{figure}
+
+This time \q{six} is just a modifier, fixing the cardinality of the
+set of peaches, and \q{the}/\q{some} are the specifiers. \q{six} isn't
+a specifier because \q{six ripe peaches} isn't \texttt{+specified}:
+a subtree only get to be specified if the external context demands it,
+and in the current examples this is not the case.
+
+\newpage
+We also have to allow NPs with no determiner:
+
+\begin{examples}
+\item 
+\begin{examples}
+\item
+He was eating ripe peaches .
+\item
+He does not like unripe ones.
+\end{examples}
+\end{examples}
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*generic\\\hline\end{tabular}}\nbput{dobj}}{
+   \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$like>$\\\hline\*tense(present,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$one>s$\\\hline\*generic\\\hline\end{tabular}}\nbput{dobj}}{
+   \TR{\begin{tabular}{|c|}\hline$unripe>$\\\hline\end{tabular}}\nbput{amod}  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{he does not like unripe ones .}}\label{he does not like unripe ones .}
+\end{figure}
+
+\medpara
+I have not yet seen a treatment of bare plurals that I like. My
+preferred interpretation remains the one that I gave in
+\citep{Ramsay:92b}. For now I will just introduce a specifier called
+\texttt{generic}, and work out what it means later.
+
+And then we get determiners that don't seem to need a noun to specify:
+
+\begin{examples}
+\item 
+\begin{examples}
+\item He ate some.
+\item He did not eat any.
+\end{examples}
+\end{examples}
+
+\begin{figure}[ht]
+\hbox{
+\pstree[levelsep=43pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{$.$}\nbput{\scriptsize }}{
+  \pstree{\TR{$*tense(past,-)$}\nbput{\scriptsize claim}}{
+    \pstree{\TR{$ate$}\nbput{\scriptsize specifiee}}{
+      \pstree{\TR{$some$}\nbput{\scriptsize dobj}}{
+        \TR{$zero$}\nbput{\scriptsize specifiee}
+      }
+      \pstree{\TR{$[proRef]$}\nbput{\scriptsize subject}}{
+        \TR{$he$}\nbput{\scriptsize specifiee}
+      }
+    }
+  }
+}
+\hspace{0.5in}
+\pstree[levelsep=43pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{$.$}\nbput{\scriptsize }}{
+  \pstree{\TR{$*tense(past,+)$}\nbput{\scriptsize claim}}{
+    \pstree{\TR{$did$}\nbput{\scriptsize specifiee}}{
+      \pstree{\TR{$eat>$}\nbput{\scriptsize auxcomp}}{
+        \TR{$not$}\nbput{\scriptsize negation}
+        \pstree{\TR{$any$}\nbput{\scriptsize dobj}}{
+          \TR{$zero$}\nbput{\scriptsize specifiee}
+        }
+      }
+      \pstree{\TR{$[proRef]$}\nbput{\scriptsize subject}}{
+        \TR{$he$}\nbput{\scriptsize specifiee}
+      }
+    }
+  }
+}
+}
+\caption{he ate some/he did not eat any .}\label{he ate some/he did not eat any .}
+\end{figure}
+
+This is a fairly common phenomenon -- lots of determiners can take an
+elliptical head noun. Even more striking, they can take an elliptical
+head noun that has a post-modifier. Examples from the BNC -- (a)-(c)
+have postmodifying PPs, (d)-(f) have postmodifying relative clauses:
+
+\begin{examples}
+\item\label{ZERONOUNS}
+\begin{examples}
+\item its peoples are very different from the Utopian fantasies \uline{of many in the developed world} who profess a passionate concern for Amazonia 
+\item there are \uline{many in the world} who still recognize it as their own
+\item \uline{some in Germany} may be tempted to seek reunification on
+  the basis
+\item not without some opposition from \uline{some who thought they
+    were losing several days of their life}
+\item there can not have been \uline{many who doubted West Indies
+    would win}
+\item they are vulnerable to the ordinary wear and tear of \uline{any who seek to serve among the wayward and weak}
+\end{examples}
+\end{examples}
+
+We just allow this, at least for some determiners \fig{he was eating  some which she had given him .}
+shows the analyses for a pair of sentences where one has \q{which she
+  had given him} as a relative clause modifying \q{peaches} and one
+has it as a relative clause with no target noun.
+
+\begin{examples}
+\item \label{RCLAUSES}
+\begin{examples}
+\item He was eating some peaches which she had given him. 
+\item He was eating some which she had given him.
+\end{examples}
+\end{examples}
+
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=40pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{dobj}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$given$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{whmod}}{
+    \TR{\begin{tabular}{|c|}\hline$which$\\\hline\*whPron\\\hline\end{tabular}}\nbput{iobj}
+    \TR{\begin{tabular}{|c|}\hline$him$\\\hline\*proRef\\\hline\end{tabular}}\nbput{obj}
+    \TR{\begin{tabular}{|c|}\hline$she$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject}   }
+  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+
+\centering{a}
+\end{minipage}\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=40pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$zero$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{dobj}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$given$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{whmod}}{
+    \TR{\begin{tabular}{|c|}\hline$which$\\\hline\*whPron\\\hline\end{tabular}}\nbput{iobj}
+    \TR{\begin{tabular}{|c|}\hline$him$\\\hline\*proRef\\\hline\end{tabular}}\nbput{obj}
+    \TR{\begin{tabular}{|c|}\hline$she$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject}   }
+  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+
+\centering{b}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{he was eating some which she had given him .}}\label{he was eating some which she had given him .}
+\end{figure}
+
+\noindent
+\q{some} should be a specifier: in \xref{RCLAUSES}(b) there is no noun for it to specify. \q{which she had given him} should be
+a relative clause: in \xref{RCLAUSES}(b) there is no noun for it to modify. \uline{There is
+  no noun at the heart of the NP \q{some which she had given him}}. In
+such cases, the noun is elliptical and would normally have be to
+determined with referece to the context -- in the context of the
+examples so far, for instance, the zero noun in \xref{RCLAUSES}(b) is
+almost certainly \q{peaches}!
+
+\newpage
+The examples in \xref{ZERONOUNS} and \xref{RCLAUSES} show that we have
+to, and can, allow
+for NPs with a determiner and a PP but no head noun. In particular, there are a big pile of determiners that can take \q{of
+  the \ldots} (well actually \q{of NP[+def]}). Since we have had to
+allow for PPs with zero heads to in order to cope with
+\xref{ZERONOUNS}(a--f), we will simply use the same mechanism to
+allow for \xref{OFZERO}. 
+
+\begin{examples}
+\item \label{OFZERO}
+\begin{examples}
+\item
+He ate some of the ripe peaches. 
+\item
+He ate some of them.
+\end{examples}
+\end{examples}
+
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$zero$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{dobj}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$of$\\\hline\end{tabular}}\nbput{ppmod}}{
+    \pstree{\TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*the\\\hline\end{tabular}}\nbput{comp}}{
+     \TR{\begin{tabular}{|c|}\hline$ripe>$\\\hline\end{tabular}}\nbput{amod}    }
+   }
+  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$zero$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{dobj}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$of$\\\hline\end{tabular}}\nbput{ppmod}}{
+    \TR{\begin{tabular}{|c|}\hline$them$\\\hline\*proRef\\\hline\end{tabular}}\nbput{comp}   }
+  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{he was eating some of them .}}\label{he was eating some of them .}
+\end{figure}
+
+\noindent
+As before, we have a zero noun, but in these cases this noun is some
+word like \q{group} or \q{set}:
+
+\begin{examples}
+\item 
+\begin{examples}
+\item He ate a bunch of the peaches.
+\item He ate some of the peaches.
+\end{examples}
+\end{examples}
+
+\newpage
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=60pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$ate$\\\hline\*tense(past,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$bunch>$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{dobj}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$of$\\\hline\end{tabular}}\nbput{ppmod}}{
+    \TR{\begin{tabular}{|c|}\hline$[peach>s]$\\\hline\*the\\\hline\end{tabular}}\nbput{comp}   }
+  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=60pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$ate$\\\hline\*tense(past,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$zero$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{dobj}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$of$\\\hline\end{tabular}}\nbput{ppmod}}{
+    \TR{\begin{tabular}{|c|}\hline$[peach>s]$\\\hline\*the\\\hline\end{tabular}}\nbput{comp}   }
+  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{he ate some of the peaches .}}\label{he ate some of the peaches .}
+\end{figure}
+
+\q{all} introduces a complication for which I do not have a
+solution. At first sight, it seems to behave like \q{some} --
+\fig{FIG:SOME/ALL} assigns exactly parallel analyses to \xref{SOME/ALL}:
+
+\begin{examples}
+\item \label{SOME/ALL}
+\begin{examples}
+\item
+He ate some of the peaches.
+\item
+He ate all of the peaches.
+\end{examples}
+\end{examples}
+
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=60pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$ate$\\\hline\*tense(past,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$zero$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{dobj}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$of$\\\hline\end{tabular}}\nbput{ppmod}}{
+    \TR{\begin{tabular}{|c|}\hline$[peach>s]$\\\hline\*the\\\hline\end{tabular}}\nbput{comp}   }
+  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=60pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$ate$\\\hline\*tense(past,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$zero$\\\hline\*universal\\\hline\end{tabular}}\nbput{dobj}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$of$\\\hline\end{tabular}}\nbput{ppmod}}{
+    \TR{\begin{tabular}{|c|}\hline$[peach>s]$\\\hline\*the\\\hline\end{tabular}}\nbput{comp}   }
+  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{he ate all of the peaches .}}\label{FIG:SOME/ALL}
+\end{figure}
+
+But \q{all} takes part in constructions where (i) the preposition
+\q{of} can be omitted and (ii) \q{all} can float to a position after
+the definite NP (Appendix \ref{APP:ALL} contains examples of these
+constructions from the BNC). All the examples in \xref{ALL} seem to mean the same
+thing, and it is very tempting to think that they all have the same
+underlying structure. I can't make that happen: I can give
+\xref{ALL}(b) and \xref{ALL}(c) the same structure, but I can't make
+that the same as the structure of \xref{ALL}(b). the trees in
+\fig{FIG:ALL} are the raw parse trees \textbf{before} we remove items
+with no function: the big problem that I have (might seem like a small
+one, but it isn't), is that I cannot retain the specifier
+\texttt{*the} in the trees for \xref{ALL}(b) and \xref{ALL}(c) . We will return to
+this: right now it's a puzzle.
+
+\begin{examples}
+\item \label{ALL}
+\begin{examples}
+\item
+All of the men were eating peaches.
+\item
+All the men were eating peaches.
+\item
+The men were all eating peaches.
+\end{examples}
+\end{examples}
+
+\begin{figure}[ht]
+\hbox{\hspace*{\fill}
+\begin{minipage}[t]{0.33\linewidth}
+\pstree[levelsep=80pt, nodesep=2pt,treesep=30pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$be$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{identity}}{
+   \TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*generic\\\hline\end{tabular}}\nbput{dobj}
+   \pstree{\TR{\begin{tabular}{|c|}\hline$zero$\\\hline\*universal\\\hline\end{tabular}}\nbput{subject}}{
+    \pstree{\TR{\begin{tabular}{|c|}\hline$of$\\\hline\end{tabular}}\nbput{ppmod}}{
+     \pstree{\TR{\begin{tabular}{|c|}\hline$man>s$\\\hline\*the\\\hline\end{tabular}}\nbput{comp}}{
+      \TR{\begin{tabular}{|c|}\hline$the$\\\hline\end{tabular}}\nbput{identity}     }
+    }
+    \TR{\begin{tabular}{|c|}\hline$all$\\\hline\end{tabular}}\nbput{identity}   }
+  }
+ }
+}
+
+\vspace{0.2in}
+\centering{\xref{ALL}(a)}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.33\linewidth}
+\pstree[levelsep=80pt, nodesep=2pt,treesep=30pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$be$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{identity}}{
+   \TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*generic\\\hline\end{tabular}}\nbput{dobj}
+   \pstree{\TR{\begin{tabular}{|c|}\hline$man>s$\\\hline\*universal\\\hline\end{tabular}}\nbput{subject}}{
+    \TR{\begin{tabular}{|c|}\hline$the$\\\hline\end{tabular}}\nbput{identity}
+    \TR{\begin{tabular}{|c|}\hline$all$\\\hline\end{tabular}}\nbput{}   }
+  }
+ }
+}
+
+\vspace{0.2in}
+\centering{\xref{ALL}(b)}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.33\linewidth}
+\pstree[levelsep=80pt, nodesep=2pt,treesep=30pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$be$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$eat>ing$\\\hline\*tense(past,+)\\\hline\end{tabular}}\nbput{identity}}{
+   \TR{\begin{tabular}{|c|}\hline$peach>s$\\\hline\*generic\\\hline\end{tabular}}\nbput{dobj}
+   \pstree{\TR{\begin{tabular}{|c|}\hline$man>s$\\\hline\*universal\\\hline\end{tabular}}\nbput{subject}}{
+    \TR{\begin{tabular}{|c|}\hline$the$\\\hline\end{tabular}}\nbput{identity}
+    \TR{\begin{tabular}{|c|}\hline$all$\\\hline\end{tabular}}\nbput{}   }
+  }
+ }
+}
+
+\vspace{0.2in}
+\centering{\xref{ALL}(c)}
+\end{minipage}
+\hspace*{\fill}
+}
+\caption{\q{he ate all of the peaches .}}\label{FIG:ALL}
+\end{figure}
+
+\newpage
+
+We can now deal with a reasonably wide range of structures involving
+determiners, including  ones with no determiner, ones with no noun,
+and ones with complex sequences of determiners such as \xref{ALLSIXOFTHE}:
+
+\begin{examples}
+\item \label{ALLSIXOFTHE} he ate all six of the peaches .
+\end{examples}
+
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=80pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$ate$\\\hline\*tense(past,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \pstree{\TR{\begin{tabular}{|c|}\hline$zero$\\\hline\*universal\\\hline\end{tabular}}\nbput{dobj}}{
+   \pstree{\TR{\begin{tabular}{|c|}\hline$of$\\\hline\end{tabular}}\nbput{ppmod}}{
+    \TR{\begin{tabular}{|c|}\hline$[peach>s]$\\\hline\*the\\\hline\end{tabular}}\nbput{comp}   }
+
+   \TR{\begin{tabular}{|c|}\hline$six$\\\hline\end{tabular}}\nbput{numAsMod}  }
+
+  \TR{\begin{tabular}{|c|}\hline$he$\\\hline\*proRef\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{he ate all six of the peaches .}}\label{he ate all six of the peaches .}
+\end{figure}
+
+All these constructions are attested in the BNC, the parse trees we
+get for all of them seem sensible, and in most cases we can construct
+a normalised tree which does the right thing with the specifiers. We
+will return to the cases where the normalised tree is wrong later, but
+it now seems sensible to consider the interpretation of these trees.
+
+\section{What do specifiers do, anyway?}
+
+Why am I doing any of this? Because I want to do inference. I want to
+be able to do things like
+
+\begin{examples}
+\item\label{syllogisms}
+\begin{examples}
+\item
+\begin{tabular}{|l|}
+\hline
+Some accountants are bookkeepers\\
+All bookkeepers are crooks\\
+\hline
+Some accountants are crooks \\
+\hline
+\end{tabular}
+
+\item
+\begin{tabular}{|l|}
+\hline
+Most swans are white\\
+Bruce is a swan\\
+\hline
+Bruce is probably white \\
+\hline
+\end{tabular}
+
+\item
+\begin{tabular}{|l|}
+\hline
+All accountants are bookkeepers\\
+All bookkeepers are crooks\\
+All crooks should go to jail\\
+Bruce is an accountant\\
+\hline
+Bruce should go to jail \\
+\hline
+\end{tabular}
+
+\item \ldots
+\end{examples}
+\end{examples}
+
+\subsection{Syllogistic reasoning}
+
+One way to proceed would be to construct a set of syllogistic patterns,
+and then try to string these together to make inference
+chains. Suppose we decided that \xref{syllogisms:2} was an example of
+a sound pattern of inference. We could turn that into a rule by
+abstracting away the shared open class words.
+
+\begin{examples}
+\item\label{syllogisms:2}
+\begin{examples}
+\item
+\begin{tabular}{|l|}
+\hline
+All bookkeepers are crooks\\
+Simon is a bookeeper\\
+\hline
+Simon is a crook\\
+\hline
+\end{tabular}
+\end{examples}
+\end{examples}
+
+The trees for \xref{syllogisms:2} are as in \fig{syllogisms:3}.
+\begin{figure}[ht!]
+\hbox{\hspace*{\fill}
+\begin{minipage}[t]{0.5\linewidth}
+
+\textcolor{blue}{
+ \pstree[levelsep=100pt, nodesep=2pt,treesep=40pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$be$\\ \hline\*tense(present,-)\\\hline\end{tabular}}}{
+  \TR{\begin{tabular}{|c|}\hline$[bookkeeper>]$\\ \hline\*indefinite\\\hline\end{tabular}}\nbput{predication}
+  \textcolor{red}{\TR{\begin{tabular}{|c|}\hline$[accountant>]$\\
+      \hline\*universal\\\hline\end{tabular}}\nbput{subject}}}
+}
+
+\vspace{0.2in}
+\centering{\q{every accountant is a bookkeeper}}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.5\linewidth}
+
+\textcolor{red}{
+ \pstree[levelsep=100pt, nodesep=2pt,treesep=40pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$be$\\ \hline\*tense(present,-)\\\hline\end{tabular}}}{
+  \TR{\begin{tabular}{|c|}\hline$[accountant>]$\\ \hline\*indefinite\\\hline\end{tabular}}\nbput{predication}
+  \textcolor{blue}{\TR{\begin{tabular}{|c|}\hline$[Simon:NP]$\\ \hline\*name\\\hline\end{tabular}}\nbput{subject} }}
+}
+
+\vspace{0.2in}
+\centering{\q{Simon is an accountant}}
+\end{minipage}
+}
+
+\vspace{0.2in}
+\hbox{\hspace{1.6in}\begin{minipage}[t]{0.5\linewidth}
+\textcolor{blue}{
+ \pstree[levelsep=100pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$be$\\ \hline\*tense(present,-)\\\hline\end{tabular}}}{
+  \TR{\begin{tabular}{|c|}\hline$[bookkeeper>]$\\ \hline\*indefinite\\\hline\end{tabular}}\nbput{predication}
+  \TR{\begin{tabular}{|c|}\hline$[Simon:NP]$\\
+      \hline\*name\\\hline\end{tabular}}\nbput{subject} }
+}
+
+\vspace{0.2in}
+\centering{\q{Simon is a bookkeeper}}
+\end{minipage}}
+\caption{Trees for \xref{syllogisms:2}}\label{syllogisms:3}
+\end{figure}
+
+\medpara
+The \textcolor{red}{red} bits get cut, leaving the
+\textcolor{blue}{blue}. Abstracting away the shared elements, this
+turns into
+
+\begin{figure}[ht!]
+\hspace{0.8in}\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+([[be, A], \textcolor{red}{arg(subject, *(universal), [B, modifier(every)])}]
+  & ([[be, \textcolor{red}{arg(D, E, [B, modifier(a)])}], F]
+      => [[be, A], F]))
+\end{Verbatim}
+\end{minipage}
+\caption{Abstraction from \fig{syllogisms:3}: if every B is A and F is
+a B then F is A}\label{syllogisms:4}
+\end{figure}
+
+\medpara
+This would be an interesting way to go. You could do this for all the
+syllogisms (including interesting ones like \{\q{Most bookkeepers are
+  crooks}, \q{Simon is a bookkeeper} $\vdash$ \q{Simon is probably a crook}\}), and then you could chain through applications of these
+patterns to solve a reasonably wide set of problems. Obtaining the
+patterns is easy -- just parse the hypothesis and conclusion of a
+typical example and then abstract away the shared elements. Writing
+the engine is also easy -- if you have sentences whose trees match the
+antecedent of some rule then you can infer its conclusion. I would be
+tempted to run them forwards whenever I could, because it feels as
+though that would be more effective, but I'd have to do some
+experimentation to see. 
+
+But I think it would be fairly inefficient, and I think it would feel
+rather \textit{ad hoc}. So I'm going to go down a slightly different
+route. But I do think it would be an interesting thing to follow
+up. Maybe later.
+
+\subsection{Facts and rules}
+
+Most theorem provers for ordinary logic expect you to apply a series
+of \defn{normal form} rules which convert from (comparatively)
+readable formulae like
+
+\begin{Verbatim}[commandchars=\\\{\}]
+exists(A,
+       woman(A)
+       & forall(B, man(B) 
+                   => exists(C, event(C, love)
+                                & theta(C, object, A)
+                                & theta(C, agent, B) 
+                                & aspect(now, simple, C))))
+\end{Verbatim}
+
+\noindent
+to flatter forms (e.g. quantifier-free form, clausal form, \ldots)
+like
+
+\begin{Verbatim}[commandchars=\\\{\}]
+woman(#1)
+man(B) => event(#2(B), love)
+man(B) => theta(#2(B), object, #1)
+man(B) => theta(#2(B), agent, B) 
+man(B) => aspect(now, simple, #2(B))
+\end{Verbatim}
+
+\medpara
+The flatter forms make it easier for the inference engine to match
+facts and rules: in the original standard form, the fact that this
+rule will let you conclude that there was a loving event is buried
+deep in the tree, whereas in the flattened form it is immediately
+visible and can be used for indexing and matching the rule. Typically
+the flatter forms introduce \defn{Skolem functions} (including
+functions with no arguments, i.e. constants), i.e. new names for
+things that would otherwise be anonymous. 
+
+To do construct normal forms from dependency treees, I will start by splitting
+specifiers into \defn{specific} and \defn{general}, and I will further
+split specific specifiers into \defn{indefinite} and
+\defn{referential}. Things marked by
+specific specifiers are fact-like, and will contain terms; things marked by general ones are
+rule-like, and will contain variables and some kind of implicational marker.
+
+We will start with a very simple example:
+
+\begin{examples}
+\item Some accountants are crooks.
+\end{examples}
+
+\begin{figure}[ht]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+
+\pstree[levelsep=100pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$be$\\\hline\*tense(present,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \TR{\begin{tabular}{|c|}\hline$crook>s$\\\hline\*generic\\\hline\end{tabular}}\nbput{predication}
+  \TR{\begin{tabular}{|c|}\hline$[accountant>s]$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{some accountants are crooks .}}\label{some accountants are crooks .}
+\end{figure}
+
+Even this very simple example raises two problems: what does the
+\texttt{*generic} quantifier do, and what does \q{be} mean? We will
+postpone consideration of generics for a while and consider an even
+simpler case:
+
+\begin{examples}
+\item \label{SAIAC}
+Some accountant is a crook.
+\end{examples}
+
+\begin{figure}[ht!]
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\pstree[levelsep=100pt, nodesep=2pt,treesep=70pt, nrot=:D]{\TR{\begin{tabular}{|c|}\hline$.$\\\hline\end{tabular}}\nbput{}}{
+ \pstree{\TR{\begin{tabular}{|c|}\hline$be$\\\hline\*tense(present,-)\\\hline\end{tabular}}\nbput{claim}}{
+  \TR{\begin{tabular}{|c|}\hline$[crook>]$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{predication}
+  \TR{\begin{tabular}{|c|}\hline$[accountant>]$\\\hline\*indefinite\\\hline\end{tabular}}\nbput{subject} }
+}
+\end{minipage}
+\hspace*{\fill}
+\caption{\q{some accountant is a crook .}}\label{some accountant is a crook .}
+\end{figure}
+
+To get to where we want to be I'm going to do something that looks a
+lot like Skolemisation. OK, it \textbf{is} Skolemisation. To get to
+there we go through several stages. We start by replacing specifiers
+by \defn{in-situ quantifiers} \citep{Milward:94} (see 
+\citep{Cooper:83,Keller:87,Vestre:91} for similar
+notions), allowing the tense marker to introduce the time at which the
+event in question occurred and a reification of the event (that's
+quite a lot for it do, but it seems fair enough. What the tense marker
+does is to introduce the time at which the event happened,
+i.e. introduces and a time and an event and relates them. We will
+later on want to add the aspect marker, but this will suffice for now): 
+\fig{NF:some accountant is a crook .}. We will refer to trees containing
+in-situ quantifiers as \defn{quasi-logical forms} (QLFs) \citep{vanEijck:92}.
+
+\begin{figure}[ht]
+\hbox{\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(qq(tense(-)::{present,A},
+         at(A,
+            qq(indefinite::B,
+               {([be,
+                   qq(indefinite::{[crook],C},
+                      {predication(xbar(v(-),n(+))),C}),
+                   qq(indefinite::{[accountant],D},
+                      {subject,D})],
+                  B)}))))
+\end{Verbatim}
+\end{minipage}
+\hspace*{\fill}}
+\caption{QLF for \q{some accountant is a crook .}}\label{NF:some accountant is a crook .}
+\end{figure}
+
+\noindent
+(note that the in-situ quantifiers in \fig{NF:some accountant is a crook .}
+include a mixture of simple quantifiers (\texttt{indefinite::B}) 
+and restricted quantifiers
+(\texttt{qq(indefinite::\{[crook],C\}}). There's nothing very mysterious
+  about these)
+
+We then extract the quantifiers, leaving the quantified variable in
+place, and apply them in order of precedence (e.g.\ giving \q{any}
+very wide scope): \fig{NF:some accountant is a crook .1}
+
+\begin{figure}[ht]
+\hbox{\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+exists(A::{present,A},
+       exists(B,
+              exists(C::{[accountant],C},
+                     exists(D::{[crook],D},
+                            claim(at(A,
+                                     {([be,
+                                         {predication(xbar(v(-),n(+))),D},
+                                         {subject,C}],
+                                        B)}))))))
+\end{Verbatim}
+\end{minipage}
+\hspace*{\fill}}
+\caption{\q{some accountant is a crook .}}\label{NF:some accountant is a crook .1}
+\end{figure}
+
+That's not too bad, but scope of the quantifiers seems to be too wide:
+\fig{NF:some accountant is a crook .1} says that there is a present
+time, and there is an accountant, and there is a crook, and that at
+this time the accountant and the crook are in some relationship. It
+would seem better if the existence of the time and the crook and the
+accountant were all \textbf{inside} the claim, and indeed probably we
+would want the existence of the crook and the accountant to be fixed
+with respect to the time. We therefore allow \defn{blocking contexts},
+which restrict the extraction of quantifiers. Later one we will give
+weights to
+blocking contexts to specify which quantifiers can escape, but for now
+we will just set them to block all quantifiers. That gives us
+\fig{NF:some accountant is a crook .2}.
+
+\begin{figure}[ht]
+\hbox{\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(exists(A::{present,A},
+             at(A,
+                exists(B,
+                       exists(C::{[accountant],C},
+                              exists(D::{[crook],D},
+                                     {([be,
+                                         {predication(xbar(v(-),n(+))),D},
+                                         {subject,C}],
+                                        B)}))))))
+\end{Verbatim}
+\end{minipage}
+\hspace*{\fill}}
+\caption{\q{some accountant is a crook .}}\label{NF:some accountant is a crook .2}
+\end{figure}
+
+We can then convert to quantifier-free form (QFF) (and do a little bit of
+tidying-up along the way, including Currying (I think) some
+combinations of terms and variables):\fig{NF:some accountant is a
+  crook .3}
+
+\begin{figure}[ht]
+\hbox{\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+claim((present(#0)
+        & at(#0,
+             (accountant(#2)
+               & (crook(#3)
+                   & (be(#1)
+                       & (predication(#1, #3, xbar(v(-), n(+)))
+                           & subject(#1, #2))))))))
+\end{Verbatim}
+\end{minipage}
+\hspace*{\fill}}
+\caption{QFF for \q{some accountant is a crook .}}\label{NF:some accountant is a crook .3}
+\end{figure}
+
+\noindent
+One last move and then we have this one sorted. \q{Some accountant is a
+  crook} will be true if at the present time there is some entity which is an artist and
+some (other) entity which is a crook and these two are in fact the
+same thing. 
+
+This may feel oddish, but I think there are good reasons for taking it
+as the right way to go. Consider, firstly, copula sentences where both
+arguments are definite NPs.
+
+\begin{examples}
+\item \label{S:COP1}
+\begin{examples}
+\item
+Allan is the one with an earring
+\item
+The one with an earring is Allan
+\end{examples}
+\end{examples}
+
+\noindent
+Both examples in \xref{S:COP1} pick out two individuals and say they
+are the same. The only reasonable way to interpret these two is as
+something like \fig{NF:Allan is the one with an earring .}
+ -- there is something, \texttt{A}, which is called Allan,
+and there is something, \texttt{B}, which has an earring, and these
+two things are in fact the same thing. Seems about as reasonable as
+anything.
+
+\begin{figure}[ht!]
+\begin{Verbatim}[commandchars=\\\{\}]
+claim((now=#0
+        & at(#0,
+             (earring(#2)
+               & ref(A,name(A,Allan))
+                 = ref(B, (one(B) & modifier(B, ppmod, [with, comp(#2)])))))))
+\end{Verbatim}
+\caption{\q{Allan is the one with an earring .}}\label{NF:Allan is the one with an earring .}
+\end{figure}
+
+\newpage
+So for copula sentences where both arguments are definite NPs, we just
+want to say that the two things in question are the same. And, as we
+have seen in numerous examples, indefinite NPs are usually treated as
+involving something like existential quantification. If we maintain
+the view that copula sentences with NPs as their objects assert
+identity, and that indefinite NPs introduce entities into the
+conversation, then for
+
+\begin{examples}
+\item
+John is a fool.
+\end{examples}
+
+\noindent
+we get 
+
+\begin{figure}[ht!]
+\begin{Verbatim}[commandchars=\\\{\}]
+claim((now=#0
+        & at(#0, fool(#2)&ref(A,name(A,John),[])=#2)))
+\end{Verbatim}
+\caption{\q{John is a fool .}}\label{NF:John is a fool .}
+\end{figure}
+
+\noindent
+What are the consequences of \fig{NF:John is a fool .}? Suppose we had
+a rule \texttt{fool(X) => P(X)} for some property \texttt{P}. Then if
+the person who satisfies \texttt{ref(A, name(A, John))} is
+\texttt{\#36} then \texttt{P(\#36)} will hold. That is exactly what we
+want -- to be a fool is to satisfy all the properties that fools
+satisfy, and that is what we will get from \fig{NF:John is a fool
+.}. In other words, we can get the right consequences of copula
+sentences with NP predicates by saying that such sentences say that
+their subject and predicate are identical, without forcing a
+non-standard interpretation of indefinite NPs.  That means that when I
+come to do inference I will need to think about equality, but that's
+not going to be the most challenging thing that I face.
+
+Returning to our syllogism, we obtain 
+\fig{NF:some accountant is a crook .4} for \xref{SAIAC}.
+
+\begin{figure}[ht]
+\hbox{\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+claim((#0=now & at(#0, accountant(#2)&crook(#3)&(#3=#2))))
+\end{Verbatim}
+\end{minipage}
+\hspace*{\fill}}
+\caption{\q{some accountant is a crook .}}\label{NF:some accountant is a crook .4}
+\end{figure}
+
+\noindent
+OK, \q{Some accountant is a crook.} means \q{I am claiming that at a
+time which happens to be \texttt{now} there is something which we will
+call \texttt{\#2} which is an accountant and something which we will
+call \texttt{\#3} which is a crook and that these two things are
+actually identical}. That's not an incorrect paraphrase.
+
+Similarly, \q{every accountant is a bookkeeper} comes out as 
+\fig{NF:every accountant is a bookkeeper .4}. So if we can deal with
+equality we'll be in business.
+
+\begin{figure}[ht!]
+\hbox{\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+claim((#0=now & at(#0, accountant(A)=>(bookkeeper(#2(A))&(#2(A)=A)))))
+\end{Verbatim}
+\end{minipage}
+\hspace*{\fill}}
+\caption{\q{every accountant is a bookkeeper .}}\label{NF:every accountant is a bookkeeper .4}
+\end{figure}
+
+\noindent
+\q{I am claiming that at the moment if you show me an accountant I
+  will find you a bookeeper who is in fact the same person}
+
+What shall we do about equality? In the antecedent of a rule, it means
+that we have to be able to prove that two possibly distinct terms
+denote the same thing, which could be tricky if they are complex terms
+-- if you know that \texttt{\#1} and \texttt{\#2} are the same entity
+and that \texttt{\#3(X)} and \texttt{\#4(X)} are the same functions,
+you're still going to have to do some work to determine that \texttt{\#3(\#1)} and \texttt{\#4(\#2)}
+ are different names for the same thing. But we can deal with equality
+ in the consequent of a rule, or in a fact, simply by merging the two
+ names. \fig{NF:some accountant is a crook .4} and 
+\fig{NF:EQUELIM}(a) will be true under
+exactly the same circumstances, and likewise 
+\fig{NF:every accountant is a bookkeeper .4} and 
+\fig{NF:EQUELIM}(b). So we can eliminate equality in
+positive contexts just by merging the two terms on either side of the equality.
+
+\begin{figure}[ht!]
+\hbox{\small \hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(at(now, accountant(#2)&crook(#2)))
+\end{Verbatim}
+\centering{(a) some accountant is a crook}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(at(now, accountant(A)=>bookkeeper(A)))
+\end{Verbatim}
+\centering{(b) every accountant is a bookkeeper }
+\end{minipage}
+\hspace*{\fill}}
+\caption{Eliminating equality in positive contexts}\label{NF:EQUELIM}
+\end{figure}
+
+\subsection{Queries and Proofs}
+
+So far we have looked at simple declarative sentences. We also need to
+handle queries. This is fairly straightforward: where a declarative
+sentence has \texttt{claim(\ldots)} wrapped round it by the full stop,
+a question as \texttt{query(\ldots)} wrapped round it by the question
+mark. The QLF for a query is thus very similar to that for the
+corresponding statement:
+
+\begin{examples}
+\item\label{Is some accountant a crook?}
+Is some accountant a crook?
+\end{examples}
+
+\begin{figure}[ht]
+\hbox{\hspace*{\fill}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+query(opaque(qq(tense(-)::{present,A},
+                at(A,
+                   opaque(qq(indefinite::B,
+                             {([be,
+                                 qq(indefinite::{[crook],C},
+                                    {predication(xbar(v(-),n(+))),C}),
+                                 qq(indefinite::{[accountant],D},
+                                    {subject,D})],
+                                B)}))))))
+\end{Verbatim}
+\end{minipage}
+\hspace*{\fill}}
+\caption{QLF for \q{is some accountant a crook ?}}\label{NF:is some accountant a crook ?}
+\end{figure}
+
+When we convert this to quantifier-free form, we have to note that
+questions place their propositional contents inside negative contexts,
+so we have to be carefull when removing the quantifiers. What we want
+as the QFF for \xref{Is some accountant a crook?} has the indefinite
+specifiers replaced by place-holder variables:
+
+\begin{figure}[ht]
+\hbox{\hspace*{0.25\linewidth}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+query(at(now, accountant(A)&crook(A)))
+\end{Verbatim}
+\end{minipage}
+\hspace*{\fill}}
+\caption{QFF for \q{is some accountant a crook ?}}\label{NF:is some accountant a crook ?:QFF}
+\end{figure}
+
+\noindent
+\fig{NF:is some accountant a crook ?:QFF} says that I would like 
+to know whether there is something which is currently both an
+accountant and a crook. Seems like a fair enough interpretation of
+\q{Is some accountant a crook?}.
+
+\section{Inference}
+
+We now have representations of sentences expressing facts, rules and
+questions. We want to be able to answer the questions by using the
+facts and rules, in other words we want an inference engine that will
+operate over these representations. There is a wide variety of
+mechanisms for carrying out inference -- resolution, tableaux, \ldots
+Because we are going to want to do intensional reasoning (reasoning in
+a framework that allows quantification over properties and
+propositions) we want something which we are confident can be adapted
+for such tasks: we will therefore use \citet{Ramsay:01b}'s version of the SATCHMO
+inference engine \citep{Manthey:88,Loveland:95} which we have already 
+  used for reasoning with a fully intensional logic, namely property
+  theory \citep{Ramsay:95a,Ramsay:97e,Turner:87}.
+
+We start with a simple constructive version of SATCHMO (\fig{SATCHMO})
+which embodies
+the standard natural deduction operators for constructive logic. We
+assume that \texttt{not(P)} is a shorthand for \texttt{P => absurd}:
+there are no rules explicitly about negation below because anything
+that we want to say about negation will be captured in the rules
+relating to \texttt{=>}. There are a large number of optimisations \citep{Loveland:91,Loveland:95,Ramsay:91a}
+that can be added to this skeletal version of the algorithm, but we
+omit these here for clarity.
+
+\newpage
+\begin{figure}[ht!]
+\hbox{
+\hspace{0.3\linewidth}\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+prove(P, LABEL) :-
+    fact(P).
+\end{Verbatim}
+\end{minipage}
+}
+
+\vspace{0.2in}
+\hbox{
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+%% &-elimination
+prove(P, LABEL) :-
+    prove(P & Q, LABEL)
+
+%% or-elimination
+prove(P, LABEL) :-
+    prove(P or Q, label),
+    prove(Q => absurd).
+
+%% =>-elimination, modus ponens
+prove(P, LABEL) :-
+    A => P,
+    prove(A, LABEL).
+\end{Verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+%% &-introduction
+prove(P & Q, LABEL) :-
+    prove(P, LABEL), prove(Q, LABEL).
+
+%% or-introduction
+prove(P or Q, LABEL) :-
+    prove(P, LABEL); prove(Q, LABEL).
+
+
+%% =>-introduction (conditional proof)
+prove(P => Q, LABEL) :-
+    assert(P),
+    (prove(Q, LABEL) -> 
+        retract(P); 
+        (retract(P), fail)).
+\end{Verbatim}
+\end{minipage}
+}
+\caption{Basic implementation of constructive SATCHMO}\label{SATCHMO}
+\end{figure}
+
+Why use SATCHMO? We are going to want do a variety of rather
+complicated things -- reasoning with defaults, with epistemic \&
+temporal contexts, with fine-grained intensionality, with asymmetric
+approximate unification, \ldots So we will accrete extra complexity
+and complication to whatever engine we start with. Starting with
+something very simple will make it easier to add all this extra
+material without becoming swamped by it. The basic implementation of
+SATCHMO is startlingly simple -- \fig{SATCHMO} shows the whole
+thing. This makes it an attractive starting point for adding
+non-standard facilities to.
+
+\subsection{Unification vs subsumption}
+
+
+
+\subsection{Contexts}
+
+The first extension is aimed at dealing with \defn{contexts} -- with, for
+instance, temporal contexts such as
+the fact that our interpretation \q{Some accountant is a bookkeeper}
+says that \texttt{accountant(\#2) \& crook(\#2)} holds at
+\scare{now}. We will deal with this and other similar
+relations by adding to every formula a specification of the (possibly
+nested) context(s) in which it is available. We will do this by adding to
+every formula a \defn{label} \citep{Gabbay:89,Gabbay:96}, i.e. a
+bundle of information about that formula\footnote{carried in the second
+argument of \texttt{prove} in \fig{SATCHMO}: this will eventually turn
+out to include all sorts of useful things.}. We will return to this in
+Section \ref{SEC:CONTEXTS}. The key notion for now is that we allow a
+formula to be annotated with a specification of the context(s) in which
+it is available, writing \texttt{P{\IN}C} to mean that \texttt{P} is
+available in the context \texttt{C}. Contexts can be temporal (the instant at which something
+is true, the interval during which it is true) or epistemic (a
+proposition may be available in someone's belief set or in the set of
+things they know) or \ldots They do \textbf{not} in general distribute
+over logical connectives -- you cannot assume that \texttt{(P \& Q)\IN
+  C} = \texttt{((P{\IN}C) \& (Q{\IN}C))} or \texttt{(P or Q){\IN}C} =
+\texttt{((P{\IN}C) or Q{\IN}C)}. We will however assume that they nest
+-- that \texttt{(P{\IN}C1){\IN}C2} = \texttt{P\IN(C1+C2)}, i.e. if the fact
+that \texttt{P} is available in \texttt{C1} is available in
+\texttt{C2} then \texttt{P} is available in \texttt{C1+C2}, and we
+will always use this rule to flatten nested contexts.
+
+We use this notion to turn \fig{NF:is some accountant a crook ?:QFF}
+into \fig{LABELS}(a) and likewise \fig{NF:EQUELIM}(b) becomes  \fig{LABELS}(b).
+
+\begin{figure}[ht]
+\begin{center}
+\begin{minipage}[t]{0.9\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+(accountant(A){\IN}[now,believes(hearer)] & crook(A){\IN}[now,believes(hearer)])
+\end{Verbatim}
+
+\centering{(a) is some accountant a crook?}
+\end{minipage}
+
+\vspace{0.2in}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+(accountant(A)=>bookkeeper(A)){\IN}[now,believes(speaker)]
+\end{Verbatim}
+
+\centering{(b) every accountant is a bookkeeper.}
+\end{minipage}
+\end{center}
+\caption{Contexts added as labels: \q{is some accountant a crook?}/\q{every accountant is a bookkeeper .}}\label{LABELS}
+\end{figure}
+
+\noindent
+\fig{LABELS}(a) asks whether the information available to the hearer
+(who is the person who is being asked the question, and hence is the
+person who should attempt to use their beliefs to find an answer) supports a
+proof that there is someone who is currently an accountant and is also
+currently a crook; \fig{LABELS}(b) says that the speaker, who is the
+person making the claim, believes that they have access to a rule that
+says that is currently the case that if someone is an accountant then
+they are also a bookkeeper (note the label applies to the entire
+rule).
+
+We now consider what happens in a dialogue with two participants, S and H:
+
+\begin{examples}
+\item\label{DIALOGUE:1}
+S: every accountant is a bookkeeper.
+
+H: OK
+
+S: every bookkeeper is a crook.
+
+H: OK
+
+S: some man is an accountant.
+
+H: OK
+
+S: is some man a crook?
+
+H: Hmmm, don't ask me, haven't a clue, how on earth would I know?
+\end{examples}
+
+After each of S's statements, H says \q{OK}. Why does she do
+this? Because all that the statements say is that S believes
+something, and there is no necessary requirement for H to believe
+something just because S does. There are Grice-ish reasons to expect
+that H will believe what S says, but unless she says that she has
+accepted S's statements then S cannot be sure that she has. So she
+says \q{OK} to indicate that she has, at least tentatively, accepted
+what she has been told. We therefore construct a model of H's beliefs
+at this point that looks like \fig{FIG:DIALOGUE:1:a}
+
+
+\begin{figure}[ht]
+\begin{center}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+man(#2){\IN}[now,bel(hearer),now]
+accountant(#2){\IN}[now,bel(hearer),now]
+accountant(A)=>bookkeeper(A){\IN}[now,bel(hearer),now]
+bookkeeper(A)=>crook(A){\IN}[now,bel(hearer),now]
+\end{Verbatim}
+\end{minipage}
+\end{center}
+\caption{H's beliefs after the first part of \xref{DIALOGUE:1}}\label{FIG:DIALOGUE:1:a}
+\end{figure}
+
+\noindent
+The context says that is currently true that H believes that it is
+currently true that there is someone, who might as well call
+\texttt{\#2}, who is a man and is also an accountant, and likewise for
+the two rules.
+
+So by the time S asks his final question, H
+should have the information she needs to answer it, and (again by some
+Grice-ish rules) she should try to do so (well actually by a proper
+Grice-ish set of rules she should say \q{Well obviously, why are you
+  asking me?}): \fig{FIG:PROOF:1:a}
+
+
+\begin{figure}[ht]
+\begin{center}
+\begin{minipage}[t]{\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+Trying to prove man(_158190)&crook(_158190) in [now,bel(hearer),now]
+  Trying to prove man(_158190) in [now,bel(hearer),now]
+  Found man(#2) in [now,bel(hearer),now]
+  Trying to prove crook(#2) in [now,bel(hearer),now]
+  Using bookkeeper(#2)=>crook(#2) to prove crook(#2) in [now,bel(hearer),now]
+    Trying to prove bookkeeper(#2) in [now,bel(hearer),now]
+    Using accountant(#2)=>bookkeeper(#2) to prove bookkeeper(#2) in [now,bel(hearer),now]
+      Trying to prove accountant(#2) in [now,bel(hearer),now]
+      Found accountant(#2) in [now,bel(hearer),now]
+\end{Verbatim}
+\end{minipage}
+\end{center}
+\caption{H can prove there is a crook}\label{FIG:PROOF:1:a}
+\end{figure}
+
+\noindent
+Straightforward enough: just a backward chaining proof with a label
+that includes the context where things can be proved, with the same
+context for the facts that H can use and the query she is trying to
+answer. Various things will get more complicated from here on, but
+that's our basic engine. If someone tells you something, then if
+you're prepared to accept it you should say \q{OK} and add it to your
+own belief set; if they ask you a question you should try to answer
+it. There are much more complicated things that speakers can do (tell
+jokes, be sarcastic, lie, \ldots) and much more complicated things
+that hearers can do (believe what they are told, say they don't
+believe it, pretend to believe it, \ldots) which we have discussed
+elsewhere \citep{Ramsay:06a,Ramsay:06b,Ramsay:08a,Ramsay:09b}; but
+this simple model will suffice for now.
+
+\subsection{Unification or subsumption?}
+
+\subsection{Backwards or forwards?}
+
+You can run an inference engine backwards (to prove \texttt{P}, find a rule
+\texttt{P1 \& P2 \& \ldots \& Pn => P} and try to prove each
+\texttt{Pi}) or forwards (if you have a rule \texttt{P1 \& P2 \& \ldots
+  \& Pn => P} and you know that each of the \texttt{Pi} holds then you
+can add \texttt{P} to what you know). Theorem provers are run largely
+backwards, but it is reasonable to suggest that people actually do a
+degree of forward inference. Consider the examples in \xref{ABSURDS}:
+
+\begin{examples}
+\item \label{ABSURDS}
+\begin{examples}
+\item
+My father was born on the moon.
+\item
+All cats have wings.
+\item
+I have an infinite number of friends.
+\end{examples}
+\end{examples}
+
+\noindent
+All these sentences are false. What is more, they are patently,
+obviously, blatantly false, and anyone reading them will immediately
+realise this.
+
+This suggests that you do not just passively listen to what you are
+told and store it away for future reference, to be used if it would
+help you solve some problem (e.g. answer a question). You actively
+assimilate it. There are good reasons for this. When people tell you
+things, it is usually because they think that you will do something
+with what they have told you. If they shout \q{Fire!}, they expect you
+to leave your current location and go somewhere safer. If they say
+\q{I could murder a cup of tea}, they expect you to go and make them a
+cup of tea. Whatever it is they expect you to do, they generally
+expect you to do it now. So you should think about what you have just
+been told, and about how it fits into the current situation, because
+the odds are that you should do something about it.
+
+The activity of assimilating what you have just been told is often
+referred to as \defn{model building} \citep{Bos:01}. I am going to
+talk about it in terms of forward inference -- technically there is
+little difference between the two (indeed, the standard presentation
+of SATCHMO, like many other
+theorem provers, proceeds by attempting to build a model of the
+premises and the negation of the goal and hoping that this will turn
+out to be impossible).
+
+Forward inference is, in general, a very open-ended task. Given the
+premises \texttt{\{human(J), forall(X :: \{human(X)\}, exists(Y,
+  human(Y) \& mother(Y, X)))\}} there are an infinite number of
+  (non-tautologous) conclusions that can be drawn, the effect that J's
+  mother is human, and J's mother's mother is human, and J's mother's
+  mother's mother is human, and \ldots Assimilating what you have just
+  been told involves a bit of forward inference, but not an unbounded
+  amount. You could, perhaps, do some kind of unconvincing
+  Johnson-Laird-ish kinds of pyschological experiments to try to
+  determine just how much; or you could inpose some aribtrary
+  restrictions, safe in the knowledge that you can always fall back on
+  doing backward inference to solve complex problems as and when you
+  need to. For simplicity, I will apply the following strategy:
+
+\begin{itemize}
+\item
+Add any ground facts that can be added using Horn clauses without
+introducing Skolem functions (the only functions we have are Skolem
+functions, so this blocks cases like the one above about J's mother
+and J's mother's mother). It may be that in certain situations we
+should block Skolem functions that are nested to a specified depth,
+rather than blocking all such functions.
+\item
+Add anything that can be added by application of a rule with an
+intensional consequent. The key here is that it is almost impossible
+to use rules with intensional consequents backwards, because the
+consequent will be at best vaguely described and hence it will be
+difficult to work out whether it is relevant to a specific goal. To
+take a simple case, consider \xref{S:MANAGE}:
+
+\begin{examples}
+\item\label{S:MANAGE}
+She managed to finish the book she was writing.
+\end{examples}
+
+One simple consequence of \xref{S:MANAGE} is that she did indeed
+finish writing it -- \q{manage} is a factive verb which asserts, among
+other things, the truth of the embedded clause. The obvious way to
+capture this is with a rule like \fig{R:MANAGE}.
+
+\begin{figure}[ht!]
+\hspace{1.0in}
+\begin{minipage}[t]{\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+manage(X) & xcomp(X, Y) & subject(X, Z) => (Y:Z)
+\end{Verbatim}
+\end{minipage}
+\caption{If Z managed to Y then Z did Y}\label{R:MANAGE}
+\end{figure}
+
+\noindent
+Allowing this rule to be used backwards would mean that you would try
+to use it every time you wanted to prove anything. Using it forwards
+means that it will be triggered only when you are trying to assimilate
+a sentence about someone managing to do something \citep{Ramsay:01b}.
+
+\item
+Add anything that can be added by application of a default rule, so
+long as there is no \textbf{current} reason not to. The evidence for
+this lies in the double-take that is induced by sentences like
+\xref{S:FARMER}(b) 
+
+\begin{examples}
+\item\label{S:FARMER}
+\begin{examples}
+\item
+If a farmer owns a donkey he beats it.
+\item
+If a farmer owns a donkey she looks after it very nicely.
+\end{examples}
+\end{examples}
+
+\noindent
+It is perfectly possible for farmers to be women. Indeed, in 2012 45\%
+of farmers in Arizona were
+women\footnote{\texttt{https://www.agcensus.usda.gov/Publications/2012/Online\_Resources/Highlights/Women\_Farmers/Highlights\_Women\_Farmers.pdf}}. Nonetheless,\xref{S:FARMER}(b)
+seems odd because most people's preconceptions (=
+default rules) suggest that farmers are men, so that by the time you
+have assimilated \q{a farmer owns a donkey} you will already have
+visualised a male farmer, and hence have difficulty dereferencing
+\q{she}.
+
+\item
+If you can prove the antecedent of a rule with a disjunctive head and
+all but one of the disjuncts is provably false then add the remaining
+one (subject to the same restriction on Skolem functions as above).
+\end{itemize}
+
+These rules will suffice to produce a set of immediate ground
+consequences/partial model of an utterance given a context and a set
+of background rules; and, given suitable background knowledge, to make
+it possible to detect the impossibility of examples like
+\xref{ABSURDS} as soon as they are produced.
+
+\subsection{Contexts revisited: proof theory}\label{SEC:CONTEXTS}
+
+The normal forms that we are deriving contain information about the
+contexts in which they are available. We therefore need to
+modify the specification of SATCHMO to allow for this. We will write
+\texttt{C1 << C2} to mean that anything that is available in C2 is
+available in C1. Thus, since anything which anyone knows in a context
+must be true in that context we can say \texttt{C << [know(\#1) | C]}
+for an arbitrary context \texttt{C}.  The extended version of SATCHMO
+is given in \fig{SATCHMO+}. A number of the rules now depend
+on properties of the context, since not all contexts support all the
+standard introduction and elimination rules (e.g. consider \texttt{A}
+and \texttt{B} where \texttt{B} = \texttt{not(B)}: then \texttt{poss(A) \&
+  poss(B) $\not\vdash$ poss(A \& B)}, \texttt{nec(A or B) $\not\vdash$
+  nec(A) or nec(B)}). We therefore have to attach side-conditions to
+the various rules which indicate the kinds of contexts where they apply.
+
+\begin{figure}[ht!]
+\hbox{
+\hspace{0.3\linewidth}\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+prove(P{\IN}C0, LABEL) :-
+    fact(P{\IN}C1), 
+    C0 << C1.
+\end{Verbatim}
+\end{minipage}
+}
+
+\vspace{0.2in}
+\hbox{
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+%% &-elimination
+prove(P{\IN}C0, LABEL) :-
+    prove((P & Q){\IN}C1, LABEL) , 
+    C0 << C1.
+
+%% or-elimination
+prove(P, LABEL) :-
+    prove(P or Q, label),
+    prove(Q => absurd).
+
+%% =>-elimination, modus ponens
+prove(P, LABEL) :-
+    A => P,
+    prove(A, LABEL).
+\end{Verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+%% &-introduction
+prove(P & Q, LABEL) :-
+    prove(P, LABEL), prove(Q, LABEL).
+
+%% or-introduction
+prove((P or Q){\IN}C0, LABEL) :-
+    (prove(P{\IN}C1, LABEL); prove(Q{\IN}C1, LABEL)),
+    C0 << C1.
+
+
+%% =>-introduction (conditional proof)
+prove(P => Q, LABEL) :-
+    assert(P),
+    (prove(Q, LABEL) -> 
+        retract(P); 
+        (retract(P), fail)).
+\end{Verbatim}
+\end{minipage}
+}
+\caption{SATCHMO with contexts}\label{SATCHMO+}
+\end{figure}
+
+The first three rules of \fig{SATCHMO+} just say that you can
+prove something in a context \texttt{C} if you can prove it in
+\texttt{C'} where anything which is available in \texttt{C'} is
+available in \texttt{C}. The fourth just unwraps \texttt{not(P)} in
+the standard manner of constructive logic. The last rule says that you
+can prove \texttt{P => Q} in \texttt{C} by assuming \texttt{P} is
+available in \texttt{C} and trying to prove \texttt{Q} in the same
+context. This is not, however, always legitimate -- the argument above
+showed that in general \texttt{(P => Q){\IN}C} entails \texttt{P{\IN}Q =>
+  Q{\IN}C}. We do not, however, in general have the converse. We will
+refer to contexts in which \texttt{P{\IN}Q => Q{\IN}C} entails \texttt{(P =>
+  Q){\IN}C} as \defn{closed} contexts. Conditional proofs of the kind
+embodied by the final rule in \fig{SATCHMO+} can only be
+carried out in contexts which are known to be closed.
+
+
+\newpage
+\bibliography{refs}
+
+\appendix
+\newpage
+\section{\q{all of the \ldots}, \q{all the \ldots}, \q{the \ldots
+    were all \ldots}}\label{APP:ALL}
+
+Examples of constructions involving \q{all} from the BNC.
+
+\begin{examples}
+\item
+\begin{examples}
+\item who had been hostile , in print , to all of the participants in the historical events which supplied part of his 
+\item anything about , but would be willing to dismiss along all of the social sciences , I was in danger of being irrevocably 
+\item This mixed condition he shares with many others , not all of them writers ; it is a condition we are entitled to 
+\item organs of the body may be affected , and when all of these factors are combined the results can be severe , with 
+\item , ' said Thomas , ` which master announced to all of them was faulty , and that was why Rover slept there 
+\item description ' which most alarmed them ; for as almost all of them wistfully pointed out : ` it shows exactly how we 
+\item with the sights , sounds , smells and tastes --all of them clamorous and variegated and , not least , the girls 
+\end{examples}
+
+\item
+\begin{examples}
+\item coalesced , inevitably , in the act of painting when all the discrete , scattered moments , followed up , caught on 
+\item compiler of a catalogue raisonn\'{e} will have seen and compared all the works listed , or will scruple to state if some 
+\item ` tenderised ' -- a word Roth likes , for all the awkwardness it imparts to the operations to which it refers 
+\item I would like to thank you and your Team for all the effort and resources you have put into providing a home 
+\item the other people who figure in his books , wrote all the time about himself , both in autobiographical and in fictional 
+\item a taxable income at equal to the gross amount of all these payments, as the Gift Aid payment being contemplated , 
+\item the form requires the donor to state that he satisfies all the conditions relating to Gift Aid ( as which , see 
+\end{examples}
+
+\item
+\begin{examples}
+\item a hillside over Lake Garda , the lakeside promenade and the beach are all within easy walking distance , even it 's an uphill 
+\item , St John Ambulance men , special constables , and the like were all used to define them as being somewhat ` unreal ' 
+\item a beard , the diadem , the upturned eye and the hairstyle are all derived from that of the great conqueror Alexander the Great 
+\item 's announcement that its development-area status is being removed , the staff are all cowering under their desks while the population throw bricks through 
+\end{examples}
+\end{examples}
+
+\end{document}

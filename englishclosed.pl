@@ -9,8 +9,7 @@ word('European', X) :-
 
 word('a', X) :-
     language@X -- english,
-    X <> [-def, sing, simpleDet(10)],
-    target@X <> [-def].
+    aa(X).
 
 word('about', X) :-
     language@X -- english,
@@ -201,13 +200,13 @@ word('by', X) :-
 
 word('can', X) :-
     language@X -- english,
-    X <> [aux(S), tensed, inflected],
-    S <> [infinitiveForm],
-    -zero@subject@S.
+    verb(X, can).
 
+/**
 word('can', X) :-
     language@X -- english,
     X <> [nroot].
+**/
 
 word('cannot', X) :-
     language@X -- english,
@@ -263,7 +262,7 @@ word('etc', X) :-
 
 word('every', X) :-
     language@X -- english,
-    X <> [det(10), thirdSing].
+    every(X).
 
 word('exactly', X) :-
     X <> [cat(exactly), saturated, fulladjunct, strictpremod],
@@ -397,8 +396,7 @@ word('himself', X) :-
 
 word('his', X) :-
     language@X -- english,
-    X <> [det(10), inflected],
-    +def@result@X.
+    possessive(X).
 
 word('how', X) :-
     whmod(X).
@@ -480,9 +478,7 @@ word('me', X) :-
 
 word('might', X) :-
     language@X -- english,
-    X <> [aux(S), tensed, inflected],
-    S <> [infinitiveForm],
-    -zero@subject@S.
+    verb(X, might).
 
 word('more', X) :-
     language@X -- english,
@@ -546,7 +542,7 @@ word('now', X) :-
 
 word('o', X) :-
     language@X -- english,
-    X <> [n, specified(-), -target, inflected],
+    X <> [n, unspecified, -target, inflected],
     args@X -- [APOS, CLOCK],
     APOS <> [word, fixedpostarg],
     root@APOS -- ['APOS':_],
@@ -555,14 +551,12 @@ word('o', X) :-
 
 word('of', X) :-
     language@X -- english,
-    NN <> [n, saturated, notMoved],
-    target@X <> [noun],
-    trigger(index@target@X, notMoved(X)),
-    prep(X).
+    prep(X),
+    target@X <> [n].
 
 word('on', X) :-
     language@X -- english,
-    X <> [prep].
+    prep(X).
 
 word('one', X) :-
     language@X -- english,
@@ -570,7 +564,7 @@ word('one', X) :-
 
 word('one', X) :-
     language@X -- english,
-    X <> [noun, thirdSing, saturated, -target].
+    X <> [nroot, -target].
 
 word('only', X) :-
     language@X -- english,
@@ -686,13 +680,7 @@ word('so', X) :-
 
 word('some', X) :-
     language@X -- english,
-    X <> [simpleDet(10)],
-    result@X <> [-def].
-
-word('some', X) :-
-    language@X -- english,
-    ofDet(X, 10),
-    result@X <> [-def].
+    some(X).
 
 word('someone', X) :-
     language@X -- english,
@@ -751,7 +739,7 @@ word('th', X) :-
 
 word('the', X) :-
     language@X -- english,
-    X <> [simpleDet(10), +def].
+    the(X).
 
 word('their', X) :-
     language@X -- english,
@@ -819,7 +807,8 @@ word('to', X) :-
     trigger(n:xbar@cat@target@M, (n(target@M) -> (unspecified(target@M), notMoved(M)); true)),
     trigger(index@M, notMoved(M)),
     altview@M -- toAsMod,
-    trigger(zero@subject@X, ((+zero@subject@X, -zero@COMP) -> addExternalView(X, M))).
+    trigger(zero@subject@X, ((+zero@subject@X, -zero@COMP) -> addExternalView(X, M))),
+    [subject] :: [X, COMP].
 
 word('to', X) :-
     language@X -- english,
@@ -958,7 +947,7 @@ word('will', X) :-
 
 word('with', X) :-
     language@X -- english,
-    X <> [prep].
+    prep(X).
 
 word('within', X) :-
     language@X -- english,
@@ -990,7 +979,7 @@ word('yourself', X) :-
 word('.', X) :-
     language@X -- english,
     cat@X -- utterance,
-    X <> [+specified, -target],
+    X <> [-target],
     args@X -- [S],
     S <> [x, saturated, fixedprearg, tensedForm, theta(THETAS), compact],
     trigger(v:xbar@cat@S, (v(S) -> THETAS = claim; THETAS = frag)),
@@ -999,9 +988,9 @@ word('.', X) :-
 word('?', X) :-
     language@X -- english,
     cat@X -- utterance,
-    X <> [+specified, -target],
+    X <> [-target],
     args@X -- [S],
-    S <> [x, saturated, fixedprearg, tensedForm, theta(THETAS), +specified, compact],
+    S <> [x, saturated, fixedprearg, tensedForm, theta(THETAS), compact],
     trigger(v:xbar@cat@S, (v(S) -> THETAS = query; THETAS = frag)),
     start@S -- 0.
 
@@ -1039,7 +1028,7 @@ word('May', X) :-
     month(X).
 
 word('APOS', X) :-
-    X <> [specified(+)],
+    X <> [specified],
     det3(X),
     -zero@target@X,
     +specified@result@X,
