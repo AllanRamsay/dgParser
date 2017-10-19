@@ -1,4 +1,4 @@
-:- op(32, xfy, #).
+:- op(32, xfy, '\IN').
 
 revpolarity(P0, P1) :-
     (P0 = + -> P1 = -; P1 = -).
@@ -251,7 +251,7 @@ simplify(X0, X1) :-
     X1 =.. L1.
 
 skolem(X, L) :-
-    gensym('*', S),
+    gensym('#', S),
     X =.. [S | L].
 
 qff(X, X, _QSTACK, _POLARITY) :-
@@ -294,11 +294,11 @@ qff(exists(X :: {P0}, Q0), QFF, QSTACK, POLARITY) :-
 qff(at(V, X0), QFF, QSTACK, POLARITY) :-
     ?fixContexts,
     !,
-    qff(X0#V, QFF, QSTACK, POLARITY).
+    qff(X0 '\IN' V, QFF, QSTACK, POLARITY).
 qff(claim(X0), claim(X1), QSTACK, POLARITY) :-
     ?fixContexts,
     !,
-    qff((X0#bel(speaker))#now, X1, QSTACK, POLARITY).
+    qff((X0 '\IN' bel(speaker)) '\IN' now, X1, QSTACK, POLARITY).
 qff(claim(X0), claim(X1), QSTACK, POLARITY0) :-
     !,
     qff(X0, X1, QSTACK, POLARITY0).
@@ -306,7 +306,7 @@ qff(query(X0), query(X1), QSTACK, POLARITY0) :-
     ?fixContexts,
     !,
     revpolarity(POLARITY0, POLARITY1),
-    qff((X0#bel(hearer))#now, X1, QSTACK, POLARITY1).
+    qff((X0 '\IN' bel(hearer)) '\IN' now, X1, QSTACK, POLARITY1).
 qff(query(X0), query(X1), QSTACK, POLARITY0) :-
     !,
     revpolarity(POLARITY0, POLARITY1),
@@ -397,10 +397,10 @@ elimEQ(X0, X2) :-
 flattenLabels(X, X) :-
     (var(X); atomic(X)),
     !.
-flattenLabels((X0#L1)#L0, X1#[L0 | L2]) :-
+flattenLabels((X0 '\IN' L1) '\IN' L0, X1 '\IN' [L0 | L2]) :-
     !,
-    flattenLabels(X0#L1, X1#L2).
-flattenLabels(X0#L, X1#[L]) :-
+    flattenLabels(X0 '\IN' L1, X1 '\IN' L2).
+flattenLabels(X0 '\IN' L, X1 '\IN' [L]) :-
     !,
     flattenLabels(X0, X1).
 flattenLabels([H0 | T0], [H1 | T1]) :-
