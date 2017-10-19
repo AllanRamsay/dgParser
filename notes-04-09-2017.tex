@@ -15,6 +15,7 @@
 \bibliographystyle{elsart-harv}
 \usepackage{amsthm}
 \newcommand{\IN}{$\in$}
+\newcommand{\sub}{$\subseteq$}
 
 \begin{document}
 
@@ -1349,13 +1350,242 @@ SATCHMO is startlingly simple -- \fig{SATCHMO} shows the whole
 thing. This makes it an attractive starting point for adding
 non-standard facilities to.
 
-\subsection{Unification vs subsumption}
+\subsection{Unification or subsumption?}
+
+The version of SATCHMO presented in \fig{SATCHMO} used unification, as
+most theorem provers do, for
+matching goals to the consequents of rules. There are, however,
+circumstances under which other matching algorithms may be useful.
+
+\begin{itemize}
+\item
+It may be useful to exploit subsumption relations between terms:
+if we have a hierarchy of terms that includes, for instance, that
+\texttt{man \sub  human} (e.g. via WordNet) then it may be better to note that \texttt{man(X)
+  \sub human(X)} when matching rules than to have a rule that says \texttt{forall(X, man(X) =>
+  human(X))} 
+\item
+Given that the terms in our representations are dependency trees, it
+may be appropriate to use a partial matching algorithm which allows,
+for instance, modifiers to be ignored so that the term corresponding
+to \q{a man with a telescope} in \q{A man with a telescope saw me} can
+be matched with the term for \q{a man} in \q{A man saw me}.
+\end{itemize}
+
+We therefore replace the original presentation of SATCHMO with
+\fig{SATCHMO+subsumption}. Using subsumption instead of unification
+does make it more difficult to index rules, since it is no longer
+clear when a fact or rule will be useful in a proof -- given the fact
+\texttt{man(John)} and the rule \texttt{human(X) => mother(\#1(X), X)},
+it is not immediately evident that this rule will let you infer that
+John has a mother. We therefore have to be careful about how we store
+rules. Nonetheless, using subsumption rather than unification has the
+potential to unlock resources such as WordNet, and also to add extra
+facilities such as partial matching of subtrees.
+
+\newpage
+\begin{figure}[ht!]
+\hbox{
+\hspace{0.3\linewidth}\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+prove(P, LABEL) :-
+    fact(P'), P' \sub P.
+\end{Verbatim}
+\end{minipage}
+}
+
+\vspace{0.2in}
+\hbox{
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+%% &-elimination
+prove(P, LABEL) :-
+    prove(P' & Q, LABEL), P' \sub P.
 
 
+%% or-elimination
+prove(P, LABEL) :-
+    prove(P' or Q, label), P' \sub P.
+    prove(Q => absurd).
+
+
+%% =>-elimination, modus ponens
+prove(P, LABEL) :-
+    A => P', P' \sub P.
+    prove(A, LABEL).
+\end{Verbatim}
+\end{minipage}
+\begin{minipage}[t]{0.45\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+%% &-introduction
+prove(P & Q, LABEL) :-
+    prove(P', LABEL), P' \sub P,
+    prove(Q', LABEL), Q' \sub Q.
+
+%% or-introduction
+prove(P or Q, LABEL) :-
+    (prove(P', LABEL), P' \sub P);
+    (prove(Q', LABEL), Q' \sub Q).
+
+
+%% =>-introduction (conditional proof)
+prove(P => Q, LABEL) :-
+    assert(P),
+    (prove(Q, LABEL) -> 
+        retract(P); 
+        (retract(P), fail)).
+\end{Verbatim}
+\end{minipage}
+}
+\caption{Constructive SATCHMO with subsumption}\label{SATCHMO+subsumption}
+\end{figure}
+
+\subsection{Backwards or forwards?}
+
+You can run an inference engine backwards (to prove \texttt{P}, find a rule
+\texttt{P1 \& P2 \& \ldots \& Pn => P} and try to prove each
+\texttt{Pi}) or forwards (if you have a rule \texttt{P1 \& P2 \& \ldots
+  \& Pn => P} and you know that each of the \texttt{Pi} holds then you
+can add \texttt{P} to what you know). Theorem provers are run largely
+backwards, but it is reasonable to suggest that people actually do a
+degree of forward inference. Consider the examples in \xref{ABSURDS}:
+
+\begin{examples}
+\item \label{ABSURDS}
+\begin{examples}
+\item
+My father was born on the moon.
+\item
+All cats have wings.
+\item
+I have an infinite number of friends.
+\end{examples}
+\end{examples}
+
+\noindent
+All these sentences are false. What is more, they are patently,
+obviously, blatantly false, and anyone reading them will immediately
+realise this.
+
+This suggests that you do not just passively listen to what you are
+told and store it away for future reference, to be used if it would
+help you solve some problem (e.g. answer a question). You actively
+assimilate it. There are good reasons for this. When people tell you
+things, it is usually because they think that you will do something
+with what they have told you. If they shout \q{Fire!}, they expect you
+to leave your current location and go somewhere safer. If they say
+\q{I could murder a cup of tea}, they expect you to go and make them a
+cup of tea. Whatever it is they expect you to do, they generally
+expect you to do it now. So you should think about what you have just
+been told, and about how it fits into the current situation, because
+the odds are that you should do something about it.
+
+The activity of assimilating what you have just been told is often
+referred to as \defn{model building} \citep{Bos:01}. I am going to
+talk about it in terms of forward inference -- technically there is
+little difference between the two (indeed, the standard presentation
+of SATCHMO, like many other
+theorem provers, proceeds by attempting to build a model of the
+premises and the negation of the goal and hoping that this will turn
+out to be impossible).
+
+Forward inference is, in general, a very open-ended task. Given the
+premises \texttt{\{human(J), forall(X :: \{human(X)\}, exists(Y,
+  human(Y) \& mother(Y, X)))\}} there are an infinite number of
+  (non-tautologous) conclusions that can be drawn, the effect that J's
+  mother is human, and J's mother's mother is human, and J's mother's
+  mother's mother is human, and \ldots Assimilating what you have just
+  been told involves a bit of forward inference, but not an unbounded
+  amount. You could, perhaps, do some kind of unconvincing
+  Johnson-Laird-ish kinds of pyschological experiments to try to
+  determine just how much; or you could inpose some aribtrary
+  restrictions, safe in the knowledge that you can always fall back on
+  doing backward inference to solve complex problems as and when you
+  need to. For simplicity, I will apply the following strategy:
+
+\begin{itemize}
+\item
+Add any ground facts that can be added using Horn clauses without
+introducing Skolem functions (the only functions we have are Skolem
+functions, so this blocks cases like the one above about J's mother
+and J's mother's mother). It may be that in certain situations we
+should block Skolem functions that are nested to a specified depth,
+rather than blocking all such functions.
+\item
+Add anything that can be added by application of a rule with an
+intensional consequent. The key here is that it is almost impossible
+to use rules with intensional consequents backwards, because the
+consequent will be at best vaguely described and hence it will be
+difficult to work out whether it is relevant to a specific goal. To
+take a simple case, consider \xref{S:MANAGE}:
+
+\begin{examples}
+\item\label{S:MANAGE}
+She managed to finish the book she was writing.
+\end{examples}
+
+One simple consequence of \xref{S:MANAGE} is that she did indeed
+finish writing it -- \q{manage} is a factive verb which asserts, among
+other things, the truth of the embedded clause. The obvious way to
+capture this is with a rule like \fig{R:MANAGE}.
+
+\begin{figure}[ht!]
+\hspace{1.0in}
+\begin{minipage}[t]{\linewidth}
+\begin{Verbatim}[commandchars=\\\{\}]
+manage(X) & xcomp(X, Y) & subject(X, Z) => (Y:Z)
+\end{Verbatim}
+\end{minipage}
+\caption{If Z managed to Y then Z did Y}\label{R:MANAGE}
+\end{figure}
+
+\noindent
+Allowing this rule to be used backwards would mean that you would try
+to use it every time you wanted to prove anything. Using it forwards
+means that it will be triggered only when you are trying to assimilate
+a sentence about someone managing to do something \citep{Ramsay:01b}.
+
+\item
+Add anything that can be added by application of a default rule, so
+long as there is no \textbf{current} reason not to. The evidence for
+this lies in the double-take that is induced by sentences like
+\xref{S:FARMER}(b) 
+
+\begin{examples}
+\item\label{S:FARMER}
+\begin{examples}
+\item
+If a farmer owns a donkey he beats it.
+\item
+If a farmer owns a donkey she looks after it very nicely.
+\end{examples}
+\end{examples}
+
+\noindent
+It is perfectly possible for farmers to be women. Indeed, in 2012 45\%
+of farmers in Arizona were
+women\footnote{\texttt{https://www.agcensus.usda.gov/Publications/2012/Online\_Resources/Highlights/Women\_Farmers/Highlights\_Women\_Farmers.pdf}}. Nonetheless,\xref{S:FARMER}(b)
+seems odd because most people's preconceptions (=
+default rules) suggest that farmers are men, so that by the time you
+have assimilated \q{a farmer owns a donkey} you will already have
+visualised a male farmer, and hence have difficulty dereferencing
+\q{she}.
+
+\item
+If you can prove the antecedent of a rule with a disjunctive head and
+all but one of the disjuncts is provably false then add the remaining
+one (subject to the same restriction on Skolem functions as above).
+\end{itemize}
+
+These rules will suffice to produce a set of immediate ground
+consequences/partial model of an utterance given a context and a set
+of background rules; and, given suitable background knowledge, to make
+it possible to detect the impossibility of examples like
+\xref{ABSURDS} as soon as they are produced.
 
 \subsection{Contexts}
 
-The first extension is aimed at dealing with \defn{contexts} -- with, for
+We now extend our representations to enable us to talk about \defn{contexts} -- about, for
 instance, temporal contexts such as
 the fact that our interpretation \q{Some accountant is a bookkeeper}
 says that \texttt{accountant(\#2) \& crook(\#2)} holds at
@@ -1510,160 +1740,13 @@ believe it, pretend to believe it, \ldots) which we have discussed
 elsewhere \citep{Ramsay:06a,Ramsay:06b,Ramsay:08a,Ramsay:09b}; but
 this simple model will suffice for now.
 
-\subsection{Unification or subsumption?}
-
-\subsection{Backwards or forwards?}
-
-You can run an inference engine backwards (to prove \texttt{P}, find a rule
-\texttt{P1 \& P2 \& \ldots \& Pn => P} and try to prove each
-\texttt{Pi}) or forwards (if you have a rule \texttt{P1 \& P2 \& \ldots
-  \& Pn => P} and you know that each of the \texttt{Pi} holds then you
-can add \texttt{P} to what you know). Theorem provers are run largely
-backwards, but it is reasonable to suggest that people actually do a
-degree of forward inference. Consider the examples in \xref{ABSURDS}:
-
-\begin{examples}
-\item \label{ABSURDS}
-\begin{examples}
-\item
-My father was born on the moon.
-\item
-All cats have wings.
-\item
-I have an infinite number of friends.
-\end{examples}
-\end{examples}
-
-\noindent
-All these sentences are false. What is more, they are patently,
-obviously, blatantly false, and anyone reading them will immediately
-realise this.
-
-This suggests that you do not just passively listen to what you are
-told and store it away for future reference, to be used if it would
-help you solve some problem (e.g. answer a question). You actively
-assimilate it. There are good reasons for this. When people tell you
-things, it is usually because they think that you will do something
-with what they have told you. If they shout \q{Fire!}, they expect you
-to leave your current location and go somewhere safer. If they say
-\q{I could murder a cup of tea}, they expect you to go and make them a
-cup of tea. Whatever it is they expect you to do, they generally
-expect you to do it now. So you should think about what you have just
-been told, and about how it fits into the current situation, because
-the odds are that you should do something about it.
-
-The activity of assimilating what you have just been told is often
-referred to as \defn{model building} \citep{Bos:01}. I am going to
-talk about it in terms of forward inference -- technically there is
-little difference between the two (indeed, the standard presentation
-of SATCHMO, like many other
-theorem provers, proceeds by attempting to build a model of the
-premises and the negation of the goal and hoping that this will turn
-out to be impossible).
-
-Forward inference is, in general, a very open-ended task. Given the
-premises \texttt{\{human(J), forall(X :: \{human(X)\}, exists(Y,
-  human(Y) \& mother(Y, X)))\}} there are an infinite number of
-  (non-tautologous) conclusions that can be drawn, the effect that J's
-  mother is human, and J's mother's mother is human, and J's mother's
-  mother's mother is human, and \ldots Assimilating what you have just
-  been told involves a bit of forward inference, but not an unbounded
-  amount. You could, perhaps, do some kind of unconvincing
-  Johnson-Laird-ish kinds of pyschological experiments to try to
-  determine just how much; or you could inpose some aribtrary
-  restrictions, safe in the knowledge that you can always fall back on
-  doing backward inference to solve complex problems as and when you
-  need to. For simplicity, I will apply the following strategy:
-
-\begin{itemize}
-\item
-Add any ground facts that can be added using Horn clauses without
-introducing Skolem functions (the only functions we have are Skolem
-functions, so this blocks cases like the one above about J's mother
-and J's mother's mother). It may be that in certain situations we
-should block Skolem functions that are nested to a specified depth,
-rather than blocking all such functions.
-\item
-Add anything that can be added by application of a rule with an
-intensional consequent. The key here is that it is almost impossible
-to use rules with intensional consequents backwards, because the
-consequent will be at best vaguely described and hence it will be
-difficult to work out whether it is relevant to a specific goal. To
-take a simple case, consider \xref{S:MANAGE}:
-
-\begin{examples}
-\item\label{S:MANAGE}
-She managed to finish the book she was writing.
-\end{examples}
-
-One simple consequence of \xref{S:MANAGE} is that she did indeed
-finish writing it -- \q{manage} is a factive verb which asserts, among
-other things, the truth of the embedded clause. The obvious way to
-capture this is with a rule like \fig{R:MANAGE}.
-
-\begin{figure}[ht!]
-\hspace{1.0in}
-\begin{minipage}[t]{\linewidth}
-\begin{Verbatim}[commandchars=\\\{\}]
-manage(X) & xcomp(X, Y) & subject(X, Z) => (Y:Z)
-\end{Verbatim}
-\end{minipage}
-\caption{If Z managed to Y then Z did Y}\label{R:MANAGE}
-\end{figure}
-
-\noindent
-Allowing this rule to be used backwards would mean that you would try
-to use it every time you wanted to prove anything. Using it forwards
-means that it will be triggered only when you are trying to assimilate
-a sentence about someone managing to do something \citep{Ramsay:01b}.
-
-\item
-Add anything that can be added by application of a default rule, so
-long as there is no \textbf{current} reason not to. The evidence for
-this lies in the double-take that is induced by sentences like
-\xref{S:FARMER}(b) 
-
-\begin{examples}
-\item\label{S:FARMER}
-\begin{examples}
-\item
-If a farmer owns a donkey he beats it.
-\item
-If a farmer owns a donkey she looks after it very nicely.
-\end{examples}
-\end{examples}
-
-\noindent
-It is perfectly possible for farmers to be women. Indeed, in 2012 45\%
-of farmers in Arizona were
-women\footnote{\texttt{https://www.agcensus.usda.gov/Publications/2012/Online\_Resources/Highlights/Women\_Farmers/Highlights\_Women\_Farmers.pdf}}. Nonetheless,\xref{S:FARMER}(b)
-seems odd because most people's preconceptions (=
-default rules) suggest that farmers are men, so that by the time you
-have assimilated \q{a farmer owns a donkey} you will already have
-visualised a male farmer, and hence have difficulty dereferencing
-\q{she}.
-
-\item
-If you can prove the antecedent of a rule with a disjunctive head and
-all but one of the disjuncts is provably false then add the remaining
-one (subject to the same restriction on Skolem functions as above).
-\end{itemize}
-
-These rules will suffice to produce a set of immediate ground
-consequences/partial model of an utterance given a context and a set
-of background rules; and, given suitable background knowledge, to make
-it possible to detect the impossibility of examples like
-\xref{ABSURDS} as soon as they are produced.
-
-\subsection{Contexts revisited: proof theory}\label{SEC:CONTEXTS}
-
-The normal forms that we are deriving contain information about the
-contexts in which they are available. We therefore need to
+Given that our representations now include
+contexts, we now need to
 modify the specification of SATCHMO to allow for this. We will write
 \texttt{C1 << C2} to mean that anything that is available in C2 is
 available in C1. Thus, since anything which anyone knows in a context
 must be true in that context we can say \texttt{C << [know(\#1) | C]}
-for an arbitrary context \texttt{C}.  The extended version of SATCHMO
+for an arbitrary context \texttt{C}.  This version of SATCHMO
 is given in \fig{SATCHMO+}. A number of the rules now depend
 on properties of the context, since not all contexts support all the
 standard introduction and elimination rules (e.g. consider \texttt{A}
@@ -1676,9 +1759,8 @@ the various rules which indicate the kinds of contexts where they apply.
 \hbox{
 \hspace{0.3\linewidth}\begin{minipage}[t]{0.45\linewidth}
 \begin{Verbatim}[commandchars=\\\{\}]
-prove(P{\IN}C0, LABEL) :-
-    fact(P{\IN}C1), 
-    C0 << C1.
+prove(P \IN C, LABEL) :-
+    fact(P' \IN C'), P' \sub P, C << C'.
 \end{Verbatim}
 \end{minipage}
 }
@@ -1688,39 +1770,45 @@ prove(P{\IN}C0, LABEL) :-
 \begin{minipage}[t]{0.45\linewidth}
 \begin{Verbatim}[commandchars=\\\{\}]
 %% &-elimination
-prove(P{\IN}C0, LABEL) :-
-    prove((P & Q){\IN}C1, LABEL) , 
-    C0 << C1.
+prove(P \IN C, LABEL) :-
+    prove((P' & Q) \IN C, LABEL), 
+    P' \sub P, C << C'.
 
 %% or-elimination
-prove(P, LABEL) :-
-    prove(P or Q, label),
-    prove(Q => absurd).
+prove(P \IN C, LABEL) :-
+    prove((P' or Q) \IN C', label), 
+    C << C', P' \sub P,
+    prove((Q => absurd) \IN C''),
+    C << C''.
 
 %% =>-elimination, modus ponens
-prove(P, LABEL) :-
-    A => P,
-    prove(A, LABEL).
+prove(P \IN C, LABEL) :-
+    (A => P') \IN C', 
+    P' \sub P, C << C',
+    prove(A \IN C'', LABEL),
+    C << C''.
 \end{Verbatim}
 \end{minipage}
 \begin{minipage}[t]{0.45\linewidth}
 \begin{Verbatim}[commandchars=\\\{\}]
 %% &-introduction
-prove(P & Q, LABEL) :-
-    prove(P, LABEL), prove(Q, LABEL).
+prove((P & Q) \IN C, LABEL) :-
+    prove(P' \IN C', LABEL), P' \sub P, C << C',
+    prove(Q' \IN C'', LABEL), Q' \sub Q, C << C''.
 
 %% or-introduction
-prove((P or Q){\IN}C0, LABEL) :-
-    (prove(P{\IN}C1, LABEL); prove(Q{\IN}C1, LABEL)),
-    C0 << C1.
+prove((P or Q) \IN P, LABEL) :-
+    (prove(P' \IN C', LABEL), P' \sub P, C << C');
+    (prove(Q', LABEL \IN C''), Q' \sub Q, C << C'').
+
 
 
 %% =>-introduction (conditional proof)
-prove(P => Q, LABEL) :-
-    assert(P),
-    (prove(Q, LABEL) -> 
-        retract(P); 
-        (retract(P), fail)).
+prove((P => Q) \IN C, LABEL) :-
+    assert(P \IN C),
+    (prove(Q \IN C, LABEL) -> 
+        retract(P \IN C); 
+        (retract(P \IN C), fail)).
 \end{Verbatim}
 \end{minipage}
 }
