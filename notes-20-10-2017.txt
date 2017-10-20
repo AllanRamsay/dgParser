@@ -1,0 +1,49 @@
+
+The transformations are now in nf.pl. They're pretty much the same
+things as before, just slightly reorganised to take account of the
+changes to the parse trees. Some of them can be turned on and off by
+setting/unsetting the appropriate flags. I would look at what happens
+when you do
+
+| ?- set(fixContexts).
+
+and 
+
+| ?- unset(fixContexts).
+
+The others are mainly to do with equality, but I don't like what I've
+been doing with equality so I'd ignore them.
+
+You can make it print out the various steps during normal-forming by
+doing
+
+| ?- set(printing).
+
+The main ways to call it are 
+
+| ?- latexParse('every accountant is a bookkeeper .').
+
+nfTree([.,
+        arg(claim,
+            *(tense(present, -)),
+            [be,
+             arg(predication(xbar(v(-), n(+))),
+                 *(indefinite),
+                 [bookkeeper>]),
+             arg(subject, *(universal), [accountant>])])])
+
+(if you do | ?- set(latex) then the tree also gets printed in a
+LaTeXable form)
+
+and 
+
+| ?- nfParse('every accountant is a bookkeeper .').
+
+claim((now=#0
+        & at(#0,
+             (accountant(A)
+               => (bookkeeper(#2(A))
+                    & (be(#1)
+                        & (predication(#1, #2(A), xbar(v(-), n(+)))
+                            & subject(#1, A))))))))
+

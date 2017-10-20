@@ -60,9 +60,11 @@ latexParse(TEXT) :-
 		  %% pretty(denest(T0)),
 		  nfTree(T0, TN),
 		  pretty(nfTree(TN)),
-		  format("~n\\begin{figure}[ht!]~n\\hbox{\\hspace*{\\fill}~n\\begin{minipage}[t]{0.45\\linewidth}", []),
-		  npsTree(TN),
-		  format("\\end{minipage}~n\\hspace*{\\fill}}~n\\caption{\\q{~w}}\\label{~w}~n\\end{figure}~n", [TEXT, TEXT])),
+		  (?latex ->
+		   (format("~n\\begin{figure}[ht!]~n\\hbox{\\hspace*{\\fill}~n\\begin{minipage}[t]{0.45\\linewidth}", []),
+		    npsTree(TN),
+		    format("\\end{minipage}~n\\hspace*{\\fill}}~n\\caption{\\q{~w}}\\label{~w}~n\\end{figure}~n", [TEXT, TEXT]));
+		   true)),
 		 _),
     !.
 

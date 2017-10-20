@@ -27,8 +27,10 @@ noncompilable([agree,
 	       conll,
 	       parseconstrained,
 	       preprocess,
+	       nf,
+	       %% transformations,
 	       spelling,
-	       transformations]).
+	       pstree]).
 
 setup(COMPILING, DICT) :-
     coreFiles(CFILES),
