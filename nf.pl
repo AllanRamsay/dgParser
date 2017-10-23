@@ -201,6 +201,7 @@ generics(X, X) :-
     (atomic(X); var(X)),
     !.
 generics(generic(E, (THETA0, R)), THETA1 => R) :-
+    ?applyGenerics,
     !,
     THETA0 =.. [T | A],
     THETA1 =.. [T, E | A].

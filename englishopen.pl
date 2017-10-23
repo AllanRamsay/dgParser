@@ -741,6 +741,10 @@ word('hearted', X) :-
     language@X -- english,
     tverb(X),
     X <> [past, inflected].
+                    
+word('hero', X) :- 
+    language@X -- english,
+    X <> [nroot].
 
 word('hoe', X) :-
     language@X -- english,
@@ -801,7 +805,12 @@ word('i', X) :-
     language@X -- english,
     definition@X -- 'the 9th letter of the Roman alphabet',
     X <> [nroot, -target, sing].
-     
+    
+word('island', X) :- 
+    language@X -- english,
+    definition@X -- 'a land mass that is surrounded by water',
+    X <> [nroot].
+
 word('kill', X) :- 
     language@X -- english,
     definition@X -- 'the destruction of an enemy plane or ship or tank or missile',
@@ -1777,6 +1786,17 @@ word('use', X) :-
     language@X -- english,
     definition@X -- 'exerting shrewd or devious influence especially for one SS own advantage',
     X <> [nroot].
+           
+word('valet', X) :- 
+    language@X -- english,
+    definition@X -- 'a manservant who acts as a personal attendant to his employer',
+    X <> [nroot].
+
+word('valet', X) :-
+    language@X -- english,
+    definition@X -- 'serve as a personal attendant to',
+    X <> [vroot, regularPast],
+    tverb(X).
 
 word('want', X) :-
     language@X -- english,

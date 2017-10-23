@@ -520,7 +520,7 @@ word('neither', X) :-
 
 word('no', X) :-
     language@X -- english,
-    X <> [det(10), -def].
+    no(X).
 
 word('none', X) :-
     language@X -- english,
