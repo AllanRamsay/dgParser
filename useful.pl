@@ -32,6 +32,9 @@ with_output_to_atom(G, X) :-
     with_output_to_chars(G, C),
     atom_codes(X, C).
 
+silently(G) :-
+    with_output_to_chars(G, _).
+
 default(G) :-
     (G -> true; true).
 
@@ -126,9 +129,6 @@ substitute(X, Y, K, X) :-
     !.
 substitute(_X, _Y, V, V) :-
     var(V),
-    !.
-substitute(X, Y, K, X) :-
-    Y = K,
     !.
 substitute(_X, _Y, V, V) :-
     atomic(V),

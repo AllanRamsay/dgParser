@@ -25,9 +25,7 @@ pwrite(STREAM, X) :-
     format(STREAM, '~p', [X]).
 pwrite(STREAM, {X}) :-
     !,
-    write(STREAM, '{'),
-    pwrite(STREAM, X),
-    write(STREAM, '}').
+    format(STREAM, "~w", [{X}]).
 pwrite(STREAM, [H | T]) :-
     !,
     write(STREAM, '['),
@@ -47,7 +45,9 @@ pwrite(STREAM, X) :-
     X =.. [F, A, B],
     current_op(_, _, F),
     !,
-    format(STREAM, '(~p ~w ~p)', [A, F, B]).
+    (?bracketOps ->
+     format(STREAM, '(~p~w~p)', [A, F, B]);
+     format(STREAM, '~p~w~p', [A, F, B])).
 pwrite(STREAM, X) :-
     X =.. [F | ARGS],
     format(STREAM, '~w(', [F]),

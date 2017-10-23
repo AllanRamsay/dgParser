@@ -22,9 +22,9 @@ word('', X) :-
 
 word('s', X) :-
     language@X -- english,
-    X <> [specifier(SPEC), unspecified, suffix(numPerson), third, plural, -target, standardcase],
+    X <> [specifier(SPEC), suffix(numPerson), third, plural, -target, standardcase],
     def@X -- D,
-    trigger(SPEC, (SPEC = [generic], D = -)).
+    trigger(SPEC, (SPEC = *generic, D = -)).
 
 word('', X) :-
     language@X -- english,

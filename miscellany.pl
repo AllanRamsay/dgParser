@@ -14,7 +14,7 @@ as(X) :-
     language@X -- english,
     cat@X -- as1,
     args@X -- [COMP],
-    COMP <> [fixedpostarg, theta(asArg0), x, saturated, hasSpecifier, -zero],
+    COMP <> [fixedpostarg, theta(asArg0), x, saturated, specified, -zero],
     trigger(index@COMP, asComp(X, COMP)),
     trigger(index@target@X, nonvar(index@COMP)).
 

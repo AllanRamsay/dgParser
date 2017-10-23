@@ -1,4 +1,5 @@
 
+/*
 verb(X, be) :-
     root@X -- [be],
     language@X -- english,
@@ -6,11 +7,12 @@ verb(X, be) :-
     cat@THERE -- there,
     NP <> [np, theta(exists)],
     tverb(X, THERE, NP, 'VB').
-
+*/
+  
 verb(X, be) :-
     root@X -- [be],
     language@X -- english,
-    PRED <> [+predicative, -zero, specifier([_]), saturated, postarg],
+    PRED <> [+predicative, -zero, saturated, postarg],
     theta@PRED -- predication(cat@PRED),
     trigger(set:position@moved@PRED, (movedBefore(PRED) -> \+ (n(PRED), subjcase(PRED)); true)),
     trigger(start@subject@X, \+ (start@PRED > start@X, start@subject@X > start@PRED)),
@@ -59,6 +61,18 @@ verb(X, do) :-
     tverb(X, ADV, 'VD'),
     ADV <> [adv, theta(quality)].
 
+verb(X, can) :-
+    modal(X, S),
+    X <> [inflected, presTense],
+    S <> [infinitiveForm],
+    -zero@subject@S.
+
+verb(X, might) :-
+    modal(X, S),
+    X <> [inflected, presTense],
+    S <> [infinitiveForm],
+    -zero@subject@S.
+
 verb(X, expect) :-
     X <> [sverb(S)],
     S <> [tensedForm].
@@ -79,11 +93,14 @@ verb(X, get) :-
 
 verb(X, have) :-
     aux(X, S),
+    X <> [tensed, +specified],
     S <> [pastPart].
 
 verb(X, have) :-
+    fail,
     tverb(X, 'VH').
 
+/*
 verb(X, have) :-
     sverb(X, S),
     S <> [s, -active, presPartForm].
@@ -92,6 +109,7 @@ verb(X, have) :-
     sverb(X, S),
     S <> [s, toForm, -aux],
     +zero@subject@S.
+*/
 
 verb(X, make) :-
     tverb(X).

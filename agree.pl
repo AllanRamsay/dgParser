@@ -9,13 +9,14 @@
   det+NP: we record values for both specified (a number) and specifier (a property).
 **/
 
-specified(X, specified@X).
-
-unspecified(X) :-
-    specified@X -- 0.
-
 specifier(X, SPEC) :-
     specifier@X -- SPEC.
+
+specified(X) :-
+    X <> [specifier(*(_))].
+
+unspecified(X) :-
+    -specifier@X.
 
 casemarked(X, case@X).
 

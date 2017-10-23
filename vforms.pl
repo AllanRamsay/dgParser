@@ -39,14 +39,14 @@ past(X) :-
 finite(X, finite@X).
 
 presPartForm(X) :-
-    X <> [present, -target, finite(participle), -specifier],
+    X <> [present, -target, finite(participle)],
     trigger(specified@X, (specified(X, 0) -> true; objcase(subject@X))).
 
 pastPartForm(X) :-
-    X <> [past, -target, +active, finite(participle), -specifier].
+    X <> [past, -target, +active, finite(participle)].
 
 pastPartForm(X) :-
-    X <> [present, -target, -active, finite(participle), -specifier].
+    X <> [present, -target, -active, finite(participle)].
 
 pastPart(X) :-
     pastPartForm(X),
@@ -92,8 +92,7 @@ infinitiveForm(X) :-
     -target@X.
 
 infinitive(X) :-
-    X <> [infinitiveForm],
-    subject@X <> [objcase].
+    X <> [infinitiveForm].
 
 toForm(X) :-
     finite@X -- to.

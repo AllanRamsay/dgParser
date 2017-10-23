@@ -1,5 +1,5 @@
 whpronoun(X, WH) :-
-    X <> [pronoun, -target, -modifiable],
+    X <> [pronoun1, -target, -modifiable],
     wh@X -- [WH | _],
     [position, language] :: [X, WH].
 
@@ -9,11 +9,12 @@ whpronoun(X) :-
 relpronoun(X, WH) :-
     language@X -- english,
     zero :: [X, WH],
-    specifier@X-- [whSpec],
     X <> [whpronoun(WH)],
     WH <> [saturated, fulladjunct, -modifiable, postmod(_, _), compact],
+    modifier@WH -- whmod,
+    specifier@X -- *whPron,
     cat@WH -- whclause,
-    target@WH <> [n, unspecified, saturated, -zero],
+    target@WH <> [n, saturated],
     trigger(index@target@WH, theta@WH=rcmod).
 
 relpronoun(X) :-
