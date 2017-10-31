@@ -204,8 +204,10 @@ qsort([H | T], SORTED, X, TEST) :-
     qsort(L, SORTED, [H | Y], TEST),
     qsort(R, Y, X, TEST).
 
+qsort(X, S, O) :-
+    qsort(X, S, [], O).
 qsort(X, S) :-
-    qsort(X, S, [], @<).
+    qsort(X, S, @<).
 
 mergeSorted(L0, [], L0, _COMP) :-
     !.

@@ -24,10 +24,30 @@ makeQ([H0 | T0], I, [TAG | TAGS], [H1 | T1], LANGUAGE) :-
       disjoin(WORDS, H1)),
     makeQ(T0, J, TAGS, T1, LANGUAGE).
 
-initialiseAgenda(TEXT0, TEXT2, LANGUAGE) :-
-    makeList(TEXT0, TEXT1),
-    (?useTagger -> tag(TEXT1, TAGS); true),
-    makeQ(TEXT1, 0, TAGS, TEXT2, LANGUAGE).
+fixWhiteSpace([], []) :-
+    !.
+fixWhiteSpace(A0, A1) :-
+    atomic(A0),
+    !,
+    atom_chars(A0, L0),
+    fixWhiteSpace(L0, L1),
+    atom_chars(A1, L1).
+fixWhiteSpace(L0, LN) :-
+    append("  ", L1, L0),
+    !,
+    fixWhiteSpace([32 | L1], LN).
+fixWhiteSpace([X, Y], [X, 32, Y]) :-
+    \+ [X] = " ",
+    member(Y, ".?"),
+    !.
+fixWhiteSpace([H | T1], [H | T2]) :-
+    fixWhiteSpace(T1, T2).
+
+initialiseAgenda(TEXT0, TEXTN, LANGUAGE) :-
+    fixWhiteSpace(TEXT0, TEXT1),
+    makeList(TEXT1, TEXT2),
+    (?useTagger -> tag(TEXT2, TAGS); true),
+    makeQ(TEXT2, 0, TAGS, TEXTN, LANGUAGE).
 
 chartParse(TEXT0, X, LANGUAGE, MAX) :-
     gensym(reset),
