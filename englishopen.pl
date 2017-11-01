@@ -30,6 +30,11 @@ word('Ancient', X) :-
 word('accountant', X) :- 
     language@X -- english,
     X <> [nroot].
+                   
+word('animal', X) :- 
+    language@X -- english,
+    definition@X -- 'a living organism characterized by voluntary movement',
+    X <> [nroot].
 
 word('architect', X) :- 
     language@X -- english,
@@ -1075,6 +1080,16 @@ word('mimick', X) :-
     language@X -- english,
     tverb(X),
     X <> [vroot, presPart].
+                    
+word('mortal', X) :- 
+    language@X -- english,
+    definition@X -- 'a human being',
+    X <> [nroot, -target].
+
+word('mortal', X) :-
+    language@X -- english,
+    definition@X -- 'exhibiting courtesy and politeness',
+    X <> [aroot].
 
 word('MP', X) :- 
     language@X -- english,
