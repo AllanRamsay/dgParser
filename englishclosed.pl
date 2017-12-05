@@ -941,9 +941,7 @@ word('why', X) :-
 
 word('will', X) :-
     language@X -- english,
-    X <> [aux(S), tensed, inflected],
-    S <> [infinitiveForm],
-    -zero@subject@S.
+    verb(X, will).
 
 word('with', X) :-
     language@X -- english,
