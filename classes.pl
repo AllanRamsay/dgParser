@@ -638,8 +638,14 @@ setObjConstraints(V, OBJ, english):-
   what makes them inflectional)
   **/
 
+aspect(X, aspect@X).
+
+vspec(X) :-
+    X <> [specifier(*TIME)],
+    [tense:time, aspect:time, aux:time, def:time, finite:time]@TIME -- [tense, aspect, aux, def, finite]@X.
+
 vroot(X) :-
-    X <> [v],
+    X <> [v, vspec],
     language@X -- english,
     affixes@X -- [TNS],
     X\structure\affixes\affix-- TNS,
@@ -783,7 +789,7 @@ aux(X, COMP, THETA) :-
     trigger(language@X, setWHView(X)).
 
 aux(X, COMP) :-
-    X <> [aux(COMP, identity)].
+    X <> [aux(COMP, _)].
 
 modal(X, COMP) :-
     X <> [aux(COMP, modalcomp)].

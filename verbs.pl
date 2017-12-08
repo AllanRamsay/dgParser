@@ -93,11 +93,10 @@ verb(X, get) :-
 
 verb(X, have) :-
     aux(X, S),
-    X <> [tensed, +specified],
+    X <> [+specified, +def],
     S <> [pastPart].
 
 verb(X, have) :-
-    fail,
     tverb(X, 'VH').
 
 /*
@@ -124,6 +123,11 @@ verb(X, meet) :-
 verb(X, use) :-
     aux(X, COMP),
     COMP <> [toForm].
+
+verb(X, will) :-
+    aux(X, S),
+    X <> [tensed, +specified, future, -def],
+    S <> [infinitiveForm].
 
 verb(X, win) :-
     tverb(X).

@@ -36,14 +36,17 @@ present(X) :-
 past(X) :-
     tense@X -- past.
 
+future(X) :-
+    tense@X -- future.
+
 finite(X, finite@X).
 
 presPartForm(X) :-
-    X <> [present, -target, finite(participle)],
+    X <> [present, -target, finite(participle), aspect(prog)],
     trigger(specified@X, (specified(X, 0) -> true; objcase(subject@X))).
 
 pastPartForm(X) :-
-    X <> [past, -target, +active, finite(participle)].
+    X <> [past, -target, +active, finite(participle), aspect(perfect)].
 
 pastPartForm(X) :-
     X <> [present, -target, -active, finite(participle)].
@@ -61,24 +64,23 @@ tensedForm(X) :-
     X <> [finite(tensed)],
     -zero@subject@X,
     agree :: [X, subject@X].
-    
+
 tensed(X) :-
     trigger(language@X, (language@X = english -> -zero@subject@X; true)),
-    X <> [tensedForm, +active, -target],
-    subject@X <> subjcase,
-    specifier@X -- *tense(tense@X, aux@X).
+    X <> [tensedForm, +active, -target, vspec],
+    subject@X <> subjcase.
 
 presTenseForm(X) :-
     X <> [tensedForm, present].
 
 presTense(X) :-
-    X <> [tensed, present].
+    X <> [tensed, present, aspect(simple)].
 
 pastTenseForm(X) :-
     X <> [tensedForm, past].
 
 pastTense(X) :-
-    X <> [tensed, past].
+    X <> [tensed, past, aspect(simple)].
 
 edForm(X) :-
     X <> [past, -target, +active],
@@ -101,7 +103,7 @@ baseForm(X) :-
     X <> [-target, +active],
     subject@X <> [standardcase(SCASE)],
     trigger(zero@subject@X, (+zero@subject@X -> infinitive(X); true)),
-    trigger((theta@X; finite@X; SCASE),
+    trigger(finite@X,
 	    ((tensed(X), notThirdSing(X)); infinitive(X))).
 
 subjunctive(X) :-

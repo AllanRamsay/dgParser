@@ -1,6 +1,8 @@
 
 :- multifile(signature/1).
 
+signature(time=[tense=_, aspect=_, aux=_, def=_, finite=_]).
+
 signature(position=[set=_, before=_, after=_]).
 
 signature(sign=[structure=[cost=_,
@@ -36,6 +38,7 @@ signature(sign=[structure=[cost=_,
 				     subject=_,
 				     active=_,
 				     mood=_,
+				     aspect=_,
 				     aux=_,
 				     invertsubj=_],
 			      aform=[degree=_],
