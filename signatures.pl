@@ -1,6 +1,8 @@
 
 :- multifile(signature/1).
 
+signature(label=[indent=_, stack=_, defaults=_, abduced=_, degree=_]).
+
 signature(time=[tense=_, aspect=_, aux=_, def=_, finite=_]).
 
 signature(position=[set=_, before=_, after=_]).

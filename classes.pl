@@ -506,6 +506,7 @@ adj(X, args@X) :-
     %% +predicative because they can be the complement of "be"
     %% -- "he is happy"
     X <> [a, +predicative, premod1(_), fulladjunct],
+    specifier@X -- *(identity=10),
     [cat, mod, args] :: [target@X, result@X],
     target@X <> [n, saturated, notMoved],
     modified@result@X -- 1.5,
@@ -782,14 +783,14 @@ aux(X, COMP, THETA) :-
     %% have knock-on effects, particularly with ellipsis
     %% It's useful to mark auxiliaries as being different from other verbs
     X <> [+aux, verb, -target],
-    COMP <> [s, fixed, postarg, -zero, theta(THETA), noLeftShift],
+    COMP <> [s, postarg, -zero, theta(THETA)],
     args@X -- [COMP],
     [active, subject\case] :: [X, COMP],
     %% plant the stuff we need for handling WH-items: see above
     trigger(language@X, setWHView(X)).
 
 aux(X, COMP) :-
-    X <> [aux(COMP, _)].
+    X <> [aux(COMP, auxComp)].
 
 modal(X, COMP) :-
     X <> [aux(COMP, modalcomp)].
@@ -1063,7 +1064,7 @@ det1(X, SPEC) :-
 
 det(X, SPEC) :-
     X <> [det1(SPEC)],
-    target@X <> [n, standardcase].
+    target@X <> [n, standardcase, -zero].
 
 conj1(X):-
     start@X -- 0,
@@ -1385,7 +1386,7 @@ setWHView(V) :-
     trigger(index@target@EXTVIEW1, compact(EXTVIEW1)),
     last(args@V, L),
     trigger(wh@V,
-	    ((wh@V = [EXTVIEW0 | _], tensedForm(V)) ->
+	    ((wh@V = [EXTVIEW0 | _], \+ \+ tensedForm(V)) ->
 	     trigger(index@L, addExternalView(V, EXTVIEW1));
 	     true)).
 

@@ -51,8 +51,8 @@ number(X, I) :-
     X <> [specifier(*indefinite)].
 
 aa(X) :-
-    X <> [-def, sing, simpleDet1(10)],
-    target@X <> [-def],
+    X <> [saturated, simpleDet1(10)],
+    target@X <> [-def, standardcase, -zero],
     result@X <> [specifier(*indefinite)].
 
 all(X) :-
@@ -66,7 +66,8 @@ all(X) :-
     result@X <> [np, -target, specifier(*universal)].
 
 any(X) :-
-    X <> [simpleDet1(10)].
+    X <> [simpleDet1(10)],
+    result@X <> [np, -target, specifier(*(universal=0.2))].
 any(X) :-
     ofDet1(X, 10).
 
@@ -75,16 +76,7 @@ every(X) :-
     result@X <> [np, -target, specifier(*universal)].
 
 few(X) :-
-    start@target@X -- end@X,
-    X <> [det5(5)],
-    target@X <> [standardcase],
-    specifier@result@X -- *generic,
-    modifier@X -- amod.
-few(X) :-
-    X <> [n, -target],
-    args@X -- [NP],
-    NP <> [np, casemarked([of]), fixedpostarg, -zero, theta(subset), +def],
-    specifier@X -- *generic.
+    number(X, few).
 
 many(X) :-
     start@target@X -- end@X,

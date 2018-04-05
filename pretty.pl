@@ -6,145 +6,139 @@ portray(A) :-
     atom(A),
     format("'~w'", [A]).
 
-writeList(STREAM, [H | T]) :-
-    pwrite(STREAM, H),
+writeList([H | T]) :-
+    pwrite(H),
     (T = [] ->
 	true;
      T = [_ | _] ->
-	(write(STREAM, ', '),
-	 writeList(STREAM, T));
-	(write(STREAM, ' | '), write(STREAM, T))).
+	(write(', '),
+	 writeList(T));
+	(write(' | '), write(T))).
 
-pwrite(STREAM, V) :-
+pwrite(V) :-
     var(V),
     !,
-    write(STREAM, V).
-pwrite(STREAM, X) :-
+    write(V).
+pwrite(X) :-
     atomic(X),
     !,
-    format(STREAM, '~p', [X]).
-pwrite(STREAM, {X}) :-
+    format('~p', [X]).
+pwrite({X}) :-
     !,
-    format(STREAM, "~w", [{X}]).
-pwrite(STREAM, [H | T]) :-
+    format("~w", [{X}]).
+pwrite([H | T]) :-
     !,
-    write(STREAM, '['),
-    writeList(STREAM, [H | T]),
-    write(STREAM, ']').
-pwrite(STREAM, A=B) :-
+    write('['),
+    writeList([H | T]),
+    write(']').
+pwrite(A=B) :-
     (B == +; B == -),
     !,
-    format(STREAM, '~w~p', [B, A]).
-pwrite(STREAM, X) :-
+    format('~w~p', [B, A]).
+pwrite(X) :-
     X =.. ['\\red' | ARGS],
     !,
-    write(STREAM, '\\red{'),
-    writeList(STREAM, ARGS),
-    write(STREAM, '}').
-pwrite(STREAM, X) :-
+    write('\\red{'),
+    writeList(ARGS),
+    write('}').
+pwrite(X) :-
     X =.. [F, A, B],
     current_op(_, _, F),
     !,
     (?bracketOps ->
-     format(STREAM, '(~p~w~p)', [A, F, B]);
-     format(STREAM, '~p~w~p', [A, F, B])).
-pwrite(STREAM, X) :-
+     format('(~p~w~p)', [A, F, B]);
+     format('~p~w~p', [A, F, B])).
+pwrite(X) :-
     X =.. [F | ARGS],
-    format(STREAM, '~w(', [F]),
-    writeList(STREAM, ARGS),
-    write(STREAM, ')').
+    format('~w(', [F]),
+    writeList(ARGS),
+    write(')').
 
-pretty(STREAM, X, _) :-
+pretty(X, _) :-
     var(X),
     !,
-    write(STREAM, X).
-pretty(STREAM, X, _) :-
+    write(X).
+pretty(X, _) :-
     atomic(X),
     !,
-    pwrite(STREAM, X).
-pretty(STREAM, X, OFFSET) :-
+    pwrite(X).
+pretty(X, OFFSET) :-
     (maxwidth(M) -> true; M = 100),
     fits(X, OFFSET/_, M),
     !,
-    pwrite(STREAM, X).
-pretty(STREAM, (A, B), OFFSET) :-
+    pwrite(X).
+pretty((A, B), OFFSET) :-
     !,
-    write(STREAM, '('),
-    pretty_args(STREAM, [A, B], OFFSET+1),
-    write(STREAM, ')').
-pretty(STREAM, X, OFFSET) :-
+    write('('),
+    pretty_args([A, B], OFFSET+1),
+    write(')').
+pretty(X, OFFSET) :-
     X = [_ | _],
     !,
-    write(STREAM, '['),
-    pretty_args(STREAM, X, OFFSET+1),
-    write(STREAM, ']').
-pretty(STREAM, F=D, OFFSET) :-
+    write('['),
+    pretty_args(X, OFFSET+1),
+    write(']').
+pretty(F=D, OFFSET) :-
     !,
     plength(F, 0/FLENGTH),
-    write(STREAM, F),
-    write(STREAM, '='),
-    pretty(STREAM, D, OFFSET+FLENGTH+1).
-pretty(STREAM, {X}, OFFSET) :-
+    write(F),
+    write('='),
+    pretty(D, OFFSET+FLENGTH+1).
+pretty({X}, OFFSET) :-
     !,
-    write(STREAM, '{'),
-    pretty(STREAM, X, OFFSET+2),
-    write(STREAM, '}').
-pretty(STREAM, X, OFFSET) :-
+    write('{'),
+    pretty(X, OFFSET+2),
+    write('}').
+pretty(X, OFFSET) :-
     X =.. [F, A, B],
     current_op(_, _, F),
     !,
-    write(STREAM, '('),
-    pretty(STREAM, A, OFFSET+1),
-    nl(STREAM), tab(STREAM, OFFSET+2),
-    print(STREAM, F), tab(STREAM, 1),
+    write('('),
+    pretty(A, OFFSET+1),
+    nl, tab(OFFSET+2),
+    print(F), tab(1),
     atom_codes(F, C),
     length(C, N),
-    pretty(STREAM, B, OFFSET+3+N),
-    write(STREAM, ')').
-pretty(STREAM, X, OFFSET) :-
+    pretty(B, OFFSET+3+N),
+    write(')').
+pretty(X, OFFSET) :-
     \+ X = [_ | _],
     X =.. [F, A | ARGS],
     !,
     plength(F, 0/FLENGTH),
-    write(STREAM, F),
-    write(STREAM, '('),
-    pretty_args(STREAM, [A | ARGS], OFFSET+FLENGTH+1),
-    write(STREAM, ')').
-pretty(STREAM, X, _) :-
-    write(STREAM, X).
-
-pretty(STREAM, X) :-
-    nl(STREAM),
-    call_residue(copy_term(X, Y), _R),
-    \+ \+ ((instantiate(Y), pretty(STREAM, Y, 0)); true).
+    write(F),
+    write('('),
+    pretty_args([A | ARGS], OFFSET+FLENGTH+1),
+    write(')').
+pretty(X, _) :-
+    write(X).
 
 pretty(X) :-
-    pretty(user_output, X).
-
-cpretty(STREAM, X) :-
-    removeFreeVars(X, Y),
-    pretty(STREAM, Y).
+    call_residue(copy_term(X, Y), _R),
+    nl,
+    \+ \+ ((instantiate(Y), pretty(Y, 0)); true).
 
 cpretty(X) :-
-    cpretty(user_output, X).
+    removeFreeVars(X, Y),
+    pretty(Y).
 
-pretty_args(_STREAM, L, _) :-
+pretty_args(L, _) :-
     var(L),
     !.
-pretty_args(_STREAM, [], _) :-
+pretty_args([], _) :-
     !.
-pretty_args(STREAM, X, _) :-
+pretty_args(X, _) :-
     \+ X = [_ | _],
     !,
-    pwrite(STREAM, X).
-pretty_args(STREAM, [X | L], OFFSET) :-
-    pretty(STREAM, X, OFFSET),
+    pwrite(X).
+pretty_args([X | L], OFFSET) :-
+    pretty(X, OFFSET),
     ((var(L); L == []) ->
         true;
      \+ L = [_ | _] ->
-	write(STREAM, ' | ');
-        (write(STREAM, ','), nl(STREAM), tab(STREAM, OFFSET))),
-    pretty_args(STREAM, L, OFFSET).
+	write(' | ');
+        (write(','), nl, tab(OFFSET))),
+    pretty_args(L, OFFSET).
 
 plength(V, I/O) :-
     var(V),
@@ -236,19 +230,40 @@ instantiate(X, I, J) :-
     X =.. L,
     instantiate(L, I, J).
 
-treepr(STREAM, X) :-
-    treepr(STREAM, X, '').
+treepr(X) :-
+    treepr(X, '').
 
 treepr(X) :-
     treepr(user_output, X).
 
-treepr(STREAM, [H | T0], I0) :-
-    format(STREAM, '~n~w~w', [I0, H]),
+treepr([H | T0], I0) :-
+    format('~n~w~w', [I0, H]),
     atom_concat(I0, '    ', I1),
     sort(T0, T1),
-    treeprdtrs(STREAM, T1, I1).
+    treeprdtrs(T1, I1).
 
-treeprdtrs(_STREAM, [], _I).
-treeprdtrs(STREAM, [H | T], I) :-
-    treepr(STREAM, H, I),
-    treeprdtrs(STREAM, T, I).
+treeprdtrs([], _I).
+treeprdtrs([H | T], I) :-
+    treepr(H, I),
+    treeprdtrs(T, I).
+
+minipage(GOAL) :-
+    with_output_to_atom(GOAL, T1),
+    format("
+\\begin{minipage}[t]{0.5\\linewidth}~w
+\\end{minipage}
+", [T1]).
+
+verbatim(G) :-
+    with_output_to_atom(G, T1),
+    format("
+\\begin{Verbatim}[commandchars=\\\\\\{\\}]~w
+\\end{Verbatim}
+", [T1]).
+
+hbox(G) :-
+    with_output_to_atom(G, T),
+    format("
+\\hbox{
+~w
+}", [T]).

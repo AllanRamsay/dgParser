@@ -209,6 +209,14 @@ qsort(X, S, O) :-
 qsort(X, S) :-
     qsort(X, S, @<).
 
+p([], [_ | _]).
+p([_ | T0], [_ | T1]) :-
+    p(T0, T1).
+
+p1([], _).
+p1([_ | T0], [_ | T1]) :-
+    p1(T0, T1).
+
 mergeSorted(L0, [], L0, _COMP) :-
     !.
 mergeSorted([], L1, L1, _COMP) :-

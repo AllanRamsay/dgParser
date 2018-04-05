@@ -12,7 +12,10 @@ verb(X, be) :-
 verb(X, be) :-
     root@X -- [be],
     language@X -- english,
+    -def@X,
+    -target@X,
     PRED <> [+predicative, -zero, saturated, postarg],
+    +n:xbar@cat@PRED,
     theta@PRED -- predication(cat@PRED),
     trigger(set:position@moved@PRED, (movedBefore(PRED) -> \+ (n(PRED), subjcase(PRED)); true)),
     trigger(start@subject@X, \+ (start@PRED > start@X, start@subject@X > start@PRED)),
@@ -27,6 +30,7 @@ verb(X, be) :-
     trigger((finite@X, tense@X), \+ presPartForm(X)),
     finite@COMP -- participle,
     tense@COMP -- present,
+    +def@X,
     aux(X, COMP).
 
 verb(X, begin) :-
@@ -52,7 +56,7 @@ verb(X, come) :-
 verb(X, do) :-
     aux(X, S),
     X <> [tensedForm],
-    S <> [infinitiveForm].
+    S <> [infinitiveForm, aspect(simple)].
 
 verb(X, do) :-
     tverb(X).
@@ -93,7 +97,7 @@ verb(X, get) :-
 
 verb(X, have) :-
     aux(X, S),
-    X <> [+specified, +def],
+    X <> [+specified],
     S <> [pastPart].
 
 verb(X, have) :-

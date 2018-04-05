@@ -15,4 +15,4 @@
 
   OK: when the target of a noun modifer is +used, check that its value for
   specified is not +. 
-**/
+*

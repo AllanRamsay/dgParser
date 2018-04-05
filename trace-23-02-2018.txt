@@ -1,0 +1,529 @@
+SICStus 3.12.8 (i386-darwin-8.9.1): Tue May  8 13:13:57 CEST 2007
+Licensed to man.ac.uk
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/setup.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po...
+%  module charsio imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/charsio.bundle in module charsio
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po in module charsio, 0 msec 8512 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/setup.pl in module user, 10 msec 11544 bytes
+yes
+| ?- Q0 = existential::{perfect, A, B}.
+! Syntax error
+! operator expected after expression
+! in line 11
+! Q0 = existential 
+! <<here>>
+! :: { perfect , A , B } . 
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po...
+%  module terms imported into user
+%   loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po...
+%   module assoc imported into terms
+%    loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po...
+%    module lists imported into assoc
+%    loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po in module lists, 0 msec 11328 bytes
+%   loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po in module assoc, 0 msec 22728 bytes
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po in module terms, 0 msec 31128 bytes
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 10 msec 59064 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 20 msec 21620 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec 12064 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec 1752 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 16496 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po...
+%  module sockets imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/sockets.bundle in module sockets
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po in module sockets, 0 msec 21776 bytes
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 10 msec 23296 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec 8976 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec 6488 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 796-824, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 40 msec 186328 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec 1448 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 0 msec 28056 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec 1336 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 10 msec 35800 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec 1648 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 0 msec 24256 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec 12304 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec 1944 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 10 msec 10736 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 72912 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 10 msec 10096 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec 7056 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec 6120 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 12520 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 30416 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+* abolish(user:(spellingRule/3)) - no matching predicate
+* Approximate lines: 113-115, file: '/Users/ramsay/Documents/GitHub/dgParser/spelling.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec 13072 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 10 msec 5016 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 0 msec 15144 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 30 msec 510640 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 90 msec 1082760 bytes
+yes
+| ?- X = existential::{perfect, A, B}, X = Q0::{R, V}.
+Q0 = existential::{perfect,A,B} ? 
+yes
+| ?- X = existential::{perfect, A, B}, X = Q0::{R, V}.
+R = perfect,
+V = (A,B),
+X = existential::{perfect,A,B},
+Q0 = existential ? 
+yes
+| ?- X = {q,w,e,r,t,y}, X = {A, (W, E, R, T, Y)}.
+A = q,
+B = (w,e,r,t,y),
+X = {q,w,e,r,t,y} ? X = {q,w,e,r,t,y}, X = {A, (W, E, R, T, Y)}.
+Top-level options:
+   RET y     no more choices
+     ; n     more choices
+       b     break
+       <     reset printdepth
+       < <n> set printdepth
+       ^     reset subterm
+       ^ <n> set subterm
+     ? h     print this information
+ ? 
+yes
+| ?- X = {q,w,e,r,t,y}, X = {A, (W, E, R, T, Y)}.
+A = q,
+E = e,
+R = r,
+T = t,
+W = w,
+X = {q,w,e,r,t,y},
+Y = y ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 776 bytes
+yes
+| ?- parseOne('a man will have been eating peaches.', X), convSteps(X, Y),extractQQ(Y,T,St).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man will have been eating every peach.}}\label{NF: a man will have been eating every peach.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *(time(tense(future), aspect(A), aux(+), def(-), finite(tensed))),
+     [will,
+      arg(B,
+          *(time(tense(present),
+                 aspect(C),
+                 aux(+),
+                 def(+),
+                 finite(infinitive))),
+          [have>,
+           arg(D,
+               *(time(tense(past),
+                      aspect(perfect),
+                      aux(+),
+                      def(E),
+                      finite(participle))),
+               [[be]>en,
+                arg(F,
+                    *(time(tense(present),
+                           aspect(prog),
+                           aux(-),
+                           def(G),
+                           finite(participle))),
+                    [eat>ing,
+                     arg(dobj,
+                         *(universal),
+                         [peach>singular, modifier(identity, every)]),
+                     arg(subject,
+                         *(indefinite),
+                         [man>singular, modifier(identity, a)])])])])])]
+[.,
+ arg(claim,
+     *([time(tense(future), aspect(A), aux(+), def(-), finite(tensed)),
+        time(tense(past),
+             aspect(perfect),
+             aux(+),
+             def(B),
+             finite(participle))]),
+     [eat,
+      arg(dobj, *(universal), [peach>singular]),
+      arg(subject, *(indefinite), [man>singular])])]
+claim(opaque(qq([time(tense(future),
+                      aspect(A),
+                      aux(+),
+                      def(-),
+                      finite(tensed)),
+                 time(tense(past),
+                      aspect(perfect),
+                      aux(+),
+                      def(B),
+                      finite(participle))],
+                [eat,
+                 qq(universal::{[peach>singular],C},
+                    {dobj,C}),
+                 qq(indefinite::{[man>singular],D},
+                    {subject,D})])))
+([existential::{[tense(future),tense(past)],A},
+  existential::{(perfect,A),B},
+  indefinite::{[man>singular],C},
+  universal::{[peach>singular],D}]
+  + [[eat, {dobj,D}, {subject,C}], B])
+existential(A::{[tense(future),tense(past)],A},
+            existential(B::{(perfect,A),B},
+                        exists(C::{[man>singular],C},
+                               forall(D::{[peach>singular],D},
+                                      [[eat, {dobj,D}, {subject,C}],
+                                       B]))))
+T = claim(existential(_A::{[tense(future),tense(past)],_A},existential(_B::{(perfect,_A),_B},exists(_C::{[man>singular],_C},forall(_D::{[peach>singular],_D},[[eat,{dobj,_D},{subject,_C}],_B]))))),
+X = ['.',arg(claim,*time(tense(future),aspect(_E),aux(+),def(-),finite(tensed)),[will,arg(_F,*time(tense(present),aspect(_G),aux(+),def(+),finite(infinitive)),[have>'',arg(_H,*time(tense(past),aspect(perfect),aux(+),def(_I),finite(participle)),[[be]>en,arg(_J,*time(...),[[eat>ing|...],arg(...)])])])])],
+Y = claim(opaque(qq([time(tense(future),aspect(_E),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(+),def(_I),finite(participle))],[eat,qq(universal::{[peach>singular],_D},{dobj,_D}),qq(indefinite::{[man>singular],_C},{subject,_C})]))),
+St = [] ? 
+yes
+| ?- 
+     parseOne('a man will have been eating peaches.', X), convSteps(X, Y),extractQQ(Y,T,St).
+! Syntax error
+! operator expected after expression
+! in line 223
+!  ( q ( w ) ) 
+! <<here>>
+! r = q ( w , r ) parseOne ( 'a man will have been eating peaches.' , X ) , convSteps ( X , Y ) , extractQQ ( Y , T , St ) . 
+| ?- parseOne('a man will have been eating peaches.', X), convSteps(X, Y),fixQuants(Y,Z), pretty(Z). 
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man will have been eating peaches.}}\label{NF: a man will have been eating peaches.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *(time(tense(future), aspect(A), aux(+), def(-), finite(tensed))),
+     [will,
+      arg(B,
+          *(time(tense(present),
+                 aspect(C),
+                 aux(+),
+                 def(+),
+                 finite(infinitive))),
+          [have>,
+           arg(D,
+               *(time(tense(past),
+                      aspect(perfect),
+                      aux(+),
+                      def(E),
+                      finite(participle))),
+               [[be]>en,
+                arg(F,
+                    *(time(tense(present),
+                           aspect(prog),
+                           aux(-),
+                           def(G),
+                           finite(participle))),
+                    [eat>ing,
+                     arg(dobj, *(generic), peach>plural),
+                     arg(subject,
+                         *(indefinite),
+                         [man>singular, modifier(identity, a)])])])])])]
+[.,
+ arg(claim,
+     *([time(tense(future), aspect(A), aux(+), def(-), finite(tensed)),
+        time(tense(past),
+             aspect(perfect),
+             aux(+),
+             def(B),
+             finite(participle))]),
+     [eat,
+      arg(dobj, *(generic), peach>plural),
+      arg(subject, *(indefinite), [man>singular])])]
+claim(opaque(qq([time(tense(future),
+                      aspect(A),
+                      aux(+),
+                      def(-),
+                      finite(tensed)),
+                 time(tense(past),
+                      aspect(perfect),
+                      aux(+),
+                      def(B),
+                      finite(participle))],
+                [eat,
+                 qq(generic::{peach>plural,C},
+                    {dobj,C}),
+                 qq(indefinite::{[man>singular],D},
+                    {subject,D})])))
+([existential::{[tense(future),tense(past)],A},
+  existential::{(perfect,A),B},
+  indefinite::{[man>singular],C},
+  generic::{peach>plural,D}]
+  + [[eat, {dobj,D}, {subject,C}], B])
+existential(A::{[tense(future),tense(past)],A},
+            existential(B::{(perfect,A),B},
+                        exists(C::{[man>singular],C},
+                               generic(D::{peach>plural,D},
+                                       [[eat, {dobj,D}, {subject,C}],
+                                        B]))))
+T = claim(existential(_A::{[tense(future),tense(past)],_A},existential(_B::{(perfect,_A),_B},exists(_C::{[man>singular],_C},generic(_D::{peach>plural,_D},[[eat,{dobj,_D},{subject,_C}],_B]))))),
+X = ['.',arg(claim,*time(tense(future),aspect(_E),aux(+),def(-),finite(tensed)),[will,arg(_F,*time(tense(present),aspect(_G),aux(+),def(+),finite(infinitive)),[have>'',arg(_H,*time(tense(past),aspect(perfect),aux(+),def(_I),finite(participle)),[[be]>en,arg(_J,*time(...),[[eat>ing|...],arg(...)])])])])],
+Y = claim(opaque(qq([time(tense(future),aspect(_E),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(+),def(_I),finite(participle))],[eat,qq(generic::{peach>plural,_D},{dobj,_D}),qq(indefinite::{[man>singular],_C},{subject,_C})]))),
+St = [] ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 96 bytes
+yes
+| ?- parseOne('a man will have been eating peaches.', X), convSteps(X, Y),fixQuants(Y,Z), qff(Z, QFF), pretty(QFF). 
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man will have been eating peaches.}}\label{NF: a man will have been eating peaches.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *(time(tense(future), aspect(A), aux(+), def(-), finite(tensed))),
+     [will,
+      arg(B,
+          *(time(tense(present),
+                 aspect(C),
+                 aux(+),
+                 def(+),
+                 finite(infinitive))),
+          [have>,
+           arg(D,
+               *(time(tense(past),
+                      aspect(perfect),
+                      aux(+),
+                      def(E),
+                      finite(participle))),
+               [[be]>en,
+                arg(F,
+                    *(time(tense(present),
+                           aspect(prog),
+                           aux(-),
+                           def(G),
+                           finite(participle))),
+                    [eat>ing,
+                     arg(dobj, *(generic), peach>plural),
+                     arg(subject,
+                         *(indefinite),
+                         [man>singular, modifier(identity, a)])])])])])]
+[.,
+ arg(claim,
+     *([time(tense(future), aspect(A), aux(+), def(-), finite(tensed)),
+        time(tense(past),
+             aspect(perfect),
+             aux(+),
+             def(B),
+             finite(participle))]),
+     [eat,
+      arg(dobj, *(generic), peach>plural),
+      arg(subject, *(indefinite), [man>singular])])]
+claim(opaque(qq([time(tense(future),
+                      aspect(A),
+                      aux(+),
+                      def(-),
+                      finite(tensed)),
+                 time(tense(past),
+                      aspect(perfect),
+                      aux(+),
+                      def(B),
+                      finite(participle))],
+                [eat,
+                 qq(generic::{peach>plural,C},
+                    {dobj,C}),
+                 qq(indefinite::{[man>singular],D},
+                    {subject,D})])))
+([existential::{[tense(future),tense(past)],A},
+  existential::{(perfect,A),B},
+  indefinite::{[man>singular],C},
+  generic::{peach>plural,D}]
+  + [[eat, {dobj,D}, {subject,C}], B])
+existential(A::{[tense(future),tense(past)],A},
+            existential(B::{(perfect,A),B},
+                        exists(C::{[man>singular],C},
+                               generic(D::{peach>plural,D},
+                                       [[eat, {dobj,D}, {subject,C}],
+                                        B]))))
+([]
+  + claim(existential(A::{[tense(future),tense(past)],A},
+                      existential(B::{(perfect,A),B},
+                                  exists(C::{[man>singular],C},
+                                         generic(D::{peach>plural,D},
+                                                 [[eat,
+                                                   {dobj,D},
+                                                   {subject,C}],
+                                                  B]))))))
+claim(existential(A::{[tense(future),tense(past)],A},
+                  existential(B::{(perfect,A),B},
+                              exists(C::{[man>singular],C},
+                                     generic(D::{peach>plural,D},
+                                             [[eat,
+                                               {dobj,D},
+                                               {subject,C}],
+                                              B])))))
+claim(existential(A::{[tense(future),tense(past)],A},
+                  existential(B::{(perfect,A),B},
+                              exists(C::{[man>singular],C},
+                                     generic(D::{peach>plural,D},
+                                             [[eat,
+                                               {dobj,D},
+                                               {subject,C}],
+                                              B])))))
+X = ['.',arg(claim,*time(tense(future),aspect(_A),aux(+),def(-),finite(tensed)),[will,arg(_B,*time(tense(present),aspect(_C),aux(+),def(+),finite(infinitive)),[have>'',arg(_D,*time(tense(past),aspect(perfect),aux(+),def(_E),finite(participle)),[[be]>en,arg(_F,*time(...),[[eat>ing|...],arg(...)])])])])],
+Y = claim(opaque(qq([time(tense(future),aspect(_A),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(+),def(_E),finite(participle))],[eat,qq(generic::{peach>plural,_H},{dobj,_H}),qq(indefinite::{[man>singular],_I},{subject,_I})]))),
+Z = claim(existential(_J::{[tense(future),tense(past)],_J},existential(_K::{(perfect,_J),_K},exists(_I::{[man>singular],_I},generic(_H::{peach>plural,_H},[[eat,{dobj,_H},{subject,_I}],_K]))))) ? yes
+| ?- 
+| ?-                   existential(B::{(perfect,A),B},
+     .
+! Syntax error
+! . cannot start an expression
+! in line 424
+! existential ( B :: {  ( perfect , A ) , B } , 
+! <<here>>
+! . 
+| ?- parseOne('a man will have been eating peaches.', X), convSteps(X, Y),fixQuants(Y,Z), qff(Z, QFF), pretty(QFF). 
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man will have been eating peaches.}}\label{NF: a man will have been eating peaches.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *(time(tense(future), aspect(A), aux(+), def(-), finite(tensed))),
+     [will,
+      arg(B,
+          *(time(tense(present),
+                 aspect(C),
+                 aux(+),
+                 def(+),
+                 finite(infinitive))),
+          [have>,
+           arg(D,
+               *(time(tense(past),
+                      aspect(perfect),
+                      aux(+),
+                      def(E),
+                      finite(participle))),
+               [[be]>en,
+                arg(F,
+                    *(time(tense(present),
+                           aspect(prog),
+                           aux(-),
+                           def(G),
+                           finite(participle))),
+                    [eat>ing,
+                     arg(dobj, *(generic), peach>plural),
+                     arg(subject,
+                         *(indefinite),
+                         [man>singular, modifier(identity, a)])])])])])]
+[.,
+ arg(claim,
+     *([time(tense(future), aspect(A), aux(+), def(-), finite(tensed)),
+        time(tense(past),
+             aspect(perfect),
+             aux(+),
+             def(B),
+             finite(participle))]),
+     [eat,
+      arg(dobj, *(generic), peach>plural),
+      arg(subject, *(indefinite), [man>singular])])]
+claim(opaque(qq([time(tense(future),
+                      aspect(A),
+                      aux(+),
+                      def(-),
+                      finite(tensed)),
+                 time(tense(past),
+                      aspect(perfect),
+                      aux(+),
+                      def(B),
+                      finite(participle))],
+                [eat,
+                 qq(generic::{peach>plural,C},
+                    {dobj,C}),
+                 qq(indefinite::{[man>singular],D},
+                    {subject,D})])))
+([existential::{[tense(future),tense(past)],A},
+  existential::{(perfect,A),B},
+  indefinite::{[man>singular],C},
+  generic::{peach>plural,D}]
+  + [[eat, {dobj,D}, {subject,C}], B])
+existential(A::{[tense(future),tense(past)],A},
+            existential(B::{(perfect,A),B},
+                        exists(C::{[man>singular],C},
+                               generic(D::{peach>plural,D},
+                                       [[eat, {dobj,D}, {subject,C}],
+                                        B]))))
+([]
+  + claim(existential(A::{[tense(future),tense(past)],A},
+                      existential(B::{(perfect,A),B},
+                                  exists(C::{[man>singular],C},
+                                         generic(D::{peach>plural,D},
+                                                 [[eat,
+                                                   {dobj,D},
+                                                   {subject,C}],
+                                                  B]))))))
+claim(existential(A::{[tense(future),tense(past)],A},
+                  existential(B::{(perfect,A),B},
+                              exists(C::{[man>singular],C},
+                                     generic(D::{peach>plural,D},
+                                             [[eat,
+                                               {dobj,D},
+                                               {subject,C}],
+                                              B])))))
+claim(existential(A::{[tense(future),tense(past)],#1},
+                  existential(B::{(perfect,A),B},
+                              ({[man>singular],#0}
+                                & ([[eat, {dobj,C}, {subject,#0}],
+                                    B]
+                                    => {peach>plural,C})))))
+X = ['.',arg(claim,*time(tense(future),aspect(_A),aux(+),def(-),finite(tensed)),[will,arg(_B,*time(tense(present),aspect(_C),aux(+),def(+),finite(infinitive)),[have>'',arg(_D,*time(tense(past),aspect(perfect),aux(+),def(_E),finite(participle)),[[be]>en,arg(_F,*time(...),[[eat>ing|...],arg(...)])])])])],
+Y = claim(opaque(qq([time(tense(future),aspect(_A),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(+),def(_E),finite(participle))],[eat,qq(generic::{peach>plural,_H},{dobj,_H}),qq(indefinite::{[man>singular],'#0'},{subject,'#0'})]))),
+Z = claim(existential(_I::{[tense(future),tense(past)],_I},existential(_J::{(perfect,_I),_J},exists('#0'::{[man>singular],'#0'},generic(_H::{peach>plural,_H},[[eat,{dobj,_H},{subject,'#0'}],_J]))))),
+QFF = claim(existential(_I::{[tense(future),tense(past)],_I},existential(_J::{(perfect,_I),_J},{[man>singular],'#0'}&[[eat,{dobj,_K},{subject,'#0'}],_J]=>{peach>plural,_K}))) ? yes
+| ?- 
+| ?- 

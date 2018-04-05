@@ -50,13 +50,13 @@ initialiseAgenda(TEXT0, TEXTN, LANGUAGE) :-
     makeQ(TEXT2, 0, TAGS, TEXTN, LANGUAGE).
 
 chartParse(TEXT0, X, LANGUAGE, MAX) :-
-    gensym(reset),
+    gensym(reset(i)),
     D <> sign,
     retractall(D),
     retractall(packed(_, _)),
     initialiseAgenda(TEXT0, TEXT2, LANGUAGE),
     length(TEXT2, L),
-    addZero,
+    %% addZero,
     processAgenda(TEXT2, X, L, MAX).
 
 chartParse(TEXT, X, LANGUAGE) :-
@@ -109,8 +109,10 @@ parseAll(TEXT) :-
 		  denest(dtree@X, DN),
 		  nfTree(DN, NFTREE),
 		  pretty(nfTree(NFTREE)),
+		  /**
 		  nf(X, NF),
 		  pretty(nf(NF)),
+		    **/
 		  fail),
 		 _).
 
@@ -147,8 +149,7 @@ addZero :-
     index@X -- z0,
     root@X -- [('zero', start@X)],
     dtree@X -- zero,
-    X <> [x, -target, notMoved, +zero, modified(0)],
-    trigger(n:xbar@cat@X, (n(X) -> saturated(X); v(X))),
+    X <> [x, -target, notMoved, +zero, modified(0), saturated],
     setCost(X, 0),
     assert(X).
 
@@ -333,7 +334,7 @@ argPosition(H0, A, H1) :-
       (SA -- EH0 ->
        notMoved(A);
        (-zero@A,
-	compact(A),
+	%% compact(A),
 	(SA > EH0 ->
 	 movedAfter(A);
 	 movedBefore(A)))))),
@@ -499,6 +500,7 @@ arglength([_ | T], L) :-
 showAllEdges :-
     call(X),
     arglength(args@X, L),
+    nl,
     pretty(index@X+dtree@X+L+dtrs@X),
     fail.
 

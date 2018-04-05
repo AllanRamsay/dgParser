@@ -39,8 +39,16 @@ s a named 'knowledge base', so that I can easily switch between
   **/
 
 signature(label=[indent=_, stack=_, defaults=_]).
+hyp('love','like').
+hyp('man','human').
+hyp('dog','animal').
 
 match(X, X).
+match({[WORD0>CARDINALITY],VAR},{[WORD1>CARDINALITY],VAR}):-
+	hyp(WORD0,WORD1).
+match([[EVENT0, R1, R2], VAR],[[EVENT1, R1, R2], VAR]):-
+	hyp(EVENT0,EVENT1).
+
 
 %%:- ensure_loaded([hypstable]). is called within the matching algorithm
 
@@ -86,7 +94,7 @@ horn(X, LABEL0) :-
     extend1(stack:label@LABEL0, X),
     ((LHS=>X1), match(X1,X)),
     showStep('~w~w found as rule that leads to ~w~n', [INDENT0, LHS => X, X]),
-    atom_concat(INDENT0, ' ', indent:label@LABEL1),
+    %% atom_concat(INDENT0, ' ', indent:label@LABEL1),
     horn(LHS, LABEL1).
 horn(A & B, LABEL) :-
     horn(A, LABEL),
@@ -124,7 +132,7 @@ cprove(P => Q, LABEL) :-
     indent:label@LABEL -- INDENT,
     LABEL1\(indent:label) -- LABEL0,
     showStep('~wTrying to prove ~w by asserting ~w and trying to prove ~w~n', [INDENT, P=>Q, P, Q]),
-    atom_concat(INDENT, ' ', indent:label@LABEL1),
+   %% atom_concat(INDENT, ' ', indent:label@LABEL1),
     assert(temp(P)),
     (prove(Q, LABEL1) ->
      retract(temp(P));
@@ -185,10 +193,11 @@ setProblem1(A & B) :-
     !,
     setProblem1(A),
     setProblem1(B).
-setProblem1([H | T]) :-
+/**setProblem1([H | T]) :-
     !,
     setProblem1(H),
     setProblem1(T).
+  **/
 setProblem1(A => B) :-
     !,
     assert(A => B).

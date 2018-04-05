@@ -13,7 +13,7 @@ word('ing', X) :-
 word('s', X) :-
     language@X -- english,
     -target@X,
-    X <> [suffix(tns), presTense, thirdSing, finite(tensed)].
+    X <> [suffix(tns), presTense, thirdSing, finite(tensed), -def].
 
 word('', X) :-
     language@X -- english,
@@ -24,11 +24,13 @@ word('s', X) :-
     language@X -- english,
     X <> [specifier(SPEC), suffix(numPerson), third, plural, -target, standardcase],
     def@X -- D,
-    trigger(SPEC, (SPEC = *generic, D = -)).
+    root@X -- plural,
+    trigger(SPEC, (SPEC = *(existential=10), D = -)).
 
 word('', X) :-
     language@X -- english,
     X <> [suffix(numPerson), thirdSing, standardcase, movedAfter(-), unspecified, -specifier],
+    root@X -- singular,
     trigger(index@X, default(nmod(X))).
 
 word('ed1', X) :-
@@ -54,7 +56,8 @@ word('en', X) :-
 
 word('', X) :-
     language@X -- english,
-    X <> [adj(_), suffix(adjsuffix)],
+    adj(X, _),
+    X <> [suffix(adjsuffix)],
     degree@X -- simple,
     -zero@target@X.
 

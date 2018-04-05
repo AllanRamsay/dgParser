@@ -19,6 +19,7 @@ noncompilable([agree,
 	       verbs,
 	       mclasses,
 	       determiners,
+	       negation,
 	       miscellany,
 	       nouns,
 	       lookup,
@@ -30,7 +31,8 @@ noncompilable([agree,
 	       nf,
 	       %% transformations,
 	       spelling,
-	       pstree]).
+	       pstree,
+	       satchmoplus]).
 
 setup(COMPILING, DICT) :-
     coreFiles(CFILES),

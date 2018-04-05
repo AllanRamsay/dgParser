@@ -1,0 +1,628 @@
+SICStus 3.12.8 (i386-darwin-8.9.1): Tue May  8 13:13:57 CEST 2007
+Licensed to man.ac.uk
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/setup.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po...
+%  module charsio imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/charsio.bundle in module charsio
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po in module charsio, 0 msec 8512 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/setup.pl in module user, 0 msec 11552 bytes
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po...
+%  module terms imported into user
+%   loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po...
+%   module assoc imported into terms
+%    loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po...
+%    module lists imported into assoc
+%    loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po in module lists, 0 msec 11328 bytes
+%   loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po in module assoc, 0 msec 22728 bytes
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po in module terms, 0 msec 31128 bytes
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 10 msec 59280 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 20 msec 21652 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec 12048 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec 1752 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 16496 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po...
+%  module sockets imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/sockets.bundle in module sockets
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po in module sockets, 0 msec 21776 bytes
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec 23304 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec 8976 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec 6488 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 796-824, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 50 msec 186328 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec 1448 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 0 msec 28080 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec 1336 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 0 msec 35800 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec 1648 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 10 msec 24256 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec 12304 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec 1944 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 10 msec 10736 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 20 msec 72912 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 0 msec 10096 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec 7056 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec 6120 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 12536 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 31024 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+* abolish(user:(spellingRule/3)) - no matching predicate
+* Approximate lines: 113-115, file: '/Users/ramsay/Documents/GitHub/dgParser/spelling.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 10 msec 13080 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec 5016 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 0 msec 15144 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 510616 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 100 msec 1082736 bytes
+yes
+| ?- parseOne('John eated a peach.', X), convSteps(X, Y),fixQuants(Y,Z), qff(Z, QFF), pretty(QFF).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves eating peaches.}}\label{NF: John loves eating peaches.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *([time(tense(present), aspect(simple), aux(-), def(A), finite(tensed))]),
+     [love,
+      arg(xcomp,
+          *(time(tense(present),
+                 aspect(prog),
+                 aux(-),
+                 def(B),
+                 finite(participle))),
+          [eat,
+           arg(dobj, *(generic), peach>plural),
+           arg(subject, *(C), zero)]),
+      arg(subject, *(name), [John:NP])])]
+claim(opaque(qq([time(tense(present),
+                      aspect(simple),
+                      aux(-),
+                      def(A),
+                      finite(tensed))],
+                [love,
+                 xcomp(opaque(qq(time(tense(present),
+                                      aspect(prog),
+                                      aux(-),
+                                      def(B),
+                                      finite(participle)),
+                                 [eat,
+                                  qq(generic::{peach>plural,C},
+                                     {dobj,C}),
+                                  qq(D::{zero,E},
+                                     {subject,E})]))),
+                 qq(name::{[John:NP],F},
+                    {subject,F})])))
+[time(tense(present), aspect(prog), aux(-), def(A), finite(participle)),
+ B::{zero,C},
+ generic::{peach>plural,D}]
+[time(tense(present), aspect(prog), aux(-), def(A), finite(participle)),
+ B::{zero,C},
+ generic::{peach>plural,D}]
+no
+| ?- parseOne('John kissed a peach.', X), convSteps(X, Y),fixQuants(Y,Z), qff(Z, QFF), pretty(QFF).
+! 'No such word'(eated)
+| ?- parseOne('John kissed a peach.', X), convSteps(X, Y),fixQuants(Y,Z), qff(Z, QFF), pretty(QFF).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John kissed a peach.}}\label{NF: John kissed a peach.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *([time(tense(past), aspect(simple), aux(-), def(A), finite(tensed))]),
+     [kiss,
+      arg(dobj, *(indefinite), [peach>singular]),
+      arg(subject, *(name), [John:NP])])]
+claim(opaque(qq([time(tense(past),
+                      aspect(simple),
+                      aux(-),
+                      def(A),
+                      finite(tensed))],
+                [kiss,
+                 qq(indefinite::{[peach>singular],B},
+                    {dobj,B}),
+                 qq(name::{[John:NP],C},
+                    {subject,C})])))
+[unidentified::{[tense(past)],A},
+ unidentified::{(simple,A),B},
+ name::{[John:NP],C},
+ indefinite::{[peach>singular],D}]
+unidentified(A::{[tense(past)],A},
+             unidentified(B::{(simple,A),B},
+                          name(C::{[John:NP],C},
+                               exists(D::{[peach>singular],D},
+                                      [[kiss, {dobj,D}, {subject,C}],
+                                       B]))))
+[]
+claim(unidentified(A::{[tense(past)],A},
+                   unidentified(B::{(simple,A),B},
+                                name(C::{[John:NP],C},
+                                     exists(D::{[peach>singular],D},
+                                            [[kiss,
+                                              {dobj,D},
+                                              {subject,C}],
+                                             B])))))
+claim(unidentified(A::{[tense(past)],A},
+                   unidentified(B::{(simple,A),B},
+                                name(C::{[John:NP],C},
+                                     ({[peach>singular],#0}
+                                       & [[kiss,
+                                           {dobj,#0},
+                                           {subject,C}],
+                                          B])))))
+X = ['.',arg(claim,*time(tense(past),aspect(simple),aux(-),def(_A),finite(tensed)),[[kiss>ed,arg(dobj,*indefinite,[peach>singular,modifier(identity,a)])],arg(subject,*name,['John':'NP'])])],
+Y = claim(opaque(qq([time(tense(past),aspect(simple),aux(-),def(_A),finite(tensed))],[kiss,qq(indefinite::{[peach>singular],'#0'},{dobj,'#0'}),qq(name::{['John':'NP'],_B},{subject,_B})]))),
+Z = claim(unidentified(_C::{[tense(past)],_C},unidentified(_D::{(simple,_C),_D},name(_B::{['John':'NP'],_B},exists('#0'::{[peach>singular],'#0'},[[kiss,{dobj,'#0'},{subject,_B}],_D]))))),
+QFF = claim(unidentified(_C::{[tense(past)],_C},unidentified(_D::{(simple,_C),_D},name(_B::{['John':'NP'],_B},{[peach>singular],'#0'}&[[kiss,{dobj,'#0'},{subject,_B}],_D])))) ? 
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 20 msec 1056 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 20 msec -120 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec -888 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 168 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec -96 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec 8 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 10 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 796-824, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 40 msec 3496 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 0 msec -1616 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec -2072 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 0 msec -152 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 0 msec -408 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 1256 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 0 msec -344 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 10 msec -856 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 24 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 408 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec -352 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec -472 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 0 msec 14952 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 505624 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 100 msec 224 bytes
+yes
+| ?- parseOne('John is a fool.', X), convSteps(X, Y),fixQuants(Y,Z), qff(Z, QFF), pretty(QFF).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John kissed a peach.}}\label{NF: John kissed a peach.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *([time(tense(past), aspect(simple), aux(-), def(-), finite(tensed))]),
+     [kiss,
+      arg(dobj, *(indefinite), [peach>singular]),
+      arg(subject, *(name), [John:NP])])]
+claim(opaque(qq([time(tense(past),
+                      aspect(simple),
+                      aux(-),
+                      def(-),
+                      finite(tensed))],
+                [kiss,
+                 qq(indefinite::{[peach>singular],A},
+                    {dobj,A}),
+                 qq(name::{[John:NP],B},
+                    {subject,B})])))
+[existential::{[tense(past)],A},
+ existential::{(simple,A),B},
+ name::{[John:NP],C},
+ indefinite::{[peach>singular],D}]
+exists(A::{[tense(past)],A},
+       exists(B::{(simple,A),B},
+              name(C::{[John:NP],C},
+                   exists(D::{[peach>singular],D},
+                          [[kiss, {dobj,D}, {subject,C}], B]))))
+[]
+claim(exists(A::{[tense(past)],A},
+             exists(B::{(simple,A),B},
+                    name(C::{[John:NP],C},
+                         exists(D::{[peach>singular],D},
+                                [[kiss, {dobj,D}, {subject,C}],
+                                 B])))))
+claim(({[tense(past)],#0}
+        & ({(simple,#0),#1}
+            & name(A::{[John:NP],A},
+                   ({[peach>singular],#2}
+                     & [[kiss, {dobj,#2}, {subject,A}], #1])))))
+X = ['.',arg(claim,*time(tense(past),aspect(simple),aux(-),def(-),finite(tensed)),[[kiss>ed,arg(dobj,*indefinite,[peach>singular,modifier(identity,a)])],arg(subject,*name,['John':'NP'])])],
+Y = claim(opaque(qq([time(tense(past),aspect(simple),aux(-),def(-),finite(tensed))],[kiss,qq(indefinite::{[peach>singular],'#2'},{dobj,'#2'}),qq(name::{['John':'NP'],_A},{subject,_A})]))),
+Z = claim(exists('#0'::{[tense(past)],'#0'},exists('#1'::{(simple,'#0'),'#1'},name(_A::{['John':'NP'],_A},exists('#2'::{[peach>singular],'#2'},[[kiss,{dobj,'#2'},{subject,_A}],'#1']))))),
+QFF = claim({[tense(past)],'#0'}&{(simple,'#0'),'#1'}&name(_A::{['John':'NP'],_A},{[peach>singular],'#2'}&[[kiss,{dobj,'#2'},{subject,_A}],'#1'])) ? 
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 20 msec 840 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 10 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec -888 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 168 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec 8 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 796-824, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 30 msec 2472 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 0 msec -80 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec -2072 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 0 msec -72 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 0 msec -664 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 10 msec -408 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 1256 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 0 msec -344 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec -856 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 10 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 40 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 424 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec -344 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec -472 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 10 msec 14960 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 505664 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 100 msec -272 bytes
+yes
+| ?- parseOne('John was a fool.', X), convSteps(X, Y),fixQuants(Y,Z), qff(Z, QFF), pretty(QFF).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John is a fool.}}\label{NF: John is a fool.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *([time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))]),
+     [be,
+      arg(predication(xbar(v(-), n(+))),
+          *(indefinite),
+          [fool>singular]),
+      arg(subject, *(name), [John:NP])])]
+claim(opaque(qq([time(tense(present),
+                      aspect(simple),
+                      aux(-),
+                      def(-),
+                      finite(tensed))],
+                [be,
+                 qq(indefinite::{[fool>singular],A},
+                    {predication(xbar(v(-),n(+))),A}),
+                 qq(name::{[John:NP],B},
+                    {subject,B})])))
+[existential::{[tense(present)],A},
+ existential::{(simple,A),B},
+ name::{[John:NP],C},
+ indefinite::{[fool>singular],D}]
+exists(A::{[tense(present)],A},
+       exists(B::{(simple,A),B},
+              name(C::{[John:NP],C},
+                   exists(D::{[fool>singular],D},
+                          [[be,
+                            {predication(xbar(v(-),n(+))),D},
+                            {subject,C}],
+                           B]))))
+[]
+claim(exists(A::{[tense(present)],A},
+             exists(B::{(simple,A),B},
+                    name(C::{[John:NP],C},
+                         exists(D::{[fool>singular],D},
+                                [[be,
+                                  {predication(xbar(v(-),n(+))),D},
+                                  {subject,C}],
+                                 B])))))
+claim(({[tense(present)],#0}
+        & ({(simple,#0),#1}
+            & name(A::{[John:NP],A},
+                   ({[fool>singular],#2}
+                     & [[be,
+                         {predication(xbar(v(-),n(+))),#2},
+                         {subject,A}],
+                        #1])))))
+X = ['.',arg(claim,*time(tense(present),aspect(simple),aux(-),def(-),finite(tensed)),[[[be],arg(predication(xbar(v(-),n(+))),*indefinite,[fool>singular,modifier(identity,a)])],arg(subject,*name,['John':'NP'])])],
+Y = claim(opaque(qq([time(tense(present),aspect(simple),aux(-),def(-),finite(tensed))],[be,qq(indefinite::{[fool>singular],'#2'},{predication(xbar(v(...),n(...))),'#2'}),qq(name::{['John':'NP'],_A},{subject,_A})]))),
+Z = claim(exists('#0'::{[tense(present)],'#0'},exists('#1'::{(simple,'#0'),'#1'},name(_A::{['John':'NP'],_A},exists('#2'::{[fool>singular],'#2'},[[be,{predication(...),'#2'},{subject,_A}],'#1']))))),
+QFF = claim({[tense(present)],'#0'}&{(simple,'#0'),'#1'}&name(_A::{['John':'NP'],_A},{[fool>singular],'#2'}&[[be,{predication(...),'#2'},{subject,_A}],'#1'])) ? 
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 10 msec 840 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 20 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec -888 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 168 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 10 msec 8 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 796-824, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 40 msec 3496 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 0 msec -1624 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec -2072 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 10 msec 40 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 0 msec -152 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 0 msec -408 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 1256 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 0 msec -344 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 10 msec -856 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 40 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 424 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec -344 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec -472 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 10 msec 14960 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 505664 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 110 msec -312 bytes
+yes
+| ?- parseOne('John was sleeping.', X), convSteps(X, Y),fixQuants(Y,Z), qff(Z, QFF), pretty(QFF).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John was a fool.}}\label{NF: John was a fool.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *([time(tense(past), aspect(simple), aux(-), def(-), finite(tensed))]),
+     [be,
+      arg(predication(xbar(v(-), n(+))),
+          *(indefinite),
+          [fool>singular]),
+      arg(subject, *(name), [John:NP])])]
+claim(opaque(qq([time(tense(past),
+                      aspect(simple),
+                      aux(-),
+                      def(-),
+                      finite(tensed))],
+                [be,
+                 qq(indefinite::{[fool>singular],A},
+                    {predication(xbar(v(-),n(+))),A}),
+                 qq(name::{[John:NP],B},
+                    {subject,B})])))
+[existential::{[tense(past)],A},
+ existential::{(simple,A),B},
+ name::{[John:NP],C},
+ indefinite::{[fool>singular],D}]
+exists(A::{[tense(past)],A},
+       exists(B::{(simple,A),B},
+              name(C::{[John:NP],C},
+                   exists(D::{[fool>singular],D},
+                          [[be,
+                            {predication(xbar(v(-),n(+))),D},
+                            {subject,C}],
+                           B]))))
+[]
+claim(exists(A::{[tense(past)],A},
+             exists(B::{(simple,A),B},
+                    name(C::{[John:NP],C},
+                         exists(D::{[fool>singular],D},
+                                [[be,
+                                  {predication(xbar(v(-),n(+))),D},
+                                  {subject,C}],
+                                 B])))))
+claim(({[tense(past)],#0}
+        & ({(simple,#0),#1}
+            & name(A::{[John:NP],A},
+                   ({[fool>singular],#2}
+                     & [[be,
+                         {predication(xbar(v(-),n(+))),#2},
+                         {subject,A}],
+                        #1])))))
+X = ['.',arg(claim,*time(tense(past),aspect(simple),aux(-),def(-),finite(tensed)),[[[be],arg(predication(xbar(v(-),n(+))),*indefinite,[fool>singular,modifier(identity,a)])],arg(subject,*name,['John':'NP'])])],
+Y = claim(opaque(qq([time(tense(past),aspect(simple),aux(-),def(-),finite(tensed))],[be,qq(indefinite::{[fool>singular],'#2'},{predication(xbar(v(...),n(...))),'#2'}),qq(name::{['John':'NP'],_A},{subject,_A})]))),
+Z = claim(exists('#0'::{[tense(past)],'#0'},exists('#1'::{(simple,'#0'),'#1'},name(_A::{['John':'NP'],_A},exists('#2'::{[fool>singular],'#2'},[[be,{predication(...),'#2'},{subject,_A}],'#1']))))),
+QFF = claim({[tense(past)],'#0'}&{(simple,'#0'),'#1'}&name(_A::{['John':'NP'],_A},{[fool>singular],'#2'}&[[be,{predication(...),'#2'},{subject,_A}],'#1'])) ? 
+yes
+| ?- parseOne('John was sleeping.', X), convSteps(X, Y),fixQuants(Y,Z), qff(Z, QFF), pretty(QFF).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John was sleeping.}}\label{NF: John was sleeping.}
+\end{figure}
+
+[.,
+ arg(claim,
+     *([time(tense(past), aspect(simple), aux(+), def(+), finite(tensed)),
+        time(tense(present),
+             aspect(prog),
+             aux(-),
+             def(A),
+             finite(participle))]),
+     [sleep, arg(subject, *(name), [John:NP])])]
+claim(opaque(qq([time(tense(past),
+                      aspect(simple),
+                      aux(+),
+                      def(+),
+                      finite(tensed)),
+                 time(tense(present),
+                      aspect(prog),
+                      aux(-),
+                      def(A),
+                      finite(participle))],
+                [sleep,
+                 qq(name::{[John:NP],B},
+                    {subject,B})])))
+[referential::{tense(past),A},
+ referential::{(prog,A),B},
+ name::{[John:NP],C}]
+the(A::{tense(past),A},
+    the(B::{(prog,A),B},
+        name(C::{[John:NP],C},
+             [[sleep, {subject,C}], B])))
+[]
+claim(the(A::{tense(past),A},
+          the(B::{(prog,A),B},
+              name(C::{[John:NP],C},
+                   [[sleep, {subject,C}], B]))))
+claim(name(A::{[John:NP],A},
+           [[sleep, {subject,A}],
+            ref(B, {(prog,ref(C,{tense(past),C})),B})]))
+X = ['.',arg(claim,*time(tense(past),aspect(simple),aux(+),def(+),finite(tensed)),[[be],arg(_A,*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle)),[sleep>ing,arg(subject,*name,['John':'NP'])])])],
+Y = claim(opaque(qq([time(tense(past),aspect(simple),aux(+),def(+),finite(tensed)),time(tense(present),aspect(prog),aux(-),def(_B),finite(participle))],[sleep,qq(name::{['John':'NP'],_C},{subject,_C})]))),
+Z = claim(the(_D::{tense(past),_D},the(_E::{(prog,_D),_E},name(_C::{['John':'NP'],_C},[[sleep,{subject,_C}],_E])))),
+QFF = claim(name(_C::{['John':'NP'],_C},[[sleep,{subject,_C}],ref(_E,{(prog,ref(_D,{tense(...),_D})),_E})])) ? 
+yes
+| ?- 

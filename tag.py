@@ -45,12 +45,12 @@ whether it's connected to the internet
 """
 
 if usingMac():
-    BNC = '/Users/ramsay/BNC'
+    BNC = '/Users/ramsay/CORPORA/BNC'
 else:
     BNC = '/opt/info/courses/COMP34411/PROGRAMS/BNC'
-UDT = "/Library/WebServer/CGI-Executables/COMP34411/ud-treebanks-v1.1"
-ENGLISH = "%s/UD_English"%(UDT)
-ARABIC = "100Kunstemmed.csv"
+UDT = "ud-treebanks-v1.1"
+ENGLISH = "UD_English"
+ARABIC = "100K.csv"
 
 """
 I'm very lazily storing word:tag pairs as either two elements lists or
@@ -305,33 +305,31 @@ def readcorpus(top, P=P):
                     for i in range(4):
                         yield "%s\t%s"%(BOUNDARYMARKER, BOUNDARYMARKER)
                 else:
+                    l = SPLIT.split(l)
+                    if len(l) > 3:
+                        form = l[1]
+                        tag = l[3]
+                    else:
+                        print l
+                        XXX
+                    if len(form) > 1:
+                        form = form.replace("!", "")
                     try:
-                        if top.endswith(".conllu"):
-                            l = l.split()
-                            tag = l[4]
-                            form = l[2]
+                        tag = DASHTAGS[tag]
+                    except:
+                        pass
+                    if "ndash;" in form and tag == "CRD":
+                        f1, f2 = form.split("ndash;")
+                        yield "%s\t%s"%("CRD", f1)
+                        yield "DASH\t-"
+                        yield "%s\t%s"%("CRD", f2)
+                    else:
+                        m = XBODY.match(form)
+                        if m:
+                            yield("AT0\t%s"%(m.group("det")))
+                            yield("NN1\t%s"%(m.group("noun")))
                         else:
-                            tag, form = SPLIT.split(l)
-                        try:
-                            tag = DASHTAGS[tag]
-                        except:
-                            pass
-                        if "ndash;" in form and tag == "CRD":
-                            f1, f2 = form.split("ndash;")
-                            yield "%s\t%s"%("CRD", f1)
-                            yield "DASH\t-"
-                            yield "%s\t%s"%("CRD", f2)
-                        else:
-                            m = XBODY.match(form)
-                            if m:
-                                yield("AT0\t%s"%(m.group("det")))
-                                yield("NN1\t%s"%(m.group("noun")))
-                            else:
-                                yield "%s\t%s"%(tag, form)
-                    except Exception as e:
-                        if isinstance(e, GeneratorExit):
-                            raise e
-                        yield "%s\t%s"%(BOUNDARYMARKER, BOUNDARYMARKER)
+                            yield "%s\t%s"%(tag, form)
 
 def knownWord(w, d):
     return wn.morphy(w)
@@ -364,7 +362,7 @@ SPECIALS = {
     }
 
 ALTFORMS = {"'s" :"APOS"}
-def normalform(form, tag, altforms=ALTFORMS, mergetags={}):
+def normalform(form, tag, altforms=ALTFORMS):
     if "http" in form or "HTTP" in form:
         form = "http"
     if form.startswith("@") and len(form) > 1:
@@ -404,7 +402,7 @@ class BASETAGGER(TAGGER):
 
     sentenceSplitter = re.compile('<p><a name="\d*">')
     
-    def __init__(self, corpus=BNC, N=sys.maxint, subcorpus="", testsize=1000, tagsize=1000, preprocess=(lambda x, y: (x, y)), ambiguoustags=False, specials=SPECIALS, mergetags={}):
+    def __init__(self, corpus=BNC, N=None, subcorpus="", testsize=1000, tagsize=1000, preprocess=(lambda x, y: (x, y)), ambiguoustags=False, specials=SPECIALS, mergetags={}):
         if not subcorpus == "":
             if not subcorpus[0] == "/":
                 subcorpus = "/%s"%(subcorpus)
@@ -428,6 +426,11 @@ class BASETAGGER(TAGGER):
         self.training = []
         tagcounter = 0
         lastTag = "SS"
+        if not N is None:
+            try:
+                N = len(corpus)-1
+            except:
+                pass
         window = []
         prev1 = False
         if isinstance(testsize, list):
@@ -435,12 +438,14 @@ class BASETAGGER(TAGGER):
         else:
             self.testset = []
         startsent = False
-        for word in corpus:
-            if len(self.training) == N:
+        for i, word in enumerate(corpus):
+            if i == N:
                 break
-            i = len(self.training)+len(self.testset)
             if METERING and i%5000 == 0:
-                print "Collecting words: %.2f %s %s"%(float(i)/float(N), i, N)
+                if N:
+                    print "Collecting words: %.2f %s %s"%(float(i)/float(N), i, N)
+                else:
+                    print "Collecting words: %s"%(i)
             try:
                 tag, form = word.tag, word.form
             except:
@@ -457,17 +462,15 @@ class BASETAGGER(TAGGER):
                         except:
                             continue
             tag = tag.upper()
-            form, tag = normalform(form, tag, mergetags=mergetags)
+            form, tag = normalform(form, tag)
             if tag == "UNC":
                 continue
-            if tag[0] in "VNA":
-                tag = tag[:2]
             if not form == "I" and (form.istitle() or form.isupper()) and knownWord(form.lower(), self.lexicon) and not tag == "NP":
                 form = form.lower()
             elif tag == "NP" and form.islower():
                 tag = "NN"
             word = [form, tag]
-            if len(self.testset) < testsize:
+            if isinstance(testsize, int) and i < testsize:
                 self.testset.append(word)
                 continue
             self.training.append(word)
@@ -483,13 +486,27 @@ class BASETAGGER(TAGGER):
                   incTableN(["!!!".join([window[0][TAG], window[2][TAG]]), window[1][TAG]], self.trigrams)
                   incTableN([window[1][TAG], window[2][TAG]], self.ftransitions)
                   incTableN([window[2][TAG], window[1][TAG]], self.btransitions)
+                  """
+                  if i > 10000 and sum(self.lexicon[window[1][FORM]].values())*2000 > i:
+                      incTableN([window[1][FORM], window[2][TAG]], self.ftransitions)
+                  """
             if len(window) == 3:
                 window = window[1:]+[word]
             else:
                 window += [word]
             startsent = (form == BOUNDARYMARKER)
+        """
+        l = []
+        for w in self.ftransitions.keys():
+            if not w.isupper() and w in self.lexicon:
+                l.append((sum(self.lexicon[w].values()), w))
+        l.sort()
+        for w in l[:-100]:
+            del self.ftransitions[w[1]]
+        """
         normalise2(self.lexicon)
         normalise2(self.trigrams)
+        self.N = i
         return
 
     def default(self, word):
@@ -498,7 +515,7 @@ class BASETAGGER(TAGGER):
         else:
             return {"NN":1}
         
-    def tag(self, text, justTags=True, out=False):
+    def tag(self, text, justTags=True):
         tags = []
         for word in fixInput(text):
             tags.append(tagword(word, self.lexicon, usePrefix=self.usePrefix, useSuffix=self.useSuffix))
@@ -514,7 +531,7 @@ class CTAGGER(TAGGER):
         self.lexicon = basetagger.lexicon
         self.trigrams = basetagger.trigrams
             
-    def tag(self, text, justTags=True, out=False):
+    def tag(self, text, justTags=True):
         tags = [sortTable(t) for t in self.basetagger.tag(text, justTags=False)]
         contexts = []
         for i in range(len(tags)):
@@ -531,7 +548,8 @@ class CTAGGER(TAGGER):
                 ctag = {}
                 for t, n in tag:
                     try:
-                        ctag[t] = context[t]*n
+                        v = context[t]*n
+                        ctag[t] = v
                     except:
                         pass
                 if ctag == {}:
@@ -920,6 +938,7 @@ def mxl(text, lexicon, ftransitions, btransitions, write=sys.stdout.write):
             print i, text[i-1:i+1]
             raise Exception("XXX")
         if write:
+            print text[1:-1]
             write(mxlnetwork(text[1:-1], itags[1:-1], probs))
     if write and not write==sys.stdout.write:
         write(r"""
@@ -963,8 +982,8 @@ class COMBINEDTAGGER(TAGGER):
         self.taggers = taggers
         self.lexicon = taggers[0].lexicon
 
-    def tag(self, txt, justTags=True, out=False):
-        alltagged = [tagger.tag(txt, out=out) for tagger in self.taggers]
+    def tag(self, txt, justTags=True):
+        alltagged = [tagger.tag(txt) for tagger in self.taggers]
         tagged1 = []
         for i in range(len(alltagged[0])):
             tags = {}
@@ -992,7 +1011,7 @@ class BACKOFFTAGGER(TAGGER):
         else:
             self.backoff = BACKOFFTAGGER(taggers[1:])
 
-    def tag(self, l, choices=False, out=False):
+    def tag(self, l, choices=False):
         if isstring(l):
             l = l.strip()
             if ' ' in l:
@@ -1005,7 +1024,7 @@ class BACKOFFTAGGER(TAGGER):
         else:
             return [self.tag(x, choices) for x in l]
         
-def testTagger(testset, tagger, showTest=False, out=sys.stdout):
+def testTagger(testset, tagger, showTest=False):
     b = []
     right = 0.0
     total = 0.0
@@ -1013,7 +1032,7 @@ def testTagger(testset, tagger, showTest=False, out=sys.stdout):
     tagger.wrong = {}
     tagger.alltags = {}
     tagger.tagged = {}
-    tagged = tagger.tag(testset, out=out)
+    tagged = tagger.tag(testset)
     alltagged = zip(tagged, testset)
     for tag0, test in alltagged:
         tagTest = test[TAG]
@@ -1058,16 +1077,20 @@ def showTest(alltagged):
 def fullTest(T=5000, i=10000, N=2000000, corpus=BNC, subcorpus="", mergetags={}, timing=False):
     METERING = False
     alltaggers = []
-    sink = dummywriter()
-    taggertypes = [("base tagger", BASETAGGER), 
-                   ("vtagger", VTAGGER),
+    taggertypes = [("base tagger", BASETAGGER), ("vtagger", VTAGGER), 
                    # ("mtagger", MXLTAGGER), 
                    ("ctagger", CTAGGER)] 
     print "training size (K)%s\txtagger\tknown words\tlexicon\tftransitions\ttrigrams"%("\t".join([x[0] for x in taggertypes]))
     prev = 0
     while True:
         if timing: print "TRAINING"
-        btagger = BASETAGGER(corpus=corpus, subcorpus=subcorpus, testsize=T, N=i, mergetags=mergetags)
+        if isinstance(T, int):
+            j = i+T
+        else:
+            j = i
+        btagger = BASETAGGER(corpus=corpus, subcorpus=subcorpus, testsize=T, N=j, mergetags=mergetags)
+        if len(btagger.training) == prev:
+            break
         prev = len(btagger.training)
         btagger.unknown = 0
         others = [x[1](btagger) for x in taggertypes[1:]]
@@ -1077,11 +1100,11 @@ def fullTest(T=5000, i=10000, N=2000000, corpus=BNC, subcorpus="", mergetags={},
         if timing: print "TESTING"
         for t in taggers:
             t0 = now()
-            alltagged = testTagger(btagger.testset, t, out=sink)
+            alltagged = testTagger(btagger.testset, t)
             if timing: print "%s words/sec for %s"%(int(T/timeSince(t0)), t)
         f = "\t%.3f"*len(taggers)
-        print ("%s"+f+"\t%.3f"+("\t%s"*3))%tuple([len(btagger.training)/1000]+[t.score for t in taggers]+[1-float(btagger.unknown)/len(btagger.testset), len(btagger.lexicon), len(btagger.ftransitions), len(btagger.trigrams)])
-        if i == N or len(btagger.training) < i:
+        print ("%s"+f+"\t%.3f"+("\t%s"*3))%tuple([i/1000]+[t.score for t in taggers]+[1-float(btagger.unknown)/len(btagger.testset), leaves(btagger.lexicon), leaves(btagger.ftransitions), leaves(btagger.trigrams)])
+        if i == N:
             break
         i = 2*i
         if i > N:
@@ -1185,7 +1208,7 @@ def unstem(l, N=-1, out=False):
                 k = k.strip()
                 if k == "":
                     continue
-                elif k == BOUNDARYMARKER:
+                elif k == "**************************":
                     if out:
                         write(k+"\n")
                     else:
@@ -1357,6 +1380,7 @@ def readDets(corpus=BNC, N=1000000):
                     tags[form0][form1] = []
                 if len(tags[form0][form1]) < 20:
                     tags[form0][form1].append(window)
+                    print window
             window = window[1:]+[(form, tag)]
         N -= 1
         if N < 0:

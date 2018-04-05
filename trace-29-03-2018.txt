@@ -1,0 +1,2406 @@
+SICStus 3.12.8 (i386-darwin-8.9.1): Tue May  8 13:13:57 CEST 2007
+Licensed to man.ac.uk
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/setup.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po...
+%  module charsio imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/charsio.bundle in module charsio
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po in module charsio, 10 msec 8512 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/setup.pl in module user, 10 msec 11560 bytes
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po...
+%  module terms imported into user
+%   loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po...
+%   module assoc imported into terms
+%    loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po...
+%    module lists imported into assoc
+%    loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po in module lists, 0 msec 11328 bytes
+%   loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po in module assoc, 0 msec 22728 bytes
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po in module terms, 0 msec 31128 bytes
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 10 msec 59824 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 20 msec 21652 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec 13344 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec 1752 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 16496 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po...
+%  module sockets imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/sockets.bundle in module sockets
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po in module sockets, 0 msec 21776 bytes
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 10 msec 23328 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec 8976 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec 6488 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 797-825, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 40 msec 185976 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+! 'target@sign(structure(_9731,_9732,_9733,_9734,_9735,_9736,_9737,_9738,_9739,_9740,language(_9729),_9742,_9743),syntax(args([]),tag(negationMarker),head(cat(negation),_7699,_7701,_7703,_7705,_7707,_7709,_7711),_7728,_7730,_7732,_7734,_7736,mod(target(sign(structure(_9690,position(_9683,_9684,_9685,_9686,_9687,_9688),_9692,_9693,_9694,_9695,form(_9680,_9681),_9697,zero(_9678),_9699,language(_9729),_9701,_9702),syntax(args([]),_9667,head(cat(xbar(v(+),n(-))),_14835,_14836,_14837,_14838,_14839,_14840,_14841),spec(_9660,_9661,_9662,_9663,_9664),_9670,_9671,nonlocal(_9656,_9657,_9658),_9673,_9674),_9706,_9707,_9708,_9709,_9710,_9711)),result(sign(structure(_9631,position(_9624,_9625,_9626,_9627,_9628,_9629),_9633,_9634,_9635,_9636,form(_9621,_9622),_9638,_9639,_9640,language(_9729),_9642,_9643),syntax(args([]),_9667,head(cat(xbar(v(+),n(-))),_14835,_14836,_14837,_14838,_14839,_14840,_14841),spec(_9660,_9661,_9662,_9663,_9664),_9670,_9671,nonlocal(_9605,_9657,_9658),_9673,_9674),_9706,_9707,_9708,_9709,_9710,_9711)),_9717)),_7753,semantics(_9220,theta(negation),modifier(negated),_9232),_7757,_7759,_7761,_7763)<>tensedForm could not be executed\n'
+! goal:  user:term_expansion((not(_6309):-fail,cat@_6309--negation,tag@_6309--negationMarker,modifier@_6309--negated,_6309<>[fulladjunct|...],target@_6309<>[s|...]),_7191)
+! Approximate lines: 1-8, file: '/Users/ramsay/Documents/GitHub/dgParser/negation.pl'
+! 'sign(_8905,syntax(args([]),_8896,head(cat(xbar(v(+),n(-))),_8885,_8886,_8887,_8888,_8889,_8890,_8891),_8898,_8899,_8900,_8901,_8902,_8903),_8907,semantics(_9275,theta(negComp),_9277,_9278),_8909,_8910,_8911,_8912)<>tensedForm could not be executed\n'
+! goal:  user:term_expansion((not(_6309):-_6309<>[v],-(target@_6309),args@_6309--[_6462],_6462<>[s,theta(negComp),tensedForm]),_7014)
+! Approximate lines: 8-13, file: '/Users/ramsay/Documents/GitHub/dgParser/negation.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec 3680 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 10 msec 28096 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec 1336 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 0 msec 36152 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec 1648 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 20 msec 24288 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec 1144 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec 12304 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec 1944 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 0 msec 10736 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 70784 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 10 msec 10096 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec 7056 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec 6120 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 12536 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 20 msec 35616 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+* abolish(user:(spellingRule/3)) - no matching predicate
+* Approximate lines: 113-115, file: '/Users/ramsay/Documents/GitHub/dgParser/spelling.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec 12696 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec 5400 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 0 msec 13776 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 509416 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 100 msec 1081624 bytes
+yes
+| ?- | ?- parseOne('no man is an island.',X),convSteps(X,Y),fixQuants(Y,NF).
+! Syntax error
+! | cannot start an expression
+! in line 99
+! <<here>>
+! | ?- parseOne ( 'no man is an island.' , X ) , convSteps ( X , Y ) , fixQuants ( Y , NF ) . 
+| ?- parseOne('no man is an island.',X),convSteps(X,Y),fixQuants(Y,NF).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{no man is an island.}}\label{NF: no man is an island.}
+\end{figure}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular]),
+         arg(subject, *(no), [man>singular])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island>singular],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man>singular],B}, {subject,B})])))
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular]),
+         arg(subject, *(no), [man])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island>singular],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man],B}, {subject,B})])))
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))), *(indefinite), [island]),
+         arg(subject, *(no), [man>singular])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man>singular],B}, {subject,B})])))
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))), *(indefinite), [island]),
+         arg(subject, *(no), [man])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man],B}, {subject,B})])))
+no
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 1360 bytes
+yes
+| ?- doItAll('no man is an island.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{no man is an island.}}\label{NF: no man is an island.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[[be],
+       arg(predication(xbar(v(-), n(+))),
+           *(indefinite),
+           [island>singular, modifier(identity, an)])],
+      arg(subject, *(no), [man>singular, modifier(identity, no)])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular]),
+         arg(subject, *(no), [man>singular])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island>singular],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man>singular],B}, {subject,B})])))
+[claim,
+ existential::{[tense(present)],A},
+ existential::{(simple,A),B},
+ no::{[man>singular],C},
+ indefinite::{[island>singular],D},
+ universal::{(member,B),E}]
+claim(exists(A::{[tense(present)],A},
+             exists(B::{(simple,A),B},
+                    no(C::{[man>singular],C},
+                       exists(D::{[island>singular],D},
+                              forall(E::{(member,B),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,C}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(exists(A::{[tense(present)],A},
+             exists(B::{(simple,A),B},
+                    no(C::{[man>singular],C},
+                       exists(D::{[island>singular],D},
+                              forall(E::{(member,B),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,C}],
+                                      E]))))))
+\end{Verbatim}
+
+claim(({[tense(present)],#0}
+        & ({(simple,#0),#1}
+            & ({[man>singular],A}
+                => (({[island>singular],B}
+                      & ({(member,#1),#2(B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),B},
+                               {subject,A}],
+                              #2(B, A)]))
+                     => absurd)))))
+ Skip anchor claim({[tense(present)],#0}&{(simple,#0),#1}&{[man>singular],_182729}=>(({[island>singular],_168347}&{(member,#1),#2(_168347,_182729)}=>[[be,{predication(xbar(v(-),n(+))),_168347},{subject,_182729}],#2(_168347,_182729)])=>absurd))
+
+claim(({[tense(present)],#0}
+        & ({(simple,#0),#1}
+            & ({[man>singular],A}
+                => (({[island>singular],B}
+                      & ({(member,#1),#2(B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),B},
+                               {subject,A}],
+                              #2(B, A)]))
+                     => absurd)))))
+({[tense(present)],#0}
+  & ({(simple,#0),#1}
+      & ({[man>singular],A}
+          => (({[island>singular],B}
+                & ({(member,#1),#2(B,A)}
+                    => [[be,
+                         {predication(xbar(v(-),n(+))),B},
+                         {subject,A}],
+                        #2(B, A)]))
+               => absurd))))
+{[tense(present)],#0}&{(simple,#0),#1}&{[man>singular],_182729}=>(({[island>singular],_168347}&{(member,#1),#2(_168347,_182729)}=>[[be,{predication(xbar(v(-),n(+))),_168347},{subject,_182729}],#2(_168347,_182729)])=>absurd) added to knowledge base 
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular]),
+         arg(subject, *(no), [man])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island>singular],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man],B}, {subject,B})])))
+[claim,
+ existential::{[tense(present)],A},
+ existential::{(simple,A),B},
+ no::{[man],C},
+ indefinite::{[island>singular],D},
+ universal::{(member,B),E}]
+claim(exists(A::{[tense(present)],A},
+             exists(B::{(simple,A),B},
+                    no(C::{[man],C},
+                       exists(D::{[island>singular],D},
+                              forall(E::{(member,B),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,C}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(exists(A::{[tense(present)],A},
+             exists(B::{(simple,A),B},
+                    no(C::{[man],C},
+                       exists(D::{[island>singular],D},
+                              forall(E::{(member,B),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,C}],
+                                      E]))))))
+\end{Verbatim}
+
+claim(({[tense(present)],#3}
+        & ({(simple,#3),#4}
+            & ({[man],A}
+                => (({[island>singular],B}
+                      & ({(member,#4),#5(B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),B},
+                               {subject,A}],
+                              #5(B, A)]))
+                     => absurd)))))
+ Skip anchor claim({[tense(present)],#3}&{(simple,#3),#4}&{[man],_182242}=>(({[island>singular],_168346}&{(member,#4),#5(_168346,_182242)}=>[[be,{predication(xbar(v(-),n(+))),_168346},{subject,_182242}],#5(_168346,_182242)])=>absurd))
+
+claim(({[tense(present)],#3}
+        & ({(simple,#3),#4}
+            & ({[man],A}
+                => (({[island>singular],B}
+                      & ({(member,#4),#5(B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),B},
+                               {subject,A}],
+                              #5(B, A)]))
+                     => absurd)))))
+({[tense(present)],#3}
+  & ({(simple,#3),#4}
+      & ({[man],A}
+          => (({[island>singular],B}
+                & ({(member,#4),#5(B,A)}
+                    => [[be,
+                         {predication(xbar(v(-),n(+))),B},
+                         {subject,A}],
+                        #5(B, A)]))
+               => absurd))))
+{[tense(present)],#3}&{(simple,#3),#4}&{[man],_182242}=>(({[island>singular],_168346}&{(member,#4),#5(_168346,_182242)}=>[[be,{predication(xbar(v(-),n(+))),_168346},{subject,_182242}],#5(_168346,_182242)])=>absurd) added to knowledge base 
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))), *(indefinite), [island]),
+         arg(subject, *(no), [man>singular])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man>singular],B}, {subject,B})])))
+[claim,
+ existential::{[tense(present)],A},
+ existential::{(simple,A),B},
+ no::{[man>singular],C},
+ indefinite::{[island],D},
+ universal::{(member,B),E}]
+claim(exists(A::{[tense(present)],A},
+             exists(B::{(simple,A),B},
+                    no(C::{[man>singular],C},
+                       exists(D::{[island],D},
+                              forall(E::{(member,B),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,C}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(exists(A::{[tense(present)],A},
+             exists(B::{(simple,A),B},
+                    no(C::{[man>singular],C},
+                       exists(D::{[island],D},
+                              forall(E::{(member,B),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,C}],
+                                      E]))))))
+\end{Verbatim}
+
+claim(({[tense(present)],#6}
+        & ({(simple,#6),#7}
+            & ({[man>singular],A}
+                => (({[island],B}
+                      & ({(member,#7),#8(B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),B},
+                               {subject,A}],
+                              #8(B, A)]))
+                     => absurd)))))
+ Skip anchor claim({[tense(present)],#6}&{(simple,#6),#7}&{[man>singular],_182242}=>(({[island],_168346}&{(member,#7),#8(_168346,_182242)}=>[[be,{predication(xbar(v(-),n(+))),_168346},{subject,_182242}],#8(_168346,_182242)])=>absurd))
+
+claim(({[tense(present)],#6}
+        & ({(simple,#6),#7}
+            & ({[man>singular],A}
+                => (({[island],B}
+                      & ({(member,#7),#8(B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),B},
+                               {subject,A}],
+                              #8(B, A)]))
+                     => absurd)))))
+({[tense(present)],#6}
+  & ({(simple,#6),#7}
+      & ({[man>singular],A}
+          => (({[island],B}
+                & ({(member,#7),#8(B,A)}
+                    => [[be,
+                         {predication(xbar(v(-),n(+))),B},
+                         {subject,A}],
+                        #8(B, A)]))
+               => absurd))))
+{[tense(present)],#6}&{(simple,#6),#7}&{[man>singular],_182242}=>(({[island],_168346}&{(member,#7),#8(_168346,_182242)}=>[[be,{predication(xbar(v(-),n(+))),_168346},{subject,_182242}],#8(_168346,_182242)])=>absurd) added to knowledge base 
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))), *(indefinite), [island]),
+         arg(subject, *(no), [man])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man],B}, {subject,B})])))
+[claim,
+ existential::{[tense(present)],A},
+ existential::{(simple,A),B},
+ no::{[man],C},
+ indefinite::{[island],D},
+ universal::{(member,B),E}]
+claim(exists(A::{[tense(present)],A},
+             exists(B::{(simple,A),B},
+                    no(C::{[man],C},
+                       exists(D::{[island],D},
+                              forall(E::{(member,B),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,C}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(exists(A::{[tense(present)],A},
+             exists(B::{(simple,A),B},
+                    no(C::{[man],C},
+                       exists(D::{[island],D},
+                              forall(E::{(member,B),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,C}],
+                                      E]))))))
+\end{Verbatim}
+
+claim(({[tense(present)],#9}
+        & ({(simple,#9),#10}
+            & ({[man],A}
+                => (({[island],B}
+                      & ({(member,#10),#11(B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),B},
+                               {subject,A}],
+                              #11(B, A)]))
+                     => absurd)))))
+ Skip anchor claim({[tense(present)],#9}&{(simple,#9),#10}&{[man],_181748}=>(({[island],_168345}&{(member,#10),#11(_168345,_181748)}=>[[be,{predication(xbar(v(-),n(+))),_168345},{subject,_181748}],#11(_168345,_181748)])=>absurd))
+
+claim(({[tense(present)],#9}
+        & ({(simple,#9),#10}
+            & ({[man],A}
+                => (({[island],B}
+                      & ({(member,#10),#11(B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),B},
+                               {subject,A}],
+                              #11(B, A)]))
+                     => absurd)))))
+({[tense(present)],#9}
+  & ({(simple,#9),#10}
+      & ({[man],A}
+          => (({[island],B}
+                & ({(member,#10),#11(B,A)}
+                    => [[be,
+                         {predication(xbar(v(-),n(+))),B},
+                         {subject,A}],
+                        #11(B, A)]))
+               => absurd))))
+{[tense(present)],#9}&{(simple,#9),#10}&{[man],_181748}=>(({[island],_168345}&{(member,#10),#11(_168345,_181748)}=>[[be,{predication(xbar(v(-),n(+))),_168345},{subject,_181748}],#11(_168345,_181748)])=>absurd) added to knowledge base 
+no
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -80 bytes
+yes
+| ?- doItAll('I see no ships.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{no man is an island.}}\label{NF: no man is an island.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[[be],
+       arg(predication(xbar(v(-), n(+))),
+           *(indefinite),
+           [island>singular, modifier(identity, an)])],
+      arg(subject, *(no), [man>singular, modifier(identity, no)])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular]),
+         arg(subject, *(no), [man>singular])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island>singular],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man>singular],B}, {subject,B})])))
+[claim,
+ no::{[man>singular],A},
+ existential::{[tense(present)],B},
+ existential::{(simple,B),C},
+ indefinite::{[island>singular],D},
+ universal::{(member,C),E}]
+claim(no(A::{[man>singular],A},
+         exists(B::{[tense(present)],B},
+                exists(C::{(simple,B),C},
+                       exists(D::{[island>singular],D},
+                              forall(E::{(member,C),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(no(A::{[man>singular],A},
+         exists(B::{[tense(present)],B},
+                exists(C::{(simple,B),C},
+                       exists(D::{[island>singular],D},
+                              forall(E::{(member,C),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+claim(({[man>singular],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({[island>singular],D}
+                      & ({(member,C),#0(D,C,B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),D},
+                               {subject,A}],
+                              #0(D, C, B, A)]))))
+             => absurd)))
+ Skip anchor claim({[man>singular],_179350}=>(({[tense(present)],_168168}&{(simple,_168168),_168157}&{[island>singular],_167141}&{(member,_168157),#0(_167141,_168157,_168168,_179350)}=>[[be,{predication(xbar(v(-),n(+))),_167141},{subject,_179350}],#0(_167141,_168157,_168168,_179350)])=>absurd))
+
+claim(({[man>singular],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({[island>singular],D}
+                      & ({(member,C),#0(D,C,B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),D},
+                               {subject,A}],
+                              #0(D, C, B, A)]))))
+             => absurd)))
+({[man>singular],A}
+  => (({[tense(present)],B}
+        & ({(simple,B),C}
+            & ({[island>singular],D}
+                & ({(member,C),#0(D,C,B,A)}
+                    => [[be,
+                         {predication(xbar(v(-),n(+))),D},
+                         {subject,A}],
+                        #0(D, C, B, A)]))))
+       => absurd))
+{[man>singular],_179350}=>(({[tense(present)],_168168}&{(simple,_168168),_168157}&{[island>singular],_167141}&{(member,_168157),#0(_167141,_168157,_168168,_179350)}=>[[be,{predication(xbar(v(-),n(+))),_167141},{subject,_179350}],#0(_167141,_168157,_168168,_179350)])=>absurd) added to knowledge base 
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island>singular]),
+         arg(subject, *(no), [man])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island>singular],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man],B}, {subject,B})])))
+[claim,
+ no::{[man],A},
+ existential::{[tense(present)],B},
+ existential::{(simple,B),C},
+ indefinite::{[island>singular],D},
+ universal::{(member,C),E}]
+claim(no(A::{[man],A},
+         exists(B::{[tense(present)],B},
+                exists(C::{(simple,B),C},
+                       exists(D::{[island>singular],D},
+                              forall(E::{(member,C),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(no(A::{[man],A},
+         exists(B::{[tense(present)],B},
+                exists(C::{(simple,B),C},
+                       exists(D::{[island>singular],D},
+                              forall(E::{(member,C),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+claim(({[man],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({[island>singular],D}
+                      & ({(member,C),#1(D,C,B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),D},
+                               {subject,A}],
+                              #1(D, C, B, A)]))))
+             => absurd)))
+ Skip anchor claim({[man],_178890}=>(({[tense(present)],_167962}&{(simple,_167962),_167951}&{[island>singular],_167143}&{(member,_167951),#1(_167143,_167951,_167962,_178890)}=>[[be,{predication(xbar(v(-),n(+))),_167143},{subject,_178890}],#1(_167143,_167951,_167962,_178890)])=>absurd))
+
+claim(({[man],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({[island>singular],D}
+                      & ({(member,C),#1(D,C,B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),D},
+                               {subject,A}],
+                              #1(D, C, B, A)]))))
+             => absurd)))
+({[man],A}
+  => (({[tense(present)],B}
+        & ({(simple,B),C}
+            & ({[island>singular],D}
+                & ({(member,C),#1(D,C,B,A)}
+                    => [[be,
+                         {predication(xbar(v(-),n(+))),D},
+                         {subject,A}],
+                        #1(D, C, B, A)]))))
+       => absurd))
+{[man],_178890}=>(({[tense(present)],_167962}&{(simple,_167962),_167951}&{[island>singular],_167143}&{(member,_167951),#1(_167143,_167951,_167962,_178890)}=>[[be,{predication(xbar(v(-),n(+))),_167143},{subject,_178890}],#1(_167143,_167951,_167962,_178890)])=>absurd) added to knowledge base 
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man>singular, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))), *(indefinite), [island]),
+         arg(subject, *(no), [man>singular])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man>singular],B}, {subject,B})])))
+[claim,
+ no::{[man>singular],A},
+ existential::{[tense(present)],B},
+ existential::{(simple,B),C},
+ indefinite::{[island],D},
+ universal::{(member,C),E}]
+claim(no(A::{[man>singular],A},
+         exists(B::{[tense(present)],B},
+                exists(C::{(simple,B),C},
+                       exists(D::{[island],D},
+                              forall(E::{(member,C),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(no(A::{[man>singular],A},
+         exists(B::{[tense(present)],B},
+                exists(C::{(simple,B),C},
+                       exists(D::{[island],D},
+                              forall(E::{(member,C),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+claim(({[man>singular],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({[island],D}
+                      & ({(member,C),#2(D,C,B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),D},
+                               {subject,A}],
+                              #2(D, C, B, A)]))))
+             => absurd)))
+ Skip anchor claim({[man>singular],_178890}=>(({[tense(present)],_167962}&{(simple,_167962),_167951}&{[island],_167143}&{(member,_167951),#2(_167143,_167951,_167962,_178890)}=>[[be,{predication(xbar(v(-),n(+))),_167143},{subject,_178890}],#2(_167143,_167951,_167962,_178890)])=>absurd))
+
+claim(({[man>singular],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({[island],D}
+                      & ({(member,C),#2(D,C,B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),D},
+                               {subject,A}],
+                              #2(D, C, B, A)]))))
+             => absurd)))
+({[man>singular],A}
+  => (({[tense(present)],B}
+        & ({(simple,B),C}
+            & ({[island],D}
+                & ({(member,C),#2(D,C,B,A)}
+                    => [[be,
+                         {predication(xbar(v(-),n(+))),D},
+                         {subject,A}],
+                        #2(D, C, B, A)]))))
+       => absurd))
+{[man>singular],_178890}=>(({[tense(present)],_167962}&{(simple,_167962),_167951}&{[island],_167143}&{(member,_167951),#2(_167143,_167951,_167962,_178890)}=>[[be,{predication(xbar(v(-),n(+))),_167143},{subject,_178890}],#2(_167143,_167951,_167962,_178890)])=>absurd) added to knowledge base 
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))),
+             *(indefinite),
+             [island, modifier(identity, an)]),
+         arg(subject, *(no), [man, modifier(identity, no)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [be,
+         arg(predication(xbar(v(-), n(+))), *(indefinite), [island]),
+         arg(subject, *(no), [man])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [be,
+           qq(indefinite::{[island],A},
+              {predication(xbar(v(-),n(+))),A}),
+           qq(no::{[man],B}, {subject,B})])))
+[claim,
+ no::{[man],A},
+ existential::{[tense(present)],B},
+ existential::{(simple,B),C},
+ indefinite::{[island],D},
+ universal::{(member,C),E}]
+claim(no(A::{[man],A},
+         exists(B::{[tense(present)],B},
+                exists(C::{(simple,B),C},
+                       exists(D::{[island],D},
+                              forall(E::{(member,C),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(no(A::{[man],A},
+         exists(B::{[tense(present)],B},
+                exists(C::{(simple,B),C},
+                       exists(D::{[island],D},
+                              forall(E::{(member,C),E},
+                                     [[be,
+                                       {predication(xbar(v(-),n(+))),D},
+                                       {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+claim(({[man],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({[island],D}
+                      & ({(member,C),#3(D,C,B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),D},
+                               {subject,A}],
+                              #3(D, C, B, A)]))))
+             => absurd)))
+ Skip anchor claim({[man],_178430}=>(({[tense(present)],_167756}&{(simple,_167756),_167745}&{[island],_167145}&{(member,_167745),#3(_167145,_167745,_167756,_178430)}=>[[be,{predication(xbar(v(-),n(+))),_167145},{subject,_178430}],#3(_167145,_167745,_167756,_178430)])=>absurd))
+
+claim(({[man],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({[island],D}
+                      & ({(member,C),#3(D,C,B,A)}
+                          => [[be,
+                               {predication(xbar(v(-),n(+))),D},
+                               {subject,A}],
+                              #3(D, C, B, A)]))))
+             => absurd)))
+({[man],A}
+  => (({[tense(present)],B}
+        & ({(simple,B),C}
+            & ({[island],D}
+                & ({(member,C),#3(D,C,B,A)}
+                    => [[be,
+                         {predication(xbar(v(-),n(+))),D},
+                         {subject,A}],
+                        #3(D, C, B, A)]))))
+       => absurd))
+{[man],_178430}=>(({[tense(present)],_167756}&{(simple,_167756),_167745}&{[island],_167145}&{(member,_167745),#3(_167145,_167745,_167756,_178430)}=>[[be,{predication(xbar(v(-),n(+))),_167145},{subject,_178430}],#3(_167145,_167745,_167756,_178430)])=>absurd) added to knowledge base 
+no
+| ?- doItAll('John sees no cats.', P).
+! 'No such word'(ships)
+| ?- doItAll('I see no cats.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{I see no cats.}}\label{NF: I see no cats.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(A), aspect(B), aux(-), def(C), finite(tensed))),
+     [[see>,
+       arg(dobj, *(no), [cat>plural, modifier(identity, no)])],
+      arg(subject, *(proRef), I)])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(A), aspect(B), aux(-), def(C), finite(tensed))),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(proRef), I)])])
+ts([.,
+    arg(claim,
+        *([time(tense(A), aspect(B), aux(-), def(C), finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(proRef), I)])])
+nf([.,
+    arg(claim,
+        *([time(tense(A), aspect(B), aux(-), def(C), finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural]),
+         arg(subject, *(proRef), I)])])
+qlf(qq(claim,
+       qq([time(tense(A), aspect(B), aux(-), def(C), finite(tensed))],
+          [see,
+           qq(no::{[cat>plural],D}, {dobj,D}),
+           qq(proRef::{I,E}, {subject,E})])))
+no
+| ?- doItAll('John sees no cats.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John sees no cats.}}\label{NF: John sees no cats.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[see>s,
+       arg(dobj, *(no), [cat>plural, modifier(identity, no)])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [see,
+           qq(no::{[cat>plural],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ claim,
+ no::{[cat>plural],B},
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     claim(({[cat>plural],B}
+             => (({[tense(present)],C}
+                   & ({(simple,C),D}
+                       & ({(member,D),#0(D,C,B)}
+                           => [[see, {dobj,B}, {subject,A}],
+                               #0(D, C, B)])))
+                  => absurd))))
+Trying to anchor [John:NP]
+
+{[John:NP],#1} added to knowledge base 
+no
+| ?- listing(fact).
+* listing(user:fact) - no matching predicate
+yes
+| ?- listing(=>).
+* listing(user: =>) - no matching predicate
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+%  consulting /Users/ramsay/Documents/GitHub/dgParser/setup.pl...
+%  consulted /Users/ramsay/Documents/GitHub/dgParser/setup.pl in module user, 0 msec -472 bytes
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec 10304 bytes
+yes
+| ?- doItAll('John sees no cats.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John sees no cats.}}\label{NF: John sees no cats.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[see>s,
+       arg(dobj, *(no), [cat>plural, modifier(identity, no)])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [see,
+           qq(no::{[cat>plural],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ claim,
+ no::{[cat>plural],B},
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     claim(({[cat>plural],B}
+             => (({[tense(present)],C}
+                   & ({(simple,C),D}
+                       & ({(member,D),#0(D,C,B)}
+                           => [[see, {dobj,B}, {subject,A}],
+                               #0(D, C, B)])))
+                  => absurd))))
+Trying to anchor [John:NP]
+
+{[John:NP],#1} added to knowledge base 
+
+anchored [John:NP]#1
+
+ Skip anchor claim({[cat>plural],_404438}=>({[tense(present)],_393451}&({(simple,_393451),_393440}&({(member,_393440),#0(_393440,_393451,_404438)}=>[[see,{dobj,_404438},{subject,#1}],#0(_393440,_393451,_404438)]))=>absurd))
+
+claim(({[cat>plural],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({(member,C),#0(C,B,A)}
+                      => [[see, {dobj,A}, {subject,#1}],
+                          #0(C, B, A)])))
+             => absurd)))
+({[cat>plural],A}
+  => (({[tense(present)],B}
+        & ({(simple,B),C}
+            & ({(member,C),#0(C,B,A)}
+                => [[see, {dobj,A}, {subject,#1}],
+                    #0(C, B, A)])))
+       => absurd))
+{[cat>plural],_404438}=>({[tense(present)],_393451}&({(simple,_393451),_393440}&({(member,_393440),#0(_393440,_393451,_404438)}=>[[see,{dobj,_404438},{subject,#1}],#0(_393440,_393451,_404438)]))=>absurd) added to knowledge base 
+P = {[cat>plural],_A}=>({[tense(present)],_B}&({(simple,_B),_C}&({(member,_C),'#0'(_C,_B,_A)}=>[[see,{dobj,_A},{subject,'#1'}],'#0'(_C,_B,_A)]))=>absurd) ? 
+yes
+| ?- 
+Process prolog finished
+SICStus 3.12.8 (i386-darwin-8.9.1): Tue May  8 13:13:57 CEST 2007
+Licensed to man.ac.uk
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/setup.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po...
+%  module charsio imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/charsio.bundle in module charsio
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po in module charsio, 10 msec 8512 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/setup.pl in module user, 10 msec 11592 bytes
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po...
+%  module terms imported into user
+%   loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po...
+%   module assoc imported into terms
+%    loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po...
+%    module lists imported into assoc
+%    loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po in module lists, 0 msec 11328 bytes
+%   loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po in module assoc, 0 msec 22728 bytes
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po in module terms, 0 msec 31128 bytes
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 10 msec 59632 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 20 msec 21620 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec 13344 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec 1752 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 16496 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po...
+%  module sockets imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/sockets.bundle in module sockets
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po in module sockets, 0 msec 21776 bytes
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec 23320 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec 8976 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 10 msec 6488 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 797-825, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 30 msec 185976 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+! 'target@sign(structure(_8851,_8852,_8853,_8854,_8855,_8856,_8857,_8858,_8859,_8860,language(_8849),_8862,_8863),syntax(args([]),tag(negationMarker),head(cat(negation),_6834,_6836,_6838,_6840,_6842,_6844,_6846),_6863,_6865,_6867,_6869,_6871,mod(target(sign(structure(_8810,position(_8803,_8804,_8805,_8806,_8807,_8808),_8812,_8813,_8814,_8815,form(_8800,_8801),_8817,zero(_8798),_8819,language(_8849),_8821,_8822),syntax(args([]),_8787,head(cat(xbar(v(+),n(-))),_13940,_13941,_13942,_13943,_13944,_13945,_13946),spec(_8780,_8781,_8782,_8783,_8784),_8790,_8791,nonlocal(_8776,_8777,_8778),_8793,_8794),_8826,_8827,_8828,_8829,_8830,_8831)),result(sign(structure(_8751,position(_8744,_8745,_8746,_8747,_8748,_8749),_8753,_8754,_8755,_8756,form(_8741,_8742),_8758,_8759,_8760,language(_8849),_8762,_8763),syntax(args([]),_8787,head(cat(xbar(v(+),n(-))),_13940,_13941,_13942,_13943,_13944,_13945,_13946),spec(_8780,_8781,_8782,_8783,_8784),_8790,_8791,nonlocal(_8725,_8777,_8778),_8793,_8794),_8826,_8827,_8828,_8829,_8830,_8831)),_8837)),_6888,semantics(_8343,theta(negation),modifier(negated),_8355),_6892,_6894,_6896,_6898)<>tensedForm could not be executed\n'
+! goal:  user:term_expansion((not(_5528):-fail,cat@_5528--negation,tag@_5528--negationMarker,modifier@_5528--negated,_5528<>[fulladjunct|...],target@_5528<>[s|...]),_6332)
+! Approximate lines: 1-8, file: '/Users/ramsay/Documents/GitHub/dgParser/negation.pl'
+! 'sign(_8043,syntax(args([]),_8034,head(cat(xbar(v(+),n(-))),_8023,_8024,_8025,_8026,_8027,_8028,_8029),_8036,_8037,_8038,_8039,_8040,_8041),_8045,semantics(_8410,theta(negComp),_8412,_8413),_8047,_8048,_8049,_8050)<>tensedForm could not be executed\n'
+! goal:  user:term_expansion((not(_5528):-_5528<>[v],-(target@_5528),args@_5528--[_5681],_5681<>[s,theta(negComp),tensedForm]),_6170)
+! Approximate lines: 8-13, file: '/Users/ramsay/Documents/GitHub/dgParser/negation.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec 3680 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 0 msec 28096 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 10 msec 1336 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 0 msec 36152 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec 1648 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 10 msec 24288 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec 1144 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec 12304 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec 1944 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 10 msec 10736 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 70784 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 0 msec 10096 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 10 msec 7056 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec 6120 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 12520 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 35688 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+* abolish(user:(spellingRule/3)) - no matching predicate
+* Approximate lines: 113-115, file: '/Users/ramsay/Documents/GitHub/dgParser/spelling.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec 12688 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 10 msec 5400 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+%  consulting /Users/ramsay/Documents/GitHub/dgParser/setup.pl...
+%  consulted /Users/ramsay/Documents/GitHub/dgParser/setup.pl in module user, 0 msec 16 bytes
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec 10912 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 0 msec 13776 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 509400 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 100 msec 1081504 bytes
+yes
+| ?- doItAll('John sees no cats.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John sees no cats.}}\label{NF: John sees no cats.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[see>s,
+       arg(dobj, *(no), [cat>plural, modifier(identity, no)])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [see,
+           qq(no::{[cat>plural],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ claim,
+ no::{[cat>plural],B},
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     claim(({[cat>plural],B}
+             => (({[tense(present)],C}
+                   & ({(simple,C),D}
+                       & ({(member,D),#0(D,C,B)}
+                           => [[see, {dobj,B}, {subject,A}],
+                               #0(D, C, B)])))
+                  => absurd))))
+Trying to anchor [John:NP]
+
+{[John:NP],#1} added to knowledge base 
+
+anchored [John:NP]#1
+
+ Skip anchor claim({[cat>plural],_325931}=>({[tense(present)],_315064}&({(simple,_315064),_315053}&({(member,_315053),#0(_315053,_315064,_325931)}=>[[see,{dobj,_325931},{subject,#1}],#0(_315053,_315064,_325931)]))=>absurd))
+
+claim(({[cat>plural],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({(member,C),#0(C,B,A)}
+                      => [[see, {dobj,A}, {subject,#1}],
+                          #0(C, B, A)])))
+             => absurd)))
+({[cat>plural],A}
+  => (({[tense(present)],B}
+        & ({(simple,B),C}
+            & ({(member,C),#0(C,B,A)}
+                => [[see, {dobj,A}, {subject,#1}],
+                    #0(C, B, A)])))
+       => absurd))
+{[cat>plural],_325931}=>({[tense(present)],_315064}&({(simple,_315064),_315053}&({(member,_315053),#0(_315053,_315064,_325931)}=>[[see,{dobj,_325931},{subject,#1}],#0(_315053,_315064,_325931)]))=>absurd) added to knowledge base 
+P = {[cat>plural],_A}=>({[tense(present)],_B}&({(simple,_B),_C}&({(member,_C),'#0'(_C,_B,_A)}=>[[see,{dobj,_A},{subject,'#1'}],'#0'(_C,_B,_A)]))=>absurd) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 1584 bytes
+yes
+| ?- doItAll('John sees no cats.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John sees no cats.}}\label{NF: John sees no cats.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[see>s,
+       arg(dobj, *(no), [cat>plural, modifier(identity, no)])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [see,
+           qq(no::{[cat>plural],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ claim,
+ no::{[cat>plural],B},
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     claim(({[cat>plural],B}
+             => (({[tense(present)],C}
+                   & ({(simple,C),D}
+                       & ({(member,D),#2(D,C,B)}
+                           => [[see, {dobj,B}, {subject,A}],
+                               #2(D, C, B)])))
+                  => absurd))))
+Trying to anchor [John:NP]
+
+ Skip anchor claim({[cat>plural],_403103}=>({[tense(present)],_392236}&({(simple,_392236),_392225}&({(member,_392225),#2(_392225,_392236,_403103)}=>[[see,{dobj,_403103},{subject,#1}],#2(_392225,_392236,_403103)]))=>absurd))
+
+claim(({[cat>plural],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({(member,C),#2(C,B,A)}
+                      => [[see, {dobj,A}, {subject,#1}],
+                          #2(C, B, A)])))
+             => absurd)))
+({[cat>plural],A}
+  => (({[tense(present)],B}
+        & ({(simple,B),C}
+            & ({(member,C),#2(C,B,A)}
+                => [[see, {dobj,A}, {subject,#1}],
+                    #2(C, B, A)])))
+       => absurd))
+{[cat>plural],_403103}=>({[tense(present)],_392236}&({(simple,_392236),_392225}&({(member,_392225),#2(_392225,_392236,_403103)}=>[[see,{dobj,_403103},{subject,#1}],#2(_392225,_392236,_403103)]))=>absurd) added to knowledge base 
+P = {[cat>plural],_A}=>({[tense(present)],_B}&({(simple,_B),_C}&({(member,_C),'#2'(_C,_B,_A)}=>[[see,{dobj,_A},{subject,'#1'}],'#2'(_C,_B,_A)]))=>absurd) ? 
+yes
+| ?- doItAll('John sees no cats.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John sees no cats.}}\label{NF: John sees no cats.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[see>s,
+       arg(dobj, *(no), [cat>plural, modifier(identity, no)])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [see,
+           qq(no::{[cat>plural],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ claim,
+ no::{[cat>plural],B},
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     claim(({[cat>plural],B}
+             => (({[tense(present)],C}
+                   & ({(simple,C),D}
+                       & ({(member,D),#3(D,C,B)}
+                           => [[see, {dobj,B}, {subject,A}],
+                               #3(D, C, B)])))
+                  => absurd))))
+Trying to anchor [John:NP]
+
+ Skip anchor claim({[cat>plural],_403487}=>({[tense(present)],_392620}&({(simple,_392620),_392609}&({(member,_392609),#3(_392609,_392620,_403487)}=>[[see,{dobj,_403487},{subject,#1}],#3(_392609,_392620,_403487)]))=>absurd))
+
+claim(({[cat>plural],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({(member,C),#3(C,B,A)}
+                      => [[see, {dobj,A}, {subject,#1}],
+                          #3(C, B, A)])))
+             => absurd)))
+({[cat>plural],A}
+  => (({[tense(present)],B}
+        & ({(simple,B),C}
+            & ({(member,C),#3(C,B,A)}
+                => [[see, {dobj,A}, {subject,#1}],
+                    #3(C, B, A)])))
+       => absurd))
+{[cat>plural],_403487}=>({[tense(present)],_392620}&({(simple,_392620),_392609}&({(member,_392609),#3(_392609,_392620,_403487)}=>[[see,{dobj,_403487},{subject,#1}],#3(_392609,_392620,_403487)]))=>absurd) added to knowledge base 
+P = {[cat>plural],_A}=>({[tense(present)],_B}&({(simple,_B),_C}&({(member,_C),'#3'(_C,_B,_A)}=>[[see,{dobj,_A},{subject,'#1'}],'#3'(_C,_B,_A)]))=>absurd) ? 
+yes
+| ?- doItAll('John sees no cats.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John sees no cats.}}\label{NF: John sees no cats.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[see>s,
+       arg(dobj, *(no), [cat>plural, modifier(identity, no)])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural, modifier(identity, no)]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [see,
+         arg(dobj, *(no), [cat>plural]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [see,
+           qq(no::{[cat>plural],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ claim,
+ no::{[cat>plural],B},
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(no(B::{[cat>plural],B},
+              exists(C::{[tense(present)],C},
+                     exists(D::{(simple,C),D},
+                            forall(E::{(member,D),E},
+                                   [[see, {dobj,B}, {subject,A}],
+                                    E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     claim(({[cat>plural],B}
+             => (({[tense(present)],C}
+                   & ({(simple,C),D}
+                       & ({(member,D),#4(D,C,B)}
+                           => [[see, {dobj,B}, {subject,A}],
+                               #4(D, C, B)])))
+                  => absurd))))
+Trying to anchor [John:NP]
+
+ Skip anchor claim({[cat>plural],_403487}=>({[tense(present)],_392620}&({(simple,_392620),_392609}&({(member,_392609),#4(_392609,_392620,_403487)}=>[[see,{dobj,_403487},{subject,#1}],#4(_392609,_392620,_403487)]))=>absurd))
+
+claim(({[cat>plural],A}
+        => (({[tense(present)],B}
+              & ({(simple,B),C}
+                  & ({(member,C),#4(C,B,A)}
+                      => [[see, {dobj,A}, {subject,#1}],
+                          #4(C, B, A)])))
+             => absurd)))
+({[cat>plural],A}
+  => (({[tense(present)],B}
+        & ({(simple,B),C}
+            & ({(member,C),#4(C,B,A)}
+                => [[see, {dobj,A}, {subject,#1}],
+                    #4(C, B, A)])))
+       => absurd))
+{[cat>plural],_403487}=>({[tense(present)],_392620}&({(simple,_392620),_392609}&({(member,_392609),#4(_392609,_392620,_403487)}=>[[see,{dobj,_403487},{subject,#1}],#4(_392609,_392620,_403487)]))=>absurd) added to knowledge base 
+P = {[cat>plural],_A}=>({[tense(present)],_B}&({(simple,_B),_C}&({(member,_C),'#4'(_C,_B,_A)}=>[[see,{dobj,_A},{subject,'#1'}],'#4'(_C,_B,_A)]))=>absurd) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec 544 bytes
+yes
+| ?- horn(p, L).
+L = label(indent(_A),_B,defaults([p|_C]),_D) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -312 bytes
+yes
+| ?- horn(p, L).
+L = label(indent(_A),_B,defaults([p|_C]),_D) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec 152 bytes
+yes
+| ?- horn(p & q, L).
+L = label(indent(_A),_B,_C,abduced([p|_D])) ? 
+yes
+| ?- horn(p & q, L).
+L = label(indent(_A),_B,_C,abduced([p&q|_D])) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -80 bytes
+yes
+| ?- horn(p, L).
+L = label(indent(_A),_B,_C,abduced([p,q|_D])) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -64 bytes
+yes
+| ?- horn(p & q, L).
+L = label(indent(_A),_B,_C,abduced([p|_D])) ? 
+yes
+| ?- horn(p & q, L).
+L = label(indent(_A),_B,_C,abduced([p&q|_D])) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -80 bytes
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 10 msec -96 bytes
+yes
+| ?- L = label(indent(_A),_B,_C,abduced([p&q|_D])) ? 
+       ^C ^C
+Prolog interruption (h for help)? .
+Prolog interrupt options:
+    a        abort           - cause abort
+    b        break           - cause break
+    c        continue        - do nothing
+    e        exit            - cause exit
+    d        debug           - start leaping
+    z        zip             - start zipping
+    t        trace           - start creeping
+    h        help            - get this list
+Prolog interruption (h for help)? a
+% Execution aborted
+| ?- horn(p & q, L).
+L = label(indent(_A),_B,_C,abduced([p,q|_D])) ? 
+yes
+| ?- abduced:label@L -- [], horn(p & q, L).
+no
+| ?- extend1([_ | _], a).
+L = a ? 
+yes
+| ?- extend1(L, a), extend1(L, b).
+L = [a|_A] ? 
+yes
+| ?- extend1(L, a), extend1(L, b).
+L = [a,b|_A] ? 
+yes
+| ?- extend1([z], a).
+no
+| ?- extend1([z], a).
+no
+| ?- extend1([_ | _], a).
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+The procedure label/1 is being redefined.
+    Old file: /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl
+    New file: /Users/ramsay/Documents/GitHub/dgParser/signatures.pl
+Do you really want to redefine it?  (y, n, p, s, a, b, or ?) y
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec -824 bytes
+yes
+| ?- listing(trigger).
+* listing(user:trigger) - no matching predicate
+yes
+| ?- when(nonvar(X), \+ X = Y), Y = 9, X = 10.
+9
+X = 9,
+Y = 9 ? 
+yes
+| ?- \+ X = Y.
+no
+| ?- when(nonvar(X), \+ X = Y), Y = 9, X = 9.
+X = 10,
+Y = 9 ? 
+yes
+| ?- when(nonvar(X), \+ X = Y), Y = 9.
+no
+| ?- when(nonvar(X), \+ X = Y), Y = 9.
+Y = 9,
+prolog:when(X,nonvar(X),user:(\+X=9)) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+! Syntax error
+! operator expected after expression
+! in line 538
+! anchor ( name ( X :: { Name , X } , P0 ) , P1 ) :- format ( '~nTrying to anchor ~w~n' , [ Name ] ) , ABDUCED -- abduced : label @ LABEL , trigger ( ABDUCED , ABDUCED = [ [ '' , _ ] | _ ] ) 
+! <<here>>
+! ! , prove ( { Name , X } , LABEL ) ,  ( var ( ABDUCED ) -> true ; assimilate ( { Name , X } ) ) , anchor ( P0 , P1 ) . 
+! Approximate lines: 533-544, file: '/Users/ramsay/Documents/GitHub/dgParser/nf.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 16 bytes
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 344 bytes
+yes
+| ?-
+| ?- anchor(name(X::{'John', X}, x), P).
+
+Trying to anchor John
+no
+| ?- spy(anchor).
+% The debugger will first zip -- showing spypoints (zip)
+% Plain spypoint for user:(anchor/2) added, BID=1
+yes
+% zip
+| ?- anchor(name(X::{'John', X}, x), P).
+ +      1      1 Call: anchor(name(_422::{'John',_422},x),_503) ? 
+        2      2 Call: format('~nTrying to anchor ~w~n',user:['John']) ? 
+
+Trying to anchor John
+        2      2 Exit: format('~nTrying to anchor ~w~n',user:['John']) ? 
+        3      2 Call: trigger(_1328,_1328=[['',_1318]|_1323]) ? 
+        -      - Block: when(nonvar(_3659),user:(?inPretty->true;_3659=[['',_1318]|_1323]))
+        3      2 Exit: trigger(_3659,_3659=[['',_1318]|_1323]) ? 
+        4      2 Call: prove({'John',_422},label(_1300,_1301,_1302,abduced(_3659))) ? s
+        4      2 Fail: prove({'John',_422},label(_1300,_1301,_1302,abduced(_3659))) ? a
+% Execution aborted
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -448 bytes
+yes
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- anchor(name(X::{'John', X}, x), P).
+ +      1      1 Call: anchor(name(_422::{'John',_422},x),_503) ? 
+        2      2 Call: format('~nTrying to anchor ~w~n',user:['John']) ? 
+
+Trying to anchor John
+        2      2 Exit: format('~nTrying to anchor ~w~n',user:['John']) ? 
+        3      2 Call: trigger(_1328,_1328=[['',_1318]|_1323]) ? 
+        -      - Block: when(nonvar(_3659),user:(?inPretty->true;_3659=[['',_1318]|_1323]))
+        3      2 Exit: trigger(_3659,_3659=[['',_1318]|_1323]) ? 
+        4      2 Call: prove({'John',_422},label(_1300,_1301,_1302,abduced(_3659))) ? s
+?       4      2 Exit: prove({'John',_422},label(indent(''),_1301,_1302,abduced([['',{'John',_422}]|_1323]))) ? 
+        5      2 Call: var([['',{'John',_422}]|_1323]) ? s
+        5      2 Fail: var([['',{'John',_422}]|_1323]) ? 
+        6      2 Call: assimilate({'John',_422}) ? s
+
+{John,#5} added to knowledge base 
+
+anchored John#5
+        6      2 Exit: assimilate({'John','#5'}) ? a
+% Execution aborted
+| ?- anchor(name(X::{'John', X}, x), P).
+
+Trying to anchor John
+
+ Skip anchor x
+P = x,
+X = '#5',
+prolog:when(_C,nonvar(_C),user:(?inPretty->true;_C=[['',_A]|_B])) ? 
+yes
+| ?- listing(fact).
+fact({['John':'NP'],'#1'}).
+fact({'John','#5'}).
+
+yes
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- anchor(name(X::{'John', X}, x), P).
+ +      1      1 Call: anchor(name(_422::{'John',_422},x),_503) ? 
+        2      2 Call: format('~nTrying to anchor ~w~n',user:['John']) ? 
+
+Trying to anchor John
+        2      2 Exit: format('~nTrying to anchor ~w~n',user:['John']) ? 
+        3      2 Call: trigger(_1328,_1328=[['',_1318]|_1323]) ? 
+        -      - Block: when(nonvar(_3659),user:(?inPretty->true;_3659=[['',_1318]|_1323]))
+        3      2 Exit: trigger(_3659,_3659=[['',_1318]|_1323]) ? 
+        4      2 Call: prove({'John',_422},label(_1300,_1301,_1302,abduced(_3659))) ? s
+?       4      2 Exit: prove({'John','#5'},label(indent(_5181),_1301,_1302,abduced(_3659))) ? 
+        5      2 Call: var(_3659) ? 
+        5      2 Exit: var(_3659) ? 
+ +      6      2 Call: anchor(x,_503) ? 
+        7      3 Call: format('~n Skip anchor ~w~n',user:[x]) ? 
+
+ Skip anchor x
+        7      3 Exit: format('~n Skip anchor ~w~n',user:[x]) ? 
+ +      6      2 Exit: anchor(x,x) ? 
+?+      1      1 Exit: anchor(name('#5'::{'John','#5'},x),x) ? 
+P = x,
+X = '#5',
+prolog:when(_C,nonvar(_C),user:(?inPretty->true;_C=[['',_A]|_B])) ? 
+yes
+% debug
+| ?- listing(fact).
+fact({['John':'NP'],'#1'}).
+fact({'John','#5'}).
+
+yes
+% debug
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 20 msec 1088 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 10 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec -856 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 10 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 168 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec -64 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec -344 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 797-825, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 50 msec 2728 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 10 msec -1624 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec -2072 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 10 msec -152 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 10 msec -408 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 1776 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec -1624 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 10 msec 40 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 952 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec -472 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec 240 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 0 msec 13600 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 504416 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 100 msec -88 bytes
+yes
+% debug
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+! Syntax error
+! operator expected after expression
+! in line 105
+! horn ( A & B , LABEL ) :- LABEL \ degree -- LABELA , LABEL \ degree -- LABELB , horn ( A , LABELA ) , horn ( B , LABELB ) ,  ( nonvar ( degree : label @ LABELA ) -> degree : label @ LABEL is degree : label @ LABELA * degree : label @ LABELB ) 
+! <<here>>
+! ) , conjoinLabels ( LABELA , LABELB , LABEL ) . 
+! Approximate lines: 99-106, file: '/Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 10 msec -264 bytes
+yes
+% debug
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+! Syntax error
+! operator expected after expression
+! in line 105
+! horn ( A & B , LABEL ) :- LABEL \ ( degree : label ) -- LABELA , LABEL \ ( degree : label ) -- LABELB , horn ( A , LABELA ) , horn ( B , LABELB ) ,  ( nonvar ( degree : label @ LABELA ) -> degree : label @ LABEL is degree : label @ LABELA * degree : label @ LABELB ) 
+! <<here>>
+! ) , conjoinLabels ( LABELA , LABELB , LABEL ) . 
+! Approximate lines: 99-106, file: '/Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -80 bytes
+yes
+% debug
+| ?- 
+| ?- 
+| ?- 
+| ?- 
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+! Syntax error
+! operator expected after expression
+! in line 105
+! horn ( A & B , LABEL ) :- LABEL \ ( degree : label ) -- LABELA , LABEL \ ( degree : label ) -- LABELB , horn ( A , LABELA ) , horn ( B , LABELB ) ,  ( nonvar ( degree : label @ LABELA ) -> degree : label @ LABEL is degree : label @ LABELA * degree : label @ LABELB ) 
+! <<here>>
+! ) , conjoinLabels ( LABELA , LABELB , LABEL ) . 
+! Approximate lines: 99-106, file: '/Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -80 bytes
+yes
+% debug
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec 224 bytes
+yes
+% debug
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+! Syntax error
+! operator expected after expression
+! in line 95
+! horn ( X , LABEL0 ) :- LABEL1 \ ( indent : label ) -- LABEL0 , INDENT0 -- indent : label @ LABEL0 , extend1 ( stack : label @ LABEL0 , X ) ,  (  ( LHS => X1 :: LABEL2 ) ) , match ( X1 , X ) 
+! <<here>>
+! ) , showStep ( '~w~w found as rule that leads to ~w~n' , [ INDENT0 , LHS => X , X ] ) , atom_concat ( INDENT0 , ' ' , indent : label @ LABEL1 ) , horn ( LHS , LABEL1 ) ,  ( nonvar ( degree : label @ LABEL1 ) -> degree : label @ LABEL0 is degree : label @ LABEL1 * degree : label @ LABEL2 ) . 
+! Approximate lines: 91-101, file: '/Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -392 bytes
+yes
+% debug
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 10 msec 376 bytes
+yes
+% debug
+| ?- (a => b :: c) = (A => B).
+A = a,
+B = b::c ? 
+yes
+% debug
+| ?- 

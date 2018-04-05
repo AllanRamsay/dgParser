@@ -43,6 +43,7 @@ word('architect', X) :-
 word('ate', X) :-
     language@X -- english,
     X <> [pastTense, inflected],
+    root@X -- [eat],
     tverb(X).
       
 word('award', X) :- 
@@ -459,7 +460,7 @@ word('eat', X) :-
 
 word('eaten', X) :-
     language@X -- english,
-    X <> [inflected],
+    X <> [inflected, vspec],
     pastPart(X),
     tverb(X).
 
@@ -810,7 +811,12 @@ word('i', X) :-
     language@X -- english,
     definition@X -- 'the 9th letter of the Roman alphabet',
     X <> [nroot, -target, sing].
-    
+                     
+word('idiot', X) :- 
+    language@X -- english,
+    definition@X -- 'a person of subnormal intelligence',
+    X <> [nroot].
+
 word('island', X) :- 
     language@X -- english,
     definition@X -- 'a land mass that is surrounded by water',
@@ -1081,7 +1087,7 @@ word('mimick', X) :-
     tverb(X),
     X <> [vroot, presPart].
                     
-word('mortal', X) :- 
+word('mortal', X) :-
     language@X -- english,
     definition@X -- 'a human being',
     X <> [nroot, -target].
@@ -1089,7 +1095,7 @@ word('mortal', X) :-
 word('mortal', X) :-
     language@X -- english,
     definition@X -- 'exhibiting courtesy and politeness',
-    X <> [aroot].
+    aroot(X).
 
 word('MP', X) :- 
     language@X -- english,

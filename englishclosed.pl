@@ -425,7 +425,8 @@ word('into', X) :-
 word('is', X) :-
     language@X -- english,
     verb(X, be),
-    X <> [presTense, thirdSing].
+    -target@X,
+    X <> [presTense, thirdSing, inflected].
 
 word('it', X) :-
     language@X -- english,
@@ -532,7 +533,6 @@ word('nor', X) :-
 
 word('not', X) :-
     language@X -- english,
-    definition@X -- 'negation of a word or group of words',
     not(X).
 
 word('now', X) :-

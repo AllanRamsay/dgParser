@@ -1,0 +1,306 @@
+
+\documentclass[11pt]{article}
+\evensidemargin=0in 
+\oddsidemargin=0in
+\textwidth=6.5in
+\topmargin=-1.0in
+\textheight=10.5in
+\usepackage{defns}
+\usepackage{examples}
+\usepackage{pstricks}
+\usepackage{fancyvrb}
+\usepackage{natbib}
+\bibliographystyle{elsart-harv}
+
+\begin{document}
+\noindent
+I can't see much difference between
+
+\begin{examples}
+\item \label{S1}
+\begin{examples}
+\item
+John was eating some peaches 
+\item
+John was eating peaches
+\end{examples}
+\end{examples}
+
+\noindent
+In both cases, eating was going on, there were peaches present, and
+they were what was being eaten. So it's not an exciting example, but
+we do need to preserve it.
+
+I think that \xref{S2} is more interesting.
+
+\begin{examples}
+\item \label{S2}
+\begin{examples}
+\item
+John eats some peaches 
+\item
+John eats peaches
+\end{examples}
+\end{examples}
+
+\noindent
+It seems to me that there is a clear difference between \xref{S2}(a) and
+\xref{S2}(b). In \xref{S2}(a) there is an explicit set of peaches
+which he eats (and by implicature there are some peaches that he
+doesn't eat). In \xref{S2}(b) there is \textbf{no explicit set of
+  peaches}.
+
+But, with no further context I'd say that \xref{S2}(a) and
+\xref{S2}(b) denote \textbf{sets} of eating events. They say that
+there are (plural) sets of John-eating-peach events. I'm perfectly
+comfortable with the idea that sentences report sets of events, with
+the cardinality of the set denoted by the aspect, in the same way that
+I'm perfectly comfotable with the notion that all NPs denote sets of
+things, some of which happen to be singleton sets.
+
+But that gives us a handle \xref{S2}. They both say that there are
+sets of eating events: but \xref{S2}(a) says that there is a set of
+peaches which are the objects of these events, \xref{S2}(b) says that
+there is a set of peaches for each event. So it's a scope
+issue. They're both existentials, but \q{some peaches} outscopes the
+aspect and \q{peaches} is outscoped by it.
+
+To get a handle on this, we make the aspect explicitly introduce a set
+of events. That's easy enough -- we just add a universal quantifier
+inside the scope of the existential which we used to get from the
+aspect. So for 
+
+\begin{examples}
+\item
+John sleeps.
+\end{examples}
+
+\noindent
+we used to get (before \texttt{qff}, because I think it's easier to
+see what's going on while we have real quantifiers) (note that
+reference now outscope \texttt{claim}: that's the right thing to be
+doing -- see the end of this document for a brief commentary on how
+this works).
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(exists(B::{[tense(present)],B},
+                  exists(C::{(simple,B),C},
+                         [[sleep, {subject,A}], C]))))
+\end{Verbatim}
+
+\noindent
+and I now get 
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(exists(B::{[tense(present)],B},
+                  exists(C::{(simple,B),C},
+                         \textcolor{blue}{forall(D::{(member,C),D},}
+                                [[sleep, {subject,A}], D])))))
+\end{Verbatim}
+
+\noindent
+(\texttt{\{(member,C),D\}} here means \texttt{D} is a member of
+\texttt{C}: slightly odd way to write it, but I can do that if I want)
+
+OK, now using this treatment of aspect I can get different
+interpretations of \xref{S2}(a) and
+\xref{S2}(b) that bring out the difference.
+
+\begin{examples}
+\item [S2]
+\begin{examples}
+\item
+John eats some peaches.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(exists(B::{[tense(present)],B},
+                  exists(C::{(simple,B),C},
+                         \textcolor{blue}{exists(D::{[peach>plural],D},}
+                                forall(E::{(member,C),E},
+                                       [[eat, {dobj,D}, {subject,A}],
+                                        E]))))))
+\end{Verbatim}
+
+\item
+John eats peaches.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(exists(B::{[tense(present)],B},
+                  exists(C::{(simple,B),C},
+                         forall(D::{(member,C),D},
+                                \textcolor{blue}{exists(E::{peach>plural,E},}
+                                       [[eat, {dobj,E}, {subject,A}],
+                                        D]))))))
+\end{Verbatim}
+\end{examples}
+\end{examples}
+
+\noindent
+That does nearly everything I want. In \xref{S2}(a) there is a set of
+peaches and a set of events in which John eats that set. Note that
+since you can only eat a given peach once, that more or less forces
+the set of events to be a singleton, which might be nice. In
+\xref{S2}(b) there's a different set of peaches for each event in the
+set, which is definitely what I want.
+
+This does sensible things with 
+
+\begin{examples}
+\item 
+\begin{examples}
+\item
+John does not eat peaches.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     claim(not(exists(B::{[tense(present)],B},
+                      exists(C::{(simple,B),C},
+                             forall(D::{(member,C),D},
+                                    exists(E::{peach>plural,E},
+                                           [[do,
+                                             {dobj,E},
+                                             {subject,A}],
+                                            D])))))))
+\end{Verbatim}
+\item
+John is not eating peaches. 
+
+\begin{Verbatim}[commandchars=\\\{\}]
+the(A::{tense(present),A},
+    name(B::{[John:NP],B},
+         claim(not(exists(C::{(prog,A),C},
+                          forall(D::{(member,C),D},
+                                 exists(E::{peach>plural,E},
+                                        [[eat,
+                                          {dobj,E},
+                                          {subject,B}],
+                                         D])))))))
+\end{Verbatim}
+\end{examples}
+\end{examples}
+
+\noindent
+We still have to do something useful with the aspect markers, but
+that's stuff we can look at as we go along.
+
+\newpage
+So that was good, but we haven't yet looked at the syllogistc
+versions.
+
+\begin{examples}
+\item
+All cats are idiots.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(forall(A::{[cat>plural],A},
+             exists(B::{[tense(present)],B},
+                    exists(C::{(simple,B),C},
+                           forall(D::{(member,C),D},
+                                  exists(E::{idiot>plural,E},
+                                         [[be,
+                                           {predication(xbar(v(-),n(+))),E},
+                                           {subject,A}],
+                                          D]))))))
+\end{Verbatim}
+\end{examples}
+
+\noindent
+Well it's very long and unreadable, but it's probaly not wrong (!). If
+\texttt{A} is a set of cats then there's a set \texttt{E} of idiots
+and right now there's a relation between them. A painfully complex
+looking relation, but a relation nonetheless. A bit of catching things
+during the preprocessing or postprocessing stages will make this look
+better. 
+
+\medpara
+\hrule
+
+\medpara
+To get to here I've done various things.
+
+\medpara
+(i) I've made \q{not} do sensible things. Syntactically it takes a
+sentence as argument and returns a sentence: that's not unreasonable,
+but it's a bit complicated because I want to make it take the whole
+tensed sentence, so that it dominates the auxiliaries in things like
+\q{John is not eating peaches}, and that makes things a bit
+complicated. A bit complicated, but do-able, so we do it.
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     A,
+     [not,
+      arg(negComp,
+          *(time(tense(present),
+                 aspect(simple),
+                 aux(+),
+                 def(+),
+                 finite(tensed))),
+          [[be],
+           arg(auxComp,
+               *(time(tense(present),
+                      aspect(prog),
+                      aux(-),
+                      def(B),
+                      finite(participle))),
+               [[eat>ing,
+                 arg(dobj, *(existential=10), peach>plural)],
+                arg(subject, *(name), [John:NP])])])])]
+\end{Verbatim}
+ 
+\noindent
+(ii) The tree above has a bit that looks like \texttt{[not,
+  arg(negComp, \ldots)]}. We have to deal with this in two places --
+in \texttt{timeSequence}, where it's a bit of a hack, and in
+\texttt{qlf}, where we just get rid of it because it was just
+something we stuck in the parse tree.
+
+\medpara
+(iii) I've changed \texttt{assignScopeScore} so that scope can be
+assigned locally, e.g. in the lexicon, and then just extracted when we
+see it. To date I'm just using it for generics, which I'm specifying
+as \texttt{*(existential=10)} -- as existentials with scope value 10
+(so they end up with very local scope). We can do the same with other
+things, e.g. if we decide to think of \q{any} as a very wide scope
+universal we could do it by putting it into the lexicon with specifier
+equal to \texttt{specifier(*(universal=0.2))}.
+
+\begin{examples}
+\item
+John is not eating any peaches.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+the(A::{tense(present),A},
+    name(B::{[John:NP],B},
+         claim(forall(C::{[peach>plural],C},
+                      not(exists(D::{(prog,A),D},
+                                 forall(E::{(member,D),E},
+                                        [[eat,
+                                          {dobj,C},
+                                          {subject,B}],
+                                         E])))))))
+\end{Verbatim}
+\end{examples}
+
+\medpara
+(iv) I'm allowing arbitrary items to have scope. That's a slightly
+weird sounding notion, but it makes sense. So \texttt{not} is a scoped
+operator, and so are \texttt{claim} and \texttt{query}. That lets
+reference outscope the discourse operators, which is also the right
+thing to do. 
+
+\noindent
+There's quite a bit here to talk about. I'm fairly happy with what's
+here, but we'll need to work our way through it. Especially what we're
+going to do with the syllogistic versions. See you on Thursday. 
+
+\medpara
+(I've stuck in lots and lots more printing so I can see what I'm
+doing: we can take that out later)
+\end{document}

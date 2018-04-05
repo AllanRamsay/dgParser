@@ -1,0 +1,7 @@
+T = lambda(X, lambda(Y, p(X, Y))
+
+T(a) lambda(Y, p(a, Y))
+
+T(a)(b) p(a, b)
+
+(perfect,A),B: if perfect had been lambda(X, lambda(Y, perfect(X, Y)))

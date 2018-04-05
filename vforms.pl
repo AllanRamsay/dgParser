@@ -74,13 +74,13 @@ presTenseForm(X) :-
     X <> [tensedForm, present].
 
 presTense(X) :-
-    X <> [tensed, present, aspect(simple)].
+    X <> [tensed, present, aspect(simple), +specified].
 
 pastTenseForm(X) :-
     X <> [tensedForm, past].
 
 pastTense(X) :-
-    X <> [tensed, past, aspect(simple)].
+    X <> [tensed, past, aspect(simple), +specified].
 
 edForm(X) :-
     X <> [past, -target, +active],

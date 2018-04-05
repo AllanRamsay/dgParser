@@ -1,3 +1,4 @@
+/**Clesn**/
 :- op(32, xfy, '\IN').
 :- op(32, xfy, '\sub').
 
@@ -53,6 +54,98 @@ denest(modifier(A, B0), modifier(A, B1)) :-
     denest(B0, B1).
 denest(X, X).
 
+justRoots(X, X) :-
+    (var(X); atomic(X)),
+    !.
+justRoots(A > X, A > X) :-
+    X='singular';
+    X='plural',
+    !.
+justRoots(A > _, A) :-
+    !.
+justRoots([H0 | T0], [H1 | T1]) :-
+    !,
+    justRoots(H0, H1),
+    justRoots(T0, T1).
+justRoots(X0, X1) :-
+    X0 =.. L0,
+    justRoots(L0, L1),
+    X1 =.. L1.
+
+timeSequence(['.',arg(claim,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List)],['.',arg(claim,TimeSeq,Rest1)]):-
+    nonvar(Arg0),
+    !,
+    collectTime(List,[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq,Rest0),
+    timeSequence(Rest0,Rest1).
+
+timeSequence(['?',arg(query,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List)],['?',arg(query,TimeSeq,Rest1)]):-
+    !,
+    collectTime(List,[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq,Rest0),
+    timeSequence(Rest0,Rest1).
+
+timeSequence(['.',arg(frag,Specifier,List0)],['.',arg(frag,Specifier,List1)]):-
+    !,
+    timeSequence(List0,List1).
+
+timeSequence([WORD,modifier(Type,List0)|OtherMods0],[WORD,modifier(Type,List1)|OtherMods1]):-
+    !,
+    timeSequence(List0,List1),
+    timeSequence(OtherMods0,OtherMods1).
+
+timeSequence([WORD,arg(xcomp,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List)|OthrArgs0],[WORD,arg(xcomp,TimeSeq,Rest1)|OthrArgs1]):-
+    !,
+    collectTime(List,[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq,Rest0),
+    timeSequence(Rest0,Rest1),
+    timeSequence(OthrArgs0,OthrArgs1).
+
+timeSequence([WORD,arg(negComp,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List)],[WORD,arg(negComp,TimeSeq,Rest1)]):-
+    !,
+    collectTime(List,[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq,Rest0),
+    timeSequence(Rest0,Rest1).
+
+timeSequence(arg(Type,Specifier,List0),arg(Type,Specifier,List1)):-
+	!,
+	timeSequence(List0,List1).
+
+timeSequence([_AUX,arg(auxComp,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List) | MODS],[TimeSeq|Rest1]):-
+	!,
+	collectTime([List | MODS],[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq,Rest0),
+	timeSequence(Rest0,Rest1).
+
+timeSequence([WORD,arg(Type,Specifier,List0)|OthrArgs0],[WORD,arg(Type,Specifier,List1)|OthrArgs1]):-
+	!,
+	timeSequence(List0,List1),
+	timeSequence(OthrArgs0,OthrArgs1).
+
+timeSequence(X,X).
+ 
+/** version(2) **/
+refine(List,*List).
+
+collectTime([_AUX,arg(_Type,*(time(Arg0,_Arg1,_Arg2,_Arg3,_Arg4)),List)],TimeSeq0,TimeSeq2,Rest):-
+	var(Arg0),
+	!,
+	collectTime(List,TimeSeq0,TimeSeq2,Rest).
+
+collectTime([_AUX,arg(_Type,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List)],TimeSeq0,TimeSeq2,Rest):-
+	!,
+	append(TimeSeq0,[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq1),
+	collectTime(List,TimeSeq1,TimeSeq2,Rest).
+
+collectTime([WORD,arg(Type,Specifier,List)|OthrArgs],TimeSeq,RefinedTimeSeq,[WORD,arg(Type,Specifier,List)|OthrArgs]):-
+	refine(TimeSeq,RefinedTimeSeq).
+
+convSteps(X0,XN):-
+	denest(X0,X1),
+	justRoots(X1,X2),
+	pretty(jr(X2)),
+	timeSequence(X2,X3),
+	pretty(ts(X3)),
+	nfTree(X3,X4),
+	pretty(nf(X4)),
+	qlf(X4, XN),
+	pretty(qlf(XN)).
+
 /**
   Because I have this theory of modifiers and specifiers that says
   that any modifier *might* be a specifier and any specifier *might*
@@ -63,18 +156,15 @@ denest(X, X).
 nfTree(X, X) :-
     (var(X); atomic(X)),
     !.
-%% Ignore an argument if it is marked as an identity (or is undefined)
-nfTree([_X, arg(identity, SPECX, [Y | ARGS])], N) :-
+nfTree(arg(Type,Specifier,List0),arg(Type,Specifier,List1)):-
+	!,
+	nfTree(List0,List1).
+%% Igore modifier nodes where the modifier is identity or undefined except for 'not' until solved- I think solve syntactically, no need for special treatment here ?
+nfTree([M, arg(negation(_, [_, X]))], [not, T1]) :-
     !,
-    nfTree(arg(Y, SPECX, ARGS), N).
-%% Likewise if someone has an argument whose specifier is marked as an identity (or undefined)
-nfTree([X, arg(THETAX, SPECX, [_I, arg(_SPECY, identity, D)])], N) :-
-    !,
-    nfTree([X, arg(THETAX, SPECX, D)], N).
-nfTree(arg(A, B, D0), arg(A, B, D1)) :-
-    !,
-    nfTree(D0, D1).
-%% Igore modifier nodes where the modifier is identity or undefined
+    nfTree([M, X], T1).
+
+%%delete that above case----?
 nfTree([modifier(identity, _D0) | T0], T1) :-
     !,
     nfTree(T0, T1).
@@ -93,58 +183,42 @@ nfDtrs([H0 | T0], [H1 | T1]) :-
     nfTree(H0, H1),
     nfDtrs(T0, T1).
 
-%% Get rid of affixes. 
-justRoots(X, X) :-
-    (var(X); atomic(X)),
-    !.
-justRoots(A > _, A) :-
-    !.
-justRoots([H0 | T0], [H1 | T1]) :-
-    !,
-    justRoots(H0, H1),
-    justRoots(T0, T1).
-justRoots(X0, X1) :-
-    X0 =.. L0,
-    justRoots(L0, L1),
-    X1 =.. L1.
+/**
+  universals
+  every peach = qq((universal :: {[peach>singular],E}), {dobj,E}),
+  peach(F) => {dobj, E, F}
+  generics
+  peaches = qq((universal :: {dobj,E}), {[peach>singular],E})
+  generics'
+  every peach = qq((generic :: {[peach>singular],E}), {dobj,E}),
+  {dobj, E, F} => peach(F)
+  **/
 
-%% qq(Q, T) means: add Q to the QSTACK and subsequently apply it to the
-%% core, leave T where it is. We will write {P:X} for P(X) because we
-%% can't write P(X).
 qlf(X, X) :-
     (var(X); atomic(X)),
     !.
-qlf(arg(claim, *(tense(TNS, REF)), [EVENT | ARGS]),
-    claim(opaque(qq(tense(REF)::{TNS, V}, at(V, opaque(qq(indefinite :: E, {QLF, E}))))))) :-
-    !,
-    qlf([EVENT | ARGS], QLF).
-qlf(arg(query, *(tense(TNS, REF)), [EVENT | ARGS]),
-    query(opaque(qq(tense(REF)::{TNS, V}, at(V, opaque(qq(indefinite :: E, {QLF, E}))))))) :-
-    !,
-    qlf([EVENT | ARGS], QLF).
-qlf(arg(xcomp, *SPEC, X0), {xcomp, opaque(X1)}) :-
-    var(SPEC),
-    !,
-    qlf(X0, X1).
-qlf(arg(THETA, *SPEC, X0), {THETA, X1}) :-
-    var(SPEC),
-    !,
-    qlf(X0, X1).
-qlf(arg(THETA, *generic, X0), {generic, {THETA, V}, {X1, V}}) :-
-    !,
-    qlf(X0, X1).
-qlf(arg(THETA, *name, [X0:'NP']), QLF) :-
-    !,
-    qlf(arg(THETA, *(the), name(X0)), QLF).
-qlf(arg(THETA, *lambda, _X0), qq(lambda::V, {THETA, V})) :-
+qlf(time(A, B, C, D, E), time(A, B, C, D, E)) :-
     !.
-qlf(arg(THETA, *SPEC, X0), qq(SPEC::{X1, V}, {THETA, V})) :-
-    !,
-    qlf(X0, X1).
 qlf(['.', X0], X1) :-
     !,
     qlf(X0, X1).
 qlf(['?', X0], X1) :-
+    !,
+    qlf(X0, X1).
+qlf(arg(claim, *SPEC, X0), qq(claim, X1)) :-
+    !,
+    qlf(qq(SPEC, X0), X1).
+qlf(arg(query, *SPEC, X0), query(opaque(X1))) :-
+    !,
+    qlf(qq(SPEC, X0), X1).
+qlf(arg(negComp, *SPEC, X0), X1) :-
+    !,
+    qlf(qq(SPEC, X0), X1).
+qlf(arg(xcomp, *SPEC, X0), xcomp(opaque(X1))) :-
+    !,
+    qlf(qq(SPEC, X0), X1).
+%% The template case
+qlf(arg(THETA, *SPEC, X0), qq(SPEC::{X1, V}, {THETA, V})) :-
     !,
     qlf(X0, X1).
 qlf([H0 | T0], [H1 | T1]) :-
@@ -156,12 +230,64 @@ qlf(X0, X1) :-
     qlf(L0, L1),
     X1 =.. L1.
 
+/** Steps for extracting certain informations; Tenses list (path), aspect and quantifier, from the time specifier**/
+same([_]).
+same([X,X|T]) :- same([X|T]).
+getTenseList([time(Arg1,_Arg2,_Arg3,_Arg4,_Arg5)|OtherTimes],[Arg1]):-
+	length(OtherTimes,0),
+	!.
+getTenseList(TimeList,Path):-
+	tenseList(TimeList,[PathHead|PathTail]),
+	(same([PathHead|PathTail])->Path=PathHead;
+	 Path=[PathHead|PathTail]),
+	!.
+tenseList([],[]):-
+	!.
+tenseList([time(tense(present),_Arg2,_Arg3,_Arg4,_Arg5)|OtherTimes],TesneList):-
+	tenseList(OtherTimes,TesneList),
+	!.
+tenseList([time(Arg1,_Arg2,_Arg3,_Arg4,_Arg5)|OtherTimes],[Arg1|TesneList]):-
+	tenseList(OtherTimes,TesneList).
+
+timeToQuantifier([time(_Arg1,_Arg2,_Arg3,def(Sign),_Arg5)|_OtherTimes],Quantifier):-
+	((atomic(Sign),Sign='-')->Quantifier='existential');
+	((atomic(Sign),Sign='+')->Quantifier='referential');
+	(var(Sign)->Quantifier='unidentified'); %%why both
+	(var(Sign)->Quantifier='existential').
+
+getAspect([time(_Arg1,aspect(Aspect),_Arg3,_Arg4,_Arg5)|OtherTimes],Aspect):-
+	last([time(Arg1,aspect(Aspect),_Arg3,_Arg4,_Arg5)|OtherTimes],time(Arg1,aspect(Aspect),_Arg3,_Arg4,_Arg5)),
+	!.
+getAspect([time(_Arg1,_Arg2,_Arg3,_Arg4,_Arg5)|OtherTimes],Aspect):-
+	getAspect(OtherTimes,Aspect).
+
 extractQQ(X, X, Q, Q) :-
     (atomic(X); var(X)),
     !.
 extractQQ(opaque(X0), X1, Q, Q) :-
     !,
     fixQuants(X0, X1).
+
+extractQQ(qq([time(Arg1,Arg2,Arg3,Arg4,Arg5)|OtherTimes], X0), XN, Q0, Q1) :-
+    fail,
+    !,
+    getTenseList([time(Arg1,Arg2,Arg3,Arg4,Arg5)|OtherTimes],Path),
+    timeToQuantifier([time(Arg1,Arg2,Arg3,Arg4,Arg5)|OtherTimes],Quantifier),
+    getAspect([time(Arg1,Arg2,Arg3,Arg4,Arg5)|OtherTimes],Aspect),
+    extractQQ(qq(Quantifier :: {Path,V},
+		 qq(existential :: {(Aspect, V), X},
+		    [X0, X])),
+	      XN, Q0, Q1).
+extractQQ(qq([time(Arg1,Arg2,Arg3,Arg4,Arg5)|OtherTimes], X0), XN, Q0, Q1) :-
+    getTenseList([time(Arg1,Arg2,Arg3,Arg4,Arg5)|OtherTimes],Path),
+    timeToQuantifier([time(Arg1,Arg2,Arg3,Arg4,Arg5)|OtherTimes],Quantifier),
+    getAspect([time(Arg1,Arg2,Arg3,Arg4,Arg5)|OtherTimes],Aspect),
+    extractQQ(qq(Quantifier :: {Path,V},
+		 qq(existential :: {(Aspect, V), W},
+		    qq((universal=10) :: {(member, W), X},
+		       [X0, X]))),
+	      XN, Q0, Q1).
+
 extractQQ(qq(Q0, T0), T1, QS0, [Q1 | QS2]) :-
     !,
     extractQQ(Q0, Q1, QS0, QS1),
@@ -203,164 +329,80 @@ checkScopes([H | T0], S) :-
 checkScopes([H | T0], [H | T1]) :-
     checkScopes(T0, T1).
 
+
+/** Test ======================================================**/
+
+
+
+scope(existential,2.0).
+scope(indefinite,2.0).
+scope(universal, 1.0).
+scope(no, 0.3).
+scope(generic, 3.0).
+scope(name, 0.1).
+scope(the, 0.1).
+scope(referential, 0.1).
+scope(not, 0.3).
+scope(claim, 0.2).
+
+assignScopeScore([],[]).
+assignScopeScore((Q=S)::T, (S, Q::T)) :-
+    !.
+assignScopeScore((Q::T),(Score,Q::T)):-
+    scope(Q,Score).
+assignScopeScore(Q,(Score,Q)):-
+    scope(Q,Score).
+assignScopeScore([H0|T0],[H1|T1]):-
+    !,
+    assignScopeScore(H0,H1),
+    assignScopeScore(T0,T1).
+
+compOperator((Score0,_),(Score1,_)):-
+    Score0<Score1.
+
+removeScopeScore([],[]).
+removeScopeScore((_Score,Q),(Q)).
+removeScopeScore([H0|T0],[H1|T1]):-
+    !,
+    removeScopeScore(H0,H1),
+    removeScopeScore(T0,T1).
+
+sortQStack(QS0, QS3):-
+    assignScopeScore(QS0,QS1),
+    qsort(QS1,QS2,[],compOperator),
+    removeScopeScore(QS2,QS3).
+    
+ /**============================================================== **/
 fixQuants(X0, X2) :-
-    extractQQ(X0, X1, QSTACK0),
+     extractQQ(X0, X1, QSTACK0),
     /*
       If a quantifier *contains* another quantifier in its restrictor
       then we will get problems later on. So we have to check for this
       and re-order them as required
       */
-    checkScopes(QSTACK0, QSTACK1),
-    applyQuants(QSTACK1, X1, X2).
+     checkScopes(QSTACK0, QSTACK1),
+     sortQStack(QSTACK1,QSTACK2),
+     pretty(QSTACK2),
+     applyQuants(QSTACK2, X1, X2),
+     pretty(X2).
+    
 
 applyQuants([], X, X).
-applyQuants([Q0::V | QQ], X0, XN) :-
-    var(V),
-    !,
-    (member(Q0, [indefinite]) ->
-     Q1 = exists;
-     member(Q0, [universal]) ->
-     Q1 = forall;
-     Q0 = tense(REF) ->
-     ((REF = -) -> Q1 = exists; Q1 = the);
-     Q1 = Q0),
-    applyQuants(QQ, X0, X1),
-    XN =.. [Q1, V, X1].
 applyQuants([Q0::{R, V} | QQ], X0, XN) :-
-    (member(Q0, [indefinite]) ->
+    !,
+    (member(Q0, [indefinite, existential]) ->
      Q1 = exists;
      member(Q0, [universal]) ->
      Q1 = forall;
-     Q0 = tense(REF) ->
-     ((REF = -) -> Q1 = exists; Q1 = the);
+     member(Q0, [referential]) ->
+     Q1 = the;
      Q1 = Q0),
     applyQuants(QQ, X0, X1),
     XN =.. [Q1, V::{R, V}, X1].
+applyQuants([Q | QQ], X0, XN) :-
+    applyQuants(QQ, X0, X1),
+    XN =.. [Q, X1].
 
-/**
-  I'm doing two things here. I'm not at all sure that I want to do
-  either of them! I'm turning things like {{A, B}, C} into {A, B,
-  C}. That's the bit that's like currying. And I'm turning things like
-  {A, B, C} in A(B, C). I'm not sure that I want to do the first of
-  these, and I'm fairly sure that I *don't* want to do the second, but
-  the way I've written it makes disentangling them awkward. A place
-  for conversation and investigation.
-  **/
-
-curry(A, A) :-
-    (atomic(A); var(A)),
-    !.
-curry({X0, V}, Xn) :-
-    !,
-    curryAll(X0, V, Xn).
-curry(V :: {X0}, V :: {X1}) :-
-    !,
-    curry({X0}, X1).
-curry([H0 | T0], [H1 | T1]) :-
-    !,
-    curry(H0, H1),
-    curry(T0, T1).
-curry(X0, X1) :-
-    X0 =.. L0,
-    curry(L0, L1),
-    X1 =.. L1.
-
-curryAll([], _V, []) :-
-    !.
-curryAll([H0 | T0], V, [H2 | T1]) :-
-    !,
-    curry(H0, H1),
-    H1 =.. [F | A0],
-    curry(A0, A1),
-    H2 =.. [F, V | A1],
-    curryAll(T0, V, T1).
-curryAll(H0, V, H1) :-
-    H0 =.. [F | A0],
-    curry(A0, A1),
-    H1 =.. [F, V | A1].
-
-/**
-  I don't know what to do with generics. I like the version that says "John is eating peaches" means
-  
-  claim(at(ref(A, now=A),
-         (eat(#0)
-           & (dobj(#0,B)=>peach(B)
-               & subject(#0, ref(C, name(C, John)))))))
-
-  i.e. that there is some eating going on where all the things being
-  eaten are peaches, because it entails the existence of some peaches
-  without explicitly stating it. But this one needs to be worked
-  through carefully. It does seem to get a pretty reasonable
-  interpretation of "all men are fools.":
-
-  claim(at(now, man(A)=>fool(A)))
-
-  Not entirely mad about doing it as a separate step -- if this is
-  indeed the way we want to go then it should probably happen in qff.
-  **/
-
-generics(X, X) :-
-    (atomic(X); var(X)),
-    !.
-generics(generic(E, (THETA0, R)), THETA1 => R) :-
-    !,
-    THETA0 =.. [T | A],
-    THETA1 =.. [T, E | A].
-generics([H0 | T0], [H1 | T1]) :-
-    !,
-    generics(H0, H1),
-    generics(T0, T1).
-generics(X0, X1) :-
-    X0 =.. L0,
-    generics(L0, L1),
-    X1 =.. L1.
-
-/**
-  This is a place for applying forward inference rules. I think that
-  actually these should be done as actual forward inference rules,
-  because as it stands they are very dependent on the shape of the
-  tree which I'm again not mad about. The only ones we actually have
-  at the moment are about "John is a fool", "all men are fools", and
-  we've had to go for two rules to capture this, which is yuk, and
-  even with these two we will get "No man is a hero to his valet"
-  wrong
-  (http://www.thisdayinquotes.com/2010/08/no-man-is-hero-to-his-valet-backstory.html)
-  **/
-
-simplify(X, X) :-
-    (var(X); atomic(X)),
-    !.
-simplify([STOP, X0], X1) :-
-    STOP == '.',
-    !,
-    simplify(X0, X1).
-simplify(be(X) & (predication(X, A, xbar(v(-), n(+))) & subject(X, B)), B=A) :-
-    !.
-simplify(be(X) & ((predication(X,B,xbar(v(-),n(+)))=>P0) & subject(X, A)), P1) :-
-    !,
-    P0 =.. [F, B],
-    P1 =.. [F, A].
-simplify(present(A), now=A) :-
-    !.
-simplify([H0 | T0], [H1 | T1]) :-
-    !,
-    simplify(H0, H1),
-    simplify(T0, T1).
-simplify((A0, B0), (A1, B1)) :-
-    !,
-    simplify(A0, A1),
-    simplify(B0, B1).
-simplify(A0:B0, S) :-
-    !,
-    simplify(A0, A1),
-    simplify(B0, B1),
-    (A1 = (X:Y) ->
-     simplify(X:(Y:B1), S);
-     S = A1:B1).
-simplify(X0, X1) :-
-    X0 =.. L0,
-    simplify(L0, L1),
-    X1 =.. L1.
 
 /**
   Pretty standard quantifier free form: the only real oddity is that
@@ -375,10 +417,11 @@ skolem(X, L) :-
 qff(X, X, _QSTACK, _POLARITY) :-
     (var(X); atomic(X)),
     !.
-qff(the(X :: {P0}, Q0), Q2, QSTACK, POLARITY) :-
+qff(A0 => B0, A1 => B1, QSTACK, POL0) :-
     !,
-    qff(Q0, Q1, QSTACK, POLARITY),
-    substitute(ref(X, {P0}), X, Q1, Q2).
+    revpolarity(POL0, POL1),
+    qff(A0, A1, QSTACK, POL1),
+    qff(B0, B1, QSTACK, POL0).
 qff(forall(X, P0), P2, QSTACK, +) :-
     var(X),
     !,
@@ -391,12 +434,12 @@ qff(forall(X, P0), P2, QSTACK, -) :-
 qff(forall(X :: {P0}, Q0), QFF, QSTACK, POLARITY) :-
     !,
     qff(forall(X, {P0} => Q0), QFF, QSTACK, POLARITY).
+qff(generic(X :: {P0}, Q0), QFF, QSTACK, POLARITY) :-
+    !,
+    qff(exists(X :: {Q0}, P0), QFF, QSTACK, POLARITY).
 qff(no(X :: {P0}, Q0), QFF, QSTACK, POLARITY) :-
     !,
     qff(forall(X :: {P0}, not(Q0)), QFF, QSTACK, POLARITY).
-qff(generic(X :: {P0}, Q0), QFF, QSTACK, POLARITY) :-
-    !,
-    qff(forall(X, Q0 => P0), QFF, QSTACK, POLARITY).
 qff(exists(X, P0), P2, QSTACK, +) :-
     var(X),
     !,
@@ -424,6 +467,9 @@ qff((A0, B0), (A1, B1), QSTACK, POLARITY) :-
     !,
     qff(A0, A1, QSTACK, POLARITY),
     qff(B0, B1, QSTACK, POLARITY).
+qff(not(A0), X, QSTACK, POLARITY) :-
+    !,
+    qff(A0 => absurd, X, QSTACK, POLARITY).
 qff(X0, X1, QSTACK, POLARITY) :-
     X0 =.. L0,
     qffArgs(L0, L1, QSTACK, POLARITY),
@@ -436,6 +482,77 @@ qffArgs([H0 | T0], [H1 | T1], QSTACK, POLARITY) :-
 
 qff(X0, X1) :-
     qff(X0, X1, [], +).
+
+doItAll(TXT,XN):-
+     parseOne(TXT, X0),
+     verbatim(pretty(X0)),
+     convSteps(X0,X1),
+     fixQuants(X1,X2),
+     format('~nAfter fixQuants~n', []),
+     verbatim(pretty(X2)),
+     qff(X2,X3),
+     pretty(X3),
+     anchor(X3,X4),
+     pretty(X4),
+     X4=..[SPEECHACT,XN],
+     pretty(XN),
+    (SPEECHACT = claim ->
+     addMinutesToKb(XN);
+     SPEECHACT = query ->
+     tryToAnswer(XN);
+     format('Er ??? ~w~~n', [SPEECHACT])).
+
+
+startConversation :-
+	format('~nstarting a new conversation ~n', []),
+	retractall(kb(minutes, _)),
+	retractall(fact(_)),
+	retractall(_=>_).
+
+addMinutesToKb(MINUTES):-
+	format('~n~w added to knowledge base ~n', [MINUTES]),
+	setProblem1(MINUTES).
+
+addToMinutes(Tree):-
+	pretty(Tree),
+	format('~nAdd the tree to Minutes ~w~n', [Tree]),
+	(retract(kb(minutes, MINUTES)) ->
+	 assert(kb(minutes, MINUTES & Tree));
+	 assert(kb(minutes, Tree))).
+
+tryToAnswer(Tree):-
+    format('~nTrying to answer ~w~n', [Tree]),
+    (prove(Tree, _X) ->
+     (format('~nYes ~w~n', [Tree]),pretty(Tree));
+     format('~nNo~n', [])).
+
+assimilate({Name,X}):-
+    gensym('#', X),
+    addMinutesToKb({Name,X}),
+    format('~nanchored ~w~w~n', [Name,X]).
+  
+anchor(name(X::{Name,X},P0),P1):-
+    format('~nTrying to anchor ~w~n', [Name]),
+    ABDUCED -- abduced:label@LABEL,
+    trigger(ABDUCED, ABDUCED = [['', _] | _]),
+    !,
+    prove({Name,X}, LABEL),
+    (var(ABDUCED) ->
+    true;
+    assimilate({Name,X})),
+    anchor(P0,P1).
+
+anchor(the(X::{Name,X},P0),P1):-
+	format('~nTrying to anchor ~w~n', [Name]),
+	!,
+	(prove({Name,X},_) ->
+	true;
+	assimilate({Name,X})),
+	anchor(P0,P1).
+ 
+anchor(X, X):-
+	format('~n Skip anchor ~w~n', [X]).
+
 
 addContexts(X, X) :-
     (atomic(X); var(X)),

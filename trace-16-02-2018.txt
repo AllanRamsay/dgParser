@@ -1,0 +1,488 @@
+SICStus 3.12.8 (i386-darwin-8.9.1): Tue May  8 13:13:57 CEST 2007
+Licensed to man.ac.uk
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/setup.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po...
+%  module charsio imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/charsio.bundle in module charsio
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po in module charsio, 10 msec 8512 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/setup.pl in module user, 10 msec 11544 bytes
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po...
+%  module terms imported into user
+%   loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po...
+%   module assoc imported into terms
+%    loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po...
+%    module lists imported into assoc
+%    loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po in module lists, 0 msec 11328 bytes
+%   loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po in module assoc, 0 msec 22728 bytes
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po in module terms, 0 msec 31128 bytes
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 10 msec 59088 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 20 msec 21620 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec 12048 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec 1752 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 16496 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po...
+%  module sockets imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/sockets.bundle in module sockets
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po in module sockets, 0 msec 21776 bytes
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec 23296 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec 8976 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec 6488 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 796-824, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 40 msec 186328 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec 1448 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 10 msec 28080 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec 1336 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 0 msec 35800 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec 1648 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 10 msec 24256 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec 12304 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec 1944 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 0 msec 10736 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 20 msec 72912 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 0 msec 10096 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec 7056 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 10 msec 6120 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 12520 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 28656 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+* abolish(user:(spellingRule/3)) - no matching predicate
+* Approximate lines: 113-115, file: '/Users/ramsay/Documents/GitHub/dgParser/spelling.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec 13072 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec 5016 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 10 msec 15176 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 511696 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 110 msec 1082792 bytes
+yes
+| ?- parseOne('Allan has been eating every peach.', X), convSteps(X, Y), extractQQ(Y, T, Q).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{Allan has been eating every peach.}}\label{NF: Allan has been eating every peach.}
+\end{figure}
+no
+| ?- parseOne('Allan has been eating every peach.', X), convSteps(X, Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{Allan has been eating every peach.}}\label{NF: Allan has been eating every peach.}
+\end{figure}
+Q = [],
+T = ['.',arg(claim,[*time(tense(present),aspect(simple),aux(+),def(+),finite(tensed)),*time(tense(past),aspect(perfect),aux(+),def(_A),finite(participle)),*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle))],[eat,arg(dobj,*universal,[peach,modifier(identity,every)]),arg(subject,*name,['Allan':'NP'])])],
+X = ['.',arg(claim,*time(tense(present),aspect(simple),aux(+),def(+),finite(tensed)),[has,arg(identity,*time(tense(past),aspect(perfect),aux(+),def(_A),finite(participle)),[[be]>en,arg(_C,*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle)),[[eat>ing,arg(dobj,*universal,[peach>singular|...])],arg(subject,*name,['Allan':'NP'])])])])],
+Y = ['.',arg(claim,[*time(tense(present),aspect(simple),aux(+),def(+),finite(tensed)),*time(tense(past),aspect(perfect),aux(+),def(_A),finite(participle)),*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle))],[eat,arg(dobj,*universal,[peach,modifier(identity,every)]),arg(subject,*name,['Allan':'NP'])])] ? 
+yes
+| ?- parseOne('a man has been eating every peach.', X), convSteps(X, Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{Allan has been eating every peach.}}\label{NF: Allan has been eating every peach.}
+\end{figure}
+
+([]
+  + [.,
+     arg(claim,
+         [*(time(tense(present),
+                 aspect(simple),
+                 aux(+),
+                 def(+),
+                 finite(tensed))),
+          *(time(tense(past),
+                 aspect(perfect),
+                 aux(+),
+                 def(A),
+                 finite(participle))),
+          *(time(tense(present),
+                 aspect(prog),
+                 aux(-),
+                 def(B),
+                 finite(participle)))],
+         [eat,
+          arg(dobj, *(universal), [peach, modifier(identity, every)]),
+          arg(subject, *(name), [Allan:NP])])])
+Q = [],
+T = ['.',arg(claim,[*time(tense(present),aspect(simple),aux(+),def(+),finite(tensed)),*time(tense(past),aspect(perfect),aux(+),def(_A),finite(participle)),*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle))],[eat,arg(dobj,*universal,[peach,modifier(identity,every)]),arg(subject,*name,['Allan':'NP'])])],
+X = ['.',arg(claim,*time(tense(present),aspect(simple),aux(+),def(+),finite(tensed)),[has,arg(identity,*time(tense(past),aspect(perfect),aux(+),def(_A),finite(participle)),[[be]>en,arg(_C,*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle)),[[eat>ing,arg(dobj,*universal,[peach>singular|...])],arg(subject,*name,['Allan':'NP'])])])])],
+Y = ['.',arg(claim,[*time(tense(present),aspect(simple),aux(+),def(+),finite(tensed)),*time(tense(past),aspect(perfect),aux(+),def(_A),finite(participle)),*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle))],[eat,arg(dobj,*universal,[peach,modifier(identity,every)]),arg(subject,*name,['Allan':'NP'])])] ? 
+yes
+| ?- parseOne('a man has been eating every peach.', X), convSteps(X, Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man has been eating every peach.}}\label{NF: a man has been eating every peach.}
+\end{figure}
+
+([]
+  + [.,
+     arg(claim,
+         [*(time(tense(present),
+                 aspect(simple),
+                 aux(+),
+                 def(+),
+                 finite(tensed))),
+          *(time(tense(past),
+                 aspect(perfect),
+                 aux(+),
+                 def(A),
+                 finite(participle))),
+          *(time(tense(present),
+                 aspect(prog),
+                 aux(-),
+                 def(B),
+                 finite(participle)))],
+         [eat,
+          arg(dobj, *(universal), [peach, modifier(identity, every)]),
+          arg(subject, *(indefinite), [man, modifier(identity, a)])])])
+Q = [],
+T = ['.',arg(claim,[*time(tense(present),aspect(simple),aux(+),def(+),finite(tensed)),*time(tense(past),aspect(perfect),aux(+),def(_A),finite(participle)),*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle))],[eat,arg(dobj,*universal,[peach,modifier(identity,every)]),arg(subject,*indefinite,[man,modifier(identity,a)])])],
+X = ['.',arg(claim,*time(tense(present),aspect(simple),aux(+),def(+),finite(tensed)),[has,arg(identity,*time(tense(past),aspect(perfect),aux(+),def(_A),finite(participle)),[[be]>en,arg(_C,*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle)),[[eat>ing,arg(dobj,*universal,[peach>singular|...])],arg(subject,*indefinite,[man>singular,modifier(...)])])])])],
+Y = ['.',arg(claim,[*time(tense(present),aspect(simple),aux(+),def(+),finite(tensed)),*time(tense(past),aspect(perfect),aux(+),def(_A),finite(participle)),*time(tense(present),aspect(prog),aux(-),def(_B),finite(participle))],[eat,arg(dobj,*universal,[peach,modifier(identity,every)]),arg(subject,*indefinite,[man,modifier(identity,a)])])] ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 640 bytes
+yes
+| ?- parseOne('a man has been eating every peach.', X), convSteps(X, Y), pretty(Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man has been eating every peach.}}\label{NF: a man has been eating every peach.}
+\end{figure}
+! Type error in argument 2 of =.. /2
+! atom expected, but [time(tense(past),aspect(perfect),aux(+),def(_77),finite(participle))] found
+! goal:  _95=..[[time(tense(past),aspect(perfect),aux(+),def(_77),finite(participle))],_70::{{at,_61},_70},_70]
+| ?- parseOne('a man ate every peach.', X), convSteps(X, Y), pretty(Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man has been eating every peach.}}\label{NF: a man has been eating every peach.}
+\end{figure}
+
+claim(opaque(qq(([time(tense(past),
+                       aspect(perfect),
+                       aux(+),
+                       def(A),
+                       finite(participle))]
+                  :: {(qq((existential
+                             :: {([eat,
+                                    qq((universal
+                                         :: {[peach>singular],B}),
+                                       {dobj,B}),
+                                    qq((indefinite
+                                         :: {[man>singular],C}),
+                                       {subject,C})],
+                                   D)}),
+                           {at,D}),
+                        E)}),
+
+! Type error in argument 2 of =.. /2
+! atom expected, but [time(tense(past),aspect(perfect),aux(+),def(_77),finite(participle))] found
+! goal:  _95=..[[time(tense(past),aspect(perfect),aux(+),def(_77),finite(participle))],_70::{{at,_61},_70},_70]
+| ?-                 E)))
+| ?- parseOne('a man will have eaten every peach.', X), convSteps(X, Y), pretty(Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man ate every peach.}}\label{NF: a man ate every peach.}
+\end{figure}
+
+claim(opaque(qq(([time(tense(past),
+                       aspect(simple),
+                       aux(-),
+                       def(A),
+                       finite(tensed))]
+                  :: {(qq((existential
+                             :: {([eat,
+                                    qq((universal
+                                         :: {[peach>singular],B}),
+                                       {dobj,B}),
+                                    qq((indefinite
+                                         :: {[man>singular],C}),
+                                       {subject,C})],
+                                   D)}),
+                           {at,D}),
+                        E)}),
+
+! Type error in argument 2 of =.. /2
+! atom expected, but [time(tense(past),aspect(simple),aux(-),def(_80),finite(tensed))] found
+! goal:  _98=..[[time(tense(past),aspect(simple),aux(-),def(_80),finite(tensed))],_73::{{at,_64},_73},_73]
+| ?-                 E)))
+| ?- parseOne('a man will have eaten every peach.', X), convSteps(X, Y), pretty(Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man will have eaten every peach.}}\label{NF: a man will have eaten every peach.}
+\end{figure}
+
+claim(opaque(qq(([time(tense(future),
+                       aspect(A),
+                       aux(+),
+                       def(-),
+                       finite(tensed)),
+                  time(tense(past),
+                       aspect(perfect),
+                       aux(-),
+                       def(B),
+                       finite(participle))]
+                  :: {(qq((existential
+                             :: {([eaten,
+                                    qq((universal
+                                         :: {[peach>singular],C}),
+                                       {dobj,C}),
+                                    qq((indefinite
+                                         :: {[man>singular],D}),
+                                       {subject,D})],
+                                   E)}),
+                           {at,E}),
+                        F)}),
+
+! Type error in argument 2 of =.. /2
+! atom expected, but [time(tense(future),aspect(_93),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(-),def(_71),finite(participle))] found
+! goal:  _107=..[[time(tense(future),aspect(_93),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(-),def(_71),finite(participle))],_64::{{at,_55},_64},_64]
+| ?-                 F)))% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -64 bytes
+yes
+| ?- parseOne('a man will have eaten every peach.', X), convSteps(X, Y), pretty(Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man will have eaten every peach.}}\label{NF: a man will have eaten every peach.}
+\end{figure}
+
+qq(([time(tense(future), aspect(A), aux(+), def(-), finite(tensed)),
+     time(tense(past), aspect(perfect), aux(-), def(B), finite(participle))]
+     :: {([eaten,
+            qq(universal::{[peach>singular],C},
+               {dobj,C}),
+            qq(indefinite::{[man>singular],D},
+               {subject,D})],
+           E)}),
+   {claim,E})
+([([time(tense(future), aspect(A), aux(+), def(-), finite(tensed)),
+    time(tense(past), aspect(perfect), aux(-), def(B), finite(participle))]
+    :: {[eaten,{dobj,C},{subject,D}],E}),
+  indefinite::{[man>singular],D},
+  universal::{[peach>singular],C}]
+  + {claim,E})
+Q = [[time(tense(future),aspect(_A),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(-),def(_B),finite(participle))]::{[eaten,{dobj,_C},{subject,_D}],_E},indefinite::{[man>singular],_D},universal::{[peach>singular],_C}],
+T = {claim,_E},
+X = ['.',arg(claim,*time(tense(future),aspect(_A),aux(+),def(-),finite(tensed)),[will,arg(_F,*time(tense(present),aspect(_G),aux(+),def(+),finite(infinitive)),[have>'',arg(_H,*time(tense(past),aspect(perfect),aux(-),def(_B),finite(participle)),[[eaten,arg(dobj,*universal,[peach>singular|...])],arg(subject,*indefinite,[man>singular,modifier(...)])])])])],
+Y = qq([time(tense(future),aspect(_A),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(-),def(_B),finite(participle))]::{[eaten,qq(universal::{[peach>singular],_C},{dobj,_C}),qq(indefinite::{[man>singular],_D},{subject,_D})],_E},{claim,_E}) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+* [SPEC] - singleton variables in user:(qlf/2)
+* Approximate lines: 257-261, file: '/Users/ramsay/Documents/GitHub/dgParser/nf.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -160 bytes
+yes
+| ?- parseOne('a man will have eaten every peach.', X), convSteps(X, Y), pretty(Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man will have eaten every peach.}}\label{NF: a man will have eaten every peach.}
+\end{figure}
+
+claim(opaque([eaten,
+              qq(universal::{[peach>singular],A},
+                 {dobj,A}),
+              qq(indefinite::{[man>singular],B},
+                 {subject,B})]))
+([]
+  + claim(exists(A::{[man>singular],A},
+                 forall(B::{[peach>singular],B},
+                        [eaten, {dobj,B}, {subject,A}]))))
+Q = [],
+T = claim(exists(_A::{[man>singular],_A},forall(_B::{[peach>singular],_B},[eaten,{dobj,_B},{subject,_A}]))),
+X = ['.',arg(claim,*time(tense(future),aspect(_C),aux(+),def(-),finite(tensed)),[will,arg(_D,*time(tense(present),aspect(_E),aux(+),def(+),finite(infinitive)),[have>'',arg(_F,*time(tense(past),aspect(perfect),aux(-),def(_G),finite(participle)),[[eaten,arg(dobj,*universal,[peach>singular|...])],arg(subject,*indefinite,[man>singular,modifier(...)])])])])],
+Y = claim(opaque([eaten,qq(universal::{[peach>singular],_B},{dobj,_B}),qq(indefinite::{[man>singular],_A},{subject,_A})])) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -80 bytes
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 0 msec -72 bytes
+yes
+| ?- parseOne('a man will have eaten every peach.', X), convSteps(X, Y), pretty(Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man will have eaten every peach.}}\label{NF: a man will have eaten every peach.}
+\end{figure}
+
+claim(opaque(([time(tense(future), aspect(A), aux(+), def(-), finite(tensed)),
+               time(tense(past),
+                    aspect(perfect),
+                    aux(-),
+                    def(B),
+                    finite(participle))]
+               :: [eaten,
+                   qq(universal::{[peach>singular],C},
+                      {dobj,C}),
+                   qq(indefinite::{[man>singular],D},
+                      {subject,D})])))
+([]
+  + claim(exists(A::{[man>singular],A},
+                 forall(B::{[peach>singular],B},
+                        ([time(tense(future),
+                               aspect(C),
+                               aux(+),
+                               def(-),
+                               finite(tensed)),
+                          time(tense(past),
+                               aspect(perfect),
+                               aux(-),
+                               def(D),
+                               finite(participle))]
+                          :: [eaten, {dobj,B}, {subject,A}])))))
+Q = [],
+T = claim(exists(_A::{[man>singular],_A},forall(_B::{[peach>singular],_B},[time(tense(future),aspect(_C),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(-),def(_D),finite(participle))]::[eaten,{dobj,_B},{subject,_A}]))),
+X = ['.',arg(claim,*time(tense(future),aspect(_C),aux(+),def(-),finite(tensed)),[will,arg(_E,*time(tense(present),aspect(_F),aux(+),def(+),finite(infinitive)),[have>'',arg(_G,*time(tense(past),aspect(perfect),aux(-),def(_D),finite(participle)),[[eaten,arg(dobj,*universal,[peach>singular|...])],arg(subject,*indefinite,[man>singular,modifier(...)])])])])],
+Y = claim(opaque([time(tense(future),aspect(_C),aux(+),def(-),finite(tensed)),time(tense(past),aspect(perfect),aux(-),def(_D),finite(participle))]::[eaten,qq(universal::{[peach>singular],_B},{dobj,_B}),qq(indefinite::{[man>singular],_A},{subject,_A})])) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -80 bytes
+yes
+| ?- parseOne('a man will have eaten every peach.', X), convSteps(X, Y), pretty(Y), extractQQ(Y, T, Q), pretty(Q+T).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a man will have eaten every peach.}}\label{NF: a man will have eaten every peach.}
+\end{figure}
+
+claim(opaque(qq([time(tense(future),
+                      aspect(A),
+                      aux(+),
+                      def(-),
+                      finite(tensed)),
+                 time(tense(past),
+                      aspect(perfect),
+                      aux(-),
+                      def(B),
+                      finite(participle))],
+                [eaten,
+                 qq(universal::{[peach>singular],C},
+                    {dobj,C}),
+                 qq(indefinite::{[man>singular],D},
+                    {subject,D})])))
+claim(opaque(qq([time(tense(future),
+                      aspect(A),
+                      aux(+),
+                      def(-),
+                      finite(tensed)),
+                 time(tense(past),
+                      aspect(perfect),
+                      aux(-),
+                      def(B),
+                      finite(participle))],
+                [eaten,
+                 qq(universal::{[peach>singular],C},
+                    {dobj,C}),
+                 qq(indefinite::{[man],D}, {subject,D})])))
+claim(opaque(qq([time(tense(future),
+                      aspect(A),
+                      aux(+),
+                      def(-),
+                      finite(tensed)),
+                 time(tense(past),
+                      aspect(perfect),
+                      aux(-),
+                      def(B),
+                      finite(participle))],
+                [eaten,
+                 qq(universal::{[peach],C}, {dobj,C}),
+                 qq(indefinite::{[man>singular],D},
+                    {subject,D})])))
+claim(opaque(qq([time(tense(future),
+                      aspect(A),
+                      aux(+),
+                      def(-),
+                      finite(tensed)),
+                 time(tense(past),
+                      aspect(perfect),
+                      aux(-),
+                      def(B),
+                      finite(participle))],
+                [[eaten,
+                 qq(universal::{[peach],C}, {dobj,C}),
+                 qq(indefinite::{[man],D}, {subject,D})], W])))
+no
+| ?- 
