@@ -1,0 +1,90 @@
+Most: the reason why "most" was coming out as "*universal" was that I
+hadn't said what its value for specifier was, and then you had a
+(possibly accidental) default that determiners that don't have a value
+for specifier are universals. So I fixed that in determiners.pl.
+
+Polarity:
+
+We wanted to switch polarity marking into the lexicon, rather than
+having a table of words with polarity marks, because if you've got
+information that is associated with individual words you should
+include it in your description of individual words, i.e. in the
+lexicon.
+
+We start by adding a new feature, polarity, to the main signature, and
+then we include it in the descriptions of words that need it (it will
+default to 1 if we don't say anything).
+
+word('doubt', X) :-
+    language@X -- english,
+    X <> [vroot, regularPast],
+    S <> [tensedForm],
+    sverb(X, S),
+    args@X -- [COMP, _SUBJ],
+    polarity@COMP -- -1.
+
+every(X) :-
+    X <> [det(10), thirdSing, simpleDet1(10), theta(specifier)],
+    result@X <> [np, -target, specifier(*universal)],
+    polarity@target@X -- -1.
+
+Then every subtree of our main dependency tree will be marked by a
+polarity, appearing as something like [love,{dobj, #13(A)}, {subject,A}]?1. 
+
+We have to be a bit careful in the various steps in nf.pl to ignore
+the polarity markers until we actually want to do something with them,
+but apart from that I think it all comes out OK. At the points in the
+parser where I add the polarity markers I assume that the default
+value is 1 so we don't have to say anything unless we want to
+explicitly add a negative marker.
+
+So "every man loves some woman" comes out as 
+
+({[(man>singular)?-1]?1,A}
+  => ({[tense(present)],#23(A)}
+       & ({(simple,#23(A)),#24(A)}
+           & ({[(woman>singular)?1]?1,#25(A)}
+               & ({(member,#24(A)),B}
+                   => [([love, {dobj,#25(A)}, {subject,A}]?1),
+                       B])))))
+
+"most men love some woman" gets stuck at
+
+qlf(qq(claim,
+       qq([time(tense(A), aspect(B), aux(-), def(C), finite(tensed))],
+          ([love,
+            qq(indefinite::{[woman?1]?1,D},
+               {dobj,D}),
+            qq(most::{[(man>plural)?0]?1,E},
+               {subject,E})]
+            ? 1))))
+
+Probably because we aren't doing anything with "most" in qff. But you
+can see that the polarity marking on "man" is 0?1, which is what we want.
+
+Are we getting the marking right? It may get clearer if we brutally simplify
+
+({[(man>singular)?-1]?1,A}
+  => ({[tense(present)],#23(A)}
+       & ({(simple,#23(A)),#24(A)}
+           & ({[(woman>singular)?1]?1,#25(A)}
+               & ({(member,#24(A)),B}
+                   => [([love, {dobj,#25(A)}, {subject,A}]?1),
+                       B])))))
+
+to
+
+man?-1(A) => woman?1(#25(A)) & love?1(A, #25(A))?1
+
+Then you would want to be able to use that along with
+
+butler < man and love < like
+
+and 
+
+butler(John) 
+
+to prove woman?1(#25(John)) & like?1(John, #25(John))?1
+
+So I *think* it's coming out how we want it, but we'll have to check
+in Satchmo.

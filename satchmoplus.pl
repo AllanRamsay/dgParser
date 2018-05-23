@@ -32,24 +32,39 @@ s a named 'knowledge base', so that I can easily switch between
 %% will throw an exception, so we know we do need to run it
 :- catch(sign(X), _, setup(allwords)).
 
-%%Matching algortihm 
-:- op(397, xfx, match).
 /**
-:- ensure_loaded([matchAlgo]).
+:- ensure_loaded([hypstable]).
+if I try doing that to make sure that I have the whole thing a got a problem because the file is too big
   **/
 
-hyp('love','like').
-hyp('man','human').
-hyp('dog','animal').
+hyp(_,'love','like').
+hyp(_,'man','human').
+hyp(_,'dog','animal').
+hyp(_,'cat','animal').
+hyp(_,'fat','obese').
 
 match(X, X).
-match({[WORD0>CARDINALITY],VAR},{[WORD1>CARDINALITY],VAR}):-
-	hyp(WORD0,WORD1).
-match([[EVENT0, R1, R2], VAR],[[EVENT1, R1, R2], VAR]):-
-	hyp(EVENT0,EVENT1).
+match(WORD0,WORD1,POL):-
+	POL= +1 -> (hyp(_,WORD0,WORD1), showStep('~w is a hyponym of ~w~n', [WORD0,WORD1]));
+	POL= -1 -> (hyp(_,WORD1,WORD0); showStep('~w is a hyponym of ~w~n', [WORD1,WORD0]));
+	(WORD0 = WORD1, showStep('~w unified with ~w~n', [WORD0,WORD1])).
 
+match({[(WORD0>CARDINALITY):POL0],VAR},{[(WORD1>CARDINALITY):_POL1],VAR}):-
+	match(WORD0,WORD1,POL0).
 
-%%:- ensure_loaded([hypstable]). is called within the matching algorithm
+match({(WORD0>CARDINALITY):POL0,VAR},{(WORD1>CARDINALITY):_POL1,VAR}):-
+	match(WORD0,WORD1,POL0).
+
+match({[(WORD>CARDINALITY):POL,MODIFIER],VAR},{[(WORD>CARDINALITY):POL],VAR}):-
+	showStep('Skipping over modifier ~w~n', [MODIFIER]).
+
+match({[WORD:POL,modifier(amod,MODIFIER0:POL0)],VAR},{[WORD:POL,modifier(amod,MODIFIER1:_POL1)],VAR}):-
+	showStep('try matching modifiers ~w and ~w~n', [MODIFIER0,MODIFIER1]),
+	match(MODIFIER1,MODIFIER0,POL0).
+
+match([[EVENT0:POL0, R1, R2], VAR],[[EVENT1:_POL1, R1, R2], VAR]):-
+	match(EVENT0,EVENT1,POL0).
+
 
 
 %% If you're asked for a fact you've never heard of, just fail rather than throwing an exception
@@ -72,8 +87,10 @@ showStep(STRING, ARGS) :-
   problem, and ones that we asserted as temporary hypotheses during proofs. So when we
   are looking to see whether X is a fact we have to look it up under temp(X) and fact(X).
   **/
-abducible(_).
 
+horn(X, LABEL) :-
+    showStep('~n~wTrying Horn proof~w~n', [indent:label@LABEL, X]),
+    fail.
 horn(X, LABEL) :-
     member(X, stack:label@LABEL),
     !,
@@ -82,7 +99,7 @@ horn(X, LABEL) :-
      (temp(X1), match(X1,X)),
      showStep('~w~w found as hypothetical fact~n', [indent:label@LABEL, X]).
 horn(X, LABEL) :-
-    (fact(X :: LABEL), match(X1,X)),
+    (fact(X1), match(X1,X)), %% X could be human, X1 could be man or fat human
      showStep('~w~w found as actual fact~n', [indent:label@LABEL, X]).
 horn(default(X), LABEL) :-
     !,
@@ -92,29 +109,19 @@ horn(X, LABEL0) :-
     LABEL1\(indent:label) -- LABEL0,
     INDENT0 -- indent:label@LABEL0,
     extend1(stack:label@LABEL0, X),
-    ((LHS => X1 :: LABEL2), match(X1,X)),
+    ((LHS=>X1), match(X1,X)), %% X could be human, X1 could be man or fat human
     showStep('~w~w found as rule that leads to ~w~n', [INDENT0, LHS => X, X]),
-    atom_concat(INDENT0, ' ', indent:label@LABEL1),
-    horn(LHS, LABEL1),
-    (nonvar(degree:label@LABEL1) ->
-	    degree:label@LABEL0 is degree:label@LABEL1*degree:label@LABEL2).
+    %% atom_concat(INDENT0, ' ', indent:label@LABEL1),
+    horn(LHS, LABEL1).
 horn(A & B, LABEL) :-
-    LABEL\(degree:label) -- LABELA,
-    LABEL\(degree:label) -- LABELB,
-    horn(A, LABELA),
-    horn(B, LABELB),
-    (nonvar(degree:label@LABELA) ->
-	    degree:label@LABEL is degree:label@LABELA*degree:label@LABELB). 
+    showStep('Horn proof of conjunction: ~w', [A &B]),
+    horn(A, LABEL),
+    horn(B, LABEL). 
 horn(A or B, LABEL) :-
     horn(A, LABEL); horn(B, LABEL).
 horn(A => B, LABEL) :-
     showStep('~wAbout to try conditional proof of ~w~n', [indent:label@LABEL, A => B]),
     cprove(A => B, LABEL).
-horn(X, LABEL) :-
-    !,
-    showStep('~wJust pretend you believe ~w (abduction: just do it)~n', [indent:label@LABEL, X]),
-    abducible(X),
-    (extend1(abduced:label@LABEL, [indent:label@LABEL, X]) -> true; fail).
 
 /***
   Non-Horn part: find a disjunctive rule (any disjunctive rule, doesn't matter:
@@ -204,11 +211,14 @@ setProblem1(A & B) :-
     !,
     setProblem1(A),
     setProblem1(B).
-/**setProblem1([H | T]) :-
+
+setProblem1(A => (B & C)) :-
     !,
-    setProblem1(H),
-    setProblem1(T).
-  **/
+    setProblem1(A => B),
+    setProblem1(A => C).
+setProblem1(A => (B => C)) :-
+    !,
+    setProblem1((A & B) => C).
 setProblem1(A => B) :-
     !,
     assert(A => B).

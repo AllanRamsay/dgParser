@@ -29,9 +29,8 @@ word('s', X) :-
 
 word('', X) :-
     language@X -- english,
-    X <> [suffix(numPerson), thirdSing, standardcase, movedAfter(-), unspecified, -specifier],
-    root@X -- singular,
-    trigger(index@X, default(nmod(X))).
+    X <> [suffix(numPerson), thirdSing, standardcase, movedAfter(-), unspecified, -specifier, nmod],
+    root@X -- singular.
 
 word('ed1', X) :-
     language@X -- english,

@@ -56,6 +56,11 @@ word('award', X) :-
     definition@X -- 'give , especially as an honor or reward',
     X <> [vroot, regularPast],
     tverb2(X).
+                    
+word('basket', X) :- 
+    language@X -- english,
+    definition@X -- 'a container that is usually woven and has handles',
+    X <> [nroot].
 
 word('bear', X) :-
     language@X -- english,
@@ -169,6 +174,11 @@ word('bought', X) :-
     X <> [inflected],
     verb(X, buy),
     (pastTense(X); pastPart(X)).
+                
+word('boy', X) :- 
+    language@X -- english,
+    definition@X -- 'a friendly informal reference to a grown man',
+    X <> [nroot].
 
 word('bred', X) :-
     language@X -- english,
@@ -362,6 +372,12 @@ word('deliver', X) :-
     X <> [vroot, regularPast],
     tverb2(X).
 
+word('deserve', X) :-
+    language@X -- english,
+    definition@X -- 'be worthy or deserving',
+    X <> [vroot, regularPast],
+    tverb(X).
+
 word('divorce', X) :-
     language@X -- english,
     definition@X -- 'part',
@@ -396,7 +412,9 @@ word('doubt', X) :-
     language@X -- english,
     X <> [vroot, regularPast],
     S <> [tensedForm],
-    sverb(X, S).
+    sverb(X, S),
+    args@X -- [COMP, _SUBJ],
+    polarity@COMP -- -1.
 
 word('doubt', X) :-
     language@X -- english,
@@ -493,6 +511,11 @@ word('expect', X) :-
     X <> [vroot, regularPast],
     verb(X, expect).
 
+word('fake', X) :-
+    language@X -- english,
+    definition@X -- 'fraudulent',
+    X <> [aroot].
+
 word('fart', X) :-
     language@X -- english,
     definition@X -- 'expel intestinal gases through the anus',
@@ -533,6 +556,17 @@ word('fat', X) :-
 word('fat', X) :- 
     language@X -- english,
     X <> [aroot].
+                
+word('favour', X) :- 
+    language@X -- english,
+    definition@X -- 'an act of gracious kindness',
+    X <> [nroot].
+
+word('favour', X) :-
+    language@X -- english,
+    definition@X -- 'consider as the favorite',
+    X <> [vroot, regularPast],
+    tverb(X).
 
 word('fed', X) :-
     language@X -- english,
@@ -573,7 +607,12 @@ word('flee', X) :-
     language@X -- english,
     itverb(X),
     X <> [vroot, pastForms(-, -)].
-                    
+
+word('food', X) :- 
+    language@X -- english,
+    definition@X -- 'any substance that can be metabolized by an animal to give energy and build tissue',
+    X <> [nroot].                    
+
 word('fool', X) :- 
     language@X -- english,
     definition@X -- 'a person who is gullible and easy to take advantage of',
@@ -594,6 +633,11 @@ word('foot', X) :-
 word('foot', X) :- 
     language@X -- english,
     definition@X -- 'the pedal extremity of vertebrates other than human beings',
+    X <> [nroot].
+
+word('football', X) :- 
+    language@X -- english,
+    definition@X -- 'any of various games played with a ball in which two teams try to kick or carry or propel the ball into each other SS goal',
     X <> [nroot].
 
 word('foretell', X) :-
@@ -630,6 +674,10 @@ word('fought', X) :-
     language@X -- english,
     itverb(X),
     X <> [past, inflected].
+
+word('friend', X) :- 
+    language@X -- english,
+    X <> [nroot].
 
 word('frolick', X) :-
     language@X -- english,
@@ -670,6 +718,16 @@ word('glycerinate', X) :-
     language@X -- english,
     tverb(X),
     X <> [vroot, regularPast].
+
+word('good', X) :-
+    language@X -- english,
+    definition@X -- 'having or showing knowledge and skill and aptitude',
+    X <> [aroot].
+                    
+word('good', X) :- 
+    language@X -- english,
+    definition@X -- 'articles of commerce',
+    X <> [nroot, -target].
 
 word('got', X) :-
     language@X -- english,
@@ -778,6 +836,16 @@ word('home', X) :-
     X <> [vroot, regularPast],
     tverb(X).
 
+word('human', X) :- 
+    language@X -- english,
+    definition@X -- 'any living or extinct member of the family Hominidae characterized by superior intelligence , articulate speech , and erect carriage',
+    X <> [nroot, -target].
+
+word('human', X) :-
+    language@X -- english,
+    definition@X -- 'characteristic of humanity',
+    X <> [aroot].
+
 word('hung', X) :-
     language@X -- english,
     tverb(X),
@@ -861,6 +929,11 @@ word('know', X) :-
 word('Labour', X) :- 
     language@X -- english,
     X <> [nroot(_), sing].
+
+word('lack', X) :-
+    language@X -- english,
+    X <> [vroot, regularPast],
+    tverb(X).
 
 word('last', X) :-
     language@X -- english,
@@ -1130,6 +1203,16 @@ word('nose', X) :-
 word('nose', X) :- 
     language@X -- english,
     definition@X -- 'the organ of smell and entrance to the respiratory tract',
+    X <> [nroot].
+
+word('obese', X) :-
+    language@X -- english,
+    definition@X -- 'excessively fat',
+    X <> [aroot].
+                    
+word('obesity', X) :- 
+    language@X -- english,
+    definition@X -- 'more than average fatness',
     X <> [nroot].
 
 word('overran', X) :-
@@ -1659,6 +1742,17 @@ word('swung', X) :-
     itverb(X),
     X <> [past, inflected].
 
+word('tail', X) :- 
+    language@X -- english,
+    definition@X -- 'the fleshy part of the human body that you sit on',
+    X <> [nroot].
+
+word('tail', X) :-
+    language@X -- english,
+    definition@X -- 'go after with the intent to catch',
+    X <> [vroot, regularPast],
+    uverb(X).
+
 word('take', X) :-
     language@X -- english,
     tverb(X),
@@ -1748,6 +1842,10 @@ word('travel', X) :-
     language@X -- english,
     definition@X -- 'a movement through space that changes the location of something',
     X <> [nroot].
+
+word('ugly', X) :-
+    language@X -- english,
+    X <> [aroot].
 
 word('undergo', X) :-
     language@X -- english,
@@ -1866,6 +1964,10 @@ word('win', X) :-
     language@X -- english,
     X <> [vroot, pastForms(-, -)],
     verb(X, win).
+
+word('without', X) :-
+    language@X -- english,
+    X <> [adv].
 
 word('withstand', X) :-
     language@X -- english,

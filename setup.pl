@@ -13,7 +13,6 @@ compileable([signatures]).
 
 noncompilable([agree,
 	       classes,
-	       negation,
 	       vforms,
 	       pronouns,
 	       verbs,

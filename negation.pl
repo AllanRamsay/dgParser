@@ -10,4 +10,5 @@ not(X) :-
     X <> [v],
     -target@X,
     args@X -- [S],
+    polarity@S -- -1,
     S <> [s, theta(negComp), tensedForm].

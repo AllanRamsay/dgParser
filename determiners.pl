@@ -73,7 +73,8 @@ any(X) :-
 
 every(X) :-
     X <> [det(10), thirdSing, simpleDet1(10), theta(specifier)],
-    result@X <> [np, -target, specifier(*universal)].
+    result@X <> [np, -target, specifier(*universal)],
+    polarity@target@X -- -1.
 
 few(X) :-
     number(X, few).
@@ -91,7 +92,9 @@ most(X) :-
     start@target@X -- end@X,
     X <> [det2(5)],
     target@X <> [standardcase],
-    result@X <> [+def, notMoved].
+    result@X <> [+def, notMoved, specifier(*most)],
+    polarity@target@X -- 0.
+
 most(X) :-
     ofDet1(X, 5),
     result@X <> [-modifiable].

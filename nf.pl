@@ -1,9 +1,9 @@
-/**Clesn**/
+
 :- op(32, xfy, '\IN').
 :- op(32, xfy, '\sub').
 
 revpolarity(P0, P1) :-
-    (P0 = + -> P1 = -; P1 = -).
+    (P0 = + -> P1 = -; P0 = - -> P1 = +;P1 = -). 
 
 /**
   It may be useful to order the dtrs of tree so that modifiers
@@ -52,6 +52,9 @@ denest(arg(A, B, D0), arg(A, B, D1)) :-
 denest(modifier(A, B0), modifier(A, B1)) :-
     !,
     denest(B0, B1).
+denest(A0?P, A1?P) :-
+    !,
+    denest(A0, A1).
 denest(X, X).
 
 justRoots(X, X) :-
@@ -79,6 +82,13 @@ timeSequence(['.',arg(claim,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List)],['.',arg(cl
     timeSequence(Rest0,Rest1).
 
 timeSequence(['?',arg(query,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List)],['?',arg(query,TimeSeq,Rest1)]):-
+    nonvar(Arg0),
+    !,
+    collectTime(List,[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq,Rest0),
+    timeSequence(Rest0,Rest1).
+
+timeSequence(['?',arg(query,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List)],['?',arg(query,TimeSeq,Rest1)]):-
+    fail,
     !,
     collectTime(List,[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq,Rest0),
     timeSequence(Rest0,Rest1).
@@ -87,7 +97,7 @@ timeSequence(['.',arg(frag,Specifier,List0)],['.',arg(frag,Specifier,List1)]):-
     !,
     timeSequence(List0,List1).
 
-timeSequence([WORD,modifier(Type,List0)|OtherMods0],[WORD,modifier(Type,List1)|OtherMods1]):-
+timeSequence([WORD, modifier(Type,List0) |OtherMods0],[WORD, modifier(Type,List1) |OtherMods1]):-
     !,
     timeSequence(List0,List1),
     timeSequence(OtherMods0,OtherMods1).
@@ -112,7 +122,7 @@ timeSequence([_AUX,arg(auxComp,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List) | MODS],[
 	collectTime([List | MODS],[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq,Rest0),
 	timeSequence(Rest0,Rest1).
 
-timeSequence([WORD,arg(Type,Specifier,List0)|OthrArgs0],[WORD,arg(Type,Specifier,List1)|OthrArgs1]):-
+timeSequence([WORD,arg(Type,Specifier,List0) |OthrArgs0],[WORD,arg(Type,Specifier,List1) |OthrArgs1]):-
 	!,
 	timeSequence(List0,List1),
 	timeSequence(OthrArgs0,OthrArgs1).
@@ -123,20 +133,26 @@ timeSequence(X,X).
 refine(List,*List).
 
 collectTime([_AUX,arg(_Type,*(time(Arg0,_Arg1,_Arg2,_Arg3,_Arg4)),List)],TimeSeq0,TimeSeq2,Rest):-
-	var(Arg0),
-	!,
-	collectTime(List,TimeSeq0,TimeSeq2,Rest).
+    var(Arg0),
+    !,
+    collectTime(List,TimeSeq0,TimeSeq2,Rest).
 
 collectTime([_AUX,arg(_Type,*(time(Arg0,Arg1,Arg2,Arg3,Arg4)),List)],TimeSeq0,TimeSeq2,Rest):-
-	!,
-	append(TimeSeq0,[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq1),
-	collectTime(List,TimeSeq1,TimeSeq2,Rest).
+    !,
+    append(TimeSeq0,[(time(Arg0,Arg1,Arg2,Arg3,Arg4))],TimeSeq1),
+    collectTime(List,TimeSeq1,TimeSeq2,Rest).
 
-collectTime([WORD,arg(Type,Specifier,List)|OthrArgs],TimeSeq,RefinedTimeSeq,[WORD,arg(Type,Specifier,List)|OthrArgs]):-
-	refine(TimeSeq,RefinedTimeSeq).
+collectTime([WORD,arg(Type,Specifier,List)|OthrArgs],TimeSeq,RefinedTimeSeq,
+	    [WORD,arg(Type,Specifier,List)|OthrArgs]):-
+    !,
+    refine(TimeSeq,RefinedTimeSeq).
+
+collectTime(X0?P, TimeSeq, RefinedTimeSeq, X1?P) :-
+    collectTime(X0, TimeSeq, RefinedTimeSeq, X1).
 
 convSteps(X0,XN):-
 	denest(X0,X1),
+	pretty(denested(X1)),
 	justRoots(X1,X2),
 	pretty(jr(X2)),
 	timeSequence(X2,X3),
@@ -156,15 +172,12 @@ convSteps(X0,XN):-
 nfTree(X, X) :-
     (var(X); atomic(X)),
     !.
-nfTree(arg(Type,Specifier,List0),arg(Type,Specifier,List1)):-
-	!,
-	nfTree(List0,List1).
-%% Igore modifier nodes where the modifier is identity or undefined except for 'not' until solved- I think solve syntactically, no need for special treatment here ?
-nfTree([M, arg(negation(_, [_, X]))], [not, T1]) :-
+nfTree(arg(Type,Specifier,List0), arg(Type,Specifier,List1)):-
     !,
-    nfTree([M, X], T1).
-
-%%delete that above case----?
+    nfTree(List0,List1).
+nfTree(X0?P, X1?P) :-
+    !,
+    nfTree(X0, X1).
 nfTree([modifier(identity, _D0) | T0], T1) :-
     !,
     nfTree(T0, T1).
@@ -183,16 +196,124 @@ nfDtrs([H0 | T0], [H1 | T1]) :-
     nfTree(H0, H1),
     nfDtrs(T0, T1).
 
-/**
-  universals
-  every peach = qq((universal :: {[peach>singular],E}), {dobj,E}),
-  peach(F) => {dobj, E, F}
-  generics
-  peaches = qq((universal :: {dobj,E}), {[peach>singular],E})
-  generics'
-  every peach = qq((generic :: {[peach>singular],E}), {dobj,E}),
-  {dobj, E, F} => peach(F)
-  **/
+/** Polarity table for quantifiers:assuming quantifiers have effects on their restricted items, commonly one item **/
+polTable(*(universal),-1).
+polTable(*(no),-1).
+polTable(*(proRef),0).
+polTable(*(name),0).
+polTable(*(the),0).
+polTable(_DEFAULT,+1).
+
+/** Polarity table fornegations, verbs, adverbs..etc: assuming each affect 2 argument maximum **/
+polTable2('not',1,-1,_).
+polTable2('without',1,-1,_).
+polTable2('lack',2,-1,+1).
+polTable2('doubt',2,-1,+1).
+polTable2(_DEFAULT,2,+1,+1).
+
+polTable3('doubt',[-1]).
+polTable3('without',[-1]).
+polTable3('lack',[-1,+1]).
+polTable3('doubt',[-1,+1]).
+polTable3(_DEFAULT,[+1,+1]).
+
+/** Polarity Compositional operator **/
+polarityComposition(POL0,POL1,COMP):-
+	COMP is POL0 * POL1.
+
+
+polMark(X0,X1):-
+	polMark(X0,+1,X1).
+
+polMark(['.',arg(claim,SPEC,List0)],Pol,['.',arg(claim,SPEC,List1)]):-
+    !,
+    polMark(List0,Pol,List1).
+
+
+polMark(['?',arg(query,SPEC,List0)],Pol,['?',arg(query,SPEC,List1)]):-
+    !,	
+    polMark(List0,Pol,List1).
+
+/**assuming that negation words takes one argument which is a sentence **/
+polMark([NEGWORD,arg(negComp,SPEC,List0)],Pol0,[NEGWORD:Pol0,arg(negComp,SPEC,List1)]):-
+    !,
+    polTable2(NEGWORD,_ARGS,Pol1,_),
+    polarityComposition(Pol0,Pol1,Pol2),
+    pretty(Pol2),
+    polMark(List0,Pol2,List1).
+
+polMark([WORD,arg(xcomp,TIMESPEC,List0)|OthrArgs0],Pol0,[WORD:Pol0,arg(xcomp,TIMESPEC,List1)|OthrArgs1]):-
+    !,
+    polTable2(WORD,ARGS,Pol01,Pol11),
+    (ARGS=2 ->(polarityComposition(Pol0,Pol01,Pol02),
+	       polMark(List0,Pol02,List1),
+	       polarityComposition(Pol0,Pol11,Pol12),
+	       polMark(OthrArgs0,Pol12,OthrArgs1)));
+    (ARGS=1 ->(polarityComposition(Pol0,Pol01,Pol02),
+	       polMark(List0,Pol02,List1),
+	       polMark(OthrArgs0,Pol0,OthrArgs1))).
+
+polMark([WORD,arg(Type,Specifier,List0)|OthrArgs0],Pol0,[WORD:Pol0,arg(Type,Specifier,List1)|OthrArgs1]):-
+    !,
+    polTable2(WORD,ARGS,Pol01,Pol11),
+    polTable(Specifier,SPol),
+    (ARGS=2 ->(polarityComposition(Pol0,Pol01,Pol02),
+	       polarityComposition(Pol02,SPol,SPol02),
+	       polMark(List0,SPol02,List1),
+	       polarityComposition(Pol0,Pol11,Pol12),
+	       polMark(OthrArgs0,Pol12,OthrArgs1)));
+    (ARGS=1 ->(polarityComposition(Pol0,Pol01,Pol02),
+	       polarityComposition(Pol02,SPol,SPol02),
+	       polMark(List0,SPol02,List1),
+	       polMark(OthrArgs0,Pol0,OthrArgs1))).
+
+
+
+polMark([arg(Type,Specifier,List0)|OthrArgs0],Pol0,[arg(Type,Specifier,List1)|OthrArgs1]):-
+    !,
+    polTable(Specifier,SPol),
+    polarityComposition(Pol0,SPol,SPol0),
+    polMark(List0,SPol0,List1),
+    polMark(OthrArgs0,Pol0,OthrArgs1).
+
+
+polMark([WORD,modifier(Type,List0)|OtherMods0],Pol0,[WORD:Pol0,modifier(Type,List1)|OtherMods1]):-
+    !,
+    polTable2(WORD,ARGS,Pol01,Pol11),
+    (ARGS=2 ->(polarityComposition(Pol0,Pol01,Pol02),
+	       polMark(List0,Pol02,List1),
+	       polarityComposition(Pol0,Pol11,Pol12),
+	       polMark(OtherMods0,Pol12,OtherMods1)));
+    (ARGS=1 ->(polarityComposition(Pol0,Pol01,Pol02),
+	       polMark(List0,Pol02,List1),
+	       polMark(OtherMods0,Pol0,OtherMods1))).	
+   
+polMark([modifier(ppmod,List0)],Pol0,[modifier(ppmod,List1)]):-
+	!,
+	polMark(List0,Pol0,List1).
+   
+
+polMark([],_Pol,[]):-
+      !.
+polMark([WORD],Pol0,[WORD:Pol0]):-
+      !.
+polMark(WORD,Pol0,(WORD:Pol0)):-
+      !.
+polMark(X,_Pol,X).
+
+convSteps2(X0,XN):-
+	denest(X0,X1),
+	pretty(denested(X1)),
+	justRoots(X1,X2),
+	pretty(jr(X2)),
+	timeSequence(X2,X3),
+	pretty(ts(X3)),
+	nfTree(X3,X4),
+	pretty(nf(X4)),
+	%% polMark(X4,X5), pretty(pm(X5)),
+	X5 = X4,
+	qlf(X5,XN),
+	pretty(qlf(XN)).
 
 qlf(X, X) :-
     (var(X); atomic(X)),
@@ -208,9 +329,14 @@ qlf(['?', X0], X1) :-
 qlf(arg(claim, *SPEC, X0), qq(claim, X1)) :-
     !,
     qlf(qq(SPEC, X0), X1).
+qlf(arg(query, *SPEC, X0), qq(query, X1)) :-
+    !,
+    qlf(qq(SPEC, X0), X1).
+/**
 qlf(arg(query, *SPEC, X0), query(opaque(X1))) :-
     !,
     qlf(qq(SPEC, X0), X1).
+  **/
 qlf(arg(negComp, *SPEC, X0), X1) :-
     !,
     qlf(qq(SPEC, X0), X1).
@@ -252,8 +378,8 @@ tenseList([time(Arg1,_Arg2,_Arg3,_Arg4,_Arg5)|OtherTimes],[Arg1|TesneList]):-
 timeToQuantifier([time(_Arg1,_Arg2,_Arg3,def(Sign),_Arg5)|_OtherTimes],Quantifier):-
 	((atomic(Sign),Sign='-')->Quantifier='existential');
 	((atomic(Sign),Sign='+')->Quantifier='referential');
-	(var(Sign)->Quantifier='unidentified'); %%why both
-	(var(Sign)->Quantifier='existential').
+	(var(Sign)->Quantifier='existential'); %%why both and I swap them, originally 'unidentified' then existential'
+	(var(Sign)->Quantifier='unidentified').
 
 getAspect([time(_Arg1,aspect(Aspect),_Arg3,_Arg4,_Arg5)|OtherTimes],Aspect):-
 	last([time(Arg1,aspect(Aspect),_Arg3,_Arg4,_Arg5)|OtherTimes],time(Arg1,aspect(Aspect),_Arg3,_Arg4,_Arg5)),
@@ -341,9 +467,11 @@ scope(no, 0.3).
 scope(generic, 3.0).
 scope(name, 0.1).
 scope(the, 0.1).
+scope(proRef,0.1).
 scope(referential, 0.1).
 scope(not, 0.3).
 scope(claim, 0.2).
+scope(query, 0.2).
 
 assignScopeScore([],[]).
 assignScopeScore((Q=S)::T, (S, Q::T)) :-
@@ -351,6 +479,9 @@ assignScopeScore((Q=S)::T, (S, Q::T)) :-
 assignScopeScore((Q::T),(Score,Q::T)):-
     scope(Q,Score).
 assignScopeScore(Q,(Score,Q)):-
+    scope(Q,Score).
+
+assignScopeScore(Q:POL,(Score,Q:POL)):-
     scope(Q,Score).
 assignScopeScore([H0|T0],[H1|T1]):-
     !,
@@ -375,7 +506,7 @@ sortQStack(QS0, QS3):-
  /**============================================================== **/
 fixQuants(X0, X2) :-
      extractQQ(X0, X1, QSTACK0),
-    /*
+     /*
       If a quantifier *contains* another quantifier in its restrictor
       then we will get problems later on. So we have to check for this
       and re-order them as required
@@ -399,6 +530,11 @@ applyQuants([Q0::{R, V} | QQ], X0, XN) :-
      Q1 = Q0),
     applyQuants(QQ, X0, X1),
     XN =.. [Q1, V::{R, V}, X1].
+
+applyQuants([Q:_POL | QQ], X0, XN) :-
+    !,
+    applyQuants(QQ, X0, X1),
+    XN =.. [Q, X1].
 applyQuants([Q | QQ], X0, XN) :-
     applyQuants(QQ, X0, X1),
     XN =.. [Q, X1].
@@ -425,12 +561,19 @@ qff(A0 => B0, A1 => B1, QSTACK, POL0) :-
 qff(forall(X, P0), P2, QSTACK, +) :-
     var(X),
     !,
-    substitute(Y, X, P0, P1),
+    substitute(Y, X, P0, P1), 
     qff(P1, P2, [Y | QSTACK], +).
+
 qff(forall(X, P0), P2, QSTACK, -) :-
+    fail,
     var(X),
     !,
     qff(exists(X, P0), P2, QSTACK, +).
+qff(forall(X, P0), P2, QSTACK, -) :- %% my attempt to solve the problem
+    var(X),
+    !,
+    skolem(X, QSTACK),
+    qff(P0, P2, QSTACK, -).
 qff(forall(X :: {P0}, Q0), QFF, QSTACK, POLARITY) :-
     !,
     qff(forall(X, {P0} => Q0), QFF, QSTACK, POLARITY).
@@ -486,7 +629,7 @@ qff(X0, X1) :-
 doItAll(TXT,XN):-
      parseOne(TXT, X0),
      verbatim(pretty(X0)),
-     convSteps(X0,X1),
+     convSteps2(X0,X1),
      fixQuants(X1,X2),
      format('~nAfter fixQuants~n', []),
      verbatim(pretty(X2)),
@@ -502,12 +645,25 @@ doItAll(TXT,XN):-
      tryToAnswer(XN);
      format('Er ??? ~w~~n', [SPEECHACT])).
 
+background([{[name,'John'], X} => {he, X},
+	    fact({salient, X})]).
+
+addBackground :-
+    background(L),
+    addBackground(L).
+
+addBackground([]).
+addBackground([H | T]) :-
+    assert(H),
+    addBackground(T).
 
 startConversation :-
 	format('~nstarting a new conversation ~n', []),
 	retractall(kb(minutes, _)),
 	retractall(fact(_)),
-	retractall(_=>_).
+	retractall(_=>_),
+	gensym(reset(#)),
+	addBackground.
 
 addMinutesToKb(MINUTES):-
 	format('~n~w added to knowledge base ~n', [MINUTES]),
@@ -521,139 +677,55 @@ addToMinutes(Tree):-
 	 assert(kb(minutes, Tree))).
 
 tryToAnswer(Tree):-
-    format('~nTrying to answer ~w~n', [Tree]),
-    (prove(Tree, _X) ->
-     (format('~nYes ~w~n', [Tree]),pretty(Tree));
-     format('~nNo~n', [])).
+	format('~nTrying to answer ~w~n', [Tree]),
+	INDENT = '',
+	indent:label@LABEL -- INDENT,
+	(prove(Tree,LABEL) ->
+	 (format('~nYes ~w~n', [Tree]),pretty(Tree));
+	 format('~nNo~n', [])).
 
-assimilate({Name,X}):-
-    gensym('#', X),
-    addMinutesToKb({Name,X}),
-    format('~nanchored ~w~w~n', [Name,X]).
-  
-anchor(name(X::{Name,X},P0),P1):-
-    format('~nTrying to anchor ~w~n', [Name]),
-    ABDUCED -- abduced:label@LABEL,
-    trigger(ABDUCED, ABDUCED = [['', _] | _]),
+assimilate(A & B) :-
     !,
-    prove({Name,X}, LABEL),
-    (var(ABDUCED) ->
+    assimilate(A),
+    assimilate(B).
+assimilate({PROP, X}):-
+    (gensym('#', X) -> true; true),
+    addMinutesToKb({PROP,X}),
+    format('~nanchored ~w~w~n', [PROP,X]).
+  
+anchor(name(X::{[Name:_],X},P0),P1):-
+    format('~nTrying to anchor ~w~n', [Name]),
+    !,
+    INDENT = '',
+    indent:label@LABEL -- INDENT,
+    (prove({[name, Name], X},LABEL) ->
     true;
-    assimilate({Name,X})),
+    assimilate({[name, Name], X})),
     anchor(P0,P1).
 
 anchor(the(X::{Name,X},P0),P1):-
 	format('~nTrying to anchor ~w~n', [Name]),
 	!,
-	(prove({Name,X},_) ->
+	INDENT = '',
+	indent:label@LABEL -- INDENT,
+	(prove({Name,X},LABEL) ->
 	true;
 	assimilate({Name,X})),
 	anchor(P0,P1).
- 
+
+anchor(proRef(X::{Name,X},P0),P1):-
+	format('~nTrying to anchor ~w~n', [Name]),
+	!,
+	INDENT = '',
+	indent:label@LABEL -- INDENT,
+	PROP = ({Name, X} & {salient, X}),
+	(prove(PROP,LABEL) ->
+	true;
+	assimilate(PROP)),
+	anchor(P0,P1). 
 anchor(X, X):-
 	format('~n Skip anchor ~w~n', [X]).
 
-
-addContexts(X, X) :-
-    (atomic(X); var(X)),
-    !.
-addContexts(at(V, X0), X1) :-
-    !,
-    addContexts(X0 '\IN' V, X1).
-addContexts(claim(X0), claim(X1)) :-
-    !,
-    addContexts(X0 '\IN' minutes, X1).
-addContexts(query(X0), query(X1)) :-
-    !,
-    addContexts(X0 '\IN' bel(hearer), X1).
-addContexts([H0 | T0], [H1 | T1]) :-
-    !,
-    addContexts(H0, H1),
-    addContexts(T0, T1).
-addContexts(X0, X1) :-
-    X0 =.. L0,
-    addContexts(L0, L1),
-    X1 =.. L1.
-
-/**
-  Our trees are trees, i.e. nested lists. We might want to turn them
-  into conjunctions. Leaving them as they are leaves us closer to
-  natural logic, which we might want.
-  **/
-
-list2conj(X, X) :-
-    (var(X); atomic(X)),
-    !.
-list2conj([X], X) :-
-    !.
-list2conj([H0 | T0], H1 & T1) :-
-    !,
-    list2conj(H0, H1),
-    list2conj(T0, T1).
-list2conj(X0, X1) :-
-    X0 =.. L0,
-    list2conjAll(L0, L1),
-    X1 =.. L1.
-
-list2conjAll([], []).
-list2conjAll([H0 | T0], [H1 | T1]) :-
-    list2conj(H0, H1),
-    list2conjAll(T0, T1).
-
-/**
-  We might at an earlier stage have done something to make a copula
-  sentence like "John is a fool" mean something like
-
-  claim(((now=#0 & fool(#2)&(ref(A,name(A,John))=#2)IN#0) IN minutes))
-
-  i.e. there is a fool, who we will call #2, and there is someone
-  called John, and these two are actually the same thing.
-
-  That was earlier. We *might* now want to actually replace #2 by John
-  -- since they're the same thing, it might make sense to have one
-  term representing them, turning this into
-  claim(fool(ref(A,name(A,John)))IN[minutes,now]). Might.
-  **/
-
-elimEQ(X, X, EQ, EQ, _POLARITY) :-
-    (var(X); atomic(X)),
-    !.
-elimEQ([H0 | T0], [H1 | T1], EQ0, EQ2, POLARITY) :-
-    !,
-    elimEQ(H0, H1, EQ0, EQ1, POLARITY),
-    elimEQ(T0, T1, EQ1, EQ2, POLARITY).
-elimEQ((A=B) & C1, C2, EQ0, [A=B | EQ1], +) :-
-    !,
-    elimEQ(C1, C2, EQ0, EQ1, +).
-elimEQ(C1 & (A=B), C2, EQ0, [A=B | EQ1], +) :-
-    !,
-    elimEQ(C1, C2, EQ0, EQ1, +).
-elimEQ((A & B) & C, E, EQ0, EQ1, POLARITY) :-
-    !,
-    elimEQ(A & (B & C), E, EQ0, EQ1, POLARITY).
-elimEQ(A0 => B0, A1 => B1, EQ0, EQ2, POLARITY) :-
-    !,
-    revpolarity(POLARITY, REVPOLARITY),
-    elimEQ(A0, A1, EQ0, EQ1, REVPOLARITY),
-    elimEQ(B0, B1, EQ1, EQ2, POLARITY).
-elimEQ((A0, B0), (A1, B1), EQ0, EQ2, POLARITY) :-
-    !,
-    elimEQ(A0, A1, EQ0, EQ1, POLARITY),
-    elimEQ(B0, B1, EQ1, EQ2, POLARITY).
-elimEQ(X0, X1, EQ0, EQ1, POLARITY) :-
-    X0 =.. L0,
-    elimEQ(L0, L1, EQ0, EQ1, POLARITY),
-    X1 =.. L1.
-
-applyEQ([], X, X).
-applyEQ([A=B | EQ0], X0, X2) :-
-    substitute(A, B, X0, X1),
-    substitute(A, B, EQ0, EQ1),
-    applyEQ(EQ1, X1, X2).
-
-elimEQ(X0, X2) :-
-    elimEQ(X0, X1, [], EQ, +),
-    applyEQ(EQ, X1, X2).
 
 /**
   We use X \IN C to mean that X is true in the context C. We sometimes
@@ -719,3 +791,4 @@ nf(X, FLATTENLABELS) :-
     (?elimEQ -> elimEQ(SIMP, ELIMEQ); ELIMEQ = SIMP),
     ((?printing, ?elimEQ) -> (nl, pretty(elimEQ(SIMP, ELIMEQ))); true),
     flattenLabels(ELIMEQ, FLATTENLABELS).
+

@@ -282,7 +282,7 @@ adjunct2(X) :-
     target@X -- T,
     result@X -- R,
     [def, language] :: [X, T, R],
-    T\structure\dir\mod\wh\spec\comp -- R.
+    T\structure\dir\mod\wh\spec\comp\polarity -- R.
 
 adjunct1(X) :-
     -zero@target@X,
@@ -292,7 +292,7 @@ adjunct(X, zero@T) :-
     target@X -- T,
     result@X -- R,
     language :: [X, T, R],
-    T\structure\dir\modified\wh\spec -- R.
+    T\structure\dir\modified\wh\spec\polarity -- R.
 
 adjunct(X) :-
     X <> [adjunct(-)].
@@ -380,7 +380,7 @@ nmod(X) :-
     T <> [baseNoun, -numeric, -zero, unspecified],
     xstart@T -- end@X,
     modified@result@X -- 1.5,
-    trigger(index@T, theta(X, nmod)).
+    modifier@X -- nmod.
 
 /**
   Some really complicated stuff for treating Arabic nouns

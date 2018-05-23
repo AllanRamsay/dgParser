@@ -270,15 +270,6 @@ checkFixedMod(M, T) :-
      (before(dir@M), end@M -- start@T)).
 checkFixedMod(_M, _T).
 
-/**
-  If X could have multiple views, then instead of doing assert(X)
-  you could do assert((T :- T=X; vmember(T, externalviews@X))).
-
-  Is that any different from
-  
-  
-  **/
-
 addExternalView(X, Y) :-
     (addDisjunct(externalviews@X, Y) -> true; true).
 
@@ -291,13 +282,12 @@ extendWH(X, Y) :-
 	zero@WH2 == +).
     
 combineModAndTarget(M, T, R) :-
-    [complete, shifted, wh] :: [T, R],
+    [complete, shifted, wh, surface, language, externalviews, hd] :: [T, R],
     extend(shifted@R, shifted@M),
     target@M -- T,
     T <> [+modifiable],
     result@M -- R,
     \+ ((length(wh@T, L) -> true; true), L = 2),
-    [surface, language, externalviews, hd] :: [T, R],
     dtrs@R -- [index@T, mod(index@M)],
     (?forced ->
      plantCheckLinked(T, M);
@@ -308,7 +298,9 @@ combineModAndTarget(M, T, R) :-
     (var(span@M) -> find(M); find(T)),
     \+ (nonvar(MODT), nonvar(MODR), (MODT > MODR; (MODT == MODR, \+ compact(R)))),
     %% (zero@T == + -> (after(dir@T) -> start@T = end@M; end@T = start@M); true),
-    dtree@R -- [dtree@T, modifier(modifier@M, dtree@M)],
+    dtree@R -- [dtree@T?polarity@T, modifier(modifier@M, dtree@M?polarity@M)],
+    default(polarity@T = 1),
+    default(polarity@M = 1),
     setPosition(M, T, R),
     modPosition(M, T, R),
     checkWHPosition(T, M),
@@ -366,7 +358,9 @@ combineHdAndArg(H0, A, H1) :-
     mergeCosts(H0, A, H1),
     %% A <> [specified],
     %% +specified@A,
-    dtree@H1 -- [dtree@H0, arg(theta@A, specifier@A, dtree@A)],
+    default(polarity@A = 1),
+    default(polarity@H0 = 1),
+    dtree@H1 -- [dtree@H0, arg(theta@A, specifier@A, dtree@A?polarity@A)],
     (args@H1 = [] -> complete@H1 = +; true),
     %% (nonvar(shifted@H1) -> var(wh@H1); true),
     (used@A = +).

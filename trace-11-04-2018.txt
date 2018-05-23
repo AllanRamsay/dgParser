@@ -1,0 +1,3163 @@
+StraceICStus 3.12.8 (i386-darwin-8.9.1): Tue May  8 13:13:57 CEST 2007
+Licensed to man.ac.uk
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/setup.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po...
+%  module charsio imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/charsio.bundle in module charsio
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/charsio.po in module charsio, 10 msec 8512 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/setup.pl in module user, 10 msec 11600 bytes
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po...
+%  module terms imported into user
+%   loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po...
+%   module assoc imported into terms
+%    loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po...
+%    module lists imported into assoc
+%    loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/lists.po in module lists, 0 msec 11328 bytes
+%   loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/assoc.po in module assoc, 0 msec 22728 bytes
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/terms.po in module terms, 0 msec 31128 bytes
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 10 msec 59824 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 20 msec 21652 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 0 msec 13344 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec 1752 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 16496 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+%  loading /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po...
+%  module sockets imported into user
+%   loading foreign resource /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/i386-darwin-8.9.1/sockets.bundle in module sockets
+%  loaded /usr/local/bin/sp-3.12.8/sicstus-3.12.8/library/sockets.po in module sockets, 0 msec 21776 bytes
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec 23328 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec 9432 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec 6488 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 797-825, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 50 msec 185976 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+! 'target@sign(structure(_9733,_9734,_9735,_9736,_9737,_9738,_9739,_9740,_9741,_9742,language(_9731),_9744,_9745),syntax(args([]),tag(negationMarker),head(cat(negation),_7701,_7703,_7705,_7707,_7709,_7711,_7713),_7730,_7732,_7734,_7736,_7738,mod(target(sign(structure(_9692,position(_9685,_9686,_9687,_9688,_9689,_9690),_9694,_9695,_9696,_9697,form(_9682,_9683),_9699,zero(_9680),_9701,language(_9731),_9703,_9704),syntax(args([]),_9669,head(cat(xbar(v(+),n(-))),_14837,_14838,_14839,_14840,_14841,_14842,_14843),spec(_9662,_9663,_9664,_9665,_9666),_9672,_9673,nonlocal(_9658,_9659,_9660),_9675,_9676),_9708,_9709,_9710,_9711,_9712,_9713)),result(sign(structure(_9633,position(_9626,_9627,_9628,_9629,_9630,_9631),_9635,_9636,_9637,_9638,form(_9623,_9624),_9640,_9641,_9642,language(_9731),_9644,_9645),syntax(args([]),_9669,head(cat(xbar(v(+),n(-))),_14837,_14838,_14839,_14840,_14841,_14842,_14843),spec(_9662,_9663,_9664,_9665,_9666),_9672,_9673,nonlocal(_9607,_9659,_9660),_9675,_9676),_9708,_9709,_9710,_9711,_9712,_9713)),_9719)),_7755,semantics(_9222,theta(negation),modifier(negated),_9234),_7759,_7761,_7763,_7765)<>tensedForm could not be executed\n'
+! goal:  user:term_expansion((not(_6311):-fail,cat@_6311--negation,tag@_6311--negationMarker,modifier@_6311--negated,_6311<>[fulladjunct|...],target@_6311<>[s|...]),_7193)
+! Approximate lines: 1-8, file: '/Users/ramsay/Documents/GitHub/dgParser/negation.pl'
+! 'sign(_8907,syntax(args([]),_8898,head(cat(xbar(v(+),n(-))),_8887,_8888,_8889,_8890,_8891,_8892,_8893),_8900,_8901,_8902,_8903,_8904,_8905),_8909,semantics(_9277,theta(negComp),_9279,_9280),_8911,_8912,_8913,_8914)<>tensedForm could not be executed\n'
+! goal:  user:term_expansion((not(_6311):-_6311<>[v],-(target@_6311),args@_6311--[_6464],_6464<>[s,theta(negComp),tensedForm]),_7016)
+! Approximate lines: 8-13, file: '/Users/ramsay/Documents/GitHub/dgParser/negation.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec 3680 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 0 msec 28096 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec 1336 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 10 msec 36152 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec 1648 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 0 msec 24288 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec 1160 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec 12288 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec 1944 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 0 msec 10736 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 20 msec 70792 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 0 msec 10096 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec 7056 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 10 msec 6120 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 12520 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 36616 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+* abolish(user:(spellingRule/3)) - no matching predicate
+* Approximate lines: 113-115, file: '/Users/ramsay/Documents/GitHub/dgParser/spelling.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec 12688 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec 5376 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+%  consulting /Users/ramsay/Documents/GitHub/dgParser/setup.pl...
+%  consulted /Users/ramsay/Documents/GitHub/dgParser/setup.pl in module user, 10 msec 16 bytes
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 10 msec 11200 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 0 msec 13776 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 509400 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 100 msec 1084336 bytes
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 20 msec 896 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 10 msec -120 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 20 msec -952 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 168 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec -96 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec 8 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 797-825, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 50 msec 1576 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec -184 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 10 msec 392 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec -2072 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 10 msec -152 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 10 msec -408 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 1256 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 10 msec -344 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec -856 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 40 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 936 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec -472 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec 40 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 0 msec 13600 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 504416 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 100 msec -88 bytes
+yes
+| ?- spy(anchor).
+% The debugger will first zip -- showing spypoints (zip)
+% Plain spypoint for user:(anchor/2) added, BID=1
+yes
+% zip
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#0}
+                  & ({(simple,#0),#1}
+                      & ({(member,#1),C}
+
+ +      1      1 Call: anchor(name(_127248::{['John':'NP'],_127248},name(_126888::{['Mary':'NP'],_126888},claim({[tense(present)],'#0'}&({(simple,'#0'),'#1'}&({(member,'#1'),_141714}=>[[love,{dobj,_126888}|...],_141714]))))),_718) ?                           => [[love, {dobj,B}, {subject,A}], C]))))))l
+
+Trying to anchor [John:NP]
+
+{[John:NP],#2} added to knowledge base 
+
+anchored [John:NP]#2
+ +     32      2 Call: anchor(name(_126888::{['Mary':'NP'],_126888},claim({[tense(present)],'#0'}&({(simple,'#0'),'#1'}&({(member,'#1'),_141714}=>[[love,{dobj,_126888},{subject,'#2'}],_141714])))),_718) ? a
+% Execution aborted
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#3}
+                  & ({(simple,#3),#4}
+                      & ({(member,#4),C}
+
+ +  31236      2 Call: anchor(name(_263227::{['John':'NP'],_263227},name(_262621::{['Mary':'NP'],_262621},claim({[tense(present)],'#3'}&({(simple,'#3'),'#4'}&({(member,'#4'),_286708}=>[[love,{dobj,_262621}|...],_286708]))))),_730) ?                           => [[love, {dobj,B}, {subject,A}], C]))))))
+    31237      3 Call: format('~nTrying to anchor ~w~n',user:[['John':'NP']]) ? a
+% Execution aborted
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 224 bytes
+yes
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#5}
+                  & ({(simple,#5),#6}
+                      & ({(member,#6),C}
+                          => [[love, {dobj,B}, {subject,A}], C]))))))
+ Skip anchor name(_127556::{[John:NP],_127556},name(_127196::{[Mary:NP],_127196},claim({[tense(present)],#5}&({(simple,#5),#6}&({(member,#6),_142037}=>[[love,{dobj,_127196},{subject,_127556}],_142037])))))
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#5}
+                  & ({(simple,#5),#6}
+                      & ({(member,#6),C}
+                          => [[love, {dobj,B}, {subject,A}], C]))))))
+no
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -88 bytes
+yes
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#7}
+                  & ({(simple,#7),#8}
+                      & ({(member,#8),C}
+                          => [[love, {dobj,B}, {subject,A}], C]))))))
+Trying to anchor [John:NP]
+! Type error in argument 3 of atom_concat/3
+! atom expected, but ['John':'NP'],_82 found
+! goal:  atom_concat(#,'9',(['John':'NP'],_82))
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -64 bytes
+yes
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#10}
+                  & ({(simple,#10),#11}
+                      & ({(member,#11),C}
+                          => [[love, {dobj,B}, {subject,A}], C]))))))
+Trying to anchor John
+! Type error in argument 3 of atom_concat/3
+! atom expected, but 'John',_80 found
+! goal:  atom_concat(#,'12',('John',_80))
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#13}
+                  & ({(simple,#13),#14}
+                      & ({(member,#14),C}
+
+ +  31218      2 Call: anchor(name(_263560::{['John':'NP'],_263560},name(_262954::{['Mary':'NP'],_262954},claim({[tense(present)],'#13'}&({(simple,'#13'),'#14'}&({(member,'#14'),_287024}=>[[love,{dobj,_262954}|...],_287024]))))),_730) ?                           => [[love, {dobj,B}, {subject,A}], C]))))))
+    31219      3 Call: format('~nTrying to anchor ~w~n',user:['John']) ? s
+
+Trying to anchor John
+    31219      3 Exit: format('~nTrying to anchor ~w~n',user:['John']) ? 
+    31220      3 Call: _291792='' ? 
+    31220      3 Exit: ''='' ? 
+    31221      3 Call: _291786='' ? 
+    31221      3 Exit: ''='' ? 
+    31222      3 Call: prove({name,'John',_263560},label(indent(''),_291761,_291762,_291763,_291764)) ? s
+    31222      3 Fail: prove({name,'John',_263560},label(indent(''),_291761,_291762,_291763,_291764)) ? 
+    31223      3 Call: assimilate({name,'John',_263560}) ? 
+    31224      4 Call: gensym(#,('John',_263560)) ? a
+% Execution aborted
+| ?- {a,b,c} = {X, Y}.
+X = a,
+Y = (b,c) ? 
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -56 bytes
+yes
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#15}
+                  & ({(simple,#15),#16}
+                      & ({(member,#16),C}
+                          => [[love, {dobj,B}, {subject,A}], C]))))))
+Trying to anchor John
+! Type error in argument 3 of atom_concat/3
+! atom expected, but 'John',_77 found
+! goal:  atom_concat(#,'17',('John',_77))
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#18}
+                  & ({(simple,#18),#19}
+                      & ({(member,#19),C}
+
+ +  31218      2 Call: anchor(name(_263227::{['John':'NP'],_263227},name(_262621::{['Mary':'NP'],_262621},claim({[tense(present)],'#18'}&({(simple,'#18'),'#19'}&({(member,'#19'),_286193}=>[[love,{dobj,_262621}|...],_286193]))))),_730) ?                           => [[love, {dobj,B}, {subject,A}], C]))))))
+    31219      3 Call: format('~nTrying to anchor ~w~n',user:['John']) ? s
+
+Trying to anchor John
+    31219      3 Exit: format('~nTrying to anchor ~w~n',user:['John']) ? 
+    31220      3 Call: _290919='' ? 
+    31220      3 Exit: ''='' ? 
+    31221      3 Call: _290913='' ? 
+    31221      3 Exit: ''='' ? 
+    31222      3 Call: prove({name,'John',_263227},label(indent(''),_290888,_290889,_290890,_290891)) ? s
+    31222      3 Fail: prove({name,'John',_263227},label(indent(''),_290888,_290889,_290890,_290891)) ? 
+    31223      3 Call: assimilate({name,'John',_263227}) ? 
+    31224      4 Call: gensym(#,('John',_263227)) ? a
+% Execution aborted
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -80 bytes
+yes
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#20}
+                  & ({(simple,#20),#21}
+                      & ({(member,#21),C}
+
+ +  31218      2 Call: anchor(name(_263560::{['John':'NP'],_263560},name(_262954::{['Mary':'NP'],_262954},claim({[tense(present)],'#20'}&({(simple,'#20'),'#21'}&({(member,'#21'),_286349}=>[[love,{dobj,_262954}|...],_286349]))))),_730) ?                           => [[love, {dobj,B}, {subject,A}], C]))))))
+    31219      3 Call: format('~nTrying to anchor ~w~n',user:['John']) ? s
+
+Trying to anchor John
+    31219      3 Exit: format('~nTrying to anchor ~w~n',user:['John']) ? 
+    31220      3 Call: _291030='' ? 
+    31220      3 Exit: ''='' ? 
+    31221      3 Call: _291024='' ? 
+    31221      3 Exit: ''='' ? 
+    31222      3 Call: prove({name,'John',_263560},label(indent(''),_290999,_291000,_291001,_291002)) ? 
+    31223      4 Call: showStep('~wTrying Horn proof of ~w~n',['',{name,'John',_263560}]) ? s
+    31223      4 Exit: showStep('~wTrying Horn proof of ~w~n',['',{name,'John',_263560}]) ? 
+    31224      4 Call: horn({name,'John',_263560},label(indent(''),_290999,_291000,_291001,_291002)) ? a
+% Execution aborted
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#22}
+                  & ({(simple,#22),#23}
+                      & ({(member,#23),C}
+
+ +  31218      2 Call: anchor(name(_263563::{['John':'NP'],_263563},name(_262957::{['Mary':'NP'],_262957},claim({[tense(present)],'#22'}&({(simple,'#22'),'#23'}&({(member,'#23'),_286352}=>[[love,{dobj,_262957}|...],_286352]))))),_730) ?                           => [[love, {dobj,B}, {subject,A}], C]))))))
+    31219      3 Call: format('~nTrying to anchor ~w~n',user:['John']) ? 
+
+Trying to anchor John
+    31219      3 Exit: format('~nTrying to anchor ~w~n',user:['John']) ? 
+    31220      3 Call: _291033='' ? 
+    31220      3 Exit: ''='' ? 
+    31221      3 Call: _291027='' ? 
+    31221      3 Exit: ''='' ? 
+    31222      3 Call: prove({name,'John',_263563},label(indent(''),_291002,_291003,_291004,_291005)) ? s
+    31222      3 Fail: prove({name,'John',_263563},label(indent(''),_291002,_291003,_291004,_291005)) ? 
+    31223      3 Call: assimilate({name,'John',_263563}) ? 
+    31224      4 Call: gensym(#,('John',_263563)) ? a
+% Execution aborted
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -72 bytes
+yes
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#24}
+                  & ({(simple,#24),#25}
+                      & ({(member,#25),C}
+
+ +  31218      2 Call: anchor(name(_263554::{['John':'NP'],_263554},name(_262948::{['Mary':'NP'],_262948},claim({[tense(present)],'#24'}&({(simple,'#24'),'#25'}&({(member,'#25'),_286877}=>[[love,{dobj,_262948}|...],_286877]))))),_730) ?                           => [[love, {dobj,B}, {subject,A}], C]))))))
+    31219      3 Call: format('~nTrying to anchor ~w~n',user:['John']) ? s
+
+Trying to anchor John
+    31219      3 Exit: format('~nTrying to anchor ~w~n',user:['John']) ? 
+    31220      3 Call: _291554='' ? 
+    31220      3 Exit: ''='' ? 
+    31221      3 Call: _291548='' ? 
+    31221      3 Exit: ''='' ? 
+    31222      3 Call: prove({[name,'John'],_263554},label(indent(''),_291522,_291523,_291524,_291525)) ? s
+    31222      3 Fail: prove({[name,'John'],_263554},label(indent(''),_291522,_291523,_291524,_291525)) ? 
+    31223      3 Call: assimilate({[name,'John'],_263554}) ? 
+    31224      4 Call: gensym(#,_263554) ? s
+    31224      4 Exit: gensym(#,'#26') ? 
+    31225      4 Call: addMinutesToKb({[name,'John'],'#26'}) ? s
+
+{[name,John],#26} added to knowledge base 
+    31225      4 Exit: addMinutesToKb({[name,'John'],'#26'}) ? l
+
+anchored [name,John]#26
+ +  31227      3 Call: anchor(name(_262948::{['Mary':'NP'],_262948},claim({[tense(present)],'#24'}&({(simple,'#24'),'#25'}&({(member,'#25'),_286877}=>[[love,{dobj,_262948},{subject,'#26'}],_286877])))),_730) ? a
+% Execution aborted
+| ?- doItAll('he loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#27}
+                  & ({(simple,#27),#28}
+                      & ({(member,#28),C}
+                          => [[love, {dobj,B}, {subject,A}], C]))))))
+Trying to anchor John
+
+Trying to anchor Mary
+
+{[name,Mary],#29} added to knowledge base 
+
+anchored [name,Mary]#29
+
+ Skip anchor claim({[tense(present)],#27}&({(simple,#27),#28}&({(member,#28),_141870}=>[[love,{dobj,#29},{subject,#26}],_141870])))
+
+claim(({[tense(present)],#27}
+        & ({(simple,#27),#28}
+            & ({(member,#28),A}
+                => [[love, {dobj,#29}, {subject,#26}], A]))))
+({[tense(present)],#27}
+  & ({(simple,#27),#28}
+      & ({(member,#28),A}
+          => [[love, {dobj,#29}, {subject,#26}], A])))
+{[tense(present)],#27}&({(simple,#27),#28}&({(member,#28),_141870}=>[[love,{dobj,#29},{subject,#26}],_141870])) added to knowledge base 
+P = {[tense(present)],'#27'}&({(simple,'#27'),'#28'}&({(member,'#28'),_A}=>[[love,{dobj,'#29'},{subject,'#26'}],_A])) ? 
+yes
+| ?- listing(fact).
+fact({['John':'NP'],'#2'}).
+fact({[name,'John'],'#26'}).
+fact({[name,'Mary'],'#29'}).
+fact({[tense(present)],'#27'}).
+fact({(simple,'#27'),'#28'}).
+
+yes
+| ?- doItAll('he loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{he loves Mary.}}\label{NF: he loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(proRef), he)])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(proRef::{he,B}, {subject,B})])))
+[proRef::{he,A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+\end{Verbatim}
+
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(({[tense(present)],#30}
+                    & ({(simple,#30),#31}
+                        & ({(member,#31),C}
+                            => [[love, {dobj,B}, {subject,A}],
+                                C]))))))
+Trying to anchor he
+
+{he,#32} added to knowledge base 
+
+anchored he#32
+
+Trying to anchor Mary
+
+ Skip anchor claim({[tense(present)],#30}&({(simple,#30),#31}&({(member,#31),_137306}=>[[love,{dobj,#29},{subject,#32}],_137306])))
+
+claim(({[tense(present)],#30}
+        & ({(simple,#30),#31}
+            & ({(member,#31),A}
+                => [[love, {dobj,#29}, {subject,#32}], A]))))
+({[tense(present)],#30}
+  & ({(simple,#30),#31}
+      & ({(member,#31),A}
+          => [[love, {dobj,#29}, {subject,#32}], A])))
+{[tense(present)],#30}&({(simple,#30),#31}&({(member,#31),_137306}=>[[love,{dobj,#29},{subject,#32}],_137306])) added to knowledge base 
+P = {[tense(present)],'#30'}&({(simple,'#30'),'#31'}&({(member,'#31'),_A}=>[[love,{dobj,'#29'},{subject,'#32'}],_A])) ? 
+yes
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('he loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{he loves Mary.}}\label{NF: he loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(proRef), he)])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(proRef::{he,B}, {subject,B})])))
+[proRef::{he,A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+\end{Verbatim}
+
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(({[tense(present)],#33}
+                    & ({(simple,#33),#34}
+                        & ({(member,#34),C}
+                            => [[love, {dobj,B}, {subject,A}],
+
+ +  30771      2 Call: anchor(proRef(_258171::{he,_258171},name(_257565::{['Mary':'NP'],_257565},claim({[tense(present)],'#33'}&({(simple,'#33'),'#34'}&({(member,'#34'),_280249}=>[[love,{dobj,_257565}|...],_280249]))))),_730) ?                                 C]))))))* Incorrect trace command print
+Please enter a valid trace command ('h' for help).
+ +  30771      2 Call: anchor(proRef(_258171::{he,_258171},name(_257565::{['Mary':'NP'],_257565},claim({[tense(present)],'#33'}&({(simple,'#33'),'#34'}&({(member,'#34'),_280249}=>[[love,{dobj,_257565}|...],_280249]))))),_730) ? a
+% Execution aborted
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 0 bytes
+yes
+| ?- doItAll('he loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{he loves Mary.}}\label{NF: he loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(proRef), he)])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(proRef::{he,B}, {subject,B})])))
+[proRef::{he,A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+\end{Verbatim}
+
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(({[tense(present)],#35}
+                    & ({(simple,#35),#36}
+                        & ({(member,#36),C}
+                            => [[love, {dobj,B}, {subject,A}],
+                                C]))))))
+ Skip anchor proRef(_123638::{he,_123638},name(_123278::{[Mary:NP],_123278},claim({[tense(present)],#35}&({(simple,#35),#36}&({(member,#36),_137429}=>[[love,{dobj,_123278},{subject,_123638}],_137429])))))
+
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(({[tense(present)],#35}
+                    & ({(simple,#35),#36}
+                        & ({(member,#36),C}
+                            => [[love, {dobj,B}, {subject,A}],
+                                C]))))))
+no
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('he loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{he loves Mary.}}\label{NF: he loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(proRef), he)])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(proRef::{he,B}, {subject,B})])))
+[proRef::{he,A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+\end{Verbatim}
+
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(({[tense(present)],#37}
+                    & ({(simple,#37),#38}
+                        & ({(member,#38),C}
+                            => [[love, {dobj,B}, {subject,A}],
+
+ +  30771      2 Call: anchor(proRef(_258177::{he,_258177},name(_257571::{['Mary':'NP'],_257571},claim({[tense(present)],'#37'}&({(simple,'#37'),'#38'}&({(member,'#38'),_280396}=>[[love,{dobj,_257571}|...],_280396]))))),_730) ?                                 C]))))))
+    30772      3 Call: format('~n Skip anchor ~w~n',user:[proRef(_258177::{he,_258177},name(_257571::{['Mary':'NP'],_257571},claim({[tense(...)],'#37'}&({(simple,'#37'),'#38'}&({(member,'#38'),_280396}=>[[love|...]|...])))))]) ? a
+% Execution aborted
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec -104 bytes
+yes
+| ?- debug.
+% The debugger will first leap -- showing spypoints (debug)
+yes
+% debug
+| ?- doItAll('he loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{he loves Mary.}}\label{NF: he loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(proRef), he)])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(proRef::{he,B}, {subject,B})])))
+[proRef::{he,A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+\end{Verbatim}
+
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(({[tense(present)],#39}
+                    & ({(simple,#39),#40}
+                        & ({(member,#40),C}
+                            => [[love, {dobj,B}, {subject,A}],
+
+ +  30771      2 Call: anchor(proRef(_258180::{he,_258180},name(_257574::{['Mary':'NP'],_257574},claim({[tense(present)],'#39'}&({(simple,'#39'),'#40'}&({(member,'#40'),_279784}=>[[love,{dobj,_257574}|...],_279784]))))),_730) ?                                 C]))))))
+    30772      3 Call: format('~nTrying to anchor ~w~n',user:[he]) ? s
+
+Trying to anchor he
+    30772      3 Exit: format('~nTrying to anchor ~w~n',user:[he]) ? 
+    30773      3 Call: _284444='' ? 
+    30773      3 Exit: ''='' ? 
+    30774      3 Call: _284438='' ? 
+    30774      3 Exit: ''='' ? 
+    30775      3 Call: _284432={he,_258180}&{salient,_258180} ? 
+    30775      3 Exit: {he,_258180}&{salient,_258180}={he,_258180}&{salient,_258180} ? 
+    30776      3 Call: prove({he,_258180}&{salient,_258180},label(indent(''),_284402,_284403,_284404,_284405)) ? s
+    30776      3 Fail: prove({he,_258180}&{salient,_258180},label(indent(''),_284402,_284403,_284404,_284405)) ? 
+    30777      3 Call: assimilate({he,_258180}&{salient,_258180}) ? a
+% Execution aborted
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 80 bytes
+yes
+| ?- doItAll('John loves Mary.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{he loves Mary.}}\label{NF: he loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(proRef), he)])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(proRef), he)])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(proRef::{he,B}, {subject,B})])))
+[proRef::{he,A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[love,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+\end{Verbatim}
+
+proRef(A::{he,A},
+       name(B::{[Mary:NP],B},
+            claim(({[tense(present)],#41}
+                    & ({(simple,#41),#42}
+                        & ({(member,#42),C}
+                            => [[love, {dobj,B}, {subject,A}],
+                                C]))))))
+Trying to anchor he
+
+{he,#43} added to knowledge base 
+
+anchored he#43
+
+{salient,#43} added to knowledge base 
+
+anchored salient#43
+
+Trying to anchor Mary
+
+ Skip anchor claim({[tense(present)],#41}&({(simple,#41),#42}&({(member,#42),_137486}=>[[love,{dobj,#29},{subject,#43}],_137486])))
+
+claim(({[tense(present)],#41}
+        & ({(simple,#41),#42}
+            & ({(member,#42),A}
+                => [[love, {dobj,#29}, {subject,#43}], A]))))
+({[tense(present)],#41}
+  & ({(simple,#41),#42}
+      & ({(member,#42),A}
+          => [[love, {dobj,#29}, {subject,#43}], A])))
+{[tense(present)],#41}&({(simple,#41),#42}&({(member,#42),_137486}=>[[love,{dobj,#29},{subject,#43}],_137486])) added to knowledge base 
+P = {[tense(present)],'#41'}&({(simple,'#41'),'#42'}&({(member,'#42'),_A}=>[[love,{dobj,'#29'},{subject,'#43'}],_A])) ? 
+yes
+| ?- listing(fact).
+fact({['John':'NP'],'#2'}).
+fact({[name,'John'],'#26'}).
+fact({[name,'Mary'],'#29'}).
+fact({[tense(present)],'#27'}).
+fact({(simple,'#27'),'#28'}).
+fact({he,'#32'}).
+fact({[tense(present)],'#30'}).
+fact({(simple,'#30'),'#31'}).
+fact({he,'#43'}).
+fact({salient,'#43'}).
+fact({[tense(present)],'#41'}).
+fact({(simple,'#41'),'#42'}).
+
+yes
+| ?- % consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 1280 bytes
+yes
+| ?- startConversation.
+
+starting a new conversation 
+yes
+| ?- doItAll('he likes Susan.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{John loves Mary.}}\label{NF: John loves Mary.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s, arg(dobj, *(name), [Mary:NP])],
+      arg(subject, *(name), [John:NP])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(name), [Mary:NP]),
+         arg(subject, *(name), [John:NP])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(name::{[Mary:NP],A}, {dobj,A}),
+           qq(name::{[John:NP],B}, {subject,B})])))
+[name::{[John:NP],A},
+ name::{[Mary:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(exists(C::{[tense(present)],C},
+                       exists(D::{(simple,C),D},
+                              forall(E::{(member,D),E},
+                                     [[love, {dobj,B}, {subject,A}],
+                                      E]))))))
+\end{Verbatim}
+
+name(A::{[John:NP],A},
+     name(B::{[Mary:NP],B},
+          claim(({[tense(present)],#0}
+                  & ({(simple,#0),#1}
+                      & ({(member,#1),C}
+                          => [[love, {dobj,B}, {subject,A}], C]))))))
+Trying to anchor John
+
+{[name,John],#2} added to knowledge base 
+
+anchored [name,John]#2
+
+Trying to anchor Mary
+
+{[name,Mary],#3} added to knowledge base 
+
+anchored [name,Mary]#3
+
+ Skip anchor claim({[tense(present)],#0}&({(simple,#0),#1}&({(member,#1),_141551}=>[[love,{dobj,#3},{subject,#2}],_141551])))
+
+claim(({[tense(present)],#0}
+        & ({(simple,#0),#1}
+            & ({(member,#1),A}
+                => [[love, {dobj,#3}, {subject,#2}], A]))))
+({[tense(present)],#0}
+  & ({(simple,#0),#1}
+      & ({(member,#1),A}
+          => [[love, {dobj,#3}, {subject,#2}], A])))
+{[tense(present)],#0}&({(simple,#0),#1}&({(member,#1),_141551}=>[[love,{dobj,#3},{subject,#2}],_141551])) added to knowledge base 
+P = {[tense(present)],'#0'}&({(simple,'#0'),'#1'}&({(member,'#1'),_A}=>[[love,{dobj,'#3'},{subject,'#2'}],_A])) ? 
+yes
+| ?- doItAll('he likes a fool woman.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{he likes Susan.}}\label{NF: he likes Susan.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[like>s, arg(dobj, *(name), [Susan:NP])],
+      arg(subject, *(proRef), he)])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [like,
+         arg(dobj, *(name), [Susan:NP]),
+         arg(subject, *(proRef), he)])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [like,
+         arg(dobj, *(name), [Susan:NP]),
+         arg(subject, *(proRef), he)])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [like,
+         arg(dobj, *(name), [Susan:NP]),
+         arg(subject, *(proRef), he)])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [like,
+           qq(name::{[Susan:NP],A}, {dobj,A}),
+           qq(proRef::{he,B}, {subject,B})])))
+[proRef::{he,A},
+ name::{[Susan:NP],B},
+ claim,
+ existential::{[tense(present)],C},
+ existential::{(simple,C),D},
+ universal::{(member,D),E}]
+proRef(A::{he,A},
+       name(B::{[Susan:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[like,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+proRef(A::{he,A},
+       name(B::{[Susan:NP],B},
+            claim(exists(C::{[tense(present)],C},
+                         exists(D::{(simple,C),D},
+                                forall(E::{(member,D),E},
+                                       [[like,
+                                         {dobj,B},
+                                         {subject,A}],
+                                        E]))))))
+\end{Verbatim}
+
+proRef(A::{he,A},
+       name(B::{[Susan:NP],B},
+            claim(({[tense(present)],#4}
+                    & ({(simple,#4),#5}
+                        & ({(member,#5),C}
+                            => [[like, {dobj,B}, {subject,A}],
+                                C]))))))
+Trying to anchor he
+
+Trying to anchor Susan
+
+{[name,Susan],#6} added to knowledge base 
+
+anchored [name,Susan]#6
+
+ Skip anchor claim({[tense(present)],#4}&({(simple,#4),#5}&({(member,#5),_579040}=>[[like,{dobj,#6},{subject,#2}],_579040])))
+
+claim(({[tense(present)],#4}
+        & ({(simple,#4),#5}
+            & ({(member,#5),A}
+                => [[like, {dobj,#6}, {subject,#2}], A]))))
+({[tense(present)],#4}
+  & ({(simple,#4),#5}
+      & ({(member,#5),A}
+          => [[like, {dobj,#6}, {subject,#2}], A])))
+{[tense(present)],#4}&({(simple,#4),#5}&({(member,#5),_579040}=>[[like,{dobj,#6},{subject,#2}],_579040])) added to knowledge base 
+P = {[tense(present)],'#4'}&({(simple,'#4'),'#5'}&({(member,'#5'),_A}=>[[like,{dobj,'#6'},{subject,'#2'}],_A])) ? 
+yes
+| ?- listing(fact).
+fact({salient,_}).
+fact({[name,'John'],'#2'}).
+fact({[name,'Mary'],'#3'}).
+fact({[tense(present)],'#0'}).
+fact({(simple,'#0'),'#1'}).
+fact({[name,'Susan'],'#6'}).
+fact({[tense(present)],'#4'}).
+fact({(simple,'#4'),'#5'}).
+
+yes
+| ?- listing(=>).
+{[name,'John'],A}=>{he,A}.
+{(member,'#1'),A}=>[[love,{dobj,'#3'},{subject,'#2'}],A].
+{(member,'#5'),A}=>[[like,{dobj,'#6'},{subject,'#2'}],A].
+
+yes
+| ?- doItAll('he likes a fool woman.', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{he likes a fool woman.}}\label{NF: he likes a fool woman.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[like>s,
+       arg(dobj,
+           *(indefinite),
+           [[woman>singular, modifier(identity, fool>singular)],
+            modifier(identity, a)])],
+      arg(subject, *(proRef), he)])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [like,
+         arg(dobj,
+             *(indefinite),
+             [woman>singular,
+              modifier(identity, fool>singular),
+              modifier(identity, a)]),
+         arg(subject, *(proRef), he)])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [like,
+         arg(dobj,
+             *(indefinite),
+             [woman>singular,
+              modifier(identity, fool>singular),
+              modifier(identity, a)]),
+         arg(subject, *(proRef), he)])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [like,
+         arg(dobj,
+             *(indefinite),
+             [woman>singular, modifier(identity, fool>singular)]),
+         arg(subject, *(proRef), he)])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [like,
+           qq((indefinite
+                :: {([woman>singular, modifier(identity, fool>singular)],
+                      A)}),
+              {dobj,A}),
+           qq(proRef::{he,B}, {subject,B})])))
+[proRef::{he,A},
+ claim,
+ existential::{[tense(present)],B},
+ existential::{(simple,B),C},
+ (indefinite
+   :: {[woman>singular,modifier(identity,fool>singular)],D}),
+ universal::{(member,C),E}]
+proRef(A::{he,A},
+       claim(exists(B::{[tense(present)],B},
+                    exists(C::{(simple,B),C},
+                           exists((D
+                                    :: {([woman>singular,
+                                           modifier(identity, fool>singular)],
+                                          D)}),
+                                  forall(E::{(member,C),E},
+                                         [[like,
+                                           {dobj,D},
+                                           {subject,A}],
+                                          E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+proRef(A::{he,A},
+       claim(exists(B::{[tense(present)],B},
+                    exists(C::{(simple,B),C},
+                           exists((D
+                                    :: {([woman>singular,
+                                           modifier(identity, fool>singular)],
+                                          D)}),
+                                  forall(E::{(member,C),E},
+                                         [[like,
+                                           {dobj,D},
+                                           {subject,A}],
+                                          E]))))))
+\end{Verbatim}
+
+proRef(A::{he,A},
+       claim(({[tense(present)],#7}
+               & ({(simple,#7),#8}
+                   & ({([woman>singular,
+                          modifier(identity, fool>singular)],
+                         #9)}
+                       & ({(member,#8),B}
+                           => [[like, {dobj,#9}, {subject,A}],
+                               B]))))))
+Trying to anchor he
+
+ Skip anchor claim({[tense(present)],#7}&({(simple,#7),#8}&({[woman>singular,modifier(identity,fool>singular)],#9}&({(member,#8),_665368}=>[[like,{dobj,#9},{subject,#2}],_665368]))))
+
+claim(({[tense(present)],#7}
+        & ({(simple,#7),#8}
+            & ({([woman>singular, modifier(identity, fool>singular)],
+                  #9)}
+                & ({(member,#8),A}
+                    => [[like, {dobj,#9}, {subject,#2}], A])))))
+({[tense(present)],#7}
+  & ({(simple,#7),#8}
+      & ({[woman>singular,modifier(identity,fool>singular)],#9}
+          & ({(member,#8),A}
+              => [[like, {dobj,#9}, {subject,#2}], A]))))
+{[tense(present)],#7}&({(simple,#7),#8}&({[woman>singular,modifier(identity,fool>singular)],#9}&({(member,#8),_665368}=>[[like,{dobj,#9},{subject,#2}],_665368]))) added to knowledge base 
+P = {[tense(present)],'#7'}&({(simple,'#7'),'#8'}&({[woman>singular,modifier(identity,fool>singular)],'#9'}&({(member,'#8'),_A}=>[[like,{dobj,'#9'},{subject,'#2'}],_A]))) ? 
+yes
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 10 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 20 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec -856 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 10 msec 168 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec -984 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 797-825, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 50 msec 3496 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 0 msec -1624 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec -2072 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 10 msec -152 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 0 msec -408 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 20 msec 1256 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 10 msec -344 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec -856 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 10 msec 40 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 1456 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 0 msec 13832 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 40 msec 504648 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 110 msec 144 bytes
+yes
+| ?- doItAll('a fool woman', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{he likes a fool woman.}}\label{NF: he likes a fool woman.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[[[like>s,
+   arg(iobj, *(indefinite), [fool>singular, modifier(identity, a)])],
+  arg(obj, *(A), [., modifier(identity, woman>singular)])],
+ arg(subject, *(proRef), he)]
+\end{Verbatim}
+
+jr([like,
+    arg(iobj, *(indefinite), [fool>singular, modifier(identity, a)]),
+    arg(obj, *(A), [., modifier(identity, woman>singular)]),
+    arg(subject, *(proRef), he)])
+ts([like,
+    arg(iobj, *(indefinite), [fool>singular, modifier(identity, a)]),
+    arg(obj, *(A), [., modifier(identity, woman>singular)]),
+    arg(subject, *(proRef), he)])
+nf([like,
+    arg(iobj, *(indefinite), [fool>singular]),
+    arg(obj, *(A), [.]),
+    arg(subject, *(proRef), he)])
+qlf([like,
+     qq(indefinite::{[fool>singular],A}, {iobj,A}),
+     qq(B::{[.],C}, {obj,C}),
+
+! Instantiation error in argument 1 of < /2
+! goal:  _53<0.1
+| ?-      qq(proRef::{he,D}, {subject,D})])
+| ?- doItAll('a fool woman', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{a fool woman}}\label{NF: a fool woman}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[[woman>singular, modifier(identity, fool>singular)],
+ modifier(identity, a)]
+\end{Verbatim}
+
+jr([woman>singular,
+    modifier(identity, fool>singular),
+    modifier(identity, a)])
+ts([woman>singular,
+    modifier(identity, fool>singular),
+    modifier(identity, a)])
+nf([woman>singular, modifier(identity, fool>singular)])
+qlf([woman>singular, modifier(identity, fool>singular)])
+[]
+[woman>singular, modifier(identity, fool>singular)]
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[woman>singular, modifier(identity, fool>singular)]
+\end{Verbatim}
+
+[woman>singular, modifier(identity, fool>singular)]
+ Skip anchor [woman>singular,modifier(identity,fool>singular)]
+
+[woman>singular, modifier(identity, fool>singular)]
+jr([woman>singular, modifier(identity, fool), modifier(identity, a)])
+ts([woman>singular, modifier(identity, fool), modifier(identity, a)])
+nf([woman>singular])
+qlf([woman>singular])
+[]
+[woman>singular]
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[woman>singular]
+\end{Verbatim}
+
+[woman>singular]
+ Skip anchor [woman>singular]
+
+[woman>singular]
+jr([woman, modifier(identity, fool>singular), modifier(identity, a)])
+ts([woman, modifier(identity, fool>singular), modifier(identity, a)])
+nf([woman, modifier(identity, fool>singular)])
+qlf([woman, modifier(identity, fool>singular)])
+[]
+[woman, modifier(identity, fool>singular)]
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[woman, modifier(identity, fool>singular)]
+\end{Verbatim}
+
+[woman, modifier(identity, fool>singular)]
+ Skip anchor [woman,modifier(identity,fool>singular)]
+
+[woman, modifier(identity, fool>singular)]
+jr([woman, modifier(identity, fool), modifier(identity, a)])
+ts([woman, modifier(identity, fool), modifier(identity, a)])
+nf([woman])
+qlf([woman])
+[]
+[woman]
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[woman]
+\end{Verbatim}
+
+[woman]
+ Skip anchor [woman]
+
+[woman]
+no
+| ?- setup(englishopen).
+% compiling /Users/ramsay/Documents/GitHub/dgParser/useful.pl...
+% Undefined predicates will just fail (fail)
+% compiled /Users/ramsay/Documents/GitHub/dgParser/useful.pl in module user, 20 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/features.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/features.pl in module user, 10 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/pretty.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/pretty.pl in module user, 10 msec -856 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/io.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/io.pl in module user, 0 msec -88 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/disjoin.pl in module user, 20 msec 168 bytes
+% compiling /Users/ramsay/Documents/GitHub/dgParser/client.pl...
+% compiled /Users/ramsay/Documents/GitHub/dgParser/client.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/signatures.pl...
+* clauses for user:(signature/1) are not together
+* Approximate lines: 5-7, file: '/Users/ramsay/Documents/GitHub/dgParser/signatures.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/signatures.pl in module user, 0 msec -984 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/agree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/agree.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/classes.pl...
+* clauses for user:(aux/2) are not together
+* Approximate lines: 797-825, file: '/Users/ramsay/Documents/GitHub/dgParser/classes.pl'
+% consulted /Users/ramsay/Documents/GitHub/dgParser/classes.pl in module user, 40 msec 3496 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/vforms.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/vforms.pl in module user, 0 msec -1624 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pronouns.pl in module user, 0 msec -2072 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/verbs.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/verbs.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/mclasses.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/determiners.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/determiners.pl in module user, 10 msec -152 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/negation.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/negation.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/miscellany.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nouns.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nouns.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/lookup.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/lookup.pl in module user, 0 msec -408 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/chart.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/chart.pl in module user, 10 msec 1768 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/treepr.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/treepr.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/conll.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/conll.pl in module user, 0 msec -1624 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/parseconstrained.pl in module user, 0 msec -216 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/preprocess.pl in module user, 0 msec 40 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/nf.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/nf.pl in module user, 10 msec 1448 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/spelling.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/spelling.pl in module user, 10 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/pstree.pl...
+% consulted /Users/ramsay/Documents/GitHub/dgParser/pstree.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl...
+% Undefined predicates will just fail (fail)
+% consulted /Users/ramsay/Documents/GitHub/dgParser/satchmoplus.pl in module user, 0 msec -88 bytes
+% consulting /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl...
+%  including /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl...
+%   including /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl...
+%   included /Users/ramsay/Documents/GitHub/dgParser/englishaffixes.pl in module user, 10 msec 13600 bytes
+%  included /Users/ramsay/Documents/GitHub/dgParser/englishclosed.pl in module user, 50 msec 504416 bytes
+% consulted /Users/ramsay/Documents/GitHub/dgParser/englishopen.pl in module user, 110 msec -320 bytes
+yes
+| ?- startConversation.
+
+starting a new conversation 
+yes
+| ?- doItAll('every man loves a woman?', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{every man loves a woman.}}\label{NF: every man loves a woman.}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[.,
+ arg(claim,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s,
+       arg(dobj, *(indefinite), [woman>singular, modifier(identity, a)])],
+      arg(subject, *(universal), [man>singular, modifier(identity, every)])])]
+\end{Verbatim}
+
+jr([.,
+    arg(claim,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(indefinite), [woman>singular, modifier(identity, a)]),
+         arg(subject,
+             *(universal),
+             [man>singular, modifier(identity, every)])])])
+ts([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(indefinite), [woman>singular, modifier(identity, a)]),
+         arg(subject,
+             *(universal),
+             [man>singular, modifier(identity, every)])])])
+nf([.,
+    arg(claim,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(indefinite), [woman>singular]),
+         arg(subject, *(universal), [man>singular])])])
+qlf(qq(claim,
+       qq([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))],
+          [love,
+           qq(indefinite::{[woman>singular],A},
+              {dobj,A}),
+           qq(universal::{[man>singular],B},
+              {subject,B})])))
+[claim,
+ universal::{[man>singular],A},
+ existential::{[tense(present)],B},
+ existential::{(simple,B),C},
+ indefinite::{[woman>singular],D},
+ universal::{(member,C),E}]
+claim(forall(A::{[man>singular],A},
+             exists(B::{[tense(present)],B},
+                    exists(C::{(simple,B),C},
+                           exists(D::{[woman>singular],D},
+                                  forall(E::{(member,C),E},
+                                         [[love,
+                                           {dobj,D},
+                                           {subject,A}],
+                                          E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+claim(forall(A::{[man>singular],A},
+             exists(B::{[tense(present)],B},
+                    exists(C::{(simple,B),C},
+                           exists(D::{[woman>singular],D},
+                                  forall(E::{(member,C),E},
+                                         [[love,
+                                           {dobj,D},
+                                           {subject,A}],
+                                          E]))))))
+\end{Verbatim}
+
+claim(({[man>singular],A}
+        => ({[tense(present)],#0(A)}
+             & ({(simple,#0(A)),#1(A)}
+                 & ({[woman>singular],#2(A)}
+                     & ({(member,#1(A)),B}
+                         => [[love, {dobj,#2(A)}, {subject,A}],
+                             B]))))))
+ Skip anchor claim({[man>singular],_140059}=>{[tense(present)],#0(_140059)}&({(simple,#0(_140059)),#1(_140059)}&({[woman>singular],#2(_140059)}&({(member,#1(_140059)),_143975}=>[[love,{dobj,#2(_140059)},{subject,_140059}],_143975]))))
+
+claim(({[man>singular],A}
+        => ({[tense(present)],#0(A)}
+             & ({(simple,#0(A)),#1(A)}
+                 & ({[woman>singular],#2(A)}
+                     & ({(member,#1(A)),B}
+                         => [[love, {dobj,#2(A)}, {subject,A}],
+                             B]))))))
+({[man>singular],A}
+  => ({[tense(present)],#0(A)}
+       & ({(simple,#0(A)),#1(A)}
+           & ({[woman>singular],#2(A)}
+               & ({(member,#1(A)),B}
+                   => [[love, {dobj,#2(A)}, {subject,A}], B])))))
+{[man>singular],_140059}=>{[tense(present)],#0(_140059)}&({(simple,#0(_140059)),#1(_140059)}&({[woman>singular],#2(_140059)}&({(member,#1(_140059)),_143975}=>[[love,{dobj,#2(_140059)},{subject,_140059}],_143975]))) added to knowledge base 
+P = {[man>singular],_A}=>{[tense(present)],'#0'(_A)}&({(simple,'#0'(_A)),'#1'(_A)}&({[woman>singular],'#2'(_A)}&({(member,'#1'(_A)),_B}=>[[love,{dobj,'#2'(...)},{subject,_A}],_B]))) ? 
+yes
+| ?- doItAll('every man loves a woman?', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{every man loves a woman?}}\label{NF: every man loves a woman?}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[?,
+ arg(query,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s,
+       arg(dobj, *(indefinite), [woman>singular, modifier(identity, a)])],
+      arg(subject, *(universal), [man>singular, modifier(identity, every)])])]
+\end{Verbatim}
+
+jr([?,
+    arg(query,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(indefinite), [woman>singular, modifier(identity, a)]),
+         arg(subject,
+             *(universal),
+             [man>singular, modifier(identity, every)])])])
+ts([?,
+    arg(query,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(indefinite), [woman>singular, modifier(identity, a)]),
+         arg(subject,
+             *(universal),
+             [man>singular, modifier(identity, every)])])])
+nf([?,
+    arg(query,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(indefinite), [woman>singular]),
+         arg(subject, *(universal), [man>singular])])])
+qlf(query(opaque(qq([time(tense(present),
+                          aspect(simple),
+                          aux(-),
+                          def(-),
+                          finite(tensed))],
+                    [love,
+                     qq(indefinite::{[woman>singular],A},
+                        {dobj,A}),
+                     qq(universal::{[man>singular],B},
+                        {subject,B})]))))
+[universal::{[man>singular],A},
+ existential::{[tense(present)],B},
+ existential::{(simple,B),C},
+ indefinite::{[woman>singular],D},
+ universal::{(member,C),E}]
+forall(A::{[man>singular],A},
+       exists(B::{[tense(present)],B},
+              exists(C::{(simple,B),C},
+                     exists(D::{[woman>singular],D},
+                            forall(E::{(member,C),E},
+                                   [[love, {dobj,D}, {subject,A}],
+                                    E])))))
+[]
+query(forall(A::{[man>singular],A},
+             exists(B::{[tense(present)],B},
+                    exists(C::{(simple,B),C},
+                           exists(D::{[woman>singular],D},
+                                  forall(E::{(member,C),E},
+                                         [[love,
+                                           {dobj,D},
+                                           {subject,A}],
+                                          E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+query(forall(A::{[man>singular],A},
+             exists(B::{[tense(present)],B},
+                    exists(C::{(simple,B),C},
+                           exists(D::{[woman>singular],D},
+                                  forall(E::{(member,C),E},
+                                         [[love,
+                                           {dobj,D},
+                                           {subject,A}],
+                                          E]))))))
+\end{Verbatim}
+
+query(({[man>singular],#3}
+        => ({[tense(present)],#4}
+             & ({(simple,#4),#5}
+                 & ({[woman>singular],#6}
+                     & ({(member,#5),A}
+                         => [[love, {dobj,#6}, {subject,#3}], A]))))))
+ Skip anchor query({[man>singular],#3}=>{[tense(present)],#4}&({(simple,#4),#5}&({[woman>singular],#6}&({(member,#5),_143403}=>[[love,{dobj,#6},{subject,#3}],_143403]))))
+
+query(({[man>singular],#3}
+        => ({[tense(present)],#4}
+             & ({(simple,#4),#5}
+                 & ({[woman>singular],#6}
+                     & ({(member,#5),A}
+                         => [[love, {dobj,#6}, {subject,#3}], A]))))))
+({[man>singular],#3}
+  => ({[tense(present)],#4}
+       & ({(simple,#4),#5}
+           & ({[woman>singular],#6}
+               & ({(member,#5),A}
+                   => [[love, {dobj,#6}, {subject,#3}], A])))))
+Trying to answer {[man>singular],#3}=>{[tense(present)],#4}&({(simple,#4),#5}&({[woman>singular],#6}&({(member,#5),_143403}=>[[love,{dobj,#6},{subject,#3}],_143403])))
+
+No
+P = {[man>singular],'#3'}=>{[tense(present)],'#4'}&({(simple,'#4'),'#5'}&({[woman>singular],'#6'}&({(member,'#5'),_A}=>[[love,{dobj,'#6'},{subject,'#3'}],_A]))) ? 
+yes
+| ?- set(showProof).
+yes
+| ?- doItAll('every man loves a woman?', P).
+
+\begin{figure}[ht]
+\hspace*{\fill}\begin{minipage}[t]{0.45\linewidth}
+\begin{verbatim}\hspace*{\fill}
+\end{verbatim}
+\end{minipage}
+
+\caption{\q{every man loves a woman?}}\label{NF: every man loves a woman?}
+\end{figure}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+[?,
+ arg(query,
+     *(time(tense(present), aspect(simple), aux(-), def(-), finite(tensed))),
+     [[love>s,
+       arg(dobj, *(indefinite), [woman>singular, modifier(identity, a)])],
+      arg(subject, *(universal), [man>singular, modifier(identity, every)])])]
+\end{Verbatim}
+
+jr([?,
+    arg(query,
+        *(time(tense(present),
+               aspect(simple),
+               aux(-),
+               def(-),
+               finite(tensed))),
+        [love,
+         arg(dobj, *(indefinite), [woman>singular, modifier(identity, a)]),
+         arg(subject,
+             *(universal),
+             [man>singular, modifier(identity, every)])])])
+ts([?,
+    arg(query,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(indefinite), [woman>singular, modifier(identity, a)]),
+         arg(subject,
+             *(universal),
+             [man>singular, modifier(identity, every)])])])
+nf([?,
+    arg(query,
+        *([time(tense(present),
+                aspect(simple),
+                aux(-),
+                def(-),
+                finite(tensed))]),
+        [love,
+         arg(dobj, *(indefinite), [woman>singular]),
+         arg(subject, *(universal), [man>singular])])])
+qlf(query(opaque(qq([time(tense(present),
+                          aspect(simple),
+                          aux(-),
+                          def(-),
+                          finite(tensed))],
+                    [love,
+                     qq(indefinite::{[woman>singular],A},
+                        {dobj,A}),
+                     qq(universal::{[man>singular],B},
+                        {subject,B})]))))
+[universal::{[man>singular],A},
+ existential::{[tense(present)],B},
+ existential::{(simple,B),C},
+ indefinite::{[woman>singular],D},
+ universal::{(member,C),E}]
+forall(A::{[man>singular],A},
+       exists(B::{[tense(present)],B},
+              exists(C::{(simple,B),C},
+                     exists(D::{[woman>singular],D},
+                            forall(E::{(member,C),E},
+                                   [[love, {dobj,D}, {subject,A}],
+                                    E])))))
+[]
+query(forall(A::{[man>singular],A},
+             exists(B::{[tense(present)],B},
+                    exists(C::{(simple,B),C},
+                           exists(D::{[woman>singular],D},
+                                  forall(E::{(member,C),E},
+                                         [[love,
+                                           {dobj,D},
+                                           {subject,A}],
+                                          E]))))))
+After fixQuants
+
+\begin{Verbatim}[commandchars=\\\{\}]
+query(forall(A::{[man>singular],A},
+             exists(B::{[tense(present)],B},
+                    exists(C::{(simple,B),C},
+                           exists(D::{[woman>singular],D},
+                                  forall(E::{(member,C),E},
+                                         [[love,
+                                           {dobj,D},
+                                           {subject,A}],
+                                          E]))))))
+\end{Verbatim}
+
+query(({[man>singular],#7}
+        => ({[tense(present)],#8}
+             & ({(simple,#8),#9}
+                 & ({[woman>singular],#10}
+                     & ({(member,#9),A}
+                         => [[love, {dobj,#10}, {subject,#7}],
+                             A]))))))
+ Skip anchor query({[man>singular],#7}=>{[tense(present)],#8}&({(simple,#8),#9}&({[woman>singular],#10}&({(member,#9),_143414}=>[[love,{dobj,#10},{subject,#7}],_143414]))))
+
+query(({[man>singular],#7}
+        => ({[tense(present)],#8}
+             & ({(simple,#8),#9}
+                 & ({[woman>singular],#10}
+                     & ({(member,#9),A}
+                         => [[love, {dobj,#10}, {subject,#7}],
+                             A]))))))
+({[man>singular],#7}
+  => ({[tense(present)],#8}
+       & ({(simple,#8),#9}
+           & ({[woman>singular],#10}
+               & ({(member,#9),A}
+                   => [[love, {dobj,#10}, {subject,#7}], A])))))
+Trying to answer {[man>singular],#7}=>{[tense(present)],#8}&({(simple,#8),#9}&({[woman>singular],#10}&({(member,#9),_143414}=>[[love,{dobj,#10},{subject,#7}],_143414])))
+Trying Horn proof of {[man>singular],#7}=>{[tense(present)],#8}&({(simple,#8),#9}&({[woman>singular],#10}&({(member,#9),_143414}=>yes
+| ?- listing(=>).
+{[name,'John'],A}=>{he,A}.
+{[man>singular],A}=>{[tense(present)],'#0'(A)}&({(simple,'#0'(A)),'#1'(A)}&({[woman>singular],'#2'(A)}&({(member,'#1'(A)),B}=>[[love,{dobj,'#2'(A)},{subject,A}],B]))).
+
+yes
+| ?- Q = query(forall(X :: {p, X}, exists(Y, {q, Y}))), qff(Q, P).
+! Syntax error
+! , or ) expected in arguments
+! in line 3172
+! qff ( query ( forall ( X :: { p , X } , exists ( Y , { q , Y } ) ) , P ) 
+! <<here>>
+! . 
+| ?- ), qff(Q, P).
+! Syntax error
+! ) cannot start an expression
+! in line 3179
+! <<here>>
+2
+! ) , qff ( Q , P ) . 
+| ?- 
+| ?- Q = query(forall(X :: {p, X}, exists(Y, {q, Y}))), qff(Q, P).
+P = query({p,'#11'}=>{q,'#12'}),
+Q = query(forall('#11'::{p,'#11'},exists('#12',{q,'#12'}))),
+X = '#11',
+Y = '#12' ? 
+yes
+| ?- 
